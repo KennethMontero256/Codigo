@@ -21,10 +21,6 @@
           "<td>".$this -> unidadMedida."</td>".
         "</tr> </table>";
     }
-    
-    function ejemplo(){
-        
-    }
 
 }
 
