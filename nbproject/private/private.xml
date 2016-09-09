@@ -3,14 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Tostador/Analisis/El_Tostador/core/model/Factura.php</file>
-            <file>file:/C:/xampp/htdocs/Tostador/Analisis/El_Tostador/core/model/Producto.php</file>
-            <file>file:/C:/xampp/htdocs/Tostador/Analisis/El_Tostador/core/model/Categoria.php</file>
-            <file>file:/C:/xampp/htdocs/Tostador/Analisis/El_Tostador/core/model/Proveedor.php</file>
-            <file>file:/C:/xampp/htdocs/Tostador/Analisis/El_Tostador/core/model/Empleado.php</file>
-            <file>file:/C:/xampp/htdocs/Tostador/Analisis/El_Tostador/core/Data/Data.php</file>
-            <file>file:/C:/xampp/htdocs/Tostador/Analisis/El_Tostador/core/model/Sucursal.php</file>
-            <file>file:/C:/xampp/htdocs/Tostador/Analisis/El_Tostador/index.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/core/controller/empleadoController.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/view/modules/empleado.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/core/controller/indexController.php</file>
         </group>
     </open-files>
 </project-private>
