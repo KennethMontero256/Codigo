@@ -5,6 +5,6 @@
   define('DB_PASS','');
   define('DB_NAME','el_tostador');
 
-  require('core/model/Conexion.php');
+  require('core/Data/Data.php');
 
 ?>
