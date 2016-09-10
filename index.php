@@ -1,4 +1,5 @@
 <?php
+    require("core/core.php");
     if (isset($_GET['clase'])){
       if (file_exists("core/controller/".strtolower($_GET['clase']).".php")) {
         include("core/controller/".strtolower($_GET['clase']).".php");
