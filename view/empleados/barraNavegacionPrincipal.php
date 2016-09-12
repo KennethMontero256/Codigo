@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/Roboto/WebFont/roboto_thin_macroman/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="../css/estiloBarraNavegacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/Roboto/WebFont/roboto_regular_macroman/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/estiloBarraNavegacion.css">
   </head>
   <body>
 	  <nav>

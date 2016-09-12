@@ -1,8 +1,8 @@
 *{
 	margin: 0px;
 	padding: 0px;
-	font-family: robotothin;
-	font-weight: bold;
+	font-family: robotoregular;
+	font-weight: normal;
 }
 
 body{
@@ -88,6 +88,3 @@ nav ul li ul > li{
 	border-bottom: 1px solid #BDBDBD;
 	width: 95%;
 }
-
-
-
