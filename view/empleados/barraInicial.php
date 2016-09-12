@@ -8,10 +8,11 @@
 <body>
 	 <nav>
 	    <div class="logo-empresa">
+			 <img src="imagenes/coffee-icon.png">
 			 <a href="#">El Tostador</a>
 		</div>
 		<div class="mensaje-bienvenida">
-			<img src="imagenes/coffee-icon.png">
+			Bienvenido, debe de iniciar sesión.<p></p>
 		</div>
 	  </nav>
 </body>
