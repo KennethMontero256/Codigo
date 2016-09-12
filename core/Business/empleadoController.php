@@ -1,14 +1,15 @@
 <?php
 
   include("core/model/Empleado.php");
-
+  
   $empleado = new Empleado(3020300777, "Juan", 87013455);
 
-  $data = new Data();
+  $db = new DataBase();
+  $conexion = $db->conexion();
 
-  $registro = mysqli_query($data,"SELECT * FROM empleado");
+  $registro = mysqli_query($conexion,"SELECT * FROM empleado");
 
   include("view/modules/empleado.php");
-  mysqli_close($data);
+  mysqli_close($conexion);
 
  ?>
