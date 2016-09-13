@@ -3,7 +3,7 @@
   define('DB_HOST','localhost');
   define('DB_USER','root');
   define('DB_PASS','');
-  define('DB_NAME','el_tostador');
+  define('DB_NAME','tostador');
 
   require('core/Data/Data.php');
 

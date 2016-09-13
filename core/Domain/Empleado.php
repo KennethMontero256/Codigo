@@ -13,6 +13,10 @@
       $this -> nombre = $nombre;
       $this -> telefono = $telefono;
     }
+    
+    function __construc(){
+        
+    }
 
     public function __set($atributo, $valor) {
      if (property_exists(__CLASS__, $atributo)) {
@@ -38,6 +42,32 @@
           "<td>".$this -> telefono."</td>".
         "</tr> </table>";
     }
+    
+    function getCedulaEmpleado() {
+        return $this->cedulaEmpleado;
+    }
+
+    function getNombre() {
+        return $this->nombre;
+    }
+
+    function getTelefono() {
+        return $this->telefono;
+    }
+
+    function setCedulaEmpleado($cedulaEmpleado) {
+        $this->cedulaEmpleado = $cedulaEmpleado;
+    }
+
+    function setNombre($nombre) {
+        $this->nombre = $nombre;
+    }
+
+    function setTelefono($telefono) {
+        $this->telefono = $telefono;
+    }
+
+
 
 }
 
