@@ -8,16 +8,16 @@
 </head>
 <body>
 	<?php  
-		include("barraInicial.php");
+		include("../empleados/barraInicial.php");
 	?>
 	<div class="form-login">
 		<form action="#" method="get" accept-charset="utf-8">
 			<p>Formulario de acceso</p>
-			<input type="text" name="cedula" placeholder="Cédula">
+			<input type="text" name="nombreUsuario" placeholder="Usuario">
 			<input type="password" name="contrasenia" placeholder="Contraseña">
 			<div class="layout-btns">
 				<a href="#" id="" class="btn-submit">Ingresar</a>
-				<a href="#" id="">Recuperar usuario</a>
+				<a href="recuperarContraAdministrador.php" id="">Recuperar usuario</a>
 			<div>
 		</form>
 	</div>
