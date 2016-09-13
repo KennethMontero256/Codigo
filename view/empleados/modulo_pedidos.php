@@ -23,35 +23,107 @@
 		</div>
 	</div>
 	<div class="contenedorModal">
-		<form class="frmPedido" action="" method="get" accept-charset="utf-8">
-			<table>
-				<caption>Pedido #:000987</caption>
-				<thead>
-					<tr>
-						<th>Sucursal: Cariari</th>
-						<th>Fecha-hora: 12/09/2016 23:40 p.m.</th>
-						<th></th>
-					</tr>
-					<tr>
-						<th>Empleado: Steven Mendez</th> 
-						<th></th>
-						<th></th>
-					</tr>
-					<tr>
-						<th colspan="" rowspan="" headers="" scope="">Código</th>
-						<th colspan="" rowspan="" headers="" scope="">Nombre</th>
-						<th colspan="" rowspan="" headers="" scope="">Cantidad</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>00099</td>
-						<td>Mani salado</td>
-						<td>5300k</td>
-					</tr>
-				</tbody>
-			</table>
-		</form>
+		<div class="contenedorPedidoSucr">
+			<form class="frmPedido" action="" method="get" accept-charset="utf-8">
+				<table>
+					<caption>Pedido #:000987</caption>
+					<thead>
+						<tr>
+							<th>Sucursal: Cariari</th>
+							<th>Fecha-hora: 12/09/2016 23:40 p.m.</th>
+							
+						</tr>
+						<tr>
+							<th>Empleado: Steven Mendez</th> 
+							
+						</tr>
+						<tr>
+							<th colspan="" rowspan="" headers="" scope="">Código</th>
+							<th colspan="" rowspan="" headers="" scope="">Nombre</th>
+							<th colspan="" rowspan="" headers="" scope="">Cantidad</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>	
+		
+			<div class="frmInsertDetalle">
+				<input type="text" id="txtCodigo" placeholder="Código producto" class="inputShadow">
+				<input type="text" id="txtCantidad" placeholder="Cantidad" class="inputShadow">
+				<a href="" id="hacerPedidoSucursal" class="btn-flat">Agregar</a>
+
+				<div class="opPedido">
+					<a href="#" id="cancelarPedido" class="btn-submit">Realizar</a>
+					<a href="" id="hacerPedidoSucursal" class="btn-submit">Cancelar</a>
+				</div>
+			</div>
+		</div>
 	</div>
 	<a class='flotante' href='#' >Add</a>
 </body>

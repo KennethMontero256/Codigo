@@ -52,8 +52,6 @@
         $this->precio = $precio;
     }
 
-        
-    
     
     function __toString(){
 

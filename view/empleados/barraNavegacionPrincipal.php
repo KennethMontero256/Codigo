@@ -5,6 +5,7 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="../css/Roboto/WebFont/roboto_regular_macroman/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="../css/estiloBarraNavegacion.css">
+    <script type="text/javascript" src="../js/jquery-3.1.0.js"></script>
   </head>
   <body>
 	  <nav>
@@ -13,10 +14,10 @@
 		</div>
 		<div class="opciones">
 			<ul>
-				<li><a href="#" class="btn_transp">Caja</a></li>
-				<li><a href="#" class="btn_transp">Inventario</a></li>
-				<li><a href="#" class="btn_transp">Pedidos</a></li>
-				<li><a href="#" class="btn_transp">Nombre usuario</a>
+				<li><a href="caja" class="btn_transp opBarNav" >Caja</a></li>
+				<li><a href="invent" class="btn_transp opBarNav" >Inventario</a></li>
+				<li><a href="pedido" class="btn_transp opBarNav" >Pedidos</a></li>
+				<li><a href="opUsuario" class="btn_transp opBarNav" >Nombre usuario</a>
 					<ul>
 						<li><a href="#">Cambiar contraseña</a></li>
 						<li><a href="#">Cerrar sesión</a></li>
@@ -25,5 +26,6 @@
 			</ul>
 		</div>
 	  </nav>
+	  <script type="text/javascript" src="../js/funciones_generales.js"></script>
   </body>
 </html>

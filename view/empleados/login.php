@@ -17,8 +17,8 @@
 			<input type="text" name="cedula" placeholder="Cédula">
 			<input type="password" name="contrasenia" placeholder="Contraseña">
 			<div class="layout-btns">
-				<a href="#" id="" class="btn-submit">Ingresar</a>
-				<a href="#" id="">Recuperar usuario</a>
+				<a href="barraNavegacionPrincipal.php" id="" class="btn-submit">Ingresar</a>
+				<a href="#" id="" class="btn-submit">Recuperar usuario</a>
 			<div>
 		</form>
 	</div>
