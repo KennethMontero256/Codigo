@@ -1,11 +1,10 @@
 <?php
 
-  include("core/model/Empleado.php");
-  
+  include("core/Domain/Empleado.php");
+
   $empleado = new Empleado(3020300777, "Juan", 87013455);
 
-  $db = new DataBase();
-  $conexion = $db->conexion();
+  $conexion = new Data();
 
   $registro = mysqli_query($conexion,"SELECT * FROM empleado");
 

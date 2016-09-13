@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Inicio</title>
+	<link rel="stylesheet" type="text/css" href="../css/Roboto/WebFont/roboto_regular_macroman/stylesheet.css">
 	<link rel="stylesheet" href="../css/estilo_principal.css">
 </head>
 <body>

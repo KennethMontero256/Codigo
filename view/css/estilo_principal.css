@@ -11,23 +11,24 @@
 .form-login form{
 	width: 40%;
 	margin: auto;
+}
+form{
 	background: #fff;
 	padding: 20px;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.form-login form p{
+form p{
 	font-size: 20px;
 	color: #616161;
 	border-bottom: 1px solid #BDBDBD;
 }
 
-.form-login input{
+form input{
 	display: block;
 	margin: auto;
 }
-
-.form-login input[type="text"],.form-login input[type="password"]{
+form input[type="text"],form input[type="password"]{
 	padding: 10px;
 	width: 50%;
 	border: none;
@@ -37,7 +38,7 @@
 	margin-top:3%;
 }
 
-.form-login form a{
+form a{
 	color: #fff;
 	background: #6ab344;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
@@ -50,3 +51,30 @@
 	margin-left: 23%;
 	margin-top: 5%;
 }
+
+.contenedorModal{
+	background: rgba(224, 224, 224, 0.7);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/*modal recuperar contraseña administrador*/
+.recContra{
+	width: 40%;
+	margin-top: 10%;
+  margin-left: 25%;	
+	overflow:auto;
+}
+.recContra input{
+	margin: 0;
+	width: 100%;
+}
+.recContra a{
+	display: inline-block;
+	margin-top:2%;	
+}
+
