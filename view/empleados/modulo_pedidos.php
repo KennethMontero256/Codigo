@@ -4,12 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Pedidos</title>
-	<link rel="stylesheet" href="../css/estilo_principal.css">
+	<script type="text/javascript" src="../js/funciones_generales.js"></script>
 </head>
 <body>
-	<?php
-		include("barraNavegacionPrincipal.php");
-	?>
 	<div class="menuLateral">
 		<p>Sección de:</p>
 		<ul>
@@ -22,7 +19,7 @@
 				
 		</div>
 	</div>
-	<div class="contenedorModal">
+	<div class="contenedorModal" id="frmPedidoSucur" style="display:none;">
 		<div class="contenedorPedidoSucr">
 			<form class="frmPedido" action="" method="get" accept-charset="utf-8">
 				<table>
@@ -38,12 +35,32 @@
 							
 						</tr>
 						<tr>
-							<th colspan="" rowspan="" headers="" scope="">Código</th>
-							<th colspan="" rowspan="" headers="" scope="">Nombre</th>
-							<th colspan="" rowspan="" headers="" scope="">Cantidad</th>
+							<th>Código</th>
+							<th>Nombre</th>
+							<th>Cantidad</th>
 						</tr>
 					</thead>
 					<tbody>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
+						<tr>
+							<td>00099</td>
+							<td>Mani salado</td>
+							<td>5300k</td>
+						</tr>
 						<tr>
 							<td>00099</td>
 							<td>Mani salado</td>
@@ -114,6 +131,7 @@
 			</form>	
 		
 			<div class="frmInsertDetalle">
+				<p>Agregar producto al pedido</p>
 				<input type="text" id="txtCodigo" placeholder="Código producto" class="inputShadow">
 				<input type="text" id="txtCantidad" placeholder="Cantidad" class="inputShadow">
 				<a href="" id="hacerPedidoSucursal" class="btn-flat">Agregar</a>
@@ -125,6 +143,6 @@
 			</div>
 		</div>
 	</div>
-	<a class='flotante' href='#' >Add</a>
+	<a class='flotante' href='frmPedidoSucr'>Add</a>
 </body>
 </html>

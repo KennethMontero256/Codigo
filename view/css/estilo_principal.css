@@ -2,6 +2,14 @@
 	padding: 0;
 	margin:0;
 }
+.btn-submit{
+	color: #fff;
+	background: #6ab344;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	text-align: center;
+	padding:10px;
+}
 
 /*Login form*/
 .form-login{
@@ -167,14 +175,44 @@ form a{
 	background: #e53935;
 	color: #fff;
 }
+
+.frmPedido tbody tr:nth-child(odd){
+	background: #e0e0e0;
+}
+
 .frmInsertDetalle {
 	width: 35%;
 	margin-top: 10%;
 } 
+.frmInsertDetalle p{
+	background: #26a69a;
+	text-align: center;
+	width: 66%;
+	padding: 5px;
+	border-radius: 2px;
+}
 
 .frmInsertDetalle input, .frmInsertDetalle a{
 	display: block;
 }
+
+.frmInsertDetalle input{
+	width: 63%;
+}
+
+.frmInsertDetalle .btn-flat{
+	margin-top: 5%;
+}
+
+.opPedido{
+	margin-top: 20%;
+}
+
+.opPedido a{
+	display: inline-block;
+	width: 30%;
+}
+
 .inputShadow{
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
@@ -193,4 +231,11 @@ form a{
 	outline: 0;
 	padding: 0 2rem;
 }
+
+
+
+
+
+
+
 

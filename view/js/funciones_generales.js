@@ -4,7 +4,27 @@ $(document).ready(function(){
 		 e.preventDefault();
 		var opcion = this.getAttribute("href");
 		if(opcion = "pedido"){
-			alert("Attribute href: "+opcion);
+			cargar_pagina("#contenedorGlobal", "../empleados/modulo_pedidos.php")
 		}
 	});
+
+	function cargar_pagina(lugarACargar,nombrePagina){
+		$(lugarACargar).load(nombrePagina);
+		$(lugarACargar).fadeIn(1000);
+	}
+
+	$('.flotante').on('click',function(e){
+		 e.preventDefault();
+		var opcion = this.getAttribute("href");
+		if(opcion = "frmPedidoSucr"){
+			mostr_ocultr("frmPedidoSucur");
+		}
+	});
+
+	function mostr_ocultr(id){
+        if ( $("#"+id).is (':hidden'))
+            $("#"+id).show('slow');
+        else
+            $("#"+id).hide('slow');
+    }
 });
