@@ -8,30 +8,21 @@
 
 //include("../Domain/Empleado.php");
 //include_once ("../Data/Data.php");
-include("../Data/Data.php");
+include_once 'Data.php';
 
 
 
 
-function getTotalVentas(){ 
-   
-    $mysqli = getConnection();
+function getTotalVentas() {
+    $conn = getConnection();
     $sql = "SELECT COUNT(codigo) FROM venta;";
-    $resultado = $mysqli->query($sql);
-    $totalVentas = 0;
-    if ($resultado->num_rows > 0) {
-        // output data of each row
-        while ($row = $resultado->fetch_assoc()) {
-            $totalVentas = $row['COUNT(codigo)'];
-        }
-    } else {
-        echo "0 results";
-    }
-    $mysqli->close();     
+    $resultado = $conn->query($sql);
+    $row = $resultado->fetch_assoc();
+    $totalVentas = $row['COUNT(codigo)'];
+    $conn->close();
     return $totalVentas;
-    
-    
 }
+
 /*
 function ejemplo(){
     

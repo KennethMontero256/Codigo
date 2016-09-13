@@ -9,4 +9,4 @@ function getConnection() {
     }
     return $mysqli;
 }
-?>
+

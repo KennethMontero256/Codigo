@@ -15,16 +15,41 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        //$vector = getTotalVentas();
+        $totalventas = getTotalVentas();
+
+        $hoy = getdate();
+        //print_r($hoy);
+
+        $d = $hoy['mday'];
+        $m = $hoy['mon'];
+        $y = $hoy['year'];
+        
+        
         ?>
         
         <div id="contenedorVenta">
-            <div id="informacionVenta"
-                 <div id="codigo">
-                    <label>codigo:</label>
-                    <input id="codigo" type="text" value="<?php echo 'nada' ?>" readonly> 
+            <div id="informacionVenta">
+
+                 <label>codigo:</label>
+                <input id="codigo" type="text" value="<?php print_r($totalventas); ?>" readonly> 
+
+                <label>Sucursal:</label>
+                <input type="text" value="<?php ?>" readonly>
+
+                <label>Fecha y hora</label>
+                <input type="datetime" value="<?php echo $d . ' ' . $m . ' ' . $y ?>" readonly>
+
+                <label>Empleado:</label>
+                <input type="text" value="" readonly>
+                
+            </div>
+            
+            <div id="detalle">
+                <div id="producto">
+                    
                 </div>
             </div>
+        </div>
         </div>
     </body>
 </html>
