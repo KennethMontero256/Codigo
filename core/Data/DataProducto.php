@@ -29,3 +29,13 @@ function getProductos(){
     $mysqli->close();     
     return $vector;
 }
+
+function setProductos(){
+    
+    $mysqli = getConnection();
+    $sql = "INSERT INTO producto (codigo,nombre,stock,unidadMedida,precio,proveedor"
+            . "idSucursal,idCategoria) VALUES (?,?,?,?,?,?,?,?)";
+    
+    
+    
+}
