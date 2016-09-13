@@ -24,6 +24,7 @@
 				<input type="text" id="txtFecha1" class="fecha" placeholder="Seleccionar fecha">
 				<label>a:</label>
 				<input type="text" id="txtFecha2" class="fecha" placeholder="Seleccionar fecha">
+				<a href="#" id="" class="btn-submit">Filtrar</a>
 			</div>
 
 			<table>
