@@ -36,6 +36,7 @@ function duplicate2(){
     var divPops = document.getElementById("detalle"); //Obtiene le padre del div
     var divClone = myDiv.cloneNode(true); // crea un clon profundo
     divClone.id = "producto" + ++i; // mantiene un contador para crear divs con id diferente
+    divClone.style.display = '';
     divPops.appendChild(divClone); //agrega el clone al padre
     
     hijos = divClone.childNodes;
@@ -45,10 +46,15 @@ function duplicate2(){
     
 }
 
-function getValueComboToInput(){
-    var combo = document.getElementById("comboProductos");
+function getValueComboToInput(e){
+    
+    var eId = e.id;
+    var vector = eId.split("");
+    var numero = vector[vector.length-1];
+    
+    var combo = document.getElementById("comboProductos"+numero);
     var value = combo.options[combo.selectedIndex].value;
-    var input = document.getElementById("codigoProducto");
+    var input = document.getElementById("codigoProducto"+numero);
     input.value = value;
     
 }
@@ -65,67 +71,76 @@ function deleteDiv(e){
     
 }
 
-function delete_row(e)
-{
-    e.parentNode.removeChild(e.parentNode);
+function getPrecio(e){
+    if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("precio").value = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","../../core/Data/getPrecioAjax.php?cod="+e.value,true);
+        xmlhttp.send();
+        
+        getValueComboToInput(e);
 }
 
 
             </script> 
-        
-        
-        <div id="contenedorVenta">
-
-            <div id="informacionVenta">
-
-                <label>codigo:</label>
-                <input id="codigo" type="text" value="<?php print_r($totalventas); ?>" readonly> 
-
-                <label>Sucursal:</label>
-                <input type="text" value="<?php ?>" readonly>
-
-                <label>Fecha y hora</label>
-                <input type="datetime" value="<?php echo $d . ' ' . $m . ' ' . $y ?>" readonly>
-
-                <label>Empleado:</label>
-                <input type="text" value="" readonly>
-
-            </div>
-
-          
             
-            
-            <div id="detalle">
-                <div id="producto0">
+            <form method="post" action="#" accept-charset="UTF-8">
+                <div id="contenedorVenta">
+                    <div id="informacionVenta">
 
-                    <label id="lbCod">Codigo producto:</label>
-                    <input id="cod" type="text" value="" id="codigoProducto">
-                    
-                    <label id="lbNombre">Nombre producto:</label>
-                    
-                    <select id="comboProductos" onclick="getValueComboToInput()">
-                        <ul>
-                            <?php
-                            for ($i = 0; $i < count($productos); $i++) {
-                                echo '<option value="' . $productos[$i]->getCodigoProducto() . '">' . $productos[$i]->getNombre() . '</option>';
-                            }
-                            ?>
-                        </ul>
-                    </select>
-                    
-                    <label id="lbCantidad">Cantidad</label>
-                    <input id="cantdad" type="number">
-                    
-                    <label id="lbTotal">Total Linea</label>
-                    <input id="total" type="number" value="" readonly>
-                    
-                    <input id="delete" type="button" value="X" onclick="deleteDiv(this)">
+                        <label>codigo:</label>
+                        <input id="codigo" type="text" value="<?php print_r($totalventas); ?>" readonly> 
+
+                        <label>Sucursal:</label>
+                        <input type="text" value="<?php ?>" readonly>
+
+                        <label>Fecha y hora</label>
+                        <input type="datetime" value="<?php echo $d . ' ' . $m . ' ' . $y ?>" readonly>
+
+                        <label>Empleado:</label>
+                        <input type="text" value="" readonly>
+                    </div>
+
+                    <div id="detalle">
+                        <div id="producto0" style="display: none;">
+                            <label id="lbCod">Codigo producto:</label>
+                            <input type="text" value="" id="codigoProducto">
+
+                            <label id="lbNombre">Nombre producto:</label>
+                            <select id="comboProductos" onclick="getPrecio(this)">
+                                <ul>
+                                    <?php
+                                    for ($i = 0; $i < count($productos); $i++) {
+                                        echo '<option value="' . $productos[$i]->getCodigoProducto() . '">' . $productos[$i]->getNombre() . '</option>';
+                                    }
+                                    ?>
+                                </ul>
+                            </select>
+
+                            <label id="lbCantidad">Cantidad</label>
+                            <input id="cantdad" type="number">
+                            
+                            <label id="lbPrecio">Precio:</label>
+                            <input id="precio" type="number" readonly>
+
+                            <label id="lbTotal">Total Linea</label>
+                            <input id="total" type="number" value="" readonly>
+
+                            <input id="delete" type="button" value="X" onclick="deleteDiv(this)">
+                        </div>
+                    </div>
+                    <input type="button" value="+" onclick="duplicate2()">
                 </div>
-                
-                
-            </div>
-            <input type="button" onclick="duplicate2()">
-        </div>
+            </form>
         </div>
     </body>
 </html>

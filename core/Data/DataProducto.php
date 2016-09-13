@@ -39,3 +39,13 @@ function setProductos(){
     
     
 }
+
+function getPrecio($codigoProducto){
+    $mysqli = getConnection();
+    $sql = "SELECT precio FROM producto WHERE codigo =".$codigoProducto.";";
+    $resultado = $mysqli->query($sql);
+    $row = $resultado->fetch_assoc();
+    $precio = $row['precio'];
+    $mysqli->close();
+    echo json_encode($precio);
+}
