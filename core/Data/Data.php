@@ -1,16 +1,12 @@
 ﻿<?php
 
-class Data extends mysqli {
+function getConnection() {
 
-  public function __construct() {
-    parent::__construct(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-    $this->connect_errno ? die('Error en la conexión a la base de datos') : null;
-  }
+    $mysqli = new mysqli("localhost", "root", "", "tostador");
 
-  public function recorrer($query) {
-    return mysqli_fetch_array($query);
-  }
-
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    }
+    return $mysqli;
 }
 
-?>
