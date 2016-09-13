@@ -7,14 +7,15 @@
     var $nombre;
     var $telefono;
 
-    function __construct($cedulaEmpleado, $nombre, $telefono)
-    {
-      $this -> cedulaEmpleado = $cedulaEmpleado;
-      $this -> nombre = $nombre;
-      $this -> telefono = $telefono;
+    function constructorLleno($cedulaEmpleado, $nombre, $telefono) {
+        $empleado = new Empleado();
+        $empleado->cedulaEmpleado = $cedulaEmpleado;
+        $empleado->nombre = $nombre;
+        $empleado->telefono = $telefono;
+        return $empleado;
     }
-    
-    function __construc(){
+
+    function __construct(){
         
     }
 
