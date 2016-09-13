@@ -28,6 +28,7 @@ and open the template in the editor.
         ?>
         
         <div id="contenedorVenta">
+<<<<<<< HEAD
             <div id="informacionVenta">
 
                  <label>codigo:</label>
@@ -47,6 +48,19 @@ and open the template in the editor.
             <div id="detalle">
                 <div id="producto">
                     
+=======
+<<<<<<< HEAD
+            <div id="informacionVenta">
+                 <div id="codigo" class="form-group ">
+                    <label for="codigo">codigo:</label>
+                    <input id="codigo" type="text" class="form-control" value="<?php echo $vector[0]->getNombre(); ?>" readonly> 
+=======
+            <div id="informacionVenta"
+                 <div id="codigo">
+                    <label>codigo:</label>
+                    <input id="codigo" type="text" value="<?php echo 'nada' ?>" readonly> 
+>>>>>>> 7087b32482ccc694ce2791a84882ffce8a02e3c0
+>>>>>>> ce06e06185d4f80ff55fcd359fc49eadf026a10f
                 </div>
             </div>
         </div>
