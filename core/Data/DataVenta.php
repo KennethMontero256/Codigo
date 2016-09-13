@@ -6,8 +6,10 @@
  * and open the template in the editor.
  */
 
-include_once 'codigo/core/Domain/Empleado.php';
-include_once './Data.php';
+//include("../Domain/Empleado.php");
+//include_once ("../Data/Data.php");
+include("../Data/Data.php");
+
 
 
 
@@ -16,7 +18,7 @@ function getTotalVentas(){
     $mysqli = getConnection();
     $sql = "SELECT COUNT(codigo) FROM venta;";
     $resultado = $mysqli->query($sql);
-    $totalVentas;
+    $totalVentas = 0;
     if ($resultado->num_rows > 0) {
         // output data of each row
         while ($row = $resultado->fetch_assoc()) {
@@ -30,7 +32,7 @@ function getTotalVentas(){
     
     
 }
-
+/*
 function ejemplo(){
     
     $mysqli = getConnection();
@@ -53,4 +55,5 @@ function ejemplo(){
     return $vector;
     
     
-}
+} */
+

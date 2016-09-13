@@ -3,9 +3,9 @@
 
   class Empleado
   {
-    private $cedulaEmpleado;
-    private $nombre;
-    private $telefono;
+    var $cedulaEmpleado;
+    var $nombre;
+    var $telefono;
 
     function __construct($cedulaEmpleado, $nombre, $telefono)
     {
