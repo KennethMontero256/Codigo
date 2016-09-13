@@ -18,7 +18,7 @@ and open the template in the editor.
         ?>
         
         <div id="contenedorVenta">
-            <div id="informacionVenta"
+            <div id="informacionVenta">
                  <div id="codigo" class="form-group ">
                     <label for="codigo">codigo:</label>
                     <input id="codigo" type="text" class="form-control" value="<?php echo $vector[0]->getNombre(); ?>" readonly> 
