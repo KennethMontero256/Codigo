@@ -10,28 +10,29 @@ and open the template in the editor.
         <?php
         //include_once("../../core/Data/DataVenta.php");
         include_once '../../core/Data/DataVenta.php';
+        include_once '../../core/Data/DataProducto.php';
+        include_once '../../core/Domain/Producto.php';
         ?>
         <title></title>
     </head>
     <body>
         <?php
         $totalventas = getTotalVentas();
-
         $hoy = getdate();
         //print_r($hoy);
-
         $d = $hoy['mday'];
         $m = $hoy['mon'];
         $y = $hoy['year'];
         
+        $productos = getProductos();
         
         ?>
         
         <div id="contenedorVenta">
-<<<<<<< HEAD
+
             <div id="informacionVenta">
 
-                 <label>codigo:</label>
+                <label>codigo:</label>
                 <input id="codigo" type="text" value="<?php print_r($totalventas); ?>" readonly> 
 
                 <label>Sucursal:</label>
@@ -42,27 +43,52 @@ and open the template in the editor.
 
                 <label>Empleado:</label>
                 <input type="text" value="" readonly>
-                
+
             </div>
+
+            <script>   
+                        var i = 0;
+
+function duplicate2(){
+    var myDiv = document.getElementById("producto0"); //Obtiene el objeto por el id
+    var divPops = document.getElementById("detalle"); //Obtiene le padre del div
+    var divClone = myDiv.cloneNode(true); // crea un clon profundo
+    divClone.id = "producto" + ++i; // mantiene un contador para crear divs con id diferente
+    divPops.appendChild(divClone); //agrega el clone al padre
+}
+            </script> 
+            
             
             <div id="detalle">
-                <div id="producto">
+                <div id="producto0">
+
+                    <label>Codigo producto:</label>
+                    <input type="text" value="">
                     
-=======
-<<<<<<< HEAD
-            <div id="informacionVenta">
-                 <div id="codigo" class="form-group ">
-                    <label for="codigo">codigo:</label>
-                    <input id="codigo" type="text" class="form-control" value="<?php echo $vector[0]->getNombre(); ?>" readonly> 
-=======
-            <div id="informacionVenta"
-                 <div id="codigo">
-                    <label>codigo:</label>
-                    <input id="codigo" type="text" value="<?php echo 'nada' ?>" readonly> 
->>>>>>> 7087b32482ccc694ce2791a84882ffce8a02e3c0
->>>>>>> ce06e06185d4f80ff55fcd359fc49eadf026a10f
+                    <label>Nombre prodcuto:</label>
+                    
+                    <select>
+                        <ul>
+                            <?php
+                            for ($i = 0; $i < count($productos); $i++) {
+                                echo '<option value="' . $productos[$i]->getCodigoProducto() . '">' . $productos[$i]->getNombre() . '</option>';
+                            }
+                            ?>
+                        </ul>
+                    </select>
+                    
+                    <label>Cantidad</label>
+                    <input type="number">
+                    
+                    <label>Total Linea</label>
+                    <input type="number" value="" readonly>
+                    
+                    
                 </div>
+                
+                
             </div>
+            <input type="button" onclick="duplicate2()">
         </div>
         </div>
     </body>

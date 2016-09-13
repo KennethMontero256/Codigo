@@ -23,28 +23,4 @@ function getTotalVentas() {
     return $totalVentas;
 }
 
-/*
-function ejemplo(){
-    
-    $mysqli = getConnection();
-    $sql = "select * from empleado;";
-    $resultado = $mysqli->query($sql);
-    $vector = [];
-    if ($resultado->num_rows > 0) {
-        // output data of each row
-        while ($row = $resultado->fetch_assoc()) {
-            $empleado = new Empleado();
-            $empleado->setCedulaEmpleado($row['cedula']);
-            $empleado->setNombre($row['nombre']);
-            $empleado->setTelefono($row['telefono']);
-            array_push($vector, $empleado);
-        }
-    } else {
-        echo "0 results";
-    }
-    $mysqli->close();     
-    return $vector;
-    
-    
-} */
 
