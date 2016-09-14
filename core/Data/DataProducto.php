@@ -7,6 +7,7 @@
  */
 
 include_once 'Data.php';
+include_once '../Domain/Producto.php';
 
 
 function getProductos(){
@@ -39,7 +40,9 @@ function setProductos($producto){
     $stock = $producto -> getStock();
     $precio = $producto-> getPrecio();
     
-    $sql = "INSERT INTO producto (codigo,nombre) VALUES (".$codigo.",".$nombre.")";
+    $sql = "insert into producto (codigo, nombre, stock, unidadMedia, precio, proveedor, idSucursal, idCategoria)
+			values(".$codigo.",".$nombre.", '10', 'kilo', 5000, 'p', 1, 1)";
+
                 
       if ($mysqli->query($sql) === TRUE) {
           echo 'ingreso';

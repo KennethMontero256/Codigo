@@ -21,6 +21,7 @@
                             
                               echo '<option value="' . $productos[$i]->getCodigoProducto() . '">' . $productos[$i]->getNombre() . '</option>';
                             
+                              
                         }
                 
                 
