@@ -10,7 +10,9 @@
     	include("barraNavegacionPrincipal.php");
     ?>
 	<div id="contenedorGlobal">
-		
+		<?php 
+    		include("../Ventas/Venta.php");
+    	?>
 	</div>
 </body>
 </html>

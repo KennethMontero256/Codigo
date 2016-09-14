@@ -8,6 +8,7 @@ $(document).ready(function(){
 		}else{
 			if(opcion == "caja"){
 				cargar_pagina("#contenedorGlobal", "../Ventas/Venta.php");
+				$(".xdsoft_datetimepicker").remove();
 			}
 		}
 	});
