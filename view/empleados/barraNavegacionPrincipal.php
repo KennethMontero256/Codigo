@@ -17,10 +17,10 @@
 		</div>
 		<div class="opciones">
 			<ul>
-				<li><a href="caja" class="btn_transp opBarNav" >Caja</a></li>
-				<li><a href="invent" class="btn_transp opBarNav" >Inventario</a></li>
-				<li><a href="pedido" class="btn_transp opBarNav" >Pedidos</a></li>
-				<li><a href="opUsuario" class="btn_transp opBarNav" >Nombre usuario</a>
+				<li><a href="caja" class="opBarNav" >Caja</a></li>
+				<li><a href="invent" class="opBarNav" >Inventario</a></li>
+				<li><a href="pedido" class="opBarNav" >Pedidos</a></li>
+				<li><a href="opUsuario" class="opBarNav" >Nombre usuario</a>
 					<ul>
 						<li><a href="#">Cambiar contraseña</a></li>
 						<li><a href="#">Cerrar sesión</a></li>
