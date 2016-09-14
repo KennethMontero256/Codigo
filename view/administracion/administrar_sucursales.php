@@ -60,9 +60,12 @@
 					<tr><td>Raquel patterson</td></tr>
 				</tbody>
 			</table>
-			<div class="switch">
-			  <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
-			  <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+			<div class="contenedorSwitch">
+			    <span>¿Habilitado?</span>
+				<div class="switch">
+				  <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+				  <label for="cmn-toggle-7" data-on="Si" data-off="No"></label>
+				</div>
 			</div>
 		</form>
 	</div>
