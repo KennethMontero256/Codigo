@@ -41,7 +41,7 @@
 			</table>
 			
 		</div>
-	<div>
+	<div class="contenedorModal">
 		<form action="" method="get" accept-charset="utf-8">
 			<input type="text" name="" placeholder="Nombre de sucursal">
 			<input type="text" name="" placeholder="Dirección">
@@ -72,6 +72,7 @@
 	</div class="" style="display:block;">
 
 	<div>
+	<script type="text/javascript" src="../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../js/jquery.tablefilter.js"></script>
 	<script>
 		$(function() {
