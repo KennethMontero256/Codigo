@@ -107,7 +107,7 @@ function delete_row(e)
                         <ul>
                             <?php
                             for ($i = 0; $i < count($productos); $i++) {
-                                echo '<option value="' . $productos[$i]->getCodigoProducto() . '">' . $productos[$i]->getNombre() . '</option>';
+                                echo '<option value="' . $productos[$i]->getCodigoProducto() . '">' . $productos[$i]->getNombre . '</option>';
                             }
                             ?>
                         </ul>

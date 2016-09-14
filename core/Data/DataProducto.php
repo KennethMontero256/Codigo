@@ -7,7 +7,7 @@
  */
 
 include_once 'Data.php';
-include_once '../Domain/Producto.php';
+include 'Domain/Producto.php';
 
 
 function getProductos(){
