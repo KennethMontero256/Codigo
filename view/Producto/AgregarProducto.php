@@ -55,7 +55,7 @@ function delete_row(e)
             </script> 
         <form method="post" action="../../core/Business/ProductoControlador.php">
  
-<!-
+<!- -->
             
             <div id="contenedorProducto">
 
@@ -106,30 +106,7 @@ function delete_row(e)
                 
             </div>
             <input type="button" onclick="duplicate2()">
-        </div>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+        </div>    
             
         </form>
         
