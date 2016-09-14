@@ -28,9 +28,7 @@ function getProductos(){
 function setProductos(){
     
     $mysqli = getConnection();
-    $sql = "INSERT INTO producto (codigo,nombre,stock,unidadMedida,precio,proveedor"
-            . "idSucursal,idCategoria) VALUES (?,?,?,?,?,?,?,?)";
-=======
+    $sql = "INSERT INTO producto (codigo,nombre,stock,unidadMedida,precio,proveedor"."idSucursal,idCategoria) VALUES (?,?,?,?,?,?,?,?)";
 function setProductos($producto){
     
     $mysqli = getConnection();
