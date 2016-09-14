@@ -1,18 +1,8 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 include_once 'Data.php';
 include 'Domain/Producto.php';
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 52beb200787279d939629327d0714422faa91c79
 function getProductos(){
     $mysqli = getConnection();
     $sql = "SELECT * FROM producto;";
@@ -35,7 +25,6 @@ function getProductos(){
     return $vector;
 }
 
-<<<<<<< HEAD
 function setProductos(){
     
     $mysqli = getConnection();
@@ -62,20 +51,12 @@ function setProductos($producto){
         echo 'error';
     }
     
-   
-
-
-
 
 }
 function insertarProducto($producto){
->>>>>>> 52beb200787279d939629327d0714422faa91c79
-    
-    
     
 }
 
-<<<<<<< HEAD
 function getPrecio($codigoProducto){
     $mysqli = getConnection();
     $sql = "SELECT precio FROM producto WHERE codigo =".$codigoProducto.";";
@@ -85,54 +66,4 @@ function getPrecio($codigoProducto){
     $mysqli->close();
     echo json_encode($precio);
 }
-=======
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 52beb200787279d939629327d0714422faa91c79
