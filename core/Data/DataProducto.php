@@ -7,12 +7,8 @@
  */
 
 include_once 'Data.php';
-include 'Domain/Producto.php';
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 52beb200787279d939629327d0714422faa91c79
 function getProductos(){
     $mysqli = getConnection();
     $sql = "SELECT * FROM producto;";
@@ -35,24 +31,18 @@ function getProductos(){
     return $vector;
 }
 
-<<<<<<< HEAD
-function setProductos(){
-    
-    $mysqli = getConnection();
-    $sql = "INSERT INTO producto (codigo,nombre,stock,unidadMedida,precio,proveedor"
-            . "idSucursal,idCategoria) VALUES (?,?,?,?,?,?,?,?)";
-=======
+
+
 function setProductos($producto){
     
     $mysqli = getConnection();
-    $producto = new Producto();
     $codigo = $producto -> getCodigoProducto();
     $nombre = $producto -> getNombre();
     $stock = $producto -> getStock();
     $precio = $producto-> getPrecio();
     
     $sql = "insert into producto (codigo, nombre, stock, unidadMedia, precio, proveedor, idSucursal, idCategoria)
-			values(".$codigo.",".$nombre.", ".$stock.", 'k', 5000, 'p', 1, 1)";
+			values(".$codigo.",".$nombre.", ".$stock.", 'k',".$precio.", 'p', 1, 1)";
 
                 
       if ($mysqli->query($sql) === TRUE) {
@@ -61,21 +51,11 @@ function setProductos($producto){
     } else {
         echo 'error';
     }
-    
-   
-
-
-
-
-}
-function insertarProducto($producto){
->>>>>>> 52beb200787279d939629327d0714422faa91c79
-    
-    
-    
+  
 }
 
-<<<<<<< HEAD
+
+
 function getPrecio($codigoProducto){
     $mysqli = getConnection();
     $sql = "SELECT precio FROM producto WHERE codigo =".$codigoProducto.";";
@@ -85,54 +65,3 @@ function getPrecio($codigoProducto){
     $mysqli->close();
     echo json_encode($precio);
 }
-=======
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 52beb200787279d939629327d0714422faa91c79
