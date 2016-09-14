@@ -1,7 +1,7 @@
 <?php
 
 include_once 'Data.php';
-include 'Domain/Producto.php';
+include '../Domain/Producto.php';
 
 function getProductos(){
     $mysqli = getConnection();
@@ -25,10 +25,12 @@ function getProductos(){
     return $vector;
 }
 
-function setProductos(){
+/*function setProductos(){
     
     $mysqli = getConnection();
     $sql = "INSERT INTO producto (codigo,nombre,stock,unidadMedida,precio,proveedor"."idSucursal,idCategoria) VALUES (?,?,?,?,?,?,?,?)";
+}*/
+
 function setProductos($producto){
     
     $mysqli = getConnection();
@@ -42,15 +44,14 @@ function setProductos($producto){
 			values(".$codigo.",".$nombre.", ".$stock.", 'k', 5000, 'p', 1, 1)";
 
                 
-      if ($mysqli->query($sql) === TRUE) {
+    if ($mysqli->query($sql) === TRUE) {
           echo 'ingreso';
         
     } else {
         echo 'error';
     }
-    
-
 }
+
 function insertarProducto($producto){
     
 }
@@ -64,4 +65,3 @@ function getPrecio($codigoProducto){
     $mysqli->close();
     echo json_encode($precio);
 }
-
