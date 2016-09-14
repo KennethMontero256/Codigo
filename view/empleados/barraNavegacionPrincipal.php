@@ -12,7 +12,8 @@
   <body>
 	  <nav class="menu-static">
 	    <div class="logo-empresa">
-			 <a href="#">El Tostador</a>
+	    	<img src="../imagenes/coffee-icon.png">
+			<a href="#">El Tostador</a>
 		</div>
 		<div class="opciones">
 			<ul>
