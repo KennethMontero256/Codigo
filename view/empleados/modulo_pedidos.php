@@ -258,8 +258,8 @@
 	 <script>
             $(function() {
                 $('.fecha').datetimepicker({
-                    format:'d-m-Y H:i',
-                    formatTime:'H:i'
+                    timepicker:false,
+ 					format:'d/m/Y'
                 });
             });
         </script>
