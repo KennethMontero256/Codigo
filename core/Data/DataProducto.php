@@ -35,13 +35,14 @@ function getProductos(){
 function setProductos($producto){
     
     $mysqli = getConnection();
+    $producto = new Producto();
     $codigo = $producto -> getCodigoProducto();
     $nombre = $producto -> getNombre();
     $stock = $producto -> getStock();
     $precio = $producto-> getPrecio();
     
     $sql = "insert into producto (codigo, nombre, stock, unidadMedia, precio, proveedor, idSucursal, idCategoria)
-			values(".$codigo.",".$nombre.", '10', 'kilo', 5000, 'p', 1, 1)";
+			values(".$codigo.",".$nombre.", ".$stock.", 'k', 5000, 'p', 1, 1)";
 
                 
       if ($mysqli->query($sql) === TRUE) {
