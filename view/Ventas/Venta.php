@@ -72,6 +72,9 @@ function deleteDiv(e){
 }
 
 function getPrecio(e){
+    var eId = e.id;
+    var vector = eId.split("");
+    var numero = vector[vector.length-1];
     if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -81,14 +84,45 @@ function getPrecio(e){
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("precio").value = this.responseText;
+                document.getElementById("precio"+numero).value = this.responseText;
+                
             }
         };
+        
         xmlhttp.open("GET","../../core/Data/getPrecioAjax.php?cod="+e.value,true);
         xmlhttp.send();
         
         getValueComboToInput(e);
+        totalLinea(e);
 }
+
+function totalLinea(e){
+    var eId = e.id;
+    var vector = eId.split("");
+    var numero = vector[vector.length-1];
+    var cantidad = document.getElementById("cantidad"+numero).value;
+    var precio = document.getElementById("precio"+numero).value;
+    var totalLinea = cantidad*precio;
+    document.getElementById("total"+numero).value = totalLinea;
+    sumaTotal();
+}
+
+function sumaTotal(){
+    //window.alert('entro');
+    var divPops = document.getElementById("detalle"); //Obtiene le padre del div
+    hijos = divPops.childNodes;
+    var cantidadLineas = hijos.length-2;
+    var suma = 0;
+    suma = parseInt(suma);
+    for (j = 1; j < cantidadLineas; j++) {
+        var numero = parseInt(document.getElementById("total"+j).value);
+         suma = suma + numero;
+         //window.alert(document.getElementById("precio"+j).value);
+    }
+    
+    document.getElementById("sumatotal").value = suma;
+    }
+
 
 
             </script> 
@@ -98,7 +132,7 @@ function getPrecio(e){
                     <div id="informacionVenta">
 
                         <label>codigo:</label>
-                        <input id="codigo" type="text" value="<?php print_r($totalventas); ?>" readonly> 
+                        <input id="codigo" type="text" value="<?php print_r($totalventas+1); ?>" readonly> 
 
                         <label>Sucursal:</label>
                         <input type="text" value="<?php ?>" readonly>
@@ -127,18 +161,20 @@ function getPrecio(e){
                             </select>
 
                             <label id="lbCantidad">Cantidad</label>
-                            <input id="cantdad" type="number">
+                            <input id="cantidad" value="0" type="number" onclick="totalLinea(this)" onchange="totalLinea(this)" onkeydown="totalLinea(this)">
                             
                             <label id="lbPrecio">Precio:</label>
-                            <input id="precio" type="number" readonly>
+                            <input id="precio" type="number" readonly >
 
                             <label id="lbTotal">Total Linea</label>
-                            <input id="total" type="number" value="" readonly>
+                            <input id="total" type="number" value="" readonly oninput="sumaTotal()">
 
                             <input id="delete" type="button" value="X" onclick="deleteDiv(this)">
                         </div>
+                        
                     </div>
                     <input type="button" value="+" onclick="duplicate2()">
+                    <input type="text" readonly id="sumatotal">
                 </div>
             </form>
         </div>

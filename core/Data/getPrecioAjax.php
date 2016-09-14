@@ -2,10 +2,10 @@
 
 include_once 'Data.php';
 
-$codigoProducto= intval($_GET['cod']);
+$codigoProducto= $_GET['cod'];
 
 $mysqli = getConnection();
-$sql = "SELECT precio FROM producto WHERE codigo =" . $codigoProducto . ";";
+$sql = "SELECT precio FROM producto WHERE codigo ='" . $codigoProducto . "';";
 $resultado = $mysqli->query($sql);
 $row = $resultado->fetch_assoc();
 $precio = $row['precio'];
