@@ -7,6 +7,7 @@
  */
 
 include_once 'Data.php';
+include 'Domain/Producto.php';
 
 <<<<<<< HEAD
 =======
@@ -44,12 +45,15 @@ function setProductos(){
 function setProductos($producto){
     
     $mysqli = getConnection();
+    $producto = new Producto();
     $codigo = $producto -> getCodigoProducto();
     $nombre = $producto -> getNombre();
     $stock = $producto -> getStock();
     $precio = $producto-> getPrecio();
     
-    $sql = "INSERT INTO producto (codigo,nombre) VALUES (".$codigo.",".$nombre.")";
+    $sql = "insert into producto (codigo, nombre, stock, unidadMedia, precio, proveedor, idSucursal, idCategoria)
+			values(".$codigo.",".$nombre.", ".$stock.", 'k', 5000, 'p', 1, 1)";
+
                 
       if ($mysqli->query($sql) === TRUE) {
           echo 'ingreso';
