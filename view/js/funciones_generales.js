@@ -1,10 +1,15 @@
 $(document).ready(function(){
 
 	$('.opBarNav').on('click',function(e){
-		 e.preventDefault();
+		e.preventDefault();
 		var opcion = this.getAttribute("href");
 		if(opcion = "pedido"){
-			cargar_pagina("#contenedorGlobal", "../empleados/modulo_pedidos.php")
+			cargar_pagina("#contenedorGlobal", "../empleados/modulo_pedidos.php");
+		}else{
+			if(opcion == "caja"){
+				alert("opcion: "+opcion);
+				cargar_pagina("#contenedorGlobal", "../Ventas/Venta.php");
+			}
 		}
 	});
 
