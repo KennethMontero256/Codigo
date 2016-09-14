@@ -10,6 +10,7 @@
 <body>
 	<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
+		<span class="addSucursal">Add</span>
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal">
 		</div>
@@ -40,7 +41,32 @@
 			</table>
 			
 		</div>
+	<div>
+		<form action="" method="get" accept-charset="utf-8">
+			<input type="text" name="" placeholder="Nombre de sucursal">
+			<input type="text" name="" placeholder="Dirección">
+			<input type="text" name="" placeholder="Teléfono">
+			<select name="selectAdministrador">
+				<option value="">Jason</option>
+				<option value="">Jean</option>
+				<option value="">Peter</option>
+				<option value="">María</option>
+			</select>
+			<input type="text" id="" placeholder="Ingrese el nombre de algun empleado">
+			<a href="">AddEmpleado</a>
+			<table>
+				<tbody>
+					<tr>Juan smith</tr>
+					<tr>Raquel patterson</tr>
+				</tbody>
+			</table>
+			
+			el estado de disponibilidad (habilitado o deshabilitado).
+		</form>
 	</div>
+	</div class="" style="display:block;">
+
+	<div>
 	<script type="text/javascript" src="../js/jquery.tablefilter.js"></script>
 	<script>
 		$(function() {
