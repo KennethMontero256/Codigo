@@ -260,10 +260,16 @@ form a{
 	width: 30%;
 }
 
-
-
-
-
-
-
-
+/*Administrar sucursales*/
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.cmn-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}

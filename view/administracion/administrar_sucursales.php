@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="../css/estilo_principal.css">
 	<script type="text/javascript" src="../js/jquery-3.1.0.js"></script>
 </head>
 <body>
@@ -56,12 +56,14 @@
 			<a href="">AddEmpleado</a>
 			<table>
 				<tbody>
-					<tr>Juan smith</tr>
-					<tr>Raquel patterson</tr>
+					<tr><td>Juan smith</td></tr>
+					<tr><td>Raquel patterson</td></tr>
 				</tbody>
 			</table>
-			
-			el estado de disponibilidad (habilitado o deshabilitado).
+			<div class="switch">
+			  <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+			  <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+			</div>
 		</form>
 	</div>
 	</div class="" style="display:block;">
