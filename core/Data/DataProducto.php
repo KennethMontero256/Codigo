@@ -8,6 +8,10 @@
 
 include_once 'Data.php';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 52beb200787279d939629327d0714422faa91c79
 function getProductos(){
     $mysqli = getConnection();
     $sql = "SELECT * FROM producto;";
@@ -30,16 +34,44 @@ function getProductos(){
     return $vector;
 }
 
+<<<<<<< HEAD
 function setProductos(){
     
     $mysqli = getConnection();
     $sql = "INSERT INTO producto (codigo,nombre,stock,unidadMedida,precio,proveedor"
             . "idSucursal,idCategoria) VALUES (?,?,?,?,?,?,?,?)";
+=======
+function setProductos($producto){
+    
+    $mysqli = getConnection();
+    $codigo = $producto -> getCodigoProducto();
+    $nombre = $producto -> getNombre();
+    $stock = $producto -> getStock();
+    $precio = $producto-> getPrecio();
+    
+    $sql = "INSERT INTO producto (codigo,nombre) VALUES (".$codigo.",".$nombre.")";
+                
+      if ($mysqli->query($sql) === TRUE) {
+          echo 'ingreso';
+        
+    } else {
+        echo 'error';
+    }
+    
+   
+
+
+
+
+}
+function insertarProducto($producto){
+>>>>>>> 52beb200787279d939629327d0714422faa91c79
     
     
     
 }
 
+<<<<<<< HEAD
 function getPrecio($codigoProducto){
     $mysqli = getConnection();
     $sql = "SELECT precio FROM producto WHERE codigo =".$codigoProducto.";";
@@ -49,3 +81,54 @@ function getPrecio($codigoProducto){
     $mysqli->close();
     echo json_encode($precio);
 }
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 52beb200787279d939629327d0714422faa91c79

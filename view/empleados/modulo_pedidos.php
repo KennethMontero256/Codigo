@@ -4,7 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Pedidos</title>
+	<link rel="stylesheet" type="text/css" href="../css/jquery.datetimepicker.css">
 	<script type="text/javascript" src="../js/funciones_generales.js"></script>
+	<script type="text/javascript" src="../js/jquery.datetimepicker.full.js"></script>
 </head>
 <body>
 	<div class="menuLateral">
@@ -16,7 +18,104 @@
 	</div>
 	<div class="contenedorPedidos">
 		<div class="contenidoPedidos">
-				
+			<p>Busqueda por filtro de fecha</p>
+			<div class="barBusqueda">
+				<label>De:</label>
+				<input type="text" id="txtFecha1" class="fecha" placeholder="Seleccionar fecha">
+				<label>a:</label>
+				<input type="text" id="txtFecha2" class="fecha" placeholder="Seleccionar fecha">
+				<a href="#" id="" class="btn-submit">Filtrar</a>
+			</div>
+
+			<table>
+				<thead>
+						<tr>
+							<th>Código</th>
+							<th>Fecha-hora</th>
+						</tr>
+					</thead>
+				<tbody style="height:50px;">
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+					<tr>
+						<td><a href="0001" class="codigoPedido">0001</a></td>
+						<td>13/09/2016 14:32</td>
+						<td>rastrear</td>
+						<td><input type="checkbox"></td>
+					</tr>
+
+				</tbody>
+			</table>
 		</div>
 	</div>
 	<div class="contenedorModal" id="frmPedidoSucur" style="display:none;">
@@ -144,5 +243,13 @@
 		</div>
 	</div>
 	<a class='flotante' href='frmPedidoSucr'>Add</a>
+	 <script>
+            $(function() {
+                $('.fecha').datetimepicker({
+                    format:'d-m-Y H:i',
+                    formatTime:'H:i'
+                });
+            });
+        </script>
 </body>
 </html>
