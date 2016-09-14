@@ -3,20 +3,15 @@
 
   class Empleado
   {
-    var $cedulaEmpleado;
-    var $nombre;
-    var $telefono;
+    private $cedulaEmpleado;
+    private $nombre;
+    private $telefono;
 
-    function constructorLleno($cedulaEmpleado, $nombre, $telefono) {
-        $empleado = new Empleado();
-        $empleado->cedulaEmpleado = $cedulaEmpleado;
-        $empleado->nombre = $nombre;
-        $empleado->telefono = $telefono;
-        return $empleado;
-    }
-
-    function __construct(){
-        
+    function __construct($cedulaEmpleado, $nombre, $telefono)
+    {
+      $this -> cedulaEmpleado = $cedulaEmpleado;
+      $this -> nombre = $nombre;
+      $this -> telefono = $telefono;
     }
 
     public function __set($atributo, $valor) {
@@ -43,32 +38,6 @@
           "<td>".$this -> telefono."</td>".
         "</tr> </table>";
     }
-    
-    function getCedulaEmpleado() {
-        return $this->cedulaEmpleado;
-    }
-
-    function getNombre() {
-        return $this->nombre;
-    }
-
-    function getTelefono() {
-        return $this->telefono;
-    }
-
-    function setCedulaEmpleado($cedulaEmpleado) {
-        $this->cedulaEmpleado = $cedulaEmpleado;
-    }
-
-    function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
-
-    function setTelefono($telefono) {
-        $this->telefono = $telefono;
-    }
-
-
 
 }
 

@@ -7,17 +7,14 @@
 	<link rel="stylesheet" href="css/estilo_principal.css">
 </head>
 <body>
-	<?php  
-		include("barraInicial.php");
-	?>
 	<div class="form-login">
-		<form action="#" method="get" accept-charset="utf-8">
+		<form action="?clase=session" method="post" accept-charset="utf-8">
 			<p>Formulario de acceso</p>
-			<input type="text" name="cedula" placeholder="Cédula">
+			<input type="text" name="id" placeholder="ID Admin">
 			<input type="password" name="contrasenia" placeholder="Contraseña">
 			<div class="layout-btns">
-				<a href="#" id="" class="btn-submit">Ingresar</a>
-				<a href="#" id="">Recuperar usuario</a>
+        <input type="submit" value="Iniciar sesion" />
+        <a href="?clase=administradorController">Recuperar usuario</a>
 			<div>
 		</form>
 	</div>
