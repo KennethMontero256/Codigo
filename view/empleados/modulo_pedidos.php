@@ -26,7 +26,7 @@
 				<input type="text" id="txtFecha2" class="fecha" placeholder="Seleccionar fecha">
 				<a href="#" id="" class="btn-submit">Filtrar</a>
 			</div>
-
+			<div class="tabla">
 			<table>
 				<thead>
 						<tr>
@@ -34,88 +34,100 @@
 							<th>Fecha-hora</th>
 						</tr>
 					</thead>
-				<tbody style="height:50px;">
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-					<tr>
-						<td><a href="0001" class="codigoPedido">0001</a></td>
-						<td>13/09/2016 14:32</td>
-						<td>rastrear</td>
-						<td><input type="checkbox"></td>
-					</tr>
-
-				</tbody>
 			</table>
+			<div class="detalleTablaPedido">
+				<table>
+					<tbody>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+
+					<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						<tr>
+							<td>0987086</td>
+							<td>07/08/2016 23434</td>
+							<td>rastrear</td>
+							<td><input type="checkbox" name=""></td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>	
 		</div>
 	</div>
 	<div class="contenedorModal" id="frmPedidoSucur" style="display:none;">
