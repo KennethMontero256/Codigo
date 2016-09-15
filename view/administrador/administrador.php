@@ -16,12 +16,13 @@
 		<span class="addSucursal">Add</span>
 
 		<div class="barBusqueda">
-			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal">
+			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombre de una sucursal">
 		</div>
+		<br>
+		<li><a href="mostrar" class="sucursales">Mostrar Sucursales</a></li>
+		<li><a href="editar" class="sucursales">Editar Sucursales</a></li>
 
-		<div id="contenedor">
-
-		</div>
+		<div id="contenedor"></div>
 
 </body>
 </html>

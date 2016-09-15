@@ -14,7 +14,7 @@
 	  <nav class="navAdministrador">
 		<div class="opciones">
 			<ul>
-				<li><a href="nameVar" class="sucursales">Mostrar Sucursales</a></li>
+				<li><a href="mostrar" class="sucursales">Mostrar Sucursales</a></li>
 				<li>
 					<div class="logo-empresa">
 						<img src="../imagenes/coffee-cup-flat-incon.png" width="75">
