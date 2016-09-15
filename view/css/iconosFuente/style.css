@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'paguaSoft';
-  src:  url('paguaSoft.eot?llhp23');
-  src:  url('paguaSoft.eot?llhp23#iefix') format('embedded-opentype'),
-    url('paguaSoft.ttf?llhp23') format('truetype'),
-    url('paguaSoft.woff?llhp23') format('woff'),
-    url('paguaSoft.svg?llhp23#paguaSoft') format('svg');
+  src:  url('fonts/paguaSoft.eot?llhp23');
+  src:  url('fonts/paguaSoft.eot?llhp23#iefix') format('embedded-opentype'),
+    url('fonts/paguaSoft.ttf?llhp23') format('truetype'),
+    url('fonts/paguaSoft.woff?llhp23') format('woff'),
+    url('fonts/paguaSoft.svg?llhp23#paguaSoft') format('svg');
   font-weight: normal;
   font-style: normal;
 }

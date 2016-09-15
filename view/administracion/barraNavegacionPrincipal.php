@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../css/Roboto/WebFont/roboto_regular_macroman/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="../css/estiloBarraNavegacion.css">
     <link rel="stylesheet" type="text/css" href="../css/estilo_principal.css">
+    <link rel="stylesheet" type="text/css" href="../css/iconosFuente/style.css">
   </head>
   <body>
 	  <nav class="navAdministrador">
@@ -15,14 +16,9 @@
 		</div>
 		<div class="opciones">
 			<ul>
-				<li><a href="#" class="">Sucursales</a></li>
-				
-				<li><a href="#" class="">Nombre usuario</a>
-					<ul>
-						<li><a href="#">Cambiar contraseña</a></li>
-						<li><a href="#">Cerrar sesión</a></li>
-					</ul>
-				</li>
+				<li><a href="sucursal">Sucursales</a></li>
+			    <li><a href="empleado">Empleados</a></li>
+    			<li><a href="pedido">Pedidos</a></li>
 			</ul>
 		</div>
 	  </nav>

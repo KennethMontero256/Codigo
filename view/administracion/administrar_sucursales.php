@@ -9,9 +9,9 @@
 <body>
 	<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
-		<span class="addSucursal">Add</span>
+		<a class="addSucursal"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
-			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal">
+			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal" class="inputShadow">
 		</div>
 		<div class="contenedorListaSucursales">
 			<table id="tablaListaSucursal">
@@ -41,17 +41,20 @@
 			
 		</div>
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
-		<form action="" method="get" accept-charset="utf-8">
+		
+		<form action="" method="get" accept-charset="utf-8" class="frmAddSucursal">
+			<p>Formulario para sucursal</p>
 			<input type="text" name="" placeholder="Nombre de sucursal">
 			<input type="text" name="" placeholder="Dirección">
 			<input type="text" name="" placeholder="Teléfono">
+			<span id="tituloSelect">Seleccione un administrador:</span><br>
 			<select name="selectAdministrador">
 				<option value="">Jason</option>
 				<option value="">Jean</option>
 				<option value="">Peter</option>
 				<option value="">María</option>
 			</select>
-			<input type="text" id="" placeholder="Ingrese el nombre de algun empleado">
+			<input type="text" id="busEmpleado" placeholder="Ingrese el nombre de algun empleado">
 			<a href="">AddEmpleado</a>
 			<table>
 				<tbody>
@@ -66,15 +69,13 @@
 				  <label for="cmn-toggle-7" data-on="Si" data-off="No"></label>
 				</div>
 			</div>
+			<div class="footOpsFrm">
+				<a href="frmAddSucursal" class="btn-submit">Registrar</a>
+				<a href="frmAddSucursal" class="btn-submit btn-cancel">Cancelar</a>
+			</div>
 		</form>
-		<div class="footOpsFrm">
-			<a href="frmAddSucursal" class="btn-submit">Registrar</a>
-			<a href="frmAddSucursal" class="btn-submit btn-cancel">Cancelar</a>
-		</div>
 	</div>
-	</div class="" style="display:none;">
-
-	<div>
+	
 	<script type="text/javascript" src="../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../js/jquery.tablefilter.js"></script>
 	<script>
