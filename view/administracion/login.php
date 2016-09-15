@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Inicio</title>
-	<link rel="stylesheet" href="../css/estilo_principal.css">
+	<link rel="stylesheet" href="../../css/estilo_principal.css">
 </head>
 <body>
 	<?php  
@@ -16,7 +16,7 @@
 			<input type="text" name="nombreUsuario" placeholder="Usuario">
 			<input type="password" name="contrasenia" placeholder="Contraseña">
 			<div class="layout-btns">
-				<a href="#" id="" class="btn-submit">Ingresar</a>
+				<a href="pagina_inicio.php" id="" class="btn-submit">Ingresar</a>
 				<a href="recuperarContraAdministrador.php" id="">Recuperar usuario</a>
 			<div>
 		</form>
