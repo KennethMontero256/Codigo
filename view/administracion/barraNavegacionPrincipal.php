@@ -9,15 +9,14 @@
   </head>
   <body>
 	  <nav class="navAdministrador">
+	    <div class="logo-empresa">
+			<img src="../imagenes/coffee-cup-flat-incon.png" width="75">
+			<a href="#">El Tostador</a>
+		</div>
 		<div class="opciones">
 			<ul>
 				<li><a href="#" class="">Sucursales</a></li>
-				<li>
-					<div class="logo-empresa">
-						<img src="../imagenes/coffee-cup-flat-incon.png" width="75">
-						<a href="#">El Tostador</a>
-					</div>
-				</li>
+				
 				<li><a href="#" class="">Nombre usuario</a>
 					<ul>
 						<li><a href="#">Cambiar contraseña</a></li>
