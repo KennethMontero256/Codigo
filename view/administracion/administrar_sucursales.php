@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="../css/estilo_principal.css">
 	<script type="text/javascript" src="../js/jquery-3.1.0.js"></script>
 </head>
 <body>
@@ -41,7 +40,7 @@
 			</table>
 			
 		</div>
-	<div class="contenedorModal">
+	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
 		<form action="" method="get" accept-charset="utf-8">
 			<input type="text" name="" placeholder="Nombre de sucursal">
 			<input type="text" name="" placeholder="Dirección">
@@ -68,8 +67,12 @@
 				</div>
 			</div>
 		</form>
+		<div class="footOpsFrm">
+			<a href="frmAddSucursal" class="btn-submit">Registrar</a>
+			<a href="frmAddSucursal" class="btn-submit btn-cancel">Cancelar</a>
+		</div>
 	</div>
-	</div class="" style="display:block;">
+	</div class="" style="display:none;">
 
 	<div>
 	<script type="text/javascript" src="../js/funciones_generales.js"></script>

@@ -13,6 +13,10 @@ $(document).ready(function(){
 		}
 	});
 
+	$(".addSucursal").on("click",function(){
+		mostr_ocultr("frmAddSucursal");
+	});
+
 	function cargar_pagina(lugarACargar,nombrePagina){
 		$(lugarACargar).load(nombrePagina);
 		$(lugarACargar).fadeIn(1000);
