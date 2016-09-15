@@ -3,30 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>Sucursales</title>
+    <link rel="stylesheet" href="view/css/tables.css" media="screen" title="no title">
   </head>
   <body>
     <table id="tablaListaSucursal">
       <tbody>
-        <tr class="itemListaSucursal">
-          <td><a href="012">Cariari</a></td>
-          <td><a href="012" class="btnEditSucr">editar</a></td>
-          <td><a href="012" class="btnEliminar">Eliminar</a></td>
-        </tr>
-        <tr class="itemListaSucursal">
-          <td><a href="012">Guápiles</a></td>
-          <td><a href="012">editar</a></td>
-          <td><a href="012">Eliminar</a></td>
-        </tr>
-        <tr class="itemListaSucursal">
-          <td><a href="012">Siquirres</a></td>
-          <td><a href="012">editar</a></td>
-          <td><a href="012">Eliminar</a></td>
-        </tr>
-        <tr class="itemListaSucursal">
-          <td><a href="012">San josé</a></td>
-          <td><a href="012">editar</a></td>
-          <td><a href="012">Eliminar</a></td>
-        </tr>
+        <th>Cédula Jurídica</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Disponible</th>
+        <?php
+          while ($reg=mysqli_fetch_array($registros))
+          {
+            echo "<tr>";
+            echo "<td>".$reg['nombre']."</td>";
+            echo "<td>".$reg['direccion']."</td>";
+            echo "<td>".$reg['telefono']."</td>";
+            echo "<td>".$reg['disponible']."</td>";
+            echo "</tr>";
+
+          }
+        ?>
       </tbody>
     </table>
   </body>

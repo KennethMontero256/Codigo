@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    $("a.sucursales").click(function (e) {
+    $(".sucursales").click(function (e) {
 
         e.preventDefault();
         listaSucursales();
@@ -8,8 +8,7 @@ $(document).ready(function() {
 });
 
 function listaSucursales(){
-
   var capa = document.getElementById("contenedor");
-  document.getElementById("contenedor").innerHTML = "Lista Sucursales";
-  $(capa).load("?clase=sucursalController");//
+  document.getElementById("contenedor").innerHTML = "Cargando...";
+  $(capa).load("?clase=sucursalController");
 }
