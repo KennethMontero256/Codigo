@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -7,25 +6,8 @@
             <file>file:/C:/xampp/htdocs/Codigo/core/Domain/Producto.php</file>
             <file>file:/C:/xampp/htdocs/Codigo/core/Data/DataVenta.php</file>
             <file>file:/C:/xampp/htdocs/Codigo/view/Ventas/Venta.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/core/Data/Data.php</file>
             <file>file:/C:/xampp/htdocs/Codigo/core/Data/getPrecioAjax.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/core/Domain/Empleado.php</file>
             <file>file:/C:/xampp/htdocs/Codigo/core/Data/DataProducto.php</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/Codigo/view/Ventas/Venta.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/view/modules/empleado.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/core/Data/DataProducto.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/view/Producto/AgregarProducto.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/core/Business/ProductoControlador.php</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> origin/master
