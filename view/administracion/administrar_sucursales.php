@@ -38,7 +38,7 @@
 					</tr>
 				</tbody>
 			</table>
-			
+
 		</div>
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
 		

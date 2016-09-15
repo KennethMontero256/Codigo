@@ -13,6 +13,14 @@
       $this -> telefono = $telefono;
     }
 
+    function Delete() {
+        $this->id = intval($_POST['id']);
+        $query = "DELETE FROM foros WHERE id='$this->id';";
+        $query .= "DELETE FROM temas WHERE id_foro='$this->id';";
+        $this->db->multi_query($query);
+        header('location: ?view=configforos&success=true');
+    }
+
     function __toString(){
 
       return "<table> <tr>".
