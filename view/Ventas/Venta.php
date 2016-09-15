@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <?php
         //include_once("../../core/Data/DataVenta.php");
-        include_once '../../core/Data/DataVenta.php';
-        include_once '../../core/Data/DataProducto.php';
-        include_once '../../core/Domain/Producto.php';
+        include_once '../../Data/DataVenta.php';
+        include_once '../../Data/DataProducto.php';
+        include_once '../../Domain/Producto.php';
         ?>
         <title>Caja</title>
     </head>
@@ -80,11 +80,11 @@ function getPrecio(e){
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("precio"+numero).value = this.responseText;
-                
+                //window.alert('entro');
             }
         };
         
-        xmlhttp.open("GET","../../core/Data/getPrecioAjax.php?cod="+e.value,true);
+        xmlhttp.open("GET","../../Data/getPrecioAjax.php?cod="+e.value,true);
         xmlhttp.send();
         
         getValueComboToInput(e);

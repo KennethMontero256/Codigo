@@ -11,5 +11,3 @@ $row = $resultado->fetch_assoc();
 $precio = $row['precio'];
 $mysqli->close();
 echo $precio;
-
-?>

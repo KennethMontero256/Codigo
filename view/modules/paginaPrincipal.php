@@ -10,6 +10,7 @@
   </head>
   <body>
   <a href="?clase=empleadoController">Mostrar Empleados</a><br>
+  <a href="view/Ventas/Venta.php">Ventas</a><br>
 
   </body>
 </html>

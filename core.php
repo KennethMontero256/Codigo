@@ -5,6 +5,6 @@
   define('DB_PASS','');
   define('DB_NAME','u273707874_tosta');
 
-  require('core/Data/Data.php');
+  require('Data/Data.php');
 
 ?>
