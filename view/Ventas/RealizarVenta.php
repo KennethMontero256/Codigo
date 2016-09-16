@@ -18,9 +18,18 @@
         $d = $hoy['mday'];
         $m = $hoy['mon'];
         $y = $hoy['year'];
-        
+
         $productos = getProductos();
-        
+
+        $status = isset($_GET['status']);
+        if ($status) {
+
+            if ($status = 1) {
+                echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
+            } else {
+                echo "<script type='text/javascript'>alert('failed!')</script>";
+            }
+        }
         ?>
         
           <script>   

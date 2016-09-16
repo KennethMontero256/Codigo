@@ -6,6 +6,10 @@
  * and open the template in the editor.
  */
 
+include_once '../Domain/Venta.php';
+include_once '../Domain/LineaVenta.php';
+include_once '../Data/DataVenta.php';
+
 
 $codigoVenta = $_POST['codigo'];
 $sucursal = $_POST['sucursal'];
@@ -42,17 +46,21 @@ $lineas = [];
 
 $venta = new Venta();
 $venta->setCodigo($codigoVenta);
-$venta->setIdSucursal($idSucursal);
+$venta->setIdSucursal($sucursal);
 $venta->setFechaHora($fecha);
 
 for ($i = 1; $i < count($cods); $i++) {
     $linea = new LineaVenta();
     $linea->setCodigoVenta($codigoVenta);
     $linea->setIdSucursal($sucursal);
-    $linea->setCodigoProducto($cods[i]);
-    $linea->setCantidad($cantidad[i]);
-    $linea->setTotalLinea($total[i]);
+    $linea->setCodigoProducto($cods[$i]);
+    $linea->setCantidad($cantidad[$i]);
+    $linea->setTotalLinea($total[$i]);
     array_push($lineas, $linea);
     
 }
 
+
+insertVenta($venta, $lineas);
+header("Location: ../View/Ventas/RealizarVenta.php?status=1");
+die();
