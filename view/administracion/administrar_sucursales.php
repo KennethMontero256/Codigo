@@ -9,7 +9,7 @@
 <body>
 	<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
-		<a class="addSucursal"><span class="icon-plus2"></span></a>
+		<a class="addSucursal tooltip" data-tooltip="Agregar sucursal"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal" class="inputShadow">
 		</div>
