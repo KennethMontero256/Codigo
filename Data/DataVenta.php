@@ -23,4 +23,8 @@ function getTotalVentas() {
     return $totalVentas;
 }
 
+function insertVenta($venta, $lineas){
+    
+}
+
 

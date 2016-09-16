@@ -49,8 +49,11 @@ function getValueComboToInput(e){
     
     var combo = document.getElementById("comboProductos"+numero);
     var value = combo.options[combo.selectedIndex].value;
+    var text =  combo.options[combo.selectedIndex].innerHTML;
+    var hidden = document.getElementById("hidden"+numero);
     var input = document.getElementById("codigoProducto"+numero);
     input.value = value;
+    hidden.value = text;
     
 }
 
@@ -122,30 +125,32 @@ function sumaTotal(){
 
             </script> 
             
-            <form method="post" action="#" accept-charset="UTF-8">
+            <form method="post" action="../../Business/insertarProducto.php" accept-charset="UTF-8">
                 <div id="contenedorVenta">
                     <div id="informacionVenta">
 
                         <label>codigo:</label>
-                        <input id="codigo" type="text" value="<?php print_r($totalventas+1); ?>" readonly> 
+                        <input id="codigo" name="codigo" type="text" value="<?php print_r($totalventas+1); ?>" readonly> 
 
                         <label>Sucursal:</label>
-                        <input type="text" value="<?php ?>" readonly>
+                        <input type="text" name="sucursal" value="<?php ?>" readonly>
 
                         <label>Fecha y hora</label>
-                        <input type="datetime" value="<?php echo $d . ' ' . $m . ' ' . $y ?>" readonly>
+                        <input type="datetime" name="fecha" value="<?php echo $d . ' ' . $m . ' ' . $y ?>" readonly>
 
                         <label>Empleado:</label>
-                        <input type="text" value="" readonly>
+                        <input type="text" name="empleado" value="" readonly>
                     </div>
 
                     <div id="detalle">
                         <div id="producto0" style="display: none;">
                             <label id="lbCod">Codigo producto:</label>
-                            <input type="text" value="" id="codigoProducto">
+                            <input type="text" value="" id="codigoProducto" name="cod[]">
 
+                            <input type="text" value="" id="hidden" name="hcombo[]" hidden>
+                            
                             <label id="lbNombre">Nombre producto:</label>
-                            <select id="comboProductos" onclick="getPrecio(this)">
+                            <select id="comboProductos" onclick="getPrecio(this)" name="combo[]">
                                 <ul>
                                     <?php
                                     for ($i = 0; $i < count($productos); $i++) {
@@ -154,24 +159,26 @@ function sumaTotal(){
                                     ?>
                                 </ul>
                             </select>
+                            
+                            
 
                             <label id="lbCantidad">Cantidad</label>
-                            <input id="cantidad" value="0" type="number" onclick="totalLinea(this)" onchange="totalLinea(this)" onkeydown="totalLinea(this)">
+                            <input id="cantidad" name="cantidad[]" value="0" type="number"   min="0" onclick="totalLinea(this)" onchange="totalLinea(this)" onkeydown="totalLinea(this)">
                             
                             <label id="lbPrecio">Precio:</label>
-                            <input id="precio" type="number" readonly >
+                            <input id="precio" name="precio[]" type="number" readonly >
 
                             <label id="lbTotal">Total Linea</label>
-                            <input id="total" type="number" value="" readonly oninput="sumaTotal()">
+                            <input id="total" name="total[]" type="number" value="" readonly oninput="sumaTotal()">
 
                             <input id="delete" type="button" value="X" onclick="deleteDiv(this)">
                         </div>
                         
                     </div>
                     <input type="button" value="+" onclick="duplicate2()">
-                    <input type="text" readonly id="sumatotal">
+                    <input type="text" name="sumaTotal" readonly id="sumatotal">
                 </div>
+                <input type="submit">
             </form>
-        </div>
     </body>
 </html>
