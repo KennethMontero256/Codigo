@@ -47,4 +47,37 @@ $(document).ready(function(){
         else
             $("#"+id).hide('slow');
     }
+
+    /*Enviar formulario Agregar Sucursal*/
+
+    $("#bRegistrarSucursal").on('click',function(e){
+    	e.preventDefault();
+    	if(validar_form_addsucursal()==false){
+    		
+    	}else{
+    		notif({
+                    'type': 'error',
+                    'msg': 'Algunos campos estan vacios',
+                    'position': 'right',
+                    'timeout': 600000
+            });
+    	}
+    });
+
+    function validar_form_addsucursal(){
+    	var formulario=document.frmAddSucursal;
+    	var respuesta = false;
+    	if(formulario.nomSucursal.value.length == 0){
+    		respuesta = true;
+    	}else{
+    		if(formulario.direccion.value.length == 0){
+    			respuesta = true;
+    		}else{
+    			if(formulario.telf.value.length == 0){
+    				respuesta = true;
+    			}
+    		}
+    	}
+    	return respuesta;
+    }
 });

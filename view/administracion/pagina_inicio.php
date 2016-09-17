@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/estiloBarraNavegacion.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilo_principal.css">
     <link rel="stylesheet" type="text/css" href="../../css/iconosFuente/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/notifIt.css">
 	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
 </head>
 <body>
@@ -20,5 +21,6 @@
 		?>
 	</div>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
+	<script type="text/javascript" src="../../js/notifIt.js"></script>
 </body>
 </html>

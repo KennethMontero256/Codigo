@@ -23,7 +23,7 @@
 		</div>
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
 		
-		<form action="" method="get" accept-charset="utf-8" class="frmAddSucursal">
+		<form action="" method="get" accept-charset="utf-8" class="frmAdd">
 			<p>Formulario para empleado</p>
 			<input type="text" name="" placeholder="Cédula">
 			<input type="text" name="" placeholder="Nombre completo">

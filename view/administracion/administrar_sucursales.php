@@ -42,28 +42,27 @@
 		</div>
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
 		
-		<form action="" method="get" accept-charset="utf-8" class="frmAddSucursal">
+		<form name="frmAddSucursal" method="get" accept-charset="utf-8" class="frmAdd">
 			<p>Formulario para sucursal</p>
-			<input type="text" name="" placeholder="Nombre de sucursal">
-			<input type="text" name="" placeholder="Dirección">
-			<input type="text" name="" placeholder="Teléfono">
+			<input type="text" name="nomSucursal" placeholder="Nombre de sucursal">
+			<input type="text" name="direccion" placeholder="Dirección">
+			<input type="text" name="telf" placeholder="Teléfono">
 			<input type="text" id="busEmpleado" placeholder="Ingrese el nombre de algun empleado">
 			<a href="">AddEmpleado</a>
-			<table>
+			<table id="tbEmpleados">
 				<tbody>
-					<tr><td>Juan smith</td></tr>
-					<tr><td>Raquel patterson</td></tr>
+					
 				</tbody>
 			</table>
 			<div class="contenedorSwitch">
 			    <span>¿Habilitado?</span>
 				<div class="switch">
 				  <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
-				  <label for="cmn-toggle-7" data-on="Si" data-off="No"></label>
+				  <label for="cmn-toggle-7" id="habilitado" data-on="Si" data-off="No"></label>
 				</div>
 			</div>
 			<div class="footOpsFrm">
-				<a href="frmAddSucursal" class="btn-submit">Registrar</a>
+				<a href="frmAddSucursal" class="btn-submit" id="bRegistrarSucursal">Registrar</a>
 				<a href="frmAddSucursal" class="btn-submit btn-cancel">Cancelar</a>
 			</div>
 		</form>
