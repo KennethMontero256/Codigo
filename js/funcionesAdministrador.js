@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
-    $(".sucursales").click(function (e) {
-
+    $(".012").click(function (e) {
+      alert("K");
         e.preventDefault();
         listaSucursales(this.getAttribute("href"));
     });

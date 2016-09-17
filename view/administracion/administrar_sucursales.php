@@ -4,44 +4,38 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<script type="text/javascript" src="../js/jquery-3.1.0.js"></script>
+	<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+	<script type="text/javascript" src="js/funcionesAdministrador.js"></script>
+	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
 </head>
 <body>
 	<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
-		<a class="addSucursal"><span class="icon-plus2"></span></a>
+		<a class="addSucursal tooltip" data-tooltip="Agregar sucursal"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal" class="inputShadow">
 		</div>
 		<div class="contenedorListaSucursales">
 			<table id="tablaListaSucursal">
 				<tbody>
-					<tr class="itemListaSucursal">
-						<td><a href="012">Cariari</a></td>
-						<td><a href="012" class="btnEditSucr">editar</a></td>
-						<td><a href="012" class="btnEliminar">Eliminar</a></td>
-					</tr>
-					<tr class="itemListaSucursal">
-						<td><a href="012">Guápiles</a></td>
-						<td><a href="012">editar</a></td>
-						<td><a href="012">Eliminar</a></td>
-					</tr>
-					<tr class="itemListaSucursal">
-						<td><a href="012">Siquirres</a></td>
-						<td><a href="012">editar</a></td>
-						<td><a href="012">Eliminar</a></td>
-					</tr>
-					<tr class="itemListaSucursal">
-						<td><a href="012">San josé</a></td>
-						<td><a href="012">editar</a></td>
-						<td><a href="012">Eliminar</a></td>
-					</tr>
+
+					<?php
+
+	          while ($reg=mysqli_fetch_array($registro))
+	          {
+	            echo "<tr class=\"itemListaSucursal\">";
+	            echo "<td><a href=\"012\">".$reg['nombre']."</a></td>";
+	            echo "<td><a href=\"012\" class=\"btnEditSucr\">Editar</a></td>";
+	            echo "<td><a href=\"012\" class=\"btnEditSucr\">Eliminra</a></td>";
+	            echo "</tr>";
+	          }
+	        ?>
 				</tbody>
 			</table>
 
 		</div>
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
-		
+
 		<form action="" method="get" accept-charset="utf-8" class="frmAddSucursal">
 			<p>Formulario para sucursal</p>
 			<input type="text" name="" placeholder="Nombre de sucursal">
@@ -75,9 +69,12 @@
 			</div>
 		</form>
 	</div>
-	
-	<script type="text/javascript" src="../js/funciones_generales.js"></script>
-	<script type="text/javascript" src="../js/jquery.tablefilter.js"></script>
+
+	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
+	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
+
+	<script type="text/javascript" src="js/funciones_generales.js"></script>
+	<script type="text/javascript" src="js/jquery.tablefilter.js"></script>
 	<script>
 		$(function() {
 			theTable = $("#tablaListaSucursal");

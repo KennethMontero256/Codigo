@@ -3,11 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-      <script type="text/javascript" src="view/js/jquery-3.1.0.js"></script>
-      <script type="text/javascript" src="view/js/funcionesAdministrador.js"></script>
+	<title>Administrador</title>
+      <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+      <script type="text/javascript" src="js/funcionesAdministrador.js"></script>
+			<link rel="stylesheet" href="css/estilo_principal.css">
 </head>
 <body>
+
 	<?php include("view/administrador/barraNavegacionPrincipal.php"); ?>
 
 	<div class="contenedorSucursales">
