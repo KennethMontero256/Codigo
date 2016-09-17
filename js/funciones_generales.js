@@ -11,6 +11,16 @@ $(document).ready(function(){
 				$(".xdsoft_datetimepicker").remove();
 			}
 		}
+
+		/*Admnistrador*/
+		if(opcion=="admsucursal"){
+			alert("asd");
+			cargar_pagina("#contenedorAdministrador", "../view/administracion/administrar_sucursales.php");
+		}else{
+			if(opcion=="admempleado"){
+				cargar_pagina("#contenedorAdministrador", "../view/administracion/administrar_empleados.php");
+			}
+		}
 	});
 
 	$(".addSucursal").on("click",function(){

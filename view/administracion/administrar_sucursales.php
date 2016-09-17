@@ -47,13 +47,7 @@
 			<input type="text" name="" placeholder="Nombre de sucursal">
 			<input type="text" name="" placeholder="Dirección">
 			<input type="text" name="" placeholder="Teléfono">
-			<span id="tituloSelect">Seleccione un administrador:</span><br>
-			<select name="selectAdministrador">
-				<option value="">Jason</option>
-				<option value="">Jean</option>
-				<option value="">Peter</option>
-				<option value="">María</option>
-			</select>
+			<span id="tituloSelect">Administrador principal</span><br>
 			<input type="text" id="busEmpleado" placeholder="Ingrese el nombre de algun empleado">
 			<a href="">AddEmpleado</a>
 			<table>
