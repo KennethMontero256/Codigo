@@ -20,7 +20,6 @@
 				<tbody>
 
 					<?php
-
 	          while ($reg=mysqli_fetch_array($registro))
 	          {
 	            echo "<tr class=\"itemListaSucursal\">";
@@ -30,6 +29,7 @@
 	            echo "</tr>";
 	          }
 	        ?>
+					
 				</tbody>
 			</table>
 
