@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="contenedorSucursales">
-		<p>Todas las Sucursales</p>
+		<p>Empleados</p>
 		<a class="addSucursal tooltip" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de un empleado" class="inputShadow">
@@ -24,19 +24,15 @@
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
 		
 		<form action="" method="get" accept-charset="utf-8" class="frmAddSucursal">
-			<p>Formulario para sucursal</p>
-			<input type="text" name="" placeholder="Nombre de sucursal">
-			<input type="text" name="" placeholder="Dirección">
+			<p>Formulario para empleado</p>
+			<input type="text" name="" placeholder="Cédula">
+			<input type="text" name="" placeholder="Nombre completo">
 			<input type="text" name="" placeholder="Teléfono">
-			<span id="tituloSelect">Administrador principal</span><br>
-			<input type="text" id="busEmpleado" placeholder="Ingrese el nombre de algun empleado">
-			<a href="">AddEmpleado</a>
-			<table>
-				<tbody>
-					<tr><td>Juan smith</td></tr>
-					<tr><td>Raquel patterson</td></tr>
-				</tbody>
-			</table>
+			<span class="etiqueta">Agregar sucursal de trabajo</span>
+			<select name="">
+				<option value="">Cariari</option>
+				<option value="">Guápiles</option>
+			</select>
 			<div class="contenedorSwitch">
 			    <span>¿Habilitado?</span>
 				<div class="switch">

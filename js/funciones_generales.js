@@ -14,11 +14,12 @@ $(document).ready(function(){
 
 		/*Admnistrador*/
 		if(opcion=="admsucursal"){
-			alert("asd");
-			cargar_pagina("#contenedorAdministrador", "../view/administracion/administrar_sucursales.php");
+			$("#contenedorAdministrador").empty();
+			cargar_pagina("#contenedorAdministrador", "../administracion/administrar_sucursales.php");
 		}else{
 			if(opcion=="admempleado"){
-				cargar_pagina("#contenedorAdministrador", "../view/administracion/administrar_empleados.php");
+				$("#contenedorAdministrador").empty();
+				cargar_pagina("#contenedorAdministrador","../administracion/administrar_empleados.php");
 			}
 		}
 	});

@@ -13,25 +13,25 @@
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal" class="inputShadow">
 		</div>
-		<div class="contenedorListaSucursales">
-			<table id="tablaListaSucursal">
+		<div class="contenedorLista">
+			<table id="tablaSoloLista">
 				<tbody>
-					<tr class="itemListaSucursal">
+					<tr class="itemListaSoloTabla">
 						<td><a href="012">Cariari</a></td>
 						<td><a href="012" class="btnEditSucr">editar</a></td>
 						<td><a href="012" class="btnEliminar">Eliminar</a></td>
 					</tr>
-					<tr class="itemListaSucursal">
+					<tr class="itemListaSoloTabla">
 						<td><a href="012">Guápiles</a></td>
 						<td><a href="012">editar</a></td>
 						<td><a href="012">Eliminar</a></td>
 					</tr>
-					<tr class="itemListaSucursal">
+					<tr class="itemListaSoloTabla">
 						<td><a href="012">Siquirres</a></td>
 						<td><a href="012">editar</a></td>
 						<td><a href="012">Eliminar</a></td>
 					</tr>
-					<tr class="itemListaSucursal">
+					<tr class="itemListaSoloTabla">
 						<td><a href="012">San josé</a></td>
 						<td><a href="012">editar</a></td>
 						<td><a href="012">Eliminar</a></td>
@@ -47,7 +47,6 @@
 			<input type="text" name="" placeholder="Nombre de sucursal">
 			<input type="text" name="" placeholder="Dirección">
 			<input type="text" name="" placeholder="Teléfono">
-			<span id="tituloSelect">Administrador principal</span><br>
 			<input type="text" id="busEmpleado" placeholder="Ingrese el nombre de algun empleado">
 			<a href="">AddEmpleado</a>
 			<table>
@@ -69,12 +68,10 @@
 			</div>
 		</form>
 	</div>
-	
-	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
 	<script>
 		$(function() {
-			theTable = $("#tablaListaSucursal");
+			theTable = $("#tablaSoloLista");
 			$("#txtBusqSucur").keyup(function() {
 				$.uiTableFilter(theTable, this.value);
 			});
