@@ -585,10 +585,13 @@ input.cmn-toggle-yes-no:checked + label:after {
 }
 
 .frmAdd table{
+	display: block;
+	max-height: 150px;
 	border: 1px solid #c6c6c6;
 	margin-top: 2%;
 	margin-left:23.5%;
 	width:55%;
+	overflow-x: auto;
 }
 
 .frmAdd .contenedorSwitch{
@@ -623,3 +626,19 @@ input.cmn-toggle-yes-no:checked + label:after {
 	margin-top: 2%;
 	margin-left: 23.5%;
 }
+
+/*Estilo tablas*/
+table{
+	border-spacing:0;
+}
+table tr{
+	color:#616161;
+}
+table tr:nth-child(even){
+	background:#c2c2c2;
+}
+
+table td.ocultaTd{
+	display:none;
+}
+/*Estilo tablas*/

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	$('.opBarNav').on('click',function(e){
 		e.preventDefault();
 		var opcion = this.getAttribute("href");
@@ -53,7 +54,7 @@ $(document).ready(function(){
     $("#bRegistrarSucursal").on('click',function(e){
     	e.preventDefault();
     	if(validar_form_addsucursal()==false){
-    		
+    		obtenerEmpleadosTabla();
     	}else{
     		notif({
                     'type': 'error',
@@ -63,7 +64,7 @@ $(document).ready(function(){
             });
     	}
     });
-
+    
     function validar_form_addsucursal(){
     	var formulario=document.frmAddSucursal;
     	var respuesta = false;
@@ -80,4 +81,48 @@ $(document).ready(function(){
     	}
     	return respuesta;
     }
+
+    function obtenerEmpleadosTabla(){
+    	var empleados=[];
+    	$("#tbEmpleados tbody tr").each(function (index) 
+        {
+            var nombre, cedula;
+            $(this).children("td").each(function (index2) 
+            {
+                switch (index2) 
+                {
+                    case 0: nombre = $(this).text();
+                            break;
+                    case 1: cedula = $(this).text();
+                            break;
+                }
+            });
+            item = {}
+        	item ["cedula"] = cedula;
+        	item ["nombre"] = nombre;
+        	empleados.push(item);
+            alert(nombre + ' - ' + cedula);
+        });
+        alert("Empleados: "+JSON.stringify(empleados));
+    }
+
+    $("#addEmpleado").on("click",function(e){
+
+    });
+     
+    
+    function createJSON(jsonArray,clave,valor) {
+    	jsonArray = [];
+  
+        item = {}
+        item [clave] = valor;
+
+        jsonArray.push(item);
+	}
+
+
 });
+
+
+
+

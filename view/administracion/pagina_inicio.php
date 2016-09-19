@@ -10,6 +10,12 @@
     <link rel="stylesheet" type="text/css" href="../../css/iconosFuente/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/notifIt.css">
 	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
+	<script type="text/javascript" src="../../js/jquery-1.12.3.js"></script>
+	<script type="text/javascript" src="../../css/jquery-ui.css"></script>
+	<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 	<?php

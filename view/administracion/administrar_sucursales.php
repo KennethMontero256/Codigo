@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
 </head>
 <body>
 	<div class="contenedorSucursales">
@@ -47,11 +46,22 @@
 			<input type="text" name="nomSucursal" placeholder="Nombre de sucursal">
 			<input type="text" name="direccion" placeholder="Dirección">
 			<input type="text" name="telf" placeholder="Teléfono">
-			<input type="text" id="busEmpleado" placeholder="Ingrese el nombre de algun empleado">
-			<a href="">AddEmpleado</a>
+			<select name="" id="select">
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+			</select>
+			<a href="AgregarEmpleado" id="addEmpleado">AddEmpleado</a>
 			<table id="tbEmpleados">
 				<tbody>
-					
+					<tr>
+						<td>Carlos</td>
+						<td class="ocultaTd">702340123</td>
+					</tr>
+					<tr>
+						<td>José</td>
+						<td class="ocultaTd">504320125</td>
+					</tr>
 				</tbody>
 			</table>
 			<div class="contenedorSwitch">
@@ -62,7 +72,6 @@
 				</div>
 			</div>
 			<div class="footOpsFrm">
-				<a href="frmAddSucursal" class="btn-submit" id="bRegistrarSucursal">Registrar</a>
 				<a href="frmAddSucursal" class="btn-submit btn-cancel">Cancelar</a>
 			</div>
 		</form>
@@ -74,6 +83,7 @@
 			$("#txtBusqSucur").keyup(function() {
 				$.uiTableFilter(theTable, this.value);
 			});
+			
 		});
 	</script>
 </body>

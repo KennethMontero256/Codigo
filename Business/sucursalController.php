@@ -1,5 +1,10 @@
 <?php
-  $conexion = new Data();
+  require "../Data/DataEmpleado.php";
+  $dataSucursal = new DataEmpleado();
+  $dataSucursal->getEmpleados();
+
+  //$conexion = new Data();
+  /*
   switch ($_GET['accion']) {
 
     case 'mostrar':
@@ -12,13 +17,12 @@
       break;
 
     case 'insertar':
-      $registros = mysqli_query($conexion,"SELECT * FROM sucursal") or die("Error al cargar registros ".mysqli_error($conexion));
-      include("view/administrador/sucursales.php");
+      
       break;
 
     default:
       # code...
       break;
-  }
+  }*/
   //echo "string";
  ?>
