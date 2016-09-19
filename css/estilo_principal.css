@@ -11,6 +11,15 @@
 	padding:10px;
 }
 
+.icono{
+  color: #fff;
+  border-radius: 50%;
+}
+
+.icono.eliminar{
+  background: #ef5350;
+}
+
 .button {
   border-radius: 4px;
   background-color: #f4511e;
@@ -594,6 +603,10 @@ input.cmn-toggle-yes-no:checked + label:after {
 	overflow-x: auto;
 }
 
+.frmAdd table td{
+  padding: 16px;
+}
+
 .frmAdd .contenedorSwitch{
 	margin-left: 23.5%;
 }
@@ -634,7 +647,7 @@ table{
 table tr{
 	color:#616161;
 }
-table tr:nth-child(even){
+table tr:nth-child(odd){
 	background:#c2c2c2;
 }
 
