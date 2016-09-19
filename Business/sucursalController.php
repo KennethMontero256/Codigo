@@ -1,10 +1,7 @@
 <?php
-  require "../Data/DataEmpleado.php";
-  $dataSucursal = new DataEmpleado();
-  $dataSucursal->getEmpleados();
+  require "../Data/DataSucursal.php";
+  $dataSucursal = new DataSucursal();
 
-  //$conexion = new Data();
-  /*
   switch ($_GET['accion']) {
 
     case 'mostrar':
@@ -16,13 +13,12 @@
       echo "Opcion inhabilitada!";
       break;
 
-    case 'insertar':
-      
+    case 'addSucursal': 
+      $dataSucursal->insertarSucursal($_REQUEST["arrayDatos"]);
       break;
 
     default:
       # code...
       break;
-  }*/
-  //echo "string";
+  }
  ?>

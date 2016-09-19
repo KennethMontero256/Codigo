@@ -509,7 +509,6 @@ input.cmn-toggle-yes-no:checked + label:after {
 	color: #fff;
 	background: #009688;
 	padding: 10px;
-	font-weight: bold;
 	word-spacing: 2px;
 }
 

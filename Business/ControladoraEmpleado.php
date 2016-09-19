@@ -4,7 +4,7 @@
 	$dataEmpleado = new DataEmpleado();
 
 	switch ($_REQUEST['metodo']) {
-		case 'insertar':
+		case 'addSucursal':
 			
 			break;
 		case 'mostrarEmpleadoNombre':

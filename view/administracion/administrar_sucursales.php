@@ -20,21 +20,7 @@
 						<td><a href="012" class="btnEditSucr">editar</a></td>
 						<td><a href="012" class="btnEliminar">Eliminar</a></td>
 					</tr>
-					<tr class="itemListaSoloTabla">
-						<td><a href="012">Guápiles</a></td>
-						<td><a href="012">editar</a></td>
-						<td><a href="012">Eliminar</a></td>
-					</tr>
-					<tr class="itemListaSoloTabla">
-						<td><a href="012">Siquirres</a></td>
-						<td><a href="012">editar</a></td>
-						<td><a href="012">Eliminar</a></td>
-					</tr>
-					<tr class="itemListaSoloTabla">
-						<td><a href="012">San josé</a></td>
-						<td><a href="012">editar</a></td>
-						<td><a href="012">Eliminar</a></td>
-					</tr>
+					
 				</tbody>
 			</table>
 
@@ -57,7 +43,7 @@
 			<div class="contenedorSwitch">
 			    <span>¿Habilitado?</span>
 				<div class="switch">
-				  <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+				  <input id="cmn-toggle-7" name="habilitado" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
 				  <label for="cmn-toggle-7" id="habilitado" data-on="Si" data-off="No"></label>
 				</div>
 			</div>

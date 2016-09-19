@@ -23,12 +23,20 @@ $(document).ready(function(){
 				cargar_pagina("#contenedorAdministrador","../administracion/administrar_empleados.php");
 			}
 		}
-	});
+	   });
 
-	$(".icono").on('click',function(e){
-    	e.preventDefault();
-    	alert("adsf");
-    	var idFila = this.getAttribute("href");
+    $(".btn-cancel").on('click',function(e){
+        e.preventDefault();
+        var opcion = this.getAttribute("href");
+        
+        if(opcion == "frmAddSucursal"){
+            mostr_ocultr("frmAddSucursal");
+        }
+
+    });
+
+	function eliminarOpDeTb(obj){
+    	var idFila = obj.getAttribute("href");
     	var nombre, cedula;
         
         $("#"+idFila).children("td").each(function (index2)
@@ -43,8 +51,8 @@ $(document).ready(function(){
         });
         $("#"+idFila).remove();
         addOpSelect(cedula, nombre);
-    });
-
+    }
+    /*Muestra form Agregar sucursal*/
 	$(".addSucursal").on("click",function(){
 		llenarSelectEmpleados();
 		mostr_ocultr("frmAddSucursal");
@@ -80,7 +88,22 @@ $(document).ready(function(){
     $("#bRegistrarSucursal").on('click',function(e){
     	e.preventDefault();
     	if(validar_form_addsucursal()==false){
-    		
+        	var formulario = document.frmAddSucursal;
+        	var sucursal = new Object();
+
+        	sucursal.nombre = formulario.nomSucursal.value;
+			sucursal.direccion = formulario.direccion.value;
+			sucursal.telf = formulario.telf.value;
+
+			if($('input:checkbox[name=habilitado]:checked').val()==undefined){
+				sucursal.disponible = "0";
+			}else{
+				sucursal.disponible = "1";
+			}
+
+			sucursal.empleados = obtenerEmpleadosTabla();
+			enviarAjax("../../Business/sucursalController.php?accion=addSucursal",JSON.stringify(sucursal));
+            cargar_pagina("#contenedorAdministrador", "../view/administracion/administrar_sucursales.php");
     	}else{
     		notif({
                     'type': 'error',
@@ -90,7 +113,17 @@ $(document).ready(function(){
             });
     	}
     });
-    
+
+
+    function enviarAjax(direccionServer, datos){
+    	$.ajax({
+            url:direccionServer,
+            type:'GET',
+            data:{arrayDatos:datos},
+            success: function(responseText){
+            }
+        });	
+    }
     function validar_form_addsucursal(){
     	var formulario=document.frmAddSucursal;
     	var respuesta = false;
@@ -119,7 +152,7 @@ $(document).ready(function(){
                 {
                     case 0: nombre = $(this).text();
                             break;
-                    case 1: cedula = $(this).text();
+                    case 2: cedula = $(this).text();
                             break;
                 }
             });
@@ -127,9 +160,8 @@ $(document).ready(function(){
         	item ["cedula"] = cedula;
         	item ["nombre"] = nombre;
         	empleados.push(item);
-            alert(nombre + ' - ' + cedula);
         });
-        alert("Empleados: "+JSON.stringify(empleados));
+        return JSON.stringify(empleados);
     }
 
     function llenarSelectEmpleados(){
@@ -161,6 +193,11 @@ $(document).ready(function(){
 
 			eliminarOpSelect($("#selectEmpleados").val());
 			$("#tbEmpleados").append(nuevaFila);
+			$("a.removerOpTbEmpl").off('click');
+			$("a.removerOpTbEmpl").on('click', function(e) {
+				e.preventDefault();
+		     	eliminarOpDeTb(this);
+		    });;
 		}else{
 			mostrarMsjError("No hay empleados para añadir");
 		}
@@ -177,22 +214,12 @@ $(document).ready(function(){
 
     function mostrarMsjError(mensaje){
     	notif({
-                    'type': 'error',
-                    'msg': mensaje,
-                    'position': 'right',
-                    'timeout': 200000
-            });
+            'type': 'error',
+            'msg': mensaje,
+            'position': 'right',
+            'timeout': 40000
+        });
     }
-    
-    function createJSON(jsonArray,clave,valor) {
-    	jsonArray = [];
-  
-        item = {}
-        item [clave] = valor;
-
-        jsonArray.push(item);
-	}
-
 
 });
 
