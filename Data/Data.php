@@ -15,7 +15,7 @@ class Data extends mysqli {
 
 function getConnection(){
 
-    $mysqli = new mysqli("localhost", "root", "", "tostador");
+    $mysqli = new mysqli('68.178.217.43', 'ucrgrupo4', 'Grupo#4LkF!', 'ucrgrupo4');
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
