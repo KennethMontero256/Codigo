@@ -53,9 +53,6 @@ function setProductos($producto){
 
 }
 
-function insertarProducto($producto){
-    
-}
 
 
 
