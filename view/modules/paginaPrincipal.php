@@ -11,6 +11,7 @@
   <body>
   <a href="?clase=empleadoController">Mostrar Empleados</a><br>
   <a href="view/Ventas/RealizarVenta.php">Ventas</a><br>
+  <a href="view/Producto/AgregarProducto.php">Productos</a><br>
 
   </body>
 </html>

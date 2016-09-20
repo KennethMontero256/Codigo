@@ -1,114 +1,84 @@
 <html>
     <head>
         <?php
-            include_once '../../core/Data/DataProducto.php';
-            $productos= getProductos();
+            include_once '../../Data/DataProducto.php';
+            include_once '../../Data/DataSucursal2.php';
+            include_once '../../Domain/Sucursal.php';
+            include_once '../../Domain/Categoria.php';
+            include_once '../../Data/DataCategoria.php';
+            $sucursal= getSucursal();
+            $categorias = getCategoria();
             
+            
+            //var_dump($sucursal);
         ?>
     </head>
     
     <body>
-        
-       <script>   
-                        var i = 0;
-
-function duplicate2(){
-    var myDiv = document.getElementById("producto0"); //Obtiene el objeto por el id
-    var divPops = document.getElementById("detalle"); //Obtiene le padre del div
-    var divClone = myDiv.cloneNode(true); // crea un clon profundo
-    divClone.id = "producto" + ++i; // mantiene un contador para crear divs con id diferente
-    divPops.appendChild(divClone); //agrega el clone al padre
-    
-    hijos = divClone.childNodes;
-    for (j = 0; j < hijos.length; j++) { 
-        hijos[j].id = hijos[j].id + i; 
-    }
-    
-}
-
-function getValueComboToInput(){
-    var combo = document.getElementById("comboSucursal");
-    var value = combo.options[combo.selectedIndex].value;
-    var input = document.getElementById("codigoProducto");
-    input.value = value;
-    
-}
-
-function deleteDiv(e){
-    
-    
-    var eId = e.id;
-    var vector = eId.split("");
-    var numero = vector[vector.length-1];
-    //var divpops = document.getElementById("producto"+numero);
-    //window.alert(divpops.id);
-    document.getElementById("producto"+numero).remove();
-    
-}
-
-function delete_row(e)
-{
-    e.parentNode.removeChild(e.parentNode);
-}
-
-
-            </script> 
-        <form method="post" action="../../core/Business/ProductoControlador.php">
- 
-<!- -->
-            
-            <div id="contenedorProducto">
-
-            <div id="informacionProducto">
-
-                <label>codigo:</label>
-                <input id="codigo" type="text" value="<?php print_r($totalventas); ?>" readonly> 
-
-                <label>Sucursal:</label>
-                  <select id="comboSucursal" onclick="getValueComboToInput()">
+        <div>
+            <form>
+                <div id="">
+                    <label>codigo</label>
+                    <input type="text" name="codigo">
+                </div>
+                
+                <div>
+                    <label>Nombre</label>
+                    <input type="text" name="nombre"> 
+                </div>
+                
+                <div>
+                    <label>Stock</label>
+                    <input type="number" name="stock"> 
+                </div>
+                
+                <div>
+                    <label>Unidad de Medida</label>
+                    <input type="text" name=unidadMedida> 
+                </div>
+                
+                <div>
+                    <label>Precio</label>
+                    <input type="text" name="precio"> 
+                </div>
+                
+                <div>
+                    <label>Proveedor</label>
+                    <input type="text" name="proveedor"> 
+                </div>
+                
+                <div>
+                    <label>Sucursal</label>
+                    <select id="" name=sucursal"">
                         <ul>
                             <?php
-                            for ($i = 0; $i < count($productos); $i++) {
-                                echo '<option value="' . $productos[$i]->getCodigoProducto() . '">' . $productos[$i]->getSucursal() . '</option>';
+                            for ($i = 0; $i < count($sucursal); $i++) {
+                                echo '<option value="' . $sucursal[$i]->getCedulaJuridica() . '">' . $sucursal[$i]->getNombre() . '</option>';
                             }
                             ?>
                         </ul>
                     </select>
 
-                <label>Fecha y hora</label>
-                <input type="datetime" value="<?php echo $d . ' ' . $m . ' ' . $y ?>" readonly>
-
-             
-
-            </div>
-
-          
-            
-            
-            <div id="detalle">
-                <div id="producto0">
-
-                    <label id="lbCod">Codigo producto:</label>
-                    <input id="codigo" type="text" value="" id="codigoProducto">
-                    
-                    <label id="lbnombre">Nombre producto:</label>
-                    <input id="nombre" type="text">
-                  
-                    
-                    <label id="lbCantidad">Cantidad</label>
-                    <input id="cantdad" type="number">
-                    
-                 
-                    
-                    <input id="delete" type="button" value="X" onclick="deleteDiv(this)">
+                </div>
+                
+                <div>
+                    <label>Categoria</label>
+                    <select id="" name=categoria"">
+                        <ul>
+                            <?php
+                            for ($i = 0; $i < count($categorias); $i++) {
+                                echo '<option value="' . $categorias[$i]->getCodigoCategoria() . '">' . $categorias[$i]->getNombre() . '</option>';
+                            }
+                            ?>
+                        </ul>
+                    </select>
                 </div>
                 
                 
-            </div>
-            <input type="button" onclick="duplicate2()">
-        </div>    
-            
-        </form>
+                
+                <input type="submit">
+            </form>
+        </div>
         
     </body>
     

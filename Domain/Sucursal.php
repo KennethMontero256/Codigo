@@ -5,8 +5,59 @@
     private $cedulaJuridica;
     private $direccion;
     private $telefono;
+    private $nombre;
+    private $disponible;
+    
+    
+    function getNombre() {
+        return $this->nombre;
+    }
 
-    function __construct($cedulaJuridica, $direccion, $telefono)
+    function getDisponible() {
+        return $this->disponible;
+    }
+
+    function setNombre($nombre) {
+        $this->nombre = $nombre;
+    }
+
+    function setDisponible($disponible) {
+        $this->disponible = $disponible;
+    }
+
+                
+    function __construct() {
+        
+    }
+
+    
+    function getCedulaJuridica() {
+        return $this->cedulaJuridica;
+    }
+
+    function getDireccion() {
+        return $this->direccion;
+    }
+
+    function getTelefono() {
+        return $this->telefono;
+    }
+
+    function setCedulaJuridica($cedulaJuridica) {
+        $this->cedulaJuridica = $cedulaJuridica;
+    }
+
+    function setDireccion($direccion) {
+        $this->direccion = $direccion;
+    }
+
+    function setTelefono($telefono) {
+        $this->telefono = $telefono;
+    }
+
+        
+
+    function __constructLleno($cedulaJuridica, $direccion, $telefono)
     {
       $this -> cedulaJuridica = $cedulaJuridica;
       $this -> direccion = $direccion;
