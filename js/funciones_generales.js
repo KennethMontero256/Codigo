@@ -8,7 +8,7 @@ $(document).ready(function(){
 			cargar_pagina("#contenedorGlobal", "../empleados/modulo_pedidos.php");
 		}else{
 			if(opcion == "caja"){
-				cargar_pagina("#contenedorGlobal", "../Ventas/Venta.php");
+				cargar_pagina("#contenedorGlobal", "../Ventas/RealizarVenta.php");
 				$(".xdsoft_datetimepicker").remove();
 			}
 		}
