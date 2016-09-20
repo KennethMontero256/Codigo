@@ -11,6 +11,54 @@
 	padding:10px;
 }
 
+.icono{
+  color: #fff;
+  border-radius: 50%;
+}
+
+.icono.eliminar{
+  background: #ef5350;
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 /*tooltip text*/
 
 /* Add this attribute to the element that needs a tooltip */
@@ -75,6 +123,12 @@
     max-height:177px;
 }
 
+.circulo{
+	padding-top:7px;
+	padding-bottom:5px;
+	padding-left:12px;
+	padding-right:12px;
+}
 
 [data-tooltip]:not([data-tooltip=""]):before {
 width:125px;
@@ -183,6 +237,7 @@ form a{
     left: 0;
     height: 100%;
     width: 100%;
+    z-index: 3;
 }
 
 /*modal recuperar contraseña administrador*/
@@ -452,8 +507,9 @@ input.cmn-toggle-yes-no:checked + label:after {
 
 .contenedorSucursales p{
 	color: #fff;
-	background: #0097a7;
-	padding:10px;
+	background: #009688;
+	padding: 10px;
+	word-spacing: 2px;
 }
 
 .contenedorSucursales .barBusqueda{
@@ -469,54 +525,60 @@ input.cmn-toggle-yes-no:checked + label:after {
 	border-bottom: none;
 }
 
-.contenedorListaSucursales table{
+.contenedorLista table{
 	margin: auto;
 	border-spacing:0;
 }
 
-.contenedorListaSucursales table tbody{
+.contenedorLista table tbody{
 	display: block;
 	min-height: 100px;
-	max-height: 300px;
-	overflow-y:scroll;
+	max-height: 250px;
+	overflow-y:auto;
+	overflow: hidden;
 }
 
-.contenedorListaSucursales table tr:nth-child(odd){
+.contenedorLista table tr:nth-child(odd){
 	background-color:#eeeeee;
 }
 
-.contenedorListaSucursales table td{
+.contenedorLista table td{
 	padding-left:15px;
 	padding-right: 25px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
 
-.contenedorListaSucursales table a{
+.contenedorLista table a{
 	color:#616161;
 	text-decoration: none;
 }
 
-.contenedorSucursales .frmAddSucursal{
+.contenedorSucursales .frmAdd{
 	width: 50%;
 	margin-top:5%;
 	margin-left:23%;
 }
-.frmAddSucursal input{
+
+.frmAdd p{
+	background-color:#fff;
+	color: #616161;
+	border-bottom: 1px solid #616161;
+}
+
+.frmAdd input{
 	border-radius: 0;
 	border-bottom: none;
 	font-size: 15px;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
-.frmAddSucursal input:nth-child(4){
-	margin-bottom: 2%;
-}
-.frmAddSucursal #tituloSelect{
+
+.frmAdd #tituloSelect{
 	margin-left: 23.5%;
 	color: #616161;
 }
 
-.frmAddSucursal select{
+.frmAdd select{
 	margin-top:2%;
 	margin-left:23.5%;
 	padding-right: 25%;
@@ -525,36 +587,70 @@ input.cmn-toggle-yes-no:checked + label:after {
 	font-size: 15px;
 }
 
-.frmAddSucursal #busEmpleado{
+.frmAdd #busEmpleado{
 	display: inline-block;
 	margin-left: 23.5%;
 }
 
-.frmAddSucursal table{
+.frmAdd table{
+	display: block;
+	max-height: 150px;
 	border: 1px solid #c6c6c6;
 	margin-top: 2%;
 	margin-left:23.5%;
 	width:55%;
+	overflow-x: auto;
 }
 
-.frmAddSucursal .contenedorSwitch{
+.frmAdd table td{
+  padding: 16px;
+}
+
+.frmAdd .contenedorSwitch{
 	margin-left: 23.5%;
 }
 
-.frmAddSucursal .switch{
+.frmAdd .switch{
 	display: inline-block;
 	margin-top: 2%;
 }
 
-.frmAddSucursal .contenedorSwitch span{
+.frmAdd .contenedorSwitch span{
 	display:inline-block;
 	color:#616161;
 }
-.frmAddSucursal .btn-submit{
+.frmAdd .btn-submit{
 	font-size: 15px;
 }
 
-.frmAddSucursal .footOpsFrm {
+.frmAdd .footOpsFrm {
   width: 30%;
 	margin-left: 73%;
 }
+
+.etiqueta{
+	display: block;
+	color: #616161;
+}
+
+
+.frmAdd .etiqueta{
+	margin-top: 2%;
+	margin-left: 23.5%;
+}
+
+/*Estilo tablas*/
+table{
+	border-spacing:0;
+}
+table tr{
+	color:#616161;
+}
+table tr:nth-child(odd){
+	background:#c2c2c2;
+}
+
+table td.ocultaTd{
+	display:none;
+}
+/*Estilo tablas*/
