@@ -4,6 +4,14 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
+<<<<<<< HEAD
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	
+</body>
+</html>
+=======
 	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
 </head>
 <body>
@@ -59,3 +67,4 @@
 	</script>
 </body>
 </html>
+>>>>>>> refs/remotes/origin/master
