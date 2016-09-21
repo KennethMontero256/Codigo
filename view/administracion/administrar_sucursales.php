@@ -22,11 +22,14 @@
 		<div id="contenedorLista" class="contenedorLista">
 			<table id="tablaSoloLista">
 				<tbody>
+					<form name="formulario1" action="index.html" method="post">
 
+					</form>
 					<?php
 						echo "<th>Nombre</th>";
 						echo "<th>Dirección</th>";
 						echo "<th>Teléfono</th>";
+						echo "<th></th>";
 						echo "<th></th>";
 						echo "<th></th>";
 
@@ -36,7 +39,7 @@
 	            echo "<td><a href=\"012\">".$reg['nombre']."</a></td>";
 	            echo "<td><a href=\"012\">".$reg['direccion']."</a></td>";
 	            echo "<td><a href=\"012\">".$reg['telefono']."</a></td>";
-	            echo "<td><a href=\"?clase=sucursalController&accion=editar\" class=\"btnEditSucr\">Editar</a></td>";
+	            echo "<td><a href=\"?clase=sucursalController&accion=editar&codigo=".$reg['id']."\" class=\"btnEditSucr\">Editar</a></td>";
 	            echo "<td><a href=\"012\" class=\"btnEditSucr\">Eliminra</a></td>";
 	            echo "</tr>";
 	          }

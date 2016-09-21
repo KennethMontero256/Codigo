@@ -6,7 +6,12 @@
   </head>
   <body>
     <form class="" action="index.html" method="post">
-      Editar sucursal
+      <?php
+        if ($reg=mysqli_fetch_array($sucursal)) {
+          echo $reg['id'];
+        }
+       ?>
+      <input type="text" name="name" value="$sucursal[]">
     </form>
   </body>
 </html>
