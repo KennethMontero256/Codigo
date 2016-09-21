@@ -54,11 +54,11 @@ $(document).ready(function(){
     }
     /*Muestra form Agregar sucursal*/
 	$(".addSucursal").on("click",function(){
-<<<<<<< HEAD
+
 		alert("K");
-=======
+
 		llenarSelectEmpleados();
->>>>>>> refs/remotes/origin/master
+
 		mostr_ocultr("frmAddSucursal");
 	});
 
@@ -88,9 +88,9 @@ $(document).ready(function(){
         else
             $("#"+id).hide('slow');
     }
-<<<<<<< HEAD
+
 });
-=======
+
 
     /*Enviar formulario Agregar Sucursal*/
 
@@ -230,9 +230,8 @@ $(document).ready(function(){
         });
     }
 
-});
 
 
 
 
->>>>>>> refs/remotes/origin/master
+
