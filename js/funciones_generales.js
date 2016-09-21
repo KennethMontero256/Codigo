@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$('.opBarNav').on('click',function(e){
 		e.preventDefault();
 		var opcion = this.getAttribute("href");
-		
+
 		if(opcion == "pedido"){
 			cargar_pagina("#contenedorGlobal", "../empleados/modulo_pedidos.php");
 		}else{
@@ -54,7 +54,11 @@ $(document).ready(function(){
     }
     /*Muestra form Agregar sucursal*/
 	$(".addSucursal").on("click",function(){
+<<<<<<< HEAD
+		alert("K");
+=======
 		llenarSelectEmpleados();
+>>>>>>> refs/remotes/origin/master
 		mostr_ocultr("frmAddSucursal");
 	});
 
@@ -70,6 +74,7 @@ $(document).ready(function(){
 
 	$('.flotante').on('click',function(e){
 		 e.preventDefault();
+		 alert("K");
 		var opcion = this.getAttribute("href");
 		if(opcion = "frmPedidoSucr"){
 			mostr_ocultr("frmPedidoSucur");
@@ -77,11 +82,15 @@ $(document).ready(function(){
 	});
 
 	function mostr_ocultr(id){
+		alert("K");
         if ( $("#"+id).is (':hidden'))
             $("#"+id).show('slow');
         else
             $("#"+id).hide('slow');
     }
+<<<<<<< HEAD
+});
+=======
 
     /*Enviar formulario Agregar Sucursal*/
 
@@ -226,3 +235,4 @@ $(document).ready(function(){
 
 
 
+>>>>>>> refs/remotes/origin/master
