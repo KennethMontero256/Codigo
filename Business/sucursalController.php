@@ -9,6 +9,10 @@
       include("view/administrador/sucursales.php");
       break;
 
+    case 'mostrarSucursales':
+      echo  $dataSucursal->getSucursales();
+    break;
+
     case 'editar':
       echo "Opcion inhabilitada!";
       break;

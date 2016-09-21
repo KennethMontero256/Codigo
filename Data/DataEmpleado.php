@@ -1,15 +1,16 @@
 <?php
+	include_once ("Data.php");
+	
+	class DataEmpleado {
 
-	require ("Conexion.php");
-
-	class DataEmpleado extends Conexion{
+		var $conexion;
 
 		public function DataEmpleado(){
-			parent::__construct();
+			$mysqli = new Data();
+			$this->conexion = $mysqli->getConexion();
 		}
 
 		public function insertarEmpleado($arrayDatos){
-			
 			$query = "INSERT INTO empleado (cedula,nombre,telefono) VALUES ();"; 
 			$result = $this->conexion->query($query);
 		}
@@ -26,8 +27,6 @@
 
 				   	$index ++;
 		    	}
-
-			$this->closeConnection();
 		    return json_encode($data);
 			}
 		}

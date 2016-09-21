@@ -1,3 +1,7 @@
+<?php
+	
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +21,8 @@
 				<tbody>
 					<tr class="itemListaSoloTabla">
 						<td><a href="012">Cariari</a></td>
-						<td><a href="012" class="btnEditSucr">editar</a></td>
-						<td><a href="012" class="btnEliminar">Eliminar</a></td>
+						<td><a href="012" class="btnEditSucr"><span class="icon-pencil"></span></a></td>
+						<td><a href="012" class="btnEliminar"><span class="icon-bin2"></span></a></td>
 					</tr>
 					
 				</tbody>

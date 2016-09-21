@@ -15,6 +15,12 @@
 				<li><a href="admsucursal" class="opBarNav">Sucursales</a></li>
 			    <li><a href="admempleado" class="opBarNav">Empleados</a></li>
     			<li><a href="admpedido" class="opBarNav">Pedidos</a></li>
+    			<li><a href="opUsuario" class="opBarNav" >Administrador: <?php echo $_SESSION["nombreAdmin"];?></a>
+					<ul>
+						<li><a href="#">Cambiar contraseña</a></li>
+						<li><a href="logout.php">Cerrar sesión</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	  </nav>

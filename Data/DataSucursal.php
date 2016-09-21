@@ -1,17 +1,21 @@
 <?php
 
-require ("Conexion.php");
+include_once 'Data.php';
 
-class DataSucursal extends Conexion {
+class DataSucursal{
+
+    private $mysqli;
 
     public function DataSucursal() {
-        parent::__construct();
+
+        $this->mysqli = new Data();
     }
 
     public function insertarSucursal($arrayDatos) {
         $sucursal = json_decode($arrayDatos);
-
-        $sentencia = $this->conexion->prepare("CALL paAgregarSucursal(?,?,?,?,?)");
+        
+        $conexion = $this->mysqli->getConexion();
+        $sentencia = $conexion->prepare("CALL paAgregarSucursal(?,?,?,?,?)");
         mysqli_stmt_bind_param($sentencia, "sssss", $nombre, $direccion, $telf, $disponible, $idAdmin);
         $nombre = $sucursal->nombre;
         $direccion = htmlentities($sucursal->direccion, ENT_QUOTES, 'UTF-8');
@@ -23,7 +27,7 @@ class DataSucursal extends Conexion {
 
         /* Obtiene la sucursal agregada */
         $query = "SELECT id FROM sucursal ORDER BY id DESC LIMIT 1;";
-        $result = $this->conexion->query($query);
+        $result = $conexion->query($query);
 
         $idSucursal = 0;
         if ($result->num_rows > 0) {
@@ -34,17 +38,33 @@ class DataSucursal extends Conexion {
 
         foreach (json_decode($sucursal->empleados) as $obj) {
             echo "cedula: " . $obj->cedula . "<br>";
-            $stmt = $this->conexion->prepare("CALL paActualizarSucursalEmpleado(?,?)");
+            $stmt = $conexion->prepare("CALL paActualizarSucursalEmpleado(?,?)");
             mysqli_stmt_bind_param($stmt, "ss", $cedula, $idSucursal);
             $cedula = $obj->cedula;
             echo "Ultimo id: " . $idSucursal;
             $stmt->execute();
         }
 
-        $this->closeConnection();
+        mysqli_close($conexion);
     }
     
-    
+    public function getSucursales(){
+        $conexion = $this->mysqli->getConexion();
+        $query = "CALL ucrgrupo4.paMostrarSucursales;"; 
+        
+        $result = $conexion->query($query);
+
+        if ($result) {
+            $index = 0;
+            while ($row = $result->fetch_assoc()) {
+                $data[$index]["id"] = $row['id'];
+                $data[$index]["nombre"] = $row['nombre'];
+                $data[$index]["disponible"] = $row['disponible'];
+                $index ++;
+            }
+            return json_encode($data);
+        }
+    }
 
 }
 
