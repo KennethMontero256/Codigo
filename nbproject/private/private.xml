@@ -3,16 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Codigo/Domain/Venta.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/css/estilo_principal.css</file>
+            <file>file:/C:/xampp/htdocs/Codigo/Data/DataSucursal2.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/Domain/Proveedor.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/Data/Data.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/Data/DataProveedor.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/core.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/view/Producto/AgregarProducto.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/Data/DataCategoria.php</file>
             <file>file:/C:/xampp/htdocs/Codigo/Data/DataProducto.php</file>
             <file>file:/C:/xampp/htdocs/Codigo/Domain/Producto.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/Data/DataVenta.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/Domain/Categoria.php</file>
             <file>file:/C:/xampp/htdocs/Codigo/view/Ventas/RealizarVenta.php</file>
             <file>file:/C:/xampp/htdocs/Codigo/Business/insertarProducto.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/Domain/LineaVenta.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/view/modules/paginaPrincipal.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/Business/empleadoController.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/Business/ProductoControlador.php</file>
         </group>
     </open-files>
 </project-private>
