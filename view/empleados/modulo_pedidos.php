@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Pedidos</title>
-	<link rel="stylesheet" type="text/css" href="../css/jquery.datetimepicker.css">
-	<script type="text/javascript" src="../js/funciones_generales.js"></script>
-	<script type="text/javascript" src="../js/jquery.datetimepicker.full.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css">
+	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
+	<script type="text/javascript" src="../../js/jquery.datetimepicker.full.js"></script>
 </head>
 <body>
 	<div class="menuLateral">
@@ -44,86 +44,6 @@
 							<td>rastrear</td>
 							<td><input type="checkbox" name=""></td>
 						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-
-					<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-						
 					</tbody>
 				</table>
 			</div>
@@ -157,86 +77,7 @@
 							<td>Mani salado</td>
 							<td>5300k</td>
 						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
+			
 					</tbody>
 				</table>
 			</form>	
