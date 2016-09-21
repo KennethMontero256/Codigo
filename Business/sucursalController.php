@@ -1,6 +1,6 @@
 <?php
   include_once "../Data/DataSucursal.php";
-  $dataSucursal = new Data();
+  $dataSucursal = new DataSucursal();
 
   switch ($_GET['accion']) {
 
@@ -20,6 +20,10 @@
 
     case 'addSucursal':
       $dataSucursal->insertarSucursal($_REQUEST["arrayDatos"]);
+      break;
+
+    case 'borrarSucursal':
+      $dataSucursal->eliminarSucursal($_REQUEST["idSucursal"]);
       break;
 
     default:

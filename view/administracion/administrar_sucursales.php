@@ -10,9 +10,6 @@
 </head>
 
 <body>
-
-	<?php include("view/administracion/barraNavegacionPrincipal.php"); ?>
-
 	<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
 		<a class="addSucursal tooltip" data-tooltip="Agregar sucursal"><span class="icon-plus2"></span></a>

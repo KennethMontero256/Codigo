@@ -66,9 +66,7 @@ $(document).ready(function(){
     /*Muestra form Agregar sucursal*/
 	$(".addSucursal").on("click",function(){
         $("#selectEmpleados").empty();
-
 		llenarSelectEmpleados();
-
 		mostr_ocultr("frmAddSucursal");
 	});
 
@@ -84,7 +82,7 @@ $(document).ready(function(){
 
 	$('.flotante').on('click',function(e){
 		 e.preventDefault();
-		 alert("K");
+		
 		var opcion = this.getAttribute("href");
 		if(opcion = "frmPedidoSucr"){
 			mostr_ocultr("frmPedidoSucur");
@@ -92,7 +90,7 @@ $(document).ready(function(){
 	});
 
 	function mostr_ocultr(id){
-		alert("K");
+		
         if ( $("#"+id).is (':hidden'))
             $("#"+id).show('slow');
         else
@@ -223,12 +221,19 @@ $(document).ready(function(){
                     }else{
                          nuevaFila += "<td>Sucursal deshabilitada</td>";
                     }
-                    nuevaFila +="<td><a href='trTbSucursal"+data[i].id+"' class='icono'><span class='icon-bin2'></span></a></td>";
+                    nuevaFila +="<td><a href='trTbSucursal"+data[i].id+"' class='icono eliminarSucur'><span class='icon-bin2'></span></a></td>";
                     nuevaFila +="<td><a href='trTbSucursal"+data[i].id+"' class='icono'><span class='icon-pencil'></span></a></td>";
                     nuevaFila += "</tr>";
 
                     $("#tablaSoloLista").append(nuevaFila);
                });
+                $("a.eliminarSucur").off('click');
+                $("a.eliminarSucur").on('click', function(e) {
+                    e.preventDefault();
+                    var id = this.getAttribute("href");
+
+                    alert("eliminar: "+id.split('trTbSucursal')[0]);
+                });
             }
         });
     }

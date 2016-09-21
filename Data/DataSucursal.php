@@ -54,7 +54,7 @@ class DataSucursal{
         
         $result = $conexion->query($query);
 
-        if ($result) {
+        if ($result->num_rows > 0) {
             $index = 0;
             while ($row = $result->fetch_assoc()) {
                 $data[$index]["id"] = $row['id'];
@@ -64,6 +64,18 @@ class DataSucursal{
             }
             return json_encode($data);
         }
+        mysqli_close($conexion);
+    }
+
+    public function eliminarSucursal($id){
+        $conexion = $this->mysqli->getConexion();
+        $query = "DELETE FROM sucursal WHERE id=$id"; 
+
+        $result = $conexion->query($query);
+
+        mysqli_close($conexion);
+
+        return $result->num_rows;
     }
 
 }
