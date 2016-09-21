@@ -20,5 +20,6 @@ function listaSucursales(accion){
 function editarSucursal(accion){
   var capa = document.getElementById("contenedorLista");
   document.getElementById("contenedorLista").innerHTML = "Cargando...";
+  //alert("Cód: "+accion);
   $(capa).load("?clase=sucursalController&&accion="+accion);
 }
