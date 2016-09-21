@@ -9,7 +9,7 @@
       include("view/administrador/sucursales.php");
       break;
 
-    case 'editar':
+    case 'editarSucursal':
       $sucursal = mysqli_query($dataSucursal,"SELECT * FROM sucursal WHERE id = '$_GET[codigo]' ") or die("Error al cargar registros ".mysqli_error($conexion));
       include("view/administracion/editarSucursal.php");
       break;

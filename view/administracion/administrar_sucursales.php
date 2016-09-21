@@ -39,7 +39,7 @@
 	            echo "<td><a href=\"012\">".$reg['nombre']."</a></td>";
 	            echo "<td><a href=\"012\">".$reg['direccion']."</a></td>";
 	            echo "<td><a href=\"012\">".$reg['telefono']."</a></td>";
-	            echo "<td><a href=\"?clase=sucursalController&accion=editar&codigo=".$reg['id']."\" class=\"btnEditSucr\">Editar</a></td>";
+	            echo "<td><a href=\"?clase=sucursalController&accion=editarSucursal&codigo=".$reg['id']."\" class=\"btnEditSucr\">Editar</a></td>";
 	            echo "<td><a href=\"012\" class=\"btnEditSucr\">Eliminra</a></td>";
 	            echo "</tr>";
 	          }
