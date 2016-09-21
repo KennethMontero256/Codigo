@@ -161,6 +161,11 @@ function sumaTotal(){
                             <label id="lbNombre">Nombre producto:</label>
                             <select id="comboProductos" onclick="getPrecio(this)" name="combo[]">
                                 <ul>
+                                    
+                                    <option>
+                                        Seleccione un producto
+                                    </option>
+                                    
                                     <?php
                                     for ($i = 0; $i < count($productos); $i++) {
                                         echo '<option value="' . $productos[$i]->getCodigoProducto() . '">' . $productos[$i]->getNombre() . '</option>';
