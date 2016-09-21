@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿<?php
+<?php
 
 class Data extends mysqli {
 
@@ -28,6 +27,5 @@ function getConnection(){
     }
     return $mysqli;
 }
-
 
 ?>
