@@ -6,7 +6,7 @@
   </head>
   <body>
     <form class="" action="index.html" method="post">
-
+      Editar sucursal
     </form>
   </body>
 </html>
