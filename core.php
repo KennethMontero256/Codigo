@@ -3,5 +3,6 @@
   define('DB_USER','ucrgrupo4');
   define('DB_PASS','Grupo#4LkF!');
   define('DB_NAME','ucrgrupo4');
-	//prueba
+
+  require("Data/Data.php");
 ?>
