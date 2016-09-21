@@ -65,13 +65,8 @@ $(document).ready(function(){
     }
     /*Muestra form Agregar sucursal*/
 	$(".addSucursal").on("click",function(){
-<<<<<<< HEAD
         $("#selectEmpleados").empty();
-=======
 
-		alert("K");
-
->>>>>>> 1dc226a5b89c9b22e6ad3407a73fdc116463f5c7
 		llenarSelectEmpleados();
 
 		mostr_ocultr("frmAddSucursal");
