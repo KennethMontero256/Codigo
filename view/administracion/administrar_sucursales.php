@@ -1,7 +1,3 @@
-<?php
-	
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,38 +22,6 @@
 		<div id="contenedorLista" class="contenedorLista">
 			<table id="tablaSoloLista">
 				<tbody>
-<<<<<<< HEAD
-					<tr class="itemListaSoloTabla">
-						<td><a href="012">Cariari</a></td>
-						<td><a href="012" class="btnEditSucr"><span class="icon-pencil"></span></a></td>
-						<td><a href="012" class="btnEliminar"><span class="icon-bin2"></span></a></td>
-					</tr>
-					
-=======
-					<form name="formulario1" action="index.html" method="post">
-
-					</form>
-					<?php
-						echo "<th>Nombre</th>";
-						echo "<th>Dirección</th>";
-						echo "<th>Teléfono</th>";
-						echo "<th></th>";
-						echo "<th></th>";
-						echo "<th></th>";
-
-						while ($reg=mysqli_fetch_array($registro))
-	          {
-	            echo "<tr class=\"itemListaSucursal\">";
-	            echo "<td><a href=\"012\">".$reg['nombre']."</a></td>";
-	            echo "<td><a href=\"012\">".$reg['direccion']."</a></td>";
-	            echo "<td><a href=\"012\">".$reg['telefono']."</a></td>";
-	            echo "<td><a href=\"?clase=sucursalController&accion=editarSucursal&codigo=".$reg['id']."\" class=\"btnEditSucr\">Editar</a></td>";
-	            echo "<td><a href=\"012\" class=\"btnEditSucr\">Eliminra</a></td>";
-	            echo "</tr>";
-	          }
-	        ?>
-
->>>>>>> 1dc226a5b89c9b22e6ad3407a73fdc116463f5c7
 				</tbody>
 			</table>
 
@@ -93,10 +57,6 @@
 			</div>
 		</form>
 	</div>
-
-	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
-	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
-
 	<script type="text/javascript" src="js/funciones_generales.js"></script>
 	<script type="text/javascript" src="js/jquery.tablefilter.js"></script>
 
