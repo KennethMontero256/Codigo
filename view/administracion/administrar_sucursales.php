@@ -4,23 +4,27 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Administrador</title>
-	<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
-	<script type="text/javascript" src="js/funcionesAdministrador.js"></script>
-	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
 </head>
 
 <body>
-
-	<?php include("view/administracion/barraNavegacionPrincipal.php"); ?>
-
 	<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
 		<a class="addSucursal tooltip" data-tooltip="Agregar sucursal"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal" class="inputShadow">
 		</div>
+<<<<<<< HEAD
+		<div id="contenedorLista" class="contenedorLista">
+			<table id="tablaSoloLista">
+				<tbody>
+				</tbody>
+			</table>
+
+		</div>
+=======
 
 		<?php include("view/administracion/sucursales.php"); ?>
+>>>>>>> refs/remotes/origin/256
 
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
 		<form name="frmAddSucursal" method="get" accept-charset="utf-8" class="frmAdd">
@@ -52,12 +56,8 @@
 			</div>
 		</form>
 	</div>
-
-	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
+	<script type="text/javascript" src="../../js/funciones_adminSucursal.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
-
-	<script type="text/javascript" src="js/funciones_generales.js"></script>
-	<script type="text/javascript" src="js/jquery.tablefilter.js"></script>
 
 	<script>
 		$(function() {
