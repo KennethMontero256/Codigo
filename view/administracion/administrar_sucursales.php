@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
 </head>
 <body>
 	<div class="contenedorSucursales">
@@ -21,21 +20,7 @@
 						<td><a href="012" class="btnEditSucr">editar</a></td>
 						<td><a href="012" class="btnEliminar">Eliminar</a></td>
 					</tr>
-					<tr class="itemListaSoloTabla">
-						<td><a href="012">Guápiles</a></td>
-						<td><a href="012">editar</a></td>
-						<td><a href="012">Eliminar</a></td>
-					</tr>
-					<tr class="itemListaSoloTabla">
-						<td><a href="012">Siquirres</a></td>
-						<td><a href="012">editar</a></td>
-						<td><a href="012">Eliminar</a></td>
-					</tr>
-					<tr class="itemListaSoloTabla">
-						<td><a href="012">San josé</a></td>
-						<td><a href="012">editar</a></td>
-						<td><a href="012">Eliminar</a></td>
-					</tr>
+					
 				</tbody>
 			</table>
 
@@ -47,17 +32,18 @@
 			<input type="text" name="nomSucursal" placeholder="Nombre de sucursal">
 			<input type="text" name="direccion" placeholder="Dirección">
 			<input type="text" name="telf" placeholder="Teléfono">
-			<input type="text" id="busEmpleado" placeholder="Ingrese el nombre de algun empleado">
-			<a href="">AddEmpleado</a>
+			<select name="" id="selectEmpleados">
+			</select>
+			<a href="AgregarEmpleado" id="addEmpleado">AddEmpleado</a>
 			<table id="tbEmpleados">
 				<tbody>
-					
+	
 				</tbody>
 			</table>
 			<div class="contenedorSwitch">
 			    <span>¿Habilitado?</span>
 				<div class="switch">
-				  <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+				  <input id="cmn-toggle-7" name="habilitado" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
 				  <label for="cmn-toggle-7" id="habilitado" data-on="Si" data-off="No"></label>
 				</div>
 			</div>

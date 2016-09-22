@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="../../css/iconosFuente/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/notifIt.css">
 	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
+	<script type="text/javascript" src="../../js/jquery-1.12.3.js"></script>
+	<script type="text/javascript" src="../../css/jquery-ui.css"></script>
+	<script type="text/javascript" src="../../js/jquery-ui.js"></script>
 </head>
 <body>
 	<?php
