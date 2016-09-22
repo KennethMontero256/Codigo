@@ -3,8 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
+	<title>Administrador</title>
 </head>
+
 <body>
 	<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
@@ -12,32 +13,29 @@
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal" class="inputShadow">
 		</div>
-		<div class="contenedorLista">
+		<div id="contenedorLista" class="contenedorLista">
 			<table id="tablaSoloLista">
 				<tbody>
-					<tr class="itemListaSoloTabla">
-						<td><a href="012">Cariari</a></td>
-						<td><a href="012" class="btnEditSucr">editar</a></td>
-						<td><a href="012" class="btnEliminar">Eliminar</a></td>
-					</tr>
-					
 				</tbody>
 			</table>
 
 		</div>
+
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
-		
 		<form name="frmAddSucursal" method="get" accept-charset="utf-8" class="frmAdd">
+
 			<p>Formulario para sucursal</p>
 			<input type="text" name="nomSucursal" placeholder="Nombre de sucursal">
 			<input type="text" name="direccion" placeholder="Dirección">
 			<input type="text" name="telf" placeholder="Teléfono">
+
 			<select name="" id="selectEmpleados">
+
 			</select>
+
 			<a href="AgregarEmpleado" id="addEmpleado">AddEmpleado</a>
 			<table id="tbEmpleados">
 				<tbody>
-	
 				</tbody>
 			</table>
 			<div class="contenedorSwitch">
@@ -53,7 +51,9 @@
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript" src="../../js/funciones_adminSucursal.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
+
 	<script>
 		$(function() {
 			theTable = $("#tablaSoloLista");
