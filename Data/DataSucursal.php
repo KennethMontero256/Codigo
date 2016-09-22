@@ -72,10 +72,10 @@ class DataSucursal{
         $query = "DELETE FROM sucursal WHERE id=$id"; 
 
         $result = $conexion->query($query);
-
+        $afectados =  mysqli_affected_rows($conexion);
         mysqli_close($conexion);
 
-        return $result->num_rows;
+        return $afectados;
     }
 
 }

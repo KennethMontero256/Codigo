@@ -1,5 +1,6 @@
 $(document).ready(function(){
     mostrarSucursalesAdmin();
+    alertify.set('notifier','position', 'top-left');
 	$("#bSubmitFrmLoginAdm").on("click",function(e){
         e.preventDefault();
         var formulario = document.frmLoginAdm;
@@ -221,23 +222,48 @@ $(document).ready(function(){
                     }else{
                          nuevaFila += "<td>Sucursal deshabilitada</td>";
                     }
-                    nuevaFila +="<td><a href='trTbSucursal"+data[i].id+"' class='icono eliminarSucur'><span class='icon-bin2'></span></a></td>";
+                    nuevaFila +="<td><a href='trTbSucursal"+data[i].id+"' data-id="+data[i].id+" class='icono eliminarSucur'><span class='icon-bin2'></span></a></td>";
                     nuevaFila +="<td><a href='trTbSucursal"+data[i].id+"' class='icono'><span class='icon-pencil'></span></a></td>";
                     nuevaFila += "</tr>";
 
                     $("#tablaSoloLista").append(nuevaFila);
                });
-                $("a.eliminarSucur").off('click');
-                $("a.eliminarSucur").on('click', function(e) {
-                    e.preventDefault();
-                    var id = this.getAttribute("href");
-
-                    alert("eliminar: "+id.split('trTbSucursal')[0]);
-                });
+                agregarEventoEliminarSucursal();  
             }
         });
     }
+    /*Eliminar una sucursal*/
+    function agregarEventoEliminarSucursal(){
+        $("a.eliminarSucur").off('click');
+        $("a.eliminarSucur").on('click', function(e) {
+            var id = $(this).attr("data-id");
+            e.preventDefault();
+            alertify.confirm(
+                '¿Desea eliminar la sucursal?', 
+                function(){ 
+                    eliminarSucursal(id);
+                }, 
+                function(){ 
+                alertify.error('Cancelado')
+            });
+        });
+    }
 
+    function  eliminarSucursal(idSucursal){
+
+         $.ajax({
+            url:'../../Business/sucursalController.php?accion=borrarSucursal',
+            type:'GET',
+            data:{idSucursal:idSucursal},
+            success: function(responseText){
+                if(responseText>0){
+                    alertify.success("Eliminada")
+                }
+                mostrarSucursalesAdmin();
+            }
+        });
+    }
+    /*FIN------------Eliminar una sucursal*/
     function addEmpleadoTb(){
     	if($("#selectEmpleados option:selected").html()!=undefined){
 	        var trs = $("#tbEmpleados tr").length;
@@ -261,6 +287,18 @@ $(document).ready(function(){
 		}
     }
 
+    function eliminarOpDeTb(obj){
+        var idFila = obj.getAttribute("href");
+        var nombre, cedula;
+         
+         $("#"+idFila).children("td").each(function (index2){
+            $(document).ready(function(){
+         });
+         $("#"+idFila).remove();
+         addOpSelect(cedula, nombre);
+    });
+
+    }
     function eliminarOpSelect(valor){
     	$("#selectEmpleados").find("option[value='"+valor+"']").remove(); 
     }
@@ -291,12 +329,7 @@ $(document).ready(function(){
     }
 
     function mostrarMsjError(mensaje){
-    	notif({
-            'type': 'error',
-            'msg': mensaje,
-            'position': 'right',
-            'timeout': 40000
-        });
+    	alertify.error(mensaje);
     }
 
 

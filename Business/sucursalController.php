@@ -23,7 +23,7 @@
       break;
 
     case 'borrarSucursal':
-      $dataSucursal->eliminarSucursal($_REQUEST["idSucursal"]);
+     echo $dataSucursal->eliminarSucursal($_REQUEST["idSucursal"]);
       break;
 
     default:
