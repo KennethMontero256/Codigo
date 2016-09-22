@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Administrador</title>
-	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
 </head>
 
 <body>
@@ -52,7 +51,7 @@
 			</div>
 		</form>
 	</div>
-	<script type="text/javascript" src="js/funciones_generales.js"></script>
+	<script type="text/javascript" src="../../js/funciones_adminSucursal.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
 
 	<script>
