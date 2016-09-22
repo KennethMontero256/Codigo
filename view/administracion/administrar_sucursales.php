@@ -19,36 +19,8 @@
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal" class="inputShadow">
 		</div>
-		<div id="contenedorLista" class="contenedorLista">
-			<table id="tablaSoloLista">
-				<tbody>
-					<form name="formulario1" action="index.html" method="post">
 
-					</form>
-					<?php
-						echo "<th>Nombre</th>";
-						echo "<th>Dirección</th>";
-						echo "<th>Teléfono</th>";
-						echo "<th></th>";
-						echo "<th></th>";
-						echo "<th></th>";
-
-						while ($reg=mysqli_fetch_array($registro))
-	          {
-	            echo "<tr class=\"itemListaSucursal\">";
-	            echo "<td><a href=\"012\">".$reg['nombre']."</a></td>";
-	            echo "<td><a href=\"012\">".$reg['direccion']."</a></td>";
-	            echo "<td><a href=\"012\">".$reg['telefono']."</a></td>";
-	            echo "<td><a href=\"?clase=sucursalController&accion=editarSucursal&codigo=".$reg['id']."\" class=\"btnEditSucr\">Editar</a></td>";
-	            echo "<td><a href=\"012\" class=\"btnEditSucr\">Eliminra</a></td>";
-	            echo "</tr>";
-	          }
-	        ?>
-
-				</tbody>
-			</table>
-
-		</div>
+		<?php include("view/administracion/sucursales.php"); ?>
 
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
 		<form name="frmAddSucursal" method="get" accept-charset="utf-8" class="frmAdd">
