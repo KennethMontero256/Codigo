@@ -13,6 +13,7 @@
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal" class="inputShadow">
 		</div>
+<<<<<<< HEAD
 		<div id="contenedorLista" class="contenedorLista">
 			<table id="tablaSoloLista">
 				<tbody>
@@ -20,6 +21,10 @@
 			</table>
 
 		</div>
+=======
+
+		<?php include("view/administracion/sucursales.php"); ?>
+>>>>>>> refs/remotes/origin/256
 
 	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
 		<form name="frmAddSucursal" method="get" accept-charset="utf-8" class="frmAdd">
