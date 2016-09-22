@@ -6,8 +6,11 @@
             include_once '../../Domain/Sucursal.php';
             include_once '../../Domain/Categoria.php';
             include_once '../../Data/DataCategoria.php';
+            include_once '../../Domain/Proveedor.php';
+            include_once '../../Data/DataProveedor.php';
             $sucursal= getSucursal();
             $categorias = getCategoria();
+            $proveedor = getProveedores();
             
             
             //var_dump($sucursal);
@@ -16,7 +19,7 @@
     
     <body>
         <div>
-            <form>
+            <form method="post" action="../../Business/ProductoControlador.php" accept-charset="UTF-8">
                 <div id="">
                     <label>codigo</label>
                     <input type="text" name="codigo">
@@ -44,7 +47,16 @@
                 
                 <div>
                     <label>Proveedor</label>
-                    <input type="text" name="proveedor"> 
+                    <select id="" name=proveedor"">
+                        <ul>
+                            <?php
+                            for ($i = 0; $i < count($proveedor); $i++) {
+                                echo '<option value="' . $proveedor[$i]->getCedulaProveedor() . '">' . $proveedor[$i]->getNombre() . '</option>';
+                            }
+                            ?>
+                        </ul>
+                    </select>
+                    
                 </div>
                 
                 <div>

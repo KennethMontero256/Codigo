@@ -4,12 +4,12 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" href="">
 </head>
 <body>
 	<div class="contenedorSucursales">
 		<p>Empleados</p>
-		<a class="addSucursal tooltip" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
+		<a class="addSucursal tooltip" id="addEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de un empleado" class="inputShadow">
 		</div>
@@ -21,28 +21,27 @@
 			</table>
 
 		</div>
-	<div class="contenedorModal" id="frmAddSucursal" name="frmAddSucursal" style="display:none;">
+	<div class="contenedorModal" id="frmAddEmpleado" name="frmAddEmpleado" style="display:none;">
 		
-		<form action="" method="get" accept-charset="utf-8" class="frmAdd">
+		<form action="" name="frmAddEmpleado" method="get" accept-charset="utf-8" class="frmAdd">
 			<p>Formulario para empleado</p>
-			<input type="text" name="" placeholder="Cédula">
-			<input type="text" name="" placeholder="Nombre completo">
-			<input type="text" name="" placeholder="Teléfono">
+			<input type="text" name="cedula" id="cedula" placeholder="Cédula, ejemplo:102220333">
+			<input type="text" name="nombreEmpl" placeholder="Nombre completo">
+			<input type="text" name="telf" id="telf" placeholder="Teléfono, ejemplo:8888-2222" >
 			<span class="etiqueta">Agregar sucursal de trabajo</span>
-			<select name="">
-				<option value="">Cariari</option>
-				<option value="">Guápiles</option>
+			<select name="selectSucursal" id="selectSucursal">
+				<option value="0">Ninguna</option>
 			</select>
 			<div class="contenedorSwitch">
 			    <span>¿Habilitado?</span>
 				<div class="switch">
-				  <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+				  <input id="cmn-toggle-7" name="emplHabl" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
 				  <label for="cmn-toggle-7" data-on="Si" data-off="No"></label>
 				</div>
 			</div>
 			<div class="footOpsFrm">
-				<a href="frmAddSucursal" class="btn-submit">Registrar</a>
-				<a href="frmAddSucursal" class="btn-submit btn-cancel">Cancelar</a>
+				<a href="frmAddEmpleado" class="btn-submit bRegEmpleado">Registrar</a>
+				<a href="frmAddEmpleado" class="btn-submit btn-cancel">Cancelar</a>
 			</div>
 		</form>
 	</div>
@@ -55,6 +54,36 @@
 			$("#txtBusqSucur").keyup(function() {
 				$.uiTableFilter(theTable, this.value);
 			});
+
+			$("#telf")
+	        .mask("9999-9999")
+	        .focusout(function (event) {  
+	            var target, phone, element;  
+	            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+	            phone = target.value.replace(/\D/g, '');
+	            element = $(target);  
+	            element.unmask();  
+	            if(phone.length > 10) {  
+	                element.mask("9999-9999");  
+	            } else {  
+	                element.mask("9999-9999");  
+	            }  
+	        });
+
+	        $("#cedula")
+	        .mask("909990999")
+	        .focusout(function (event) {  
+	            var target, phone, element;  
+	            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+	            phone = target.value.replace(/\D/g, '');
+	            element = $(target);  
+	            element.unmask();  
+	            if(phone.length > 10) {  
+	                element.mask("909990999");  
+	            } else {  
+	                element.mask("909990999");  
+	            }  
+	        });
 		});
 	</script>
 </body>

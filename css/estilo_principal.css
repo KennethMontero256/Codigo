@@ -11,6 +11,13 @@
 	padding:10px;
 }
 
+.mensajes{
+  padding: 5px;
+  color:#1e88e5;
+  font-size: 14px;
+  border:none;
+}
+
 .icono{
   color: #fff;
   border-radius: 50%;
@@ -535,7 +542,6 @@ input.cmn-toggle-yes-no:checked + label:after {
 	min-height: 100px;
 	max-height: 250px;
 	overflow-y:auto;
-	overflow: hidden;
 }
 
 .contenedorLista table tr:nth-child(odd){

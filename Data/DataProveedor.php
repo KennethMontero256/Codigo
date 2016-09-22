@@ -1,32 +1,28 @@
 <?php
 
-/*
+/* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-include_once 'Data.php';
-
-
-function getSucursal() {
+function getProveedores(){
     $mysqli = getConnection();
-    $sql = "SELECT * FROM Sucursal;";
+    $sql = "select * from proveedor;";
     $resultado = $mysqli->query($sql);
     $vector = [];
     if ($resultado->num_rows > 0) {
         // output data of each row
         while ($row = $resultado->fetch_assoc()) {
-            $sucursal = new Sucursal();
-            $sucursal->setCedulaJuridica($row['id']);
-            $sucursal->setNombre($row['nombre']);
-            $sucursal->setDireccion($row['direccion']);
-            $sucursal->setTelefono($row['telefono']);
-            array_push($vector, $sucursal);
+            $gdfjh = new Proveedor();
+            $proveedor = new Proveedor();
+            $proveedor->setNombre($row['nombreCompleto']);
+            $proveedor->setCedulaProveedor($row['cedulaJuridica']);
+            array_push($vector, $proveedor);
         }
     } else {
         echo "0 results";
     }
-    $mysqli->close();
+    $mysqli->close();     
     return $vector;
 }
