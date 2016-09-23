@@ -1,32 +1,17 @@
 <?php
-	include_once ("Data.php");
-	
-	class DataEmpleado {
 
-		var $conexion;
+	require ("Conexion.php");
+
+	class DataEmpleado extends Conexion{
 
 		public function DataEmpleado(){
-			$mysqli = new Data();
-			$this->conexion = $mysqli->getConexion();
+			parent::__construct();
 		}
 
 		public function insertarEmpleado($arrayDatos){
-			$empleado = json_decode($arrayDatos);
-
-			$sentencia = $this->conexion->prepare("CALL paInsertarEmpleado(?,?,?,?,?,?,?,?)");
-	        mysqli_stmt_bind_param($sentencia, "ssssssss", $cedula, $nombre, $telefono, $contrasenia, $fechaIngreso, $habilitado,$tipoEmpleado, $idSucursal);
-	        $cedula = $empleado->cedula; 
-	        $nombre = $empleado->nombre; 
-	        $telefono = $empleado->telf; 
-	        $contrasenia = md5($empleado->contrasenia); 
-	        $fechaIngreso = date("Y")."-".date("m")."-".date("d"); 
-	        $habilitado = $empleado->disponible; 
-	        $tipoEmpleado = "e"; 
-	        $idSucursal = $empleado->idSucursal;
-
-	        $sentencia->execute();
-	        $sentencia->close();
-	        mysqli_close($this->conexion);
+			
+			$query = "INSERT INTO empleado (cedula,nombre,telefono) VALUES ();"; 
+			$result = $this->conexion->query($query);
 		}
 
 		public function getEmpleados(){
@@ -41,6 +26,8 @@
 
 				   	$index ++;
 		    	}
+
+			$this->closeConnection();
 		    return json_encode($data);
 			}
 		}

@@ -1,6 +1,6 @@
 <?php
-  include_once "../Data/DataSucursal.php";
-  $dataSucursal = new DataSucursal();
+  //require "../Data/DataSucursal.php";
+  $dataSucursal = new Data();
 
   switch ($_GET['accion']) {
 
@@ -9,17 +9,8 @@
       include("view/administrador/sucursales.php");
       break;
 
-<<<<<<< HEAD
-    case 'mostrarSucursales':
-      echo  $dataSucursal->getSucursales();
-    break;
-
-    case 'editarSucursal':
-      $sucursal = mysqli_query($dataSucursal,"SELECT * FROM sucursal WHERE id = '$_GET[codigo]' ") or die("Error al cargar registros ".mysqli_error($conexion));
-=======
     case 'formEditarSucursal':
       $sucursal = mysqli_query($dataSucursal,"SELECT * FROM sucursal WHERE id = '$_GET[codigo]'; ") or die("Error al cargar registros ".mysqli_error($conexion));
->>>>>>> refs/remotes/origin/256
       include("view/administracion/editarSucursal.php");
       break;
 
@@ -32,10 +23,6 @@
 
     case 'addSucursal':
       $dataSucursal->insertarSucursal($_REQUEST["arrayDatos"]);
-      break;
-
-    case 'borrarSucursal':
-     echo $dataSucursal->eliminarSucursal($_REQUEST["idSucursal"]);
       break;
 
     default:
