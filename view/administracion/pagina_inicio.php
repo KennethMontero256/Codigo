@@ -34,5 +34,6 @@
 		?>
 	</div>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
+	<script type="text/javascript" src="../../js/funcionesAdministrador.js"></script>
 </body>
 </html>

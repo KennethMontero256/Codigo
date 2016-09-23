@@ -23,12 +23,13 @@ function mostrarSucursalesAdmin(){
                     nuevaFila += "<td>Sucursal deshabilitada</td>";
                 }
                     nuevaFila +="<td><a href='trTbSucursal"+data[i].id+"' data-id="+data[i].id+" class='icono eliminarSucur'><span class='icon-bin2'></span></a></td>";
-                    nuevaFila +="<td><a href='trTbSucursal"+data[i].id+"' class='icono'><span class='icon-pencil'></span></a></td>";
+                    nuevaFila +="<td><a href='?clase=sucursalController&accion=formEditarSucursal&codigo="+data[i].id+"' class='icono btnEditSucr'><span class='icon-pencil'></span></a></td>";
                     nuevaFila += "</tr>";
 
                     $("#tablaSoloLista").append(nuevaFila);
                });
-                agregarEventoEliminarSucursal();  
+                agregarEventoEliminarSucursal(); 
+                editarSucursal(); 
             }
         });
     }
@@ -63,4 +64,28 @@ function mostrarSucursalesAdmin(){
             }
         });
     }
+
+    function editarSucursal(){
+        $(".btnEditSucr").off('click');
+        $(".btnEditSucr").on('click', function(e) {
+            e.preventDefault();
+            alert("funciona");
+            formEditarSucursal(this.getAttribute("href"));
+        });
+    }
+
+
+    function listaSucursales(accion){
+        var capa = document.getElementById("contenedor");
+        document.getElementById("contenedor").innerHTML = "Cargando...";
+        $(capa).load("?clase=sucursalController&&accion="+accion);
+    }
+
+    function formEditarSucursal(accion){
+        alert("form editar: "+accion);
+        var capa = document.getElementById("contenedorLista");
+        document.getElementById("contenedorLista").innerHTML = "Cargando...";
+        $(capa).load("?clase=sucursalController&accion="+accion);
+    }
+
 });
