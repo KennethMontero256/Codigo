@@ -42,7 +42,7 @@
         
         
         
-        <form method="post" action="../../Business/insertarProducto.php" accept-charset="UTF-8">
+        <form method="post" action="../../Business/insertarProducto.php" accept-charset="UTF-8" id="formVenta">
             <div id="contenedorVenta">
                 <div id="informacionVenta">
 
@@ -132,7 +132,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <input type="submit " class="btn btn-default run3" data-dismiss="modal" value="Guardar">
+                                <input type="submit" class="btn btn-default run3" data-dismiss="modal" value="Guardar">
                             </div>
                         </div>
 

@@ -18,6 +18,7 @@ $(function(){
        
         alertify.confirm('Confirm Title', 'Desea confirmar la venta?', function () {
             alertify.success('Se ha realizado la venta correctamente')
+            $("#formVenta").submit();
         }
         , function () {
             alertify.error('Se ha cancelado la venta')
