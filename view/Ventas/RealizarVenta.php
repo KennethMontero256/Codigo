@@ -132,7 +132,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-default run3" data-dismiss="modal" value="Guardar">
+                                <input type="submit " class="btn btn-default run3" data-dismiss="modal" value="Guardar">
                             </div>
                         </div>
 

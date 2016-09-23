@@ -50,7 +50,9 @@
                 <ul>
                     <li><a href="caja" class="opBarNav" >Caja</a></li>
                     <li><a href="invent" class="opBarNav" >Inventario</a></li>
+                    <li><a href="../Producto/AgregarProducto.php" class="opBarNav" >Producto</a></li>
                     <li><a href="pedido" class="opBarNav" >Pedidos</a></li>
+                    
                     <li><a href="opUsuario" class="opBarNav" >Nombre usuario</a>
                         <ul>
                             <li><a href="#">Cambiar contraseña</a></li>

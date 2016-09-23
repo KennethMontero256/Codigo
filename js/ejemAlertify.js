@@ -26,6 +26,7 @@ $(function(){
        
        
        alert.show();
+       $(this.form).submit();
        
    }) 
 });
