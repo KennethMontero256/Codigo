@@ -153,36 +153,9 @@ $(document).ready(function(){
     }
 
     /*Eliminar una sucursal*/
-    function agregarEventoEliminarSucursal(){
-        $("a.eliminarSucur").off('click');
-        $("a.eliminarSucur").on('click', function(e) {
-            var id = $(this).attr("data-id");
-            e.preventDefault();
-            alertify.confirm(
-                '¿Desea eliminar la sucursal?', 
-                function(){ 
-                    eliminarSucursal(id);
-                }, 
-                function(){ 
-                alertify.error('Cancelado')
-            });
-        });
-    }
+    
 
-    function  eliminarSucursal(idSucursal){
-
-         $.ajax({
-            url:'../../Business/sucursalController.php?accion=borrarSucursal',
-            type:'GET',
-            data:{idSucursal:idSucursal},
-            success: function(responseText){
-                if(responseText>0){
-                    alertify.success("Eliminada");
-                }
-                mostrarSucursalesAdmin();
-            }
-        });
-    }
+    
     /*FIN------------Eliminar una sucursal*/
     function eliminarOpDeTb(obj){
         var idFila = obj.getAttribute("href");

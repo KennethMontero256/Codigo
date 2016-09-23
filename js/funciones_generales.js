@@ -21,7 +21,12 @@ $(document).ready(function(){
 			if(opcion == "caja"){
 				cargar_pagina("#contenedorGlobal", "../Ventas/RealizarVenta.php");
 				$(".xdsoft_datetimepicker").remove();
-			}
+			}else{
+                if(opcion == "invent"){
+                   cargar_pagina("#contenedorGlobal", "../Producto/AgregarProducto.php");
+                    $(".xdsoft_datetimepicker").remove();   
+                }
+            }
 		}
 
 	   });

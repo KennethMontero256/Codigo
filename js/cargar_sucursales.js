@@ -48,4 +48,19 @@ function mostrarSucursalesAdmin(){
             });
         });
     }
+
+    function eliminarSucursal(idSucursal){
+
+         $.ajax({
+            url:'../../Business/sucursalController.php?accion=borrarSucursal',
+            type:'GET',
+            data:{idSucursal:idSucursal},
+            success: function(responseText){
+                if(responseText>0){
+                    alertify.success("Eliminada");
+                }
+                mostrarSucursalesAdmin();
+            }
+        });
+    }
 });

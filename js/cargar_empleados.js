@@ -8,7 +8,7 @@ function mostrarEmpleadosBySucursal(){
     data:{},
     success: function(responseText){
       var data = JSON.parse(responseText);
-      limpiarTablaPorId("tablaEmpleados");
+      limpiarTablaById("tablaEmpleados");
       
       var cont = 0;
       $.each(data, function(i, item) {
@@ -60,5 +60,9 @@ function mostrarEmpleadosBySucursal(){
       }
     });
     } 
-
+    function limpiarTablaById(id){
+       $("#"+id+" tbody tr").each(function (index){
+            $(this).remove();
+        }); 
+    }
 });
