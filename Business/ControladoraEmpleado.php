@@ -4,10 +4,11 @@
 	$dataEmpleado = new DataEmpleado();
 
 	switch ($_REQUEST['metodo']) {
-		case 'addEmpleado':
-			echo $dataEmpleado->insertarEmpleado($_REQUEST["arrayDatos"]);
+		case 'addSucursal':
+			
 			break;
 		case 'mostrarEmpleadoNombre':
+
   			echo $dataEmpleado->getEmpleados();
 			break;
 		default:
