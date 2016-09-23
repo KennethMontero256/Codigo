@@ -48,3 +48,21 @@ $(function(){
        alert.show();
    });
 });
+
+$(function(){
+   $('.alerta1').click(function(event){
+       
+        alertify.confirm('Confirm Title', 'Desea insertar el producto', function () {
+            alertify.success('Se ha realizado la inserción del procucto exitosamente');
+            $("#fproductos").submit();
+        }
+        , function () {
+            alertify.error('Se ha cancelado la inserción')
+        });
+       
+       
+       
+       alert.show();
+       
+   }) 
+});

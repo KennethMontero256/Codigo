@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,16 +51,16 @@
                 <div id="informacionVenta">
 
                     <label>codigo:</label>
-                    <input id="codigo" name="codigo" type="text" value="<?php print_r($totalventas + 1); ?>" readonly> 
-
+                    <input id="codigo" class="simularLabel" name="codigo" type="text" value="<?php print_r($totalventas + 1); ?>" readonly> 
+                    
                     <label>Sucursal:</label>
-                    <input type="text" name="sucursal" value="<?php ?>" readonly>
+                    <input type="text" class="simularLabel" name="sucursal" value="<?php echo $_SESSION["nombreSucursal"];?>" readonly>
 
                     <label>Fecha y hora</label>
-                    <input type="datetime" name="fecha" value="<?php echo $d . ' ' . $m . ' ' . $y ?>" readonly>
+                    <input type="datetime" class="simularLabel" name="fecha" value="<?php echo $d . ' ' . $m . ' ' . $y ?>" readonly>
 
                     <label>Empleado:</label>
-                    <input type="text" name="empleado" value="" readonly>
+                    <input type="text" class="simularLabel" name="empleado" value="<?php echo $_SESSION["nombre"];?>" readonly>
                 </div>
 
                 <div id="detalle">

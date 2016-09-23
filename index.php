@@ -20,7 +20,10 @@
     }else{
       $user = $_POST["username"];
       $pass = $_POST["password"];
-      $sql = "SELECT cedula,nombre,tipoEmpleado,idSucursal FROM empleado WHERE nombre='$user' AND contrasenia = MD5('$pass');";
+      $sql = "SELECT e.cedula as cedula, e.nombre as nombre, e.tipoEmpleado as tipoEmpleado, s.id as idSucursal, s.nombre as      nombreSucursal
+              FROM empleado e
+              LEFT JOIN sucursal s ON e.idSucursal = s.id
+              WHERE e.nombre='$user' AND contrasenia = MD5('$pass');";
 
       $result = $conexion->query($sql);
 
@@ -30,6 +33,7 @@
                   $_SESSION["nombre"]= $row["nombre"];
                   $_SESSION["tipoEmpleado"] = $row["tipoEmpleado"];
                   $_SESSION["idSucursal"] = $row["idSucursal"];
+                  $_SESSION["nombreSucursal"] = $row["nombreSucursal"];
                   if( $row["tipoEmpleado"] == "e"){
                     header("location: view/empleados/pagina_principal.php");
                   }else{

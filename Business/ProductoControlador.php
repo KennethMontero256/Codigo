@@ -24,3 +24,5 @@ $producto->setIdCategoria($categoria);
 //var_dump($producto);
 setProductos($producto);
 
+header("Location: ../view/Producto/AgregarProducto.php");
+die();
