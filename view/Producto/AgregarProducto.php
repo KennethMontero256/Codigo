@@ -29,7 +29,7 @@
     
     <body>
         <div>
-            <form method="post" action="../../Business/ProductoControlador.php" accept-charset="UTF-8">
+            <form method="post" action="../../Business/ProductoControlador.php" accept-charset="UTF-8" id="fproductos">
                 <div id="">
                     <label>codigo</label>
                     <input type="text" name="codigo">
@@ -98,7 +98,7 @@
                 
                 
                 
-                <input type="submit" class="alerta1">
+                <input type="button" class="alerta1" value="Agregar">
                 
             </form>
         </div>
