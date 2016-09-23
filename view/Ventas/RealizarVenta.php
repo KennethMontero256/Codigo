@@ -54,7 +54,7 @@
                     <input id="codigo" class="simularLabel" name="codigo" type="text" value="<?php print_r($totalventas + 1); ?>" readonly> 
                     
                     <label>Sucursal:</label>
-                    <input type="text" class="simularLabel" name="sucursal" value="<?php echo $_SESSION["idSucursal"];?>" readonly>
+                    <input type="text" class="simularLabel" name="sucursal" value="<?php echo $_SESSION["nombreSucursal"];?>" readonly>
 
                     <label>Fecha y hora</label>
                     <input type="datetime" class="simularLabel" name="fecha" value="<?php echo $d . ' ' . $m . ' ' . $y ?>" readonly>

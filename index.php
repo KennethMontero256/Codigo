@@ -23,7 +23,7 @@
       $sql = "SELECT e.cedula as cedula, e.nombre as nombre, e.tipoEmpleado as tipoEmpleado, s.id as idSucursal, s.nombre as      nombreSucursal
               FROM empleado e
               LEFT JOIN sucursal s ON e.idSucursal = s.id
-              WHERE e.nombre nombre='$user' AND contrasenia = MD5('$pass');";
+              WHERE e.nombre='$user' AND contrasenia = MD5('$pass');";
 
       $result = $conexion->query($sql);
 
