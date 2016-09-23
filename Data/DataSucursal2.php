@@ -11,7 +11,7 @@ include_once 'Data.php';
 
 function getSucursal() {
     $mysqli = getConnection();
-    $sql = "SELECT * FROM Sucursal;";
+    $sql = "SELECT * FROM sucursal;";
     $resultado = $mysqli->query($sql);
     $vector = [];
     if ($resultado->num_rows > 0) {

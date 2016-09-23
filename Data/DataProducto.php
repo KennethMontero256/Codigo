@@ -37,14 +37,14 @@ function setProductos($producto){
     $mysqli = getConnection();
     
     $sql = "insert into producto (codigo, nombre, stock, unidadMedia, precio, proveedor, idSucursal, idCategoria)
-			values(".$producto->getCodigo().",".$producto->getNombre().", ".$producto->getStock().", '".$producto->getUnidadMedida()."',".$producto->getPrecio().", '".$producto->getProveedor()."', ".$producto->getIdSucursal().", ".$producto->getIdCategoria().")";
+			values('".$producto->getCodigo()."','".$producto->getNombre()."', ".$producto->getStock().", '".$producto->getUnidadMedida()."',".$producto->getPrecio().", '".$producto->getProveedor()."', ".$producto->getIdSucursal().", ".$producto->getIdCategoria().")";
 
                 
     if ($mysqli->query($sql) === TRUE) {
           echo 'ingreso';
         
     } else {
-        echo 'error';
+        echo 'error'.$sql." ".$mysqli->error;
     }
 
 }

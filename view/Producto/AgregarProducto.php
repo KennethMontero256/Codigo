@@ -15,6 +15,16 @@
             
             //var_dump($sucursal);
         ?>
+                <script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
+        <script type="text/javascript" src="../../js/ejemAlertify.js"></script>
+        <script type="text/javascript" src="../../js/alertify/alertify.js"></script>
+        <link rel="stylesheet" href="../../js/alertify/css/alertify.css">
+        <link rel="stylesheet" href="../../js/alertify/css/themes/default.css">
+        <script type="text/javascript" src="../../js/funcionesVenta.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
     </head>
     
     <body>
@@ -47,7 +57,7 @@
                 
                 <div>
                     <label>Proveedor</label>
-                    <select id="" name=proveedor"">
+                    <select id="" name="proveedor">
                         <ul>
                             <?php
                             for ($i = 0; $i < count($proveedor); $i++) {
@@ -61,7 +71,7 @@
                 
                 <div>
                     <label>Sucursal</label>
-                    <select id="" name=sucursal"">
+                    <select id="" name="sucursal">
                         <ul>
                             <?php
                             for ($i = 0; $i < count($sucursal); $i++) {
@@ -75,7 +85,7 @@
                 
                 <div>
                     <label>Categoria</label>
-                    <select id="" name=categoria"">
+                    <select id="" name="categoria">
                         <ul>
                             <?php
                             for ($i = 0; $i < count($categorias); $i++) {
@@ -88,7 +98,8 @@
                 
                 
                 
-                <input type="submit">
+                <input type="submit" class="alerta1">
+                
             </form>
         </div>
         
