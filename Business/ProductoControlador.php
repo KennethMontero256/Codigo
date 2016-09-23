@@ -19,7 +19,8 @@ $producto->setUnidadMedida($medida);
 $producto->setPrecio($precio);
 $producto->setProveedor($proveedor);
 $producto->setIdSucursal($sucursal);
-$producto->setIdCategoria($Categoria);
+$producto->setIdCategoria($categoria);
 
+//var_dump($producto);
 setProductos($producto);
 
