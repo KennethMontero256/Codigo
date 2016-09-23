@@ -14,19 +14,35 @@ $(function(){
 });
 
 $(function(){
-   $('.run2').click(function(event){
-       var alert = alertify.alert('This is an alert!');
-       alert.set('label','Got it');
+   $('.run3').click(function(event){
+       
+        alertify.confirm('Confirm Title', 'Desea confirmar la venta?', function () {
+            alertify.success('Se ha realizado la venta correctamente')
+        }
+        , function () {
+            alertify.error('Se ha cancelado la venta')
+        });
+       
+       
+       
        alert.show();
+       $(this.form).submit();
+       
    }) 
 });
 
 $(function(){
-   $('.run3').click(function(event){
+   $('.run2').click(function(event){
        var alert = alertify.alert('Desea confirmar la venta');
-       alert.set('label','Got it');
+       alert.set({labels: {
+                ok: "Yes",
+                cancel: "No"
+            }});
        alert.set('onok',function(){
-          alertify.success('You clicked OK.'); 
+          alertify.success('Se ha realizado la venta correctamente.'); 
+       });
+       alert.set('oncancel',function(){
+           alertify.error('Se cancelo la venta');
        });
        alert.show();
    });
