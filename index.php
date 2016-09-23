@@ -51,13 +51,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Inicio</title>
-  <link rel="stylesheet" href="css/estilo_principal.css">
+  <link rel="stylesheet" href="css/estiloBarraNavegacion.css">
+  <link rel="stylesheet" type="text/css" href="css/estilo_principal.css">
   <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+  <script type="text/javascript" src="js/alertify/alertify.js"></script>
 </head>
 <body>
-  <?php  
-    include("view/empleados/barraInicial.php");
-  ?>
+  <nav>
+      <div class="logo-empresa">
+       <img src="imagenes/coffee-icon.png">
+       <a href="#">El Tostador</a>
+    </div>
+    <div class="mensaje-bienvenida">
+      Bienvenido, debe de iniciar sesión.<p></p>
+    </div>
+  </nav>
   <div class="form-login">
     <form action="index.php" method="POST" name="frmLoginAdm" accept-charset="utf-8">
       <p>Formulario de acceso</p>
@@ -66,7 +74,7 @@
       <input type="password" name="password" minlength=4 placeholder="Contraseña">
       <input type="hidden" name="modo" value="login">
       <div class="layout-btns">
-        <a href="pagina_inicio.php" id="bSubmitFrmLoginAdm" class="btn-submit">Ingresar</a>
+        <a href="#" id="bSubmitFrmLoginAdm" class="btn-submit">Ingresar</a>
         <a href="recuperarContraAdministrador.php" id="">Recuperar usuario</a>
       <div>
     </form>

@@ -10,6 +10,10 @@
 		case 'mostrarEmpleadoNombre':
   			echo $dataEmpleado->getEmpleados();
 			break;
+		case "empleadosBySucursal":
+			echo $dataEmpleado->getEmpleadosBySucursal();
+			break;
+
 		default:
 			
 			break;

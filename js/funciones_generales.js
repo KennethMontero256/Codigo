@@ -1,7 +1,5 @@
 $(document).ready(function(){
-    
     alertify.set('notifier','position', 'top-left');
-
 	$("#bSubmitFrmLoginAdm").on("click",function(e){
         e.preventDefault();
         var formulario = document.frmLoginAdm;
@@ -61,7 +59,7 @@ $(document).ready(function(){
     }
 
     /*Administrar empleados*/
-    $("#addEmpleado").on("click",function(e){
+    $("#addNewEmpleado").on("click",function(e){
         e.preventDefault();
         llenarSelectSucursal();
         mostr_ocultr("frmAddEmpleado");
@@ -84,10 +82,21 @@ $(document).ready(function(){
                 empleado.disponible = "1";
             }
             enviarAjax("../../Business/ControladoraEmpleado.php?metodo=addEmpleado",JSON.stringify(empleado));
+            limpiarFormAddEmpleado();
+            mensajeExito("Empleado agregado..");
         }else{
             alert("Hay algunos errores");
         }
     });
+
+    function limpiarFormAddEmpleado(){
+        var formulario = document.frmAddEmpleado;
+        formulario.cedula.value = "";
+        formulario.nombreEmpl.value = "";
+        formulario.telf.value = "";
+        $('#selectSucursal > option[value="0"]').attr('selected', 'selected');
+        $("input:checkbox[name=emplHabl]").prop("checked", false);
+    }
 
     function validarFormEmpleado(){
         var respuesta = false;
@@ -118,15 +127,30 @@ $(document).ready(function(){
     } 
 
     function enviarAjax(direccionServer, datos){
+        var resultado="";
         $.ajax({
             url:direccionServer,
             type:'GET',
             data:{arrayDatos:datos},
             success: function(responseText){
+                resultado = responseText;
             }
         }); 
+        return resultado;
     }
+    
+   
     /*Fin administrar empleados*/
+
+    function mensajeExito(mensaje){
+        alertify.success(mensaje);
+    }
+
+    function limpiarTablaPorId(id){
+       $("#"+id+" tbody tr").each(function (index){
+            $(this).remove();
+        }); 
+    }
 
     });
 

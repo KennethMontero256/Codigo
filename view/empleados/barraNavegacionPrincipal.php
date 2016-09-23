@@ -22,7 +22,7 @@
 				<li><a href="opUsuario" class="opBarNav" >Nombre usuario</a>
 					<ul>
 						<li><a href="#">Cambiar contraseña</a></li>
-						<li><a href="#">Cerrar sesión</a></li>
+						<li><a href="../../Business/logout.php">Cerrar sesión</a></li>
 					</ul>
 				</li>
 			</ul>

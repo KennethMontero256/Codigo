@@ -9,7 +9,23 @@
 			$mysqli = new Data();
 			$this->conexion = $mysqli->getConexion();
 		}
+		public function getEmpleadosBySucursal(){
+	        $query = "CALL ucrgrupo4.paGetEmpleadosBySucursal;"; 
+	        $result = $this->conexion->query($query);
 
+	        if ($result->num_rows > 0) {
+	            $index = 0;
+	            while ($row = $result->fetch_assoc()) {
+	                $data[$index]["idSucursal"] = $row["idSucursal"];
+	                $data[$index]["nombreSucursal"] = $row["nombreSucursal"];
+	                $data[$index]["cedula"] = $row["cedula"];
+	                $data[$index]["nombre"] = $row["nombre"];
+	                $index ++;
+	            }
+	            return json_encode($data);
+	        }
+	        mysqli_close($this->conexion);
+		}
 		public function insertarEmpleado($arrayDatos){
 			$empleado = json_decode($arrayDatos);
 

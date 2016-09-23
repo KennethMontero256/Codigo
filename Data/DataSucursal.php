@@ -68,10 +68,13 @@ class DataSucursal{
     }
 
     public function eliminarSucursal($id){
-        $conexion = $this->mysqli->getConexion();
-        $query = "DELETE FROM sucursal WHERE id=$id"; 
 
-        $result = $conexion->query($query);
+        $conexion = $this->mysqli->getConexion();
+        $sentencia = $conexion->prepare("CALL paEliminarSucursal(?)");
+        mysqli_stmt_bind_param($sentencia, "s", $idSucursal);
+        $idSucursal = $id;
+
+        $sentencia->execute();
         $afectados =  mysqli_affected_rows($conexion);
         mysqli_close($conexion);
 
@@ -79,7 +82,5 @@ class DataSucursal{
     }
 
 }
-
-
 
 ?>

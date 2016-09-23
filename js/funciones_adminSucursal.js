@@ -2,17 +2,6 @@ $(document).ready(function(){
     mostrarSucursalesAdmin();
     alertify.set('notifier','position', 'top-rigth');
 
-	$("#bSubmitFrmLoginAdm").on("click",function(e){
-        e.preventDefault();
-        var formulario = document.frmLoginAdm;
-        if(formulario.username.value.trim().length != 0 && formulario.password.value.trim().length != 0){
-           formulario.submit(); 
-        }else{
-            $(".mensajes").text("Los campos no pueden estar vacios");
-        }
-
-    });
-
     $('.opBarNav').on('click',function(e){
 		e.preventDefault();
 		var opcion = this.getAttribute("href");

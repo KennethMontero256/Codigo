@@ -9,12 +9,12 @@
 <body>
 	<div class="contenedorSucursales">
 		<p>Empleados</p>
-		<a class="addSucursal tooltip" id="addEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
+		<a class="tooltip" id="addNewEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de un empleado" class="inputShadow">
 		</div>
-		<div class="contenedorListaSucursales">
-			<table id="tablaListaSucursal">
+		<div class="contenedorLista">
+			<table id="tablaEmpleados">
 				<tbody>
 					
 				</tbody>
@@ -45,7 +45,7 @@
 			</div>
 		</form>
 	</div>
-	
+	<script type="text/javascript" src="../../js/cargar_empleados.js"></script>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
 	<script>
