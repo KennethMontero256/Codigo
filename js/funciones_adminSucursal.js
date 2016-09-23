@@ -27,23 +27,6 @@ $(document).ready(function(){
 
     });
 
-	function eliminarOpDeTb(obj){
-    	var idFila = obj.getAttribute("href");
-    	var nombre, cedula;
-        
-        $("#"+idFila).children("td").each(function (index2)
-        {
-            switch (index2) 
-            {
-                case 0: nombre = $(this).text();
-                break;
-                case 2: cedula = $(this).text();
-                break;
-            }
-        });
-        $("#"+idFila).remove();
-        addOpSelect(cedula, nombre);
-    }
     /*Muestra form Agregar sucursal*/
 	$("#addSucursal").on("click",function(){
         $("#selectEmpleados").empty();
@@ -68,9 +51,6 @@ $(document).ready(function(){
         else
             $("#"+id).hide('slow');
     }
-
-});
-
 
     /*Enviar formulario Agregar Sucursal*/
 
@@ -204,6 +184,23 @@ $(document).ready(function(){
         });
     }
     /*FIN------------Eliminar una sucursal*/
+    function eliminarOpDeTb(obj){
+        var idFila = obj.getAttribute("href");
+        var nombre, cedula;
+        
+        $("#"+idFila).children("td").each(function (index2)
+        {
+            switch (index2) 
+            {
+                case 0: nombre = $(this).text();
+                break;
+                case 2: cedula = $(this).text();
+                break;
+            }
+        });
+        $("#"+idFila).remove();
+        addOpSelect(cedula, nombre);
+    }
     function addEmpleadoTb(){
     	if($("#selectEmpleados option:selected").html()!=undefined){
 	        var trs = $("#tbEmpleados tr").length;
@@ -227,18 +224,6 @@ $(document).ready(function(){
 		}
     }
 
-    function eliminarOpDeTb(obj){
-        var idFila = obj.getAttribute("href");
-        var nombre, cedula;
-         
-         $("#"+idFila).children("td").each(function (index2){
-            $(document).ready(function(){
-         });
-         $("#"+idFila).remove();
-         addOpSelect(cedula, nombre);
-    });
-
-    }
     function eliminarOpSelect(valor){
     	$("#selectEmpleados").find("option[value='"+valor+"']").remove(); 
     }
@@ -271,3 +256,4 @@ $(document).ready(function(){
     function mostrarMsjError(mensaje){
     	alertify.error(mensaje);
     }
+});
