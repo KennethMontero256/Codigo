@@ -89,7 +89,7 @@
                         <label id="lbCantidad">Cantidad</label>
                         <input id="cantidad" name="cantidad[]" value="0" type="number"   min="0" onclick="totalLinea(this)" onchange="totalLinea(this)" onkeydown="totalLinea(this)">
 
-                        <label id="lbPrecio">PrecioPor Kilo:</label>
+                        <label id="lbPrecio">Precio:</label>
                         <input id="precio" name="precio[]" type="number" readonly >
 
                         <label id="lbTotal">Total Linea</label>

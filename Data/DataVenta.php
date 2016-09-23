@@ -43,23 +43,25 @@ function insertVenta($venta, $lineas){
 }
 
 
-function uploadImage($Dni, $Url, $categoria) {
-    $idImagen;
-    $conn = getConnection();
-    $sql = "INSERT INTO imagenesArtista(dniArtista,urlImagen,tipo) VALUES (" . $Dni . ",'".$Url."',1);";
-    if ($conn->query($sql) === TRUE) {
-        $idImagen = $conn->insert_id;
-        echo "img " . $sql;
+function getVentas(){
+    $mysqli = getConnection();
+    $sql = "SELECT * FROM venta;";
+    $resultado = $mysqli->query($sql);
+    $vector = [];
+    if ($resultado->num_rows > 0) {
+        // output data of each row
+        while ($row = $resultado->fetch_assoc()) {
+            $venta  = new Venta();
+            $venta->setCodigo($row['codigo']);
+            $venta->setFechaHora($row['fechaHora']);
+            $venta->setIdEmpleado($row['idEmpleado']);
+            $venta->setIdSucursal($row['idSucursal']);
+            array_push($vector, $venta);
+        }
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "0 results";
     }
-    
-     $sql = "INSERT INTO habilidad VALUES(".$idImagen.", ".$categoria.");";
-    if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-    
-    $conn->close();
+    $mysqli->close();     
+    return $vector;
 }
+

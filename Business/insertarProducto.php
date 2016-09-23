@@ -62,5 +62,5 @@ for ($i = 1; $i < count($cods); $i++) {
 
 
 insertVenta($venta, $lineas);
-header("Location: ../View/Ventas/RealizarVenta.php?status=1");
+header("Location: ../index.php");
 die();
