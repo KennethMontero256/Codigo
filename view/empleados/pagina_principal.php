@@ -11,7 +11,7 @@
     ?>
 	<div id="contenedorGlobal">
 		<?php 
-    		include("../Ventas/Venta.php");
+    		include("../Ventas/RealizarVenta.php");
     	?>
 	</div>
 </body>

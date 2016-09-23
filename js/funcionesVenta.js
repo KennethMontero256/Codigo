@@ -81,9 +81,18 @@ function totalLinea(e) {
     var numero = vector[vector.length - 1];
     var cantidad = document.getElementById("cantidad" + numero).value;
     var precio = document.getElementById("precio" + numero).value;
-    var totalLinea = cantidad * precio;
+    var inventario = document.getElementById("inventario" + numero);
+    var totalLinea = cantidad;
+    inventario.value = cantidad / precio;
     document.getElementById("total" + numero).value = totalLinea;
+    document.getElementById("totalModal").value = totalLinea;
     sumaTotal();
+}
+
+function vueltof(){
+    var total = document.getElementById("totalModal").value;
+    var paga = document.getElementById("paga").value;
+    document.getElementById("vuelto").value = paga - total;
 }
 
 function sumaTotal() {

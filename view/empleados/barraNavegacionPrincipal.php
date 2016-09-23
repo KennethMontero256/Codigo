@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
+
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -31,7 +31,7 @@
 	  </nav>
 	  <script type="text/javascript" src="../../js/funciones_generales.js"></script>
 </body>
-=======
+
     <head>
         <meta charset="utf-8">
         <title></title>
@@ -62,5 +62,5 @@
         </nav>
         <script type="text/javascript" src="../../js/funciones_generales.js"></script>
     </body>
->>>>>>> dd51bbf86b1fffb549f2d0360013743b6cf094cb
+
 </html>

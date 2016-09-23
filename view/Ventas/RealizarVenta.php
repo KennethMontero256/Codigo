@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="../../js/alertify/css/alertify.css">
         <link rel="stylesheet" href="../../js/alertify/css/themes/default.css">
         <script type="text/javascript" src="../../js/funcionesVenta.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         
     </head>
     <body>
@@ -29,7 +32,7 @@
         $status = isset($_GET['status']);
         if ($status) {
             if ($status = 1) {
-                echo "<script type='text/javascript'>.alert('submitted successfully!')</script>";
+                echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
             } else {
                 echo "<script type='text/javascript'>alert('failed!')</script>";
             }
@@ -82,11 +85,14 @@
                         <label id="lbCantidad">Cantidad</label>
                         <input id="cantidad" name="cantidad[]" value="0" type="number"   min="0" onclick="totalLinea(this)" onchange="totalLinea(this)" onkeydown="totalLinea(this)">
 
-                        <label id="lbPrecio">Precio:</label>
+                        <label id="lbPrecio">PrecioPor Kilo:</label>
                         <input id="precio" name="precio[]" type="number" readonly >
 
                         <label id="lbTotal">Total Linea</label>
                         <input id="total" name="total[]" type="number" value="" readonly oninput="sumaTotal()">
+                        
+                        <label>Cantidad inventario</label>
+                        <input id="inventario">
 
                         <input id="delete" type="button" value="X" onclick="deleteDiv(this)">
                     </div>
@@ -95,8 +101,44 @@
                 <input type="button" value="+" onclick="duplicate2()">
                 <input type="text" name="sumaTotal" readonly id="sumatotal">
             </div>
-            <input type="submit">
-            <input class="run3">
+<!--            <input type="submit">
+            <input class="run3">-->
+            
+            <div>
+                <button type="button" class="" data-toggle="modal" data-target="#myModal">Pago</button>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <center><h4 class="modal-title">Total</h4></center>
+                                <center><input type="text" readonly id="totalModal"></center>
+                            </div>
+                            <div class="modal-body">
+                                <p></p>
+
+                                <center> <h4 class="modal-title">El cliente paga con</h4></center>
+                                <center><input type="number" id="paga" onclick="vueltof()" onchange="vueltof()" onkeydown="vueltof()"></center>   
+
+                                <br>
+                                <center> <h4>Su vuelto</h4></center>
+                                <center><input type="number" id="vuelto"></center>
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-default run3" data-dismiss="modal" value="Guardar">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </form>
     </body>
 </html>
