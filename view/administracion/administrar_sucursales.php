@@ -9,12 +9,12 @@
 <body>
 	<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
-		<a class="addSucursal tooltip" data-tooltip="Agregar sucursal"><span class="icon-plus2"></span></a>
+		<a id="addSucursal" class="add tooltip" data-tooltip="Agregar sucursal"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de una sucursal" class="inputShadow">
 		</div>
 		<div id="contenedorLista" class="contenedorLista">
-			<table id="tablaSoloLista">
+			<table id="tablaSoloLista" class="listaCnNombres">
 				<tbody>
 				</tbody>
 			</table>
@@ -50,6 +50,7 @@
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript" src="../../js/cargar_sucursales.js"></script>
 	<script type="text/javascript" src="../../js/funciones_adminSucursal.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
 

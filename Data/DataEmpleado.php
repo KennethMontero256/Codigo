@@ -61,6 +61,18 @@
 			}
 		}
 
+		public function eliminarEmpleado($cedula){
+	        $sentencia = $this->conexion->prepare("CALL paEliminarEmpleado(?)");
+	        mysqli_stmt_bind_param($sentencia, "s", $cedulaEmpleado);
+	        $cedulaEmpleado = $cedula;
+
+	        $sentencia->execute();
+	        $afectados =  mysqli_affected_rows($this->conexion);
+	        mysqli_close($this->conexion);
+
+        return $afectados;
+		}
+
 	}
 
 ?>

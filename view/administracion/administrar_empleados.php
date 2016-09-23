@@ -9,12 +9,12 @@
 <body>
 	<div class="contenedorSucursales">
 		<p>Empleados</p>
-		<a class="tooltip" id="addNewEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
+		<a class="add tooltip" id="addNewEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
 			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de un empleado" class="inputShadow">
 		</div>
 		<div class="contenedorLista">
-			<table id="tablaEmpleados">
+			<table id="tablaEmpleados" class="listaCnNombres">
 				<tbody>
 					
 				</tbody>

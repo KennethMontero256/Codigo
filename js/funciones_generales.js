@@ -65,6 +65,7 @@ $(document).ready(function(){
         mostr_ocultr("frmAddEmpleado");
     });
 
+
     $(".bRegEmpleado").on("click",function(e){
         e.preventDefault();
         var opcion = this.getAttribute("href");
@@ -84,6 +85,7 @@ $(document).ready(function(){
             enviarAjax("../../Business/ControladoraEmpleado.php?metodo=addEmpleado",JSON.stringify(empleado));
             limpiarFormAddEmpleado();
             mensajeExito("Empleado agregado..");
+            mostrarEmpleadosBySucursal();
         }else{
             alert("Hay algunos errores");
         }

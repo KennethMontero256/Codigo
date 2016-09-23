@@ -13,7 +13,9 @@
 		case "empleadosBySucursal":
 			echo $dataEmpleado->getEmpleadosBySucursal();
 			break;
-
+		case "eliminarEmpleado":
+			echo $dataEmpleado->eliminarEmpleado($_REQUEST["cedula"]);
+			break;
 		default:
 			
 			break;

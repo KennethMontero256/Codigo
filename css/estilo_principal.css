@@ -501,14 +501,14 @@ input.cmn-toggle-yes-no:checked + label:after {
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-.contenedorSucursales .addSucursal{
+.contenedorSucursales .add{
 	float: right;
 	margin:10px;
 	font-size: 25px;
 	color: #e53935;
 	cursor: pointer;
 }
-.contenedorSucursales .addSucursal:hover{
+.contenedorSucursales .add:hover{
 	color: #ef5350;
 }
 
@@ -542,6 +542,7 @@ input.cmn-toggle-yes-no:checked + label:after {
 	min-height: 100px;
 	max-height: 250px;
 	overflow-y:auto;
+	overflow-x: hidden;
 }
 
 .contenedorLista table tr:nth-child(odd){
@@ -553,6 +554,12 @@ input.cmn-toggle-yes-no:checked + label:after {
 	padding-right: 25px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+table.listaCnNombres td:nth-child(1){
+  	padding: 5;
+  	display: inline-block;
+ 	width: 200px;
 }
 
 .contenedorLista table a{
