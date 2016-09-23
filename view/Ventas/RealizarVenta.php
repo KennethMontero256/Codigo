@@ -10,9 +10,11 @@
         <title>Caja</title>
         
         <script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
-        <script type="text/javascript" src="../../js/funcionesVenta.js"></script>
+        <script type="text/javascript" src="../../js/ejemAlertify.js"></script>
         <script type="text/javascript" src="../../js/alertify/alertify.js"></script>
+        <link rel="stylesheet" href="../../js/alertify/css/alertify.css">
         <link rel="stylesheet" href="../../js/alertify/css/themes/default.css">
+        <script type="text/javascript" src="../../js/funcionesVenta.js"></script>
         
     </head>
     <body>
@@ -94,6 +96,7 @@
                 <input type="text" name="sumaTotal" readonly id="sumatotal">
             </div>
             <input type="submit">
+            <input class="run3">
         </form>
     </body>
 </html>

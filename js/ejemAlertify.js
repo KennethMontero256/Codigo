@@ -23,7 +23,7 @@ $(function(){
 
 $(function(){
    $('.run3').click(function(event){
-       var alert = alertify.alert('Hagamos algo despues de la alerta');
+       var alert = alertify.alert('Desea confirmar la venta');
        alert.set('label','Got it');
        alert.set('onok',function(){
           alertify.success('You clicked OK.'); 
