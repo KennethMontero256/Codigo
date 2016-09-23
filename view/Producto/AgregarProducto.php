@@ -47,7 +47,16 @@
                 
                 <div>
                     <label>Unidad de Medida</label>
-                    <input type="text" name=unidadMedida> 
+                    <select name="unidadMedida">
+                        <ul>
+                            <option value="k">
+                                Kilo
+                            </option>
+                              <option value="u">
+                                Unidad
+                            </option>
+                        </ul>
+                    </select>
                 </div>
                 
                 <div>
