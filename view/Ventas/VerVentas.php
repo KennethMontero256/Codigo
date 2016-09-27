@@ -17,27 +17,35 @@ and open the template in the editor.
         $ventas = getVentas();
         //var_dump($ventas);
         ?>
+        
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     </body>
     
     <div id="tabla">
-        <table class="striped">
-            <tr class="header">
-                <td>codigo</td>
-                <td>Sucursal</td>
-                <td>Fecha</td>
-                <td>Empleado</td>
-            </t r>
-            <?php
-            
-            for ($i = 0; $i < count($ventas); $i++) {
-                echo "<tr id=".$ventas[$i]->getCodigo()." onclick=>";
-                echo "<td>" . $ventas[$i]->getCodigo() . "</td>";
-                echo "<td>" . $ventas[$i]->getIdSucursal() . "</td>";
-                echo "<td>" . $ventas[$i]->getFechaHora() . "</td>";
-                echo "<td>" . $ventas[$i]->getIdEmpleado() . "</td>";
-                echo "</tr>";
-            }
-            ?>
+        <table  class="table table-hover">
+            <thead>
+                <tr class="header">
+                    <th>codigo</th>
+                    <th>Sucursal</th>
+                    <th>Fecha</th>
+                    <th>Empleado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                for ($i = 0; $i < count($ventas); $i++) {
+                    echo "<tr id=".$ventas[$i]->getCodigo().">";
+                    echo "<td>" . $ventas[$i]->getCodigo() . "</td>";
+                    echo "<td>" . $ventas[$i]->getIdSucursal() . "</td>";
+                    echo "<td>" . $ventas[$i]->getFechaHora() . "</td>";
+                    echo "<td>" . $ventas[$i]->getIdEmpleado() . "</td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
         </table>
     </div>
 </html>
