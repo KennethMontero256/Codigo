@@ -13,9 +13,6 @@
       echo  $dataSucursal->getSucursales();
     break;
 
-    case 'editarSucursal':
-      $sucursal = mysqli_query($dataSucursal,"SELECT * FROM sucursal WHERE id = '$_GET[codigo]' ") or die("Error al cargar registros ".mysqli_error($conexion));
-
     case 'formEditarSucursal':
       $sucursal = mysqli_query($dataSucursal,"SELECT * FROM sucursal WHERE id = '$_GET[codigo]'; ") or die("Error al cargar registros ".mysqli_error($conexion));
       include("view/administracion/editarSucursal.php");
