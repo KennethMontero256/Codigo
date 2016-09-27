@@ -28,6 +28,18 @@
     </head>
     
     <body>
+        <div tabindex="-1" class="search-container">
+            <div class="pane-subheader pane-list-subheader subheader-search">
+                        <button class="icon icon-search-morph">
+                            <div class="icon icon-back-blue">
+                    
+                    </div>
+                            <div class="icon icon-search"></div></button><span></span><div class="input-placeholder">Buscar o empezar un chat nuevo</div>
+                            <label for="input-chatlist-search" class="cont-input-search">
+                                <input type="text" class="input input-search" data-tab="2" dir="auto" title="Buscar o empezar un chat nuevo">
+                            </label>
+            </div>
+        </div>
         <div>
             <form method="post" action="../../Business/ProductoControlador.php" accept-charset="UTF-8" id="fproductos">
                 <div id="">
