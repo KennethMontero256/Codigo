@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Codigo/index.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/view/Ventas/RealizarVenta.php</file>
-            <file>file:/C:/xampp/htdocs/Codigo/js/ejemAlertify.js</file>
-            <file>file:/C:/xampp/htdocs/Codigo/js/funcionesVenta.js</file>
-            <file>file:/C:/xampp/htdocs/Codigo/view/Ventas/Alertas.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/Business/insertarProducto.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/Business/ProductoControlador.php</file>
+            <file>file:/C:/xampp/htdocs/Codigo/view/Producto/AgregarProducto.php</file>
         </group>
     </open-files>
 </project-private>
