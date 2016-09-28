@@ -48,6 +48,7 @@
 	<script type="text/javascript" src="../../js/cargar_empleados.js"></script>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
+	<script type="text/javascript" src="../../js/jquery.maskedinput.js" ></script>
 	<script>
 		$(function() {
 			theTable = $("#tablaListaSucursal");

@@ -546,7 +546,7 @@ input.cmn-toggle-yes-no:checked + label:after {
 }
 
 .contenedorLista table tr:nth-child(odd){
-	background-color:#eeeeee;
+	background-color:#e6e6e6;
 }
 
 .contenedorLista table td{
@@ -561,7 +561,10 @@ table.listaCnNombres td:nth-child(1){
   	display: inline-block;
  	width: 200px;
 }
-
+#tablaEmpleados tr:nth-child(even) td:nth-child(1),
+#tablaEmpleados tr:nth-child(odd) td:nth-child(1){
+	padding-right: 180px;
+}
 .contenedorLista table a{
 	color:#616161;
 	text-decoration: none;

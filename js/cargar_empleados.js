@@ -9,17 +9,31 @@ function mostrarEmpleadosBySucursal(){
     success: function(responseText){
       var data = JSON.parse(responseText);
       limpiarTablaById("tablaEmpleados");
-      
+      var sucursal = "";
       var cont = 0;
+
       $.each(data, function(i, item) {
-        var fila = "";
+        sucursal = data[i].nombreSucursal;
+        if(data[i].nombreSucursal == "z"){
+          sucursal = "Sucursal no definida."
+        }
         var nuevaFila = "<tr>";
-        nuevaFila += "<td>"+data[i].nombre+"</td>";
-                        
+
+        if(cont == 0){
+          nuevaFila += "<td colspan='2'>"+sucursal+"</td><td></td><td></td>";
+          cont ++;
+        }else{
+          if(data[i-1].nombreSucursal != data[i].nombreSucursal){
+            nuevaFila += "<td>"+sucursal+"</td><td></td><td></td>";
+          }
+        }
+        nuevaFila += "</tr>";
+        $("#tablaEmpleados").append(nuevaFila);
+        nuevaFila = "<tr>";
+        nuevaFila +="<td>"+data[i].nombre+"</td>";
         nuevaFila +="<td><a href='"+data[i].nombre+"' data-id='"+data[i].cedula+"' class='icono eliminarEmpl'><span class='icon-bin2'></span></a></td>";
         nuevaFila +="<td><a href='' class='icono'><span class='icon-pencil'></span></a></td>";
-                        nuevaFila += "</tr>";
-
+        nuevaFila += "</tr>";
         $("#tablaEmpleados").append(nuevaFila);
       });
       agregarEventoEliminarEmpleado(); 
