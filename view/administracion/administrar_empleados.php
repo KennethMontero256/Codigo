@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<div class="contenedorSucursales">
+	<div class="contenedorSucursales" id="contenedorOpAdmin">
 		<p>Empleados</p>
 		<a class="add tooltip" id="addNewEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">

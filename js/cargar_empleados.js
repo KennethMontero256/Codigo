@@ -30,7 +30,7 @@ function mostrarEmpleadosBySucursal(){
         nuevaFila += "</tr>";
         $("#tablaEmpleados").append(nuevaFila);
         nuevaFila = "<tr>";
-        nuevaFila +="<td>"+data[i].nombre+"</td>";
+        nuevaFila +="<td><a href='' class='linkMostrarEmpleado' data-id='"+data[i].cedula+"'>"+data[i].nombre+"</a></td>";
         nuevaFila +="<td><a href='"+data[i].nombre+"' data-id='"+data[i].cedula+"' class='icono eliminarEmpl'><span class='icon-bin2'></span></a></td>";
         nuevaFila +="<td><a href='' class='icono'><span class='icon-pencil'></span></a></td>";
         nuevaFila += "</tr>";
@@ -57,6 +57,13 @@ function mostrarEmpleadosBySucursal(){
                 alertify.error('Cancelado');
             });
         });
+      $("a.linkMostrarEmpleado").off('click');
+        $("a.linkMostrarEmpleado").on('click', function(e) {
+             e.preventDefault();
+            var id = $(this).attr("data-id");
+            cargar_pagina("#contenedorOpAdmin", "../view/administracion/mostrar_empleados.php?cedula="+id);
+        });
+
     }
     /*FIN----------ELIMINAR*/
   function eliminarEmpleado(identificacion){
@@ -79,4 +86,8 @@ function mostrarEmpleadosBySucursal(){
             $(this).remove();
         }); 
     }
+    function cargar_pagina(lugarACargar,nombrePagina){
+    $(lugarACargar).load(nombrePagina);
+    $(lugarACargar).fadeIn(1000);
+  }
 });
