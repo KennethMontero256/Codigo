@@ -17,34 +17,30 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<table>
+	<table id="showEmpleados">
+		<p>Empleado:     <?php echo $empleado[0]->nombre;?></p>
 		<tbody>
 			<tr>
 				<td>
-					<p>Empleado:<?php echo $empleado[0]->nombre;?></p>
+					<p>Cédula:<?php echo $empleado[0]->cedula;?></p>
 				</td>
 				<td>
-					<p>Cédula:<?php echo $empleado[0]->cedula;?></p>
+					<p>Sucursal Actual:<?php echo $empleado[0]->nombreSucursal;?></p>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<p>Teléfono:<?php echo $empleado[0]->telefono;?></p>
 				</td>
-			</tr>
-			<tr>
-				<td><p>Sucursal Actual:<?php echo $empleado[0]->nombreSucursal;?></p></td>
-			</tr>
-			<tr>
 				<td>
 					<p>Fecha de ingreso: <?php echo $empleado[0]->fechaIngreso;?></p>
 				</td>
 			</tr>
-			<tr>
-				<td><a href="<?php echo $empleado[0]->cedula;?>" class="btn-flat">Editar información</a></td>
-				<td><a href=""></a></td>
-			</tr>
 		</tbody>
 	</table>
+	<div class="footShowInfoEmpleado">
+		<a href="#" class="volverListEmpleados"><span class="icon-arrow-left"></span></a>
+		<a href="<?php echo $empleado[0]->cedula;?>" class=""><span class="icon-pencil"></span>Editar información</a>
+	</div>
 </body>
 </html>

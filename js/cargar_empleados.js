@@ -61,7 +61,7 @@ function mostrarEmpleadosBySucursal(){
         $("a.linkMostrarEmpleado").on('click', function(e) {
              e.preventDefault();
             var id = $(this).attr("data-id");
-            cargar_pagina("#contenedorOpAdmin", "../view/administracion/mostrar_empleados.php?cedula="+id);
+            cargar_pagina("#contenedorOpAdmin", "../administracion/mostrar_empleados.php?cedula="+id);
         });
 
     }

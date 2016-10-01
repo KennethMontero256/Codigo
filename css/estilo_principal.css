@@ -669,4 +669,25 @@ table tr:nth-child(odd){
 table td.ocultaTd{
 	display:none;
 }
+
+#showEmpleados{
+  width: 80%;
+  margin-top:5%;
+  margin-left: 10%;
+}
+
+#showEmpleados tr:nth-child(2n+1){
+  background: #fff;
+}
+
+
+#showEmpleados p{
+  background-color: #fff;
+  color: #717171;
+}
+
+#showEmpleados .icono{
+  background-color: #
+}
+
 /*Estilo tablas*/
