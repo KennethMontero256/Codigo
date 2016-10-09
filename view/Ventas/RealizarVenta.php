@@ -44,7 +44,7 @@
         ?>
         
         
-        
+        <a href="../Ventas/VerVentas.php">Ver Ventas</a>
         
         <form method="post" action="../../Business/insertarProducto.php" accept-charset="UTF-8" id="formVenta">
             <div id="contenedorVenta">

@@ -9,17 +9,31 @@ function mostrarEmpleadosBySucursal(){
     success: function(responseText){
       var data = JSON.parse(responseText);
       limpiarTablaById("tablaEmpleados");
-      
+      var sucursal = "";
       var cont = 0;
+
       $.each(data, function(i, item) {
-        var fila = "";
+        sucursal = data[i].nombreSucursal;
+        if(data[i].nombreSucursal == "z"){
+          sucursal = "Sucursal no definida."
+        }
         var nuevaFila = "<tr>";
-        nuevaFila += "<td>"+data[i].nombre+"</td>";
-                        
+
+        if(cont == 0){
+          nuevaFila += "<td colspan='2'>"+sucursal+"</td><td></td><td></td>";
+          cont ++;
+        }else{
+          if(data[i-1].nombreSucursal != data[i].nombreSucursal){
+            nuevaFila += "<td>"+sucursal+"</td><td></td><td></td>";
+          }
+        }
+        nuevaFila += "</tr>";
+        $("#tablaEmpleados").append(nuevaFila);
+        nuevaFila = "<tr>";
+        nuevaFila +="<td><a href='' class='linkMostrarEmpleado' data-id='"+data[i].cedula+"'>"+data[i].nombre+"</a></td>";
         nuevaFila +="<td><a href='"+data[i].nombre+"' data-id='"+data[i].cedula+"' class='icono eliminarEmpl'><span class='icon-bin2'></span></a></td>";
         nuevaFila +="<td><a href='' class='icono'><span class='icon-pencil'></span></a></td>";
-                        nuevaFila += "</tr>";
-
+        nuevaFila += "</tr>";
         $("#tablaEmpleados").append(nuevaFila);
       });
       agregarEventoEliminarEmpleado(); 
@@ -43,6 +57,13 @@ function mostrarEmpleadosBySucursal(){
                 alertify.error('Cancelado');
             });
         });
+      $("a.linkMostrarEmpleado").off('click');
+        $("a.linkMostrarEmpleado").on('click', function(e) {
+             e.preventDefault();
+            var id = $(this).attr("data-id");
+            cargar_pagina("#contenedorOpAdmin", "../administracion/mostrar_empleados.php?cedula="+id);
+        });
+
     }
     /*FIN----------ELIMINAR*/
   function eliminarEmpleado(identificacion){
@@ -65,4 +86,8 @@ function mostrarEmpleadosBySucursal(){
             $(this).remove();
         }); 
     }
+    function cargar_pagina(lugarACargar,nombrePagina){
+    $(lugarACargar).load(nombrePagina);
+    $(lugarACargar).fadeIn(1000);
+  }
 });

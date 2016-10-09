@@ -22,7 +22,6 @@
 	<script type="text/javascript" src="../../css/jquery-ui.css"></script>
 	<script type="text/javascript" src="../../js/jquery-ui.js"></script>
 	<script type="text/javascript" src="../../js/alertify/alertify.js"></script>
-	<script type="text/javascript" src="../../js/jquery.maskedinput.js" ></script>
 </head>
 <body>
 	<?php

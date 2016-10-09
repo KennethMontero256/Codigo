@@ -16,6 +16,9 @@
 		case "eliminarEmpleado":
 			echo $dataEmpleado->eliminarEmpleado($_REQUEST["cedula"]);
 			break;
+	    case "getEmpleadoByCedula":
+	    	echo $dataEmpleado->getEmpleadoById($_REQUEST["cedula"]);
+	    	break;
 		default:
 			
 			break;

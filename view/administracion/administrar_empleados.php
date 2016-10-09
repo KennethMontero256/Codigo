@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<div class="contenedorSucursales">
+	<div class="contenedorSucursales" id="contenedorOpAdmin">
 		<p>Empleados</p>
 		<a class="add tooltip" id="addNewEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
@@ -48,6 +48,7 @@
 	<script type="text/javascript" src="../../js/cargar_empleados.js"></script>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
+	<script type="text/javascript" src="../../js/jquery.maskedinput.js" ></script>
 	<script>
 		$(function() {
 			theTable = $("#tablaListaSucursal");

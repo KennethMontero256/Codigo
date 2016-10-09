@@ -61,6 +61,31 @@
 			}
 		}
 
+		public function getEmpleadoById($cedula){
+        	$sentencia = $this->conexion->prepare("CALL ucrgrupo4.paGetEmpleadosByCedula(?);"); 
+        	mysqli_stmt_bind_param($sentencia, "s", $cedulaEmpleado);
+	        $cedulaEmpleado = $cedula;
+
+        	$sentencia->execute();
+
+        	if ($resultado = $sentencia->get_result()) {
+            	$index = 0;
+            	while ($row = $resultado->fetch_assoc()) {
+	                $data[$index]["cedula"] = $row['cedula'];
+	                $data[$index]["nombre"] = $row['nombre'];
+	                $data[$index]["telefono"] = $row["telefono"];
+	                $data[$index]["fechaIngreso"] = $row["fechaIngreso"];
+	                $data[$index]["habilitado"] = $row["habilitado"];
+	                $data[$index]["idSucursal"] = $row["idSucursal"];
+	                $data[$index]["nombreSucursal"] = $row["nombreSucursal"];
+                $index ++;
+            	}
+            $sentencia->close();
+            return json_encode($data);
+        	}
+        	mysqli_close($this->conexion);
+		}
+
 		public function eliminarEmpleado($cedula){
 	        $sentencia = $this->conexion->prepare("CALL paEliminarEmpleado(?)");
 	        mysqli_stmt_bind_param($sentencia, "s", $cedulaEmpleado);
