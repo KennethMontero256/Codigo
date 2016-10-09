@@ -19,75 +19,93 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<div>
-        <form method="post" action="../../Business/ProductoControlador.php" accept-charset="UTF-8" id="fproductos">
-            <div class="">
-            	<label>Sucursal <?php echo $_SESSION["nombreSucursal"];?></label>
-            	<input type="hidden" name="sucursal" value="<?php echo $_SESSION["idSucursal"];?>">
-            </div>
-            <div id="">
-                <label>Código</label>
-                <input type="text" name="codigo">
-            </div>
-                
-            <div>
-                <label>Nombre</label>
-                <input type="text" name="nombre"> 
-            </div>
-
-            <div>
-                <label>Abreviatura</label>
-                <input type="text" name="abrev"> 
-            </div>
-                
-            <div>
-                <label>Stock</label>
-                <input type="number" name="stock"> 
-            </div>
-                
-            <div>
-                <label>Unidad de Medida</label>
-                <select name="unidadMedida">
-                    <ul>
-                    	<option value="k">Kilo</option>
-                        <option value="u">Unidad</option>
-                    </ul>
-                </select>
-            </div>
-                
-            <div>
-                <label>Precio</label>
-           		    <input type="text" name="precio"> 
-            </div>
-                
-            <div>
-                <label>Proveedor</label>
-                <select id="" name="proveedor">
-                    <ul>
-                        <?php
-                            for ($i = 0; $i < count($proveedor); $i++) {
-                                echo '<option value="' . $proveedor[$i]->getCedulaProveedor() . '">' . $proveedor[$i]->getNombre() . '</option>';
-                            }
-                        ?>
-                    </ul>
-                </select>
-            </div>
-                
-            <div>
-                <label>Categoria</label>
-                <select id="" name="categoria">
-                    <ul>
-                        <?php
-                            for ($i = 0; $i < count($categorias); $i++) {
-                                echo '<option value="' . $categorias[$i]->getCodigoCategoria() . '">' . $categorias[$i]->getNombre() . '</option>';
-                            }
-                        ?>
-                    </ul>
-                </select>
-           </div>
-		<input type="submit" value="Agregar">
-        </form>
+    <div class="contenedorAdmInventario">
+        <div class="">
+            <ul>
+                <li>
+                    <a href="ShProductos"><span class="icon-">Productos</span></a>
+                </li>
+                <li>
+                    <a href="ShCategoria"><span class="icon-"></span></a>
+                </li>
+                <li>
+                    <a href="ShProveedor"><span class="icon-"></span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="contenidoShs">
+            
+        </div>
     </div>
+    <div>
+            <form method="post" action="../../Business/ProductoControlador.php" accept-charset="UTF-8" id="fproductos">
+                <div class="">
+                    <label>Sucursal <?php echo $_SESSION["nombreSucursal"];?></label>
+                    <input type="hidden" name="sucursal" value="<?php echo $_SESSION["idSucursal"];?>">
+                </div>
+                <div id="">
+                    <label>Código</label>
+                    <input type="text" name="codigo">
+                </div>
+                    
+                <div>
+                    <label>Nombre</label>
+                    <input type="text" name="nombre"> 
+                </div>
+
+                <div>
+                    <label>Abreviatura</label>
+                    <input type="text" name="abrev"> 
+                </div>
+                    
+                <div>
+                    <label>Stock</label>
+                    <input type="number" name="stock"> 
+                </div>
+                    
+                <div>
+                    <label>Unidad de Medida</label>
+                    <select name="unidadMedida">
+                        <ul>
+                            <option value="k">Kilo</option>
+                            <option value="u">Unidad</option>
+                        </ul>
+                    </select>
+                </div>
+                    
+                <div>
+                    <label>Precio</label>
+                        <input type="text" name="precio"> 
+                </div>
+                    
+                <div>
+                    <label>Proveedor</label>
+                    <select id="" name="proveedor">
+                        <ul>
+                            <?php
+                                for ($i = 0; $i < count($proveedor); $i++) {
+                                    echo '<option value="' . $proveedor[$i]->getCedulaProveedor() . '">' . $proveedor[$i]->getNombre() . '</option>';
+                                }
+                            ?>
+                        </ul>
+                    </select>
+                </div>
+                    
+                <div>
+                    <label>Categoria</label>
+                    <select id="" name="categoria">
+                        <ul>
+                            <?php
+                                for ($i = 0; $i < count($categorias); $i++) {
+                                    echo '<option value="' . $categorias[$i]->getCodigoCategoria() . '">' . $categorias[$i]->getNombre() . '</option>';
+                                }
+                            ?>
+                        </ul>
+                    </select>
+               </div>
+            <input type="submit" value="Agregar">
+            </form>
+        </div>
     <div class="addCategoria">
     	<label for="">Agregar nueva categoria</label>
     	<input type="text" name="" value="" placeholder="">
@@ -101,5 +119,6 @@
     	</ul>
     	<a href="#" class=""><span class="icon-plus2"></span></a>
     </div>
+
 </body>
 </html>	

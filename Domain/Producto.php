@@ -8,110 +8,119 @@
     private $precio;
     private $unidadMedida;
     private $proveedor;
+    private $tamanio;
     private $idSucursal;
     private $idCategoria;
     private $abreviatura;
-
-    function __constructLleno($codigo, $nombre, $stock, $precio)
-    {
-      $this -> codigo = $codigo;
-      $this -> nombre = $nombre;
-      $this -> stock = $stock;
-      $this -> precio = $precio;
+    
+    function __construct($codigo,$nombre,$stock,$precio,$unidadMedida,$proveedor,$tamanio,$idSucursal,$idCategoria, $abreviatura){
+        $this->$codigo=$codigo;
+        $this->$nombre=$nombre;
+        $this->$stock=$stock;
+        $this->$precio=$precio;
+        $this->$unidadMedida=$unidadMedida;
+        $this->$proveedor=$proveedor;
+        $this->$idSucursal=$idSucursal;
+        $this->$idCategoria=$idCategoria;
+        $this->$abreviatura=$abreviatura;
+        $this->tamanio = $tamanio;
     }
-    
-    
-    function __construct(){
+
+    public function getCodigo() {
+        return $this->codigo;
+    }
+
+    public function getUnidadMedida() {
+        return $this->unidadMedida;
+    }
+
+    public function getProveedor() {
+        return $this->proveedor;
+    }
+
+    public function getIdSucursal() {
+        return $this->idSucursal;
+    }
+
+    public function getIdCategoria() {
+        return $this->idCategoria;
+    }
+
+    public function setCodigo($codigo) {
+        $this->codigo = $codigo;
+    }
+
+   public function setUnidadMedida($unidadMedida) {
+        $this->unidadMedida = $unidadMedida;
+    }
+
+    public function setProveedor($proveedor) {
+        $this->proveedor = $proveedor;
+    }
+
+    public function setIdSucursal($idSucursal) {
+        $this->idSucursal = $idSucursal;
+    }
+
+    public function setIdCategoria($idCategoria) {
+        $this->idCategoria = $idCategoria;
+    }
+
         
+    public function getCodigoProducto() {
+        return $this->codigo;
+    }
+
+    public function getNombre() {
+        return $this->nombre;
+    }
+
+    public function getStock() {
+        return $this->stock;
+    }
+
+    public function getPrecio() {
+        return $this->precio;
+    }
+
+    public function setCodigoProducto($codigo) {
+        $this->codigo = $codigo;
+    }
+
+    public function setNombre($nombre) {
+        $this->nombre = $nombre;
+    }
+
+    public function setStock($stock) {
+        $this->stock = $stock;
+    }
+
+    public function setPrecio($precio) {
+        $this->precio = $precio;
+    }
+    public function setAbreviatura($abreviatura){
+        $this->abreviatura=$abreviatura;
+    }
+    public function getAbreviatura(){
+        return $this->abreviatura;
+    }
+
+    public function setTamanio($tamanio){
+        $this->tamanio = $tamanio;
+    }
+
+    public function getTamanio(){
+        return $this->tamanio;
     }
 
     function __toString(){
 
       return "<table> <tr>".
-          "<td>".$this -> codigo."</td>".
-          "<td>".$this -> nombre."</td>".
-          "<td>".$this -> stock."</td>".
-          "<td>".$this -> precio."</td>".
+          "<td>".$this ->codigo."</td>".
+          "<td>".$this ->nombre."</td>".
+          "<td>".$this ->stock."</td>".
+          "<td>".$this ->precio."</td>".
         "</tr> </table>";
-    }
-
-    function getCodigo() {
-        return $this->codigo;
-    }
-
-    function getUnidadMedida() {
-        return $this->unidadMedida;
-    }
-
-    function getProveedor() {
-        return $this->proveedor;
-    }
-
-    function getIdSucursal() {
-        return $this->idSucursal;
-    }
-
-    function getIdCategoria() {
-        return $this->idCategoria;
-    }
-
-    function setCodigo($codigo) {
-        $this->codigo = $codigo;
-    }
-
-    function setUnidadMedida($unidadMedida) {
-        $this->unidadMedida = $unidadMedida;
-    }
-
-    function setProveedor($proveedor) {
-        $this->proveedor = $proveedor;
-    }
-
-    function setIdSucursal($idSucursal) {
-        $this->idSucursal = $idSucursal;
-    }
-
-    function setIdCategoria($idCategoria) {
-        $this->idCategoria = $idCategoria;
-    }
-
-        
-    function getCodigoProducto() {
-        return $this->codigo;
-    }
-
-    function getNombre() {
-        return $this->nombre;
-    }
-
-    function getStock() {
-        return $this->stock;
-    }
-
-    function getPrecio() {
-        return $this->precio;
-    }
-
-    function setCodigoProducto($codigo) {
-        $this->codigo = $codigo;
-    }
-
-    function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
-
-    function setStock($stock) {
-        $this->stock = $stock;
-    }
-
-    function setPrecio($precio) {
-        $this->precio = $precio;
-    }
-    function setAbreviatura($abreviatura){
-        $this->abreviatura=$abreviatura;
-    }
-    function getAbreviatura(){
-        return $this->abreviatura;
     }
 
 }

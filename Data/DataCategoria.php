@@ -1,27 +1,57 @@
 <?php
+include_once ("Data.php");
+    class DataCategoria{
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-function getCategoria(){
-    $mysqli = getConnection();
-    $sql = "SELECT * FROM categoria;";
-    $resultado = $mysqli->query($sql);
-    $vector = [];
-    if ($resultado->num_rows > 0) {
-        // output data of each row
-        while ($row = $resultado->fetch_assoc()) {
-            $categoria = new Categoria();
-            $categoria->setCodigoCategoria($row['id']);
-            $categoria->setNombre($row['nombre']);
-            array_push($vector, $categoria);
+        var $conexion;
+        
+        public function DataCategoria(){
+            $mysqli = new Data();
+            $this->conexion = $mysqli->getConexion();
         }
-    } else {
-        echo "0 results";
+
+        public function agregarActualizarCategoria($categoria){
+            
+            $sentencia = $this->conexion->prepare("CALL paInsertarActualizarCategoria(?,?)");
+            mysqli_stmt_bind_param($sentencia, "ss", $nombre, $codigo);
+            $nombre = $categoria->getNombre();
+            $codigo = $categoria->getCodigo(); 
+
+            $sentencia->execute();
+            $sentencia->close();
+            mysqli_close($this->conexion);
+        }
+
+        public function eliminarCategoria($codigoCategoria){
+            $sentencia = $this->conexion->prepare("CALL paEliminarCategoria(?)");
+            mysqli_stmt_bind_param($sentencia, "s", $codigo);
+            $codigo = $codigoCategoria;
+
+            $sentencia->execute();
+            $afectados =  mysqli_affected_rows($this->conexion);
+            mysqli_close($this->conexion);
+
+        return $afectados;
+        }
+
+        public function getCategoria($codigoCategoria){
+            $sentencia = $this->conexion->prepare("CALL paObtenerCategoria(?);");
+            mysqli_stmt_bind_param($sentencia, "s", $codigo);
+            $codigo = $codigoCategoria; 
+
+            $sentencia->execute();
+            
+            if ($resultado = $sentencia->get_result()) {
+                $index = 0;
+                while ($row = $resultado->fetch_assoc()) {
+                    $data[$index]["id"] = $row['id'];
+                    $data[$index]["nombre"] = $row['nombre'];
+                $index ++;
+                }
+            
+            $sentencia->close();
+            return json_encode($data);
+            }
+            mysqli_close($this->conexion);
+        }
     }
-    $mysqli->close();     
-    return $vector;
-}
+?>
