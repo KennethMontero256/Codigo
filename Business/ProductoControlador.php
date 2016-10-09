@@ -20,6 +20,7 @@ $producto->setPrecio($precio);
 $producto->setProveedor($proveedor);
 $producto->setIdSucursal($sucursal);
 $producto->setIdCategoria($categoria);
+$producto->setAbreviatura($_POST['abrev']);
 
 //var_dump($producto);
 setProductos($producto);

@@ -10,6 +10,7 @@
     private $proveedor;
     private $idSucursal;
     private $idCategoria;
+    private $abreviatura;
 
     function __constructLleno($codigo, $nombre, $stock, $precio)
     {
@@ -106,7 +107,12 @@
     function setPrecio($precio) {
         $this->precio = $precio;
     }
-
+    function setAbreviatura($abreviatura){
+        $this->abreviatura=$abreviatura;
+    }
+    function getAbreviatura(){
+        return $this->abreviatura;
+    }
 
 }
 
