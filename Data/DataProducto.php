@@ -2,15 +2,15 @@
     include_once 'Data.php';
    
     class DataProducto{
-        private var $conexion;
+        var $conexion;
         
         function __construct(){
             $mysqli = new Data();
             $this->conexion = $mysqli->getConexion();
         }
-        public function insertarActualizarProducto($producto){
-            $sentencia = $this->conexion->prepare("CALL paInsertarActualizarProducto(?,?,?,?,?,?,?,?)");
-            mysqli_stmt_bind_param($sentencia, "sssssssss", $codigo,$nombre,$stock,$precio,$unidadMedida,$proveedor,$tamanio,$idSucursal,$idCategoria, $abreviatura);
+        public function insertarActualizarProducto($producto, $componentesProducto){
+            $sentencia = $this->conexion->prepare("CALL paInsertarActualizarProducto(?,?,?,?,?,?,?,?,?,?)");
+            mysqli_stmt_bind_param($sentencia, "ssssssssss", $codigo,$nombre, $abreviatura, $stock, $unidadMedida, $precio,$proveedor,$tamanio,$idSucursal,$idCategoria);
 
             $codigo=$producto->getCodigo();
             $nombre=$producto->getNombre();
@@ -18,14 +18,57 @@
             $precio=$producto->getPrecio();
             $unidadMedida=$producto->getUnidadMedida();
             $proveedor=$producto->getProveedor();
-            $tamanio = $producto->;
+            $tamanio = $producto->getTamanio();
             $idSucursal=$producto->getIdSucursal();
             $idCategoria=$producto->getIdCategoria();
             $abreviatura=$producto->getAbreviatura();
 
             $sentencia->execute();
             $sentencia->close();
+
+            if(!empty($componentesProducto)){
+                $query = "SELECT codigo FROM producto ORDER BY codigo DESC LIMIT 1;";
+                $result = $this->conexion->query($query);
+
+                $codigoProducto = 0;
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $codigoProducto = $row['codigo'];
+                    }
+                }
+                agregarProductosCompuestos($codigoProducto,$componentesProducto);
+            }else{
+                mysqli_close($this->conexion);
+            }
+        }
+
+        public function agregarProductosCompuestos($codigoProducto, $componentes){
+           
+            limpiarComponentesProducto($codigoProducto);
+            $array = explode(",", $componentes);
+            $longitud = count($array);
+ 
+            //Recorro todos los elementos
+            for($i=0; $i<$longitud; $i++){
+                $stmt = $this->conexion->prepare("CALL paAgregarProductosProductoCompuesto(?,?)");
+                mysqli_stmt_bind_param($stmt, "ss", $codigoPrdCompuesto, $codigoComponeProducto);
+                $codigoPrdCompuesto = $codigoProducto;
+                $codigoComponeProducto = $array[$i];
+                $stmt->execute();
+            }
             mysqli_close($this->conexion);
+        }
+        // antes de insertar los componentes de un producto, elimina todos los componentes que tiene actualmente
+        public function limpiarComponentesProducto($codigoProducto){
+            
+            $sentencia = $this->conexion->prepare("CALL paEliminarComponentesProducto(?)");
+            mysqli_stmt_bind_param($sentencia, "s", $codigo);
+            $codigo = $codigoProducto;
+
+            $sentencia->execute();
+            $afectados =  mysqli_affected_rows($this->conexion);
+
+            return $afectados;
         }
 
         public function getProductosBySucursal($idSucursal){
@@ -85,6 +128,19 @@
             }
             mysqli_close($this->conexion);
         }
+        //Elimina ya sea un producto compuesto o solo un producto
+        public function eliminarProducto($codigoProducto){
+            $sentencia = $this->conexion->prepare("CALL paEliminarProducto(?)");
+            mysqli_stmt_bind_param($sentencia, "s", $codigo);
+            $codigo = $codigoProducto;
+
+            $sentencia->execute();
+            $afectados =  mysqli_affected_rows($this->conexion);
+            mysqli_close($this->conexion);
+
+        return $afectados;
+        }
+
     }
 
 ?>

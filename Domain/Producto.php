@@ -14,15 +14,15 @@
     private $abreviatura;
     
     function __construct($codigo,$nombre,$stock,$precio,$unidadMedida,$proveedor,$tamanio,$idSucursal,$idCategoria, $abreviatura){
-        $this->$codigo=$codigo;
-        $this->$nombre=$nombre;
-        $this->$stock=$stock;
-        $this->$precio=$precio;
-        $this->$unidadMedida=$unidadMedida;
-        $this->$proveedor=$proveedor;
-        $this->$idSucursal=$idSucursal;
-        $this->$idCategoria=$idCategoria;
-        $this->$abreviatura=$abreviatura;
+        $this->codigo=$codigo;
+        $this->nombre=$nombre;
+        $this->stock=$stock;
+        $this->precio=$precio;
+        $this->unidadMedida=$unidadMedida;
+        $this->proveedor=$proveedor;
+        $this->idSucursal=$idSucursal;
+        $this->idCategoria=$idCategoria;
+        $this->abreviatura=$abreviatura;
         $this->tamanio = $tamanio;
     }
 
