@@ -6,6 +6,7 @@
 	<title>Inicio</title>
 	<link rel="stylesheet" type="text/css" href="../../css/Roboto/WebFont/roboto_regular_macroman/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="../../css/estilo_principal.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconosFuente/style.css">
 </head>
 <body>
     <?php 

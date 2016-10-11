@@ -16,7 +16,8 @@
 			<li><a href="#" id="opPedidoReal">Pedidos realizados</a></li>
 		</ul>
 	</div>
-	<div class="contenedorPedidos">
+	<div class="contenedorSecundario">
+	    
 		<div class="contenidoPedidos">
 			<p>Busqueda por filtro de fecha</p>
 			<div class="barBusqueda">
@@ -24,7 +25,7 @@
 				<input type="text" id="txtFecha1" class="fecha" placeholder="Seleccionar fecha">
 				<label>a:</label>
 				<input type="text" id="txtFecha2" class="fecha" placeholder="Seleccionar fecha">
-				<a href="#" id="" class="btn-submit">Filtrar</a>
+				<a href="#" id="" class="btn-submit"><span class="icon-search"></span></a>
 			</div>
 			<div class="tabla">
 			<table>

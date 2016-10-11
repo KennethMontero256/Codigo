@@ -11,6 +11,13 @@ $(document).ready(function(){
 
     });
 
+    /*funciones FAB*/
+    $(".fabInventario").on("click",function(e){
+         e.preventDefault();
+        alert("");
+        $(".menu-fab").show();
+    });
+    /*End funciones FAB*/
     $('.opBarNav').on('click',function(e){
 		e.preventDefault();
 		var opcion = this.getAttribute("href");
@@ -24,7 +31,7 @@ $(document).ready(function(){
 			}else{
                 if(opcion == "invent"){
                    cargar_pagina("#contenedorGlobal", "../Producto/GestionInventario.php");
-                    $(".xdsoft_datetimepicker").remove();   
+                    $(".xdsoft_datetimepicker").remove();
                 }
             }
 		}

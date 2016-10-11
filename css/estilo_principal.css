@@ -216,7 +216,6 @@ input[type="text"], input[type="password"]{
 	padding: 10px;
 	width: 50%;
 	border: none;
-	border-bottom: 1px solid #757575;
 	border-radius: 3px;
 	font-size:17px;
 	margin-top:3%;
@@ -247,6 +246,48 @@ form a{
     z-index: 3;
 }
 
+/*Modal add producto*/
+.contenedorModal #fProducto{
+  width: 30%;
+  margin-left:35%;
+  margin-top:2%;
+  overflow: auto;
+}
+#fProducto .opsFProducto {
+    float: right;
+}
+#fProducto label{
+  display: block;
+  margin-left: 10px;
+  margin-top:4px;
+}
+#fProducto label:nth-child(1){
+  background-color: #000;
+  color: #d23f31;
+  text-align: center;
+  padding: 3px;
+}
+#fProducto select{
+  display: block;
+  margin-left: 10px;
+  width: 50%;
+  height: 25px;
+}
+
+#fProducto {
+  margin-left: 100px;
+}
+
+#fProducto input{
+  width: 90%;
+  margin-top: 0;
+}
+
+#fProducto label {
+  color: #757575;
+  margin-top: 2%;
+}
+/*Modal add producto*/
 /*modal recuperar contraseña administrador*/
 .recContra{
 	width: 40%;
@@ -282,6 +323,48 @@ form a{
 	text-decoration:none;
 	line-height: 54px;
 }
+
+.dropA{
+  text-decoration: none;
+}
+
+.dropLi{
+  list-style: none;
+}
+
+.menu-fab li{
+  margin-bottom: 15px;
+}
+.menu-fab a{
+  padding: 5px;
+}
+
+.menu-fab a{
+  background-color:#0277bd;
+  color:#fff;
+  border-radius: 5px;
+}
+
+.menu-fab{
+    bottom: 45px;
+    right: 40px;
+    height: 130px;
+  	position: fixed;
+  	width: 56px;
+    -moz-animation: 1s subir 1;
+}
+
+@-moz-keyframes subir{
+  from{
+    height: 70px;
+  }
+
+  to{
+    height: 130px;
+  }
+}
+
+
 .menuLateral{
 	float:left;
 	width: 15%;
@@ -408,7 +491,7 @@ form a{
 	padding: 0 2rem;
 }
 
-.contenedorPedidos{
+.contenedorSecundario{
 	width: 70%;
 	float: left;
 	background: white;
@@ -417,9 +500,10 @@ form a{
 	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 	overflow: auto;
 	color:#424242;
+	height: 500px;
 }
 
-.contenedorPedidos p{
+.contenedorSecundario p{
 	color: #616161;
 	width: 90%;
 	padding-left: 2%;
@@ -689,5 +773,25 @@ table td.ocultaTd{
 #showEmpleados .icono{
   background-color: #
 }
-
 /*Estilo tablas*/
+
+/*Agregar categoria*/
+.formDModal{
+  width: 40%;
+  background-color: #fff;
+  margin-left: 30%;
+  margin-top: 10%;
+}
+.formDModal label{
+  background: #d23f31;
+  color: #fff;
+  text-align: center;
+  padding: 2px;
+  display: block;
+}
+.formDModal input{
+  display: block;
+  width: 60%;
+  margin-left: 20%;
+}
+/*Fin agregar categoria*/

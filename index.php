@@ -74,8 +74,8 @@
     <form action="index.php" method="POST" name="frmLoginAdm" accept-charset="utf-8">
       <p>Formulario de acceso</p>
       <p class="mensajes"><?php echo $mensaje;?></p>
-      <input type="text" name="username" placeholder="Usuario">
-      <input type="password" name="password" minlength=4 placeholder="Contraseña">
+      <input type="text" class="inputShadow" name="username" placeholder="Usuario">
+      <input type="password" class="inputShadow" name="password" minlength=4 placeholder="Contraseña">
       <input type="hidden" name="modo" value="login">
       <div class="layout-btns">
         <a href="#" id="bSubmitFrmLoginAdm" class="btn-submit">Ingresar</a>
