@@ -1,14 +1,5 @@
 <?php
     session_start();
-     include_once '../../Data/DataProducto.php';
-            include_once '../../Data/DataSucursal2.php';
-            include_once '../../Domain/Sucursal.php';
-            include_once '../../Domain/Categoria.php';
-            include_once '../../Data/DataCategoria.php';
-            include_once '../../Domain/Proveedor.php';
-            include_once '../../Data/DataProveedor.php';
-    $categorias = getCategoria();
-    $proveedor = getProveedores();
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,19 +8,17 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" href="">
+    <script type="text/javascript" src="../../js/gestion_inventario.js"></script>
 </head>
 <body>
     <div class="contenedorAdmInventario">
         <div class="">
             <ul>
                 <li>
-                    <a href="ShProductos"><span class="icon-">Productos</span></a>
+                    <a href="shProductos" data-id="<?php echo $_SESSION["idSucursal"];?>" class="shListaInventario"><span class="icon-">Productos</span></a>
                 </li>
                 <li>
-                    <a href="ShCategoria"><span class="icon-"></span></a>
-                </li>
-                <li>
-                    <a href="ShProveedor"><span class="icon-"></span></a>
+                    <a href="shCategoria" class="shListaInventario"><span class="icon-">Categorias</span></a>
                 </li>
             </ul>
         </div>
@@ -81,26 +70,14 @@
                 <div>
                     <label>Proveedor</label>
                     <select id="" name="proveedor">
-                        <ul>
-                            <?php
-                                for ($i = 0; $i < count($proveedor); $i++) {
-                                    echo '<option value="' . $proveedor[$i]->getCedulaProveedor() . '">' . $proveedor[$i]->getNombre() . '</option>';
-                                }
-                            ?>
-                        </ul>
+                       
                     </select>
                 </div>
                     
                 <div>
                     <label>Categoria</label>
                     <select id="" name="categoria">
-                        <ul>
-                            <?php
-                                for ($i = 0; $i < count($categorias); $i++) {
-                                    echo '<option value="' . $categorias[$i]->getCodigoCategoria() . '">' . $categorias[$i]->getNombre() . '</option>';
-                                }
-                            ?>
-                        </ul>
+                       
                     </select>
                </div>
             <input type="submit" value="Agregar">

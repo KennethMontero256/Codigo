@@ -8,6 +8,7 @@
             $mysqli = new Data();
             $this->conexion = $mysqli->getConexion();
         }
+        
         public function insertarActualizarProducto($producto, $componentesProducto){
             $sentencia = $this->conexion->prepare("CALL paInsertarActualizarProducto(?,?,?,?,?,?,?,?,?,?)");
             mysqli_stmt_bind_param($sentencia, "ssssssssss", $codigo,$nombre, $abreviatura, $stock, $unidadMedida, $precio,$proveedor,$tamanio,$idSucursal,$idCategoria);
@@ -36,7 +37,7 @@
                         $codigoProducto = $row['codigo'];
                     }
                 }
-                agregarProductosCompuestos($codigoProducto,$componentesProducto);
+                $this->agregarProductosCompuestos($codigoProducto,$componentesProducto);
             }else{
                 mysqli_close($this->conexion);
             }
@@ -44,7 +45,7 @@
 
         public function agregarProductosCompuestos($codigoProducto, $componentes){
            
-            limpiarComponentesProducto($codigoProducto);
+            $this->limpiarComponentesProducto($codigoProducto);
             $array = explode(",", $componentes);
             $longitud = count($array);
  

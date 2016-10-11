@@ -23,13 +23,14 @@ $(document).ready(function(){
 				$(".xdsoft_datetimepicker").remove();
 			}else{
                 if(opcion == "invent"){
-                   cargar_pagina("#contenedorGlobal", "../Producto/AgregarProducto.php");
+                   cargar_pagina("#contenedorGlobal", "../Producto/GestionInventario.php");
                     $(".xdsoft_datetimepicker").remove();   
                 }
             }
 		}
 
 	   });
+    
 
     $(".btn-cancel").on('click',function(e){
         e.preventDefault();
