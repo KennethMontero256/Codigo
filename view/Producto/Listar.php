@@ -16,14 +16,28 @@
                 $dataProducto = new DataProducto();  
                 $productos = $dataProducto->getProductosBySucursal($_SESSION["idSucursal"]);
 
-                echo "<table>";
+                $nomCategoria = "";
+                $count = 0;
+                echo "<table class='tbProducto'>";
+                echo "<tr><td>Nombre</td><td>Abreviatura</td><td>Stock</td><td>Precio</td><td>Tamaño</td><td>Acción</td><td>Acción</td></tr>";
                 foreach (json_decode($productos) as $producto) {
-                    echo "<tr>";
+
+                    if($count == 0){
+                        echo "<tr style='background-color:#795548; color:#fff;'><td>".$producto->nombreCategoria."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }else{
+                        if($nomCategoria != $producto->nombreCategoria){
+                            echo "<tr style='background-color:#795548; color:#fff;'><td>".$producto->nombreCategoria."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                        }
+                    }
+
+                    $nomCategoria = $producto->nombreCategoria;
+                    $count = $count + 1;
+                    echo "<tr style='background-color:#fff;'>";
                     echo "<td><a href='".$producto->codigo."'></a>".$producto->nombre."</a></td>";
                     echo "<td>".$producto->abreviatura."</td>";
-                    echo "<td>".$producto->stock."</td>";
+                    echo "<td>".$producto->stock.$producto->unidadMedida."</td>";
                     echo "<td>".$producto->precio."</td>";
-                    echo "<td>".$producto->tamanio."</td>";
+                    echo "<td>".getTamanio($producto->tamanio)."</td>";
                     echo "<td>";
                     echo "<a href='".$producto->codigo."' data-nombre='".$producto->nombre."' class='eliminarPrdct'><span class='icon-bin2'></span></a>";
                     echo "</td>";
@@ -49,6 +63,21 @@
                     echo "</tr>";
                 }
                 echo "</table>";
+            }
+            function getTamanio($nom){
+                $tamanio = "";
+                if($nom =="n"){
+                     $tamanio = "No definido";
+                }else{
+                  if($nom =="p"){
+                     $tamanio = "Pequeño";
+                    }else{
+                        if($nom =="g"){
+                             $tamanio = "Grande";
+                        }
+                    }  
+                }
+            return $tamanio;
             }
         ?>
         <script >
@@ -148,6 +177,7 @@
 
             $(".editarPrdct").on("click",function(e){
                 e.preventDefault();
+
                 var form = document.formProducto;
                 form.codigo.value = this.getAttribute("href");
                 form.nombre.value = $(this).data("nombre");
