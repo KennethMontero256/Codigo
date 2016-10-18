@@ -32,10 +32,14 @@
                 $result = $this->conexion->query($query);
 
                 $codigoProducto = 0;
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $codigoProducto = $row['codigo'];
+                if(empty($producto->getCodigo())){
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $codigoProducto = $row['codigo'];
+                        }
                     }
+                }else{
+                   $codigoProducto = $producto->getCodigo();
                 }
                 $this->agregarProductosCompuestos($codigoProducto,$componentesProducto);
             }else{
@@ -51,11 +55,13 @@
  
             //Recorro todos los elementos
             for($i=0; $i<$longitud; $i++){
-                $stmt = $this->conexion->prepare("CALL paAgregarProductosProductoCompuesto(?,?)");
-                mysqli_stmt_bind_param($stmt, "ss", $codigoPrdCompuesto, $codigoComponeProducto);
-                $codigoPrdCompuesto = $codigoProducto;
-                $codigoComponeProducto = $array[$i];
-                $stmt->execute();
+                if($array[$i]!=0){
+                    $stmt = $this->conexion->prepare("CALL paAgregarProductosProductoCompuesto(?,?)");
+                    mysqli_stmt_bind_param($stmt, "ss", $codigoPrdCompuesto, $codigoComponeProducto);
+                    $codigoPrdCompuesto = $codigoProducto;
+                    $codigoComponeProducto = $array[$i];
+                    $stmt->execute();
+                }
             }
             mysqli_close($this->conexion);
         }
@@ -142,6 +148,42 @@
         return $afectados;
         }
 
+        public function existeAbreviatura($abrev,$idSucursal){
+            $sentencia = $this->conexion->prepare("CALL paVerificarAbreviaturaProducto(?,?);");
+            mysqli_stmt_bind_param($sentencia, "ss", $abreviatura, $codigoSucursal);
+            $abreviatura = $abrev; 
+            $codigoSucursal = $idSucursal;
+
+            $sentencia->execute();
+        
+            $resultado = $sentencia->get_result();
+            $row = $resultado->fetch_assoc();
+            $data["cantidad"] = $row['cantidad'];
+            
+            $sentencia->close();
+            return json_encode($data);
+        }
+
+        public function getProductosNoCompuestos($idSucursal){
+            $sentencia = $this->conexion->prepare("CALL paGetProductosNoMixtosBySucursal(?);");
+            mysqli_stmt_bind_param($sentencia, "s", $codigo);
+            $codigo = $idSucursal; 
+
+            $sentencia->execute();
+            
+            if ($resultado = $sentencia->get_result()) {
+                $index = 0;
+                while ($row = $resultado->fetch_assoc()) {
+                    $data[$index]["codigo"] = $row['codigo'];
+                    $data[$index]["nombre"] = $row['nombre'];
+                $index ++;
+                }
+            
+            $sentencia->close();
+            return json_encode($data);
+            }
+            mysqli_close($this->conexion);
+        }
     }
 
 ?>

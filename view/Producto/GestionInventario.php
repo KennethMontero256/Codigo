@@ -31,66 +31,119 @@
     </div>
     <div style="display: none;" class="contenedorModal" id="formProducto">
         <form method="post" action="" name="formProducto" id="fProducto" accept-charset="UTF-8">
-            <label>Sucursal <?php echo $_SESSION["nombreSucursal"];?></label>
+            <p>Sucursal <?php echo $_SESSION["nombreSucursal"];?></p>
             <input type="hidden" name="sucursal" value="<?php echo $_SESSION["idSucursal"];?>">
             <input type="hidden" name="codigo" value="0">
-            
+            <input type="hidden" name="metodo" value="insertar">
+
             <label>Nombre</label>
-            <input type="text" class="inputShadow " name="nombre"> 
+            <input type="text" class="inputShadow " name="nombre" placeholder="Producto"> 
             
 
             <label>Abreviatura</label>
-            <input type="text" class="inputShadow" name="abrev"> 
+            <input type="text" class="inputShadow" name="abrev" placeholder="No puede ser la misma para otro producto"> 
                         
             <label>Stock</label>
-            <input type="text" class="inputShadow solo-numero" name="stock"> 
+            <input type="text" class="inputShadow solo-numero" name="stock" placeholder="Cantidad en inventario"> 
             
             <label>Precio</label>
-            <input type="text" class="inputShadow solo-numero" name="precio">           
-           
-            <label>Unidad de Medida</label>
-            <select id="unidadMedida">
-                <ul>
+            <input type="text" class="inputShadow solo-numero" name="precio" placeholder="Precio por unidad o Kilo">           
+            <ul>
+            <li>
+                <label class="lblSelect">Unidad de Medida</label>
+                <select id="unidadMedida">
+                    <ul>
+                        <option value="n">No definido</option>
+                        <option value="k">Kilo</option>
+                        <option value="u">Unidad</option>
+                    </ul>
+                </select>
+            </li>
+            <li>
+            <label class="lblSelect">Proveedor</label>
+                <select id="proveedor">
+                    <option value="i">Interno</option>
+                    <option value="e">Externo</option>
+                </select>
+           </li>
+           <li>
+                <label class="lblSelect">Categoria</label>
+                <select id="categoria">
+                        <?php
+                            foreach (json_decode($categorias) as $categoria) {
+                                echo "<option value='".$categoria->id."'>".$categoria->nombre."</option>";
+                            }
+                        ?>
+                </select>
+            </li>
+            <li>   
+                <label class="lblSelect">Tamaño</label>
+                <select id="tamanio">
                     <option value="n">No definido</option>
-                    <option value="k">Kilo</option>
-                    <option value="u">Unidad</option>
-                </ul>
-            </select>
- 
-            <label>Proveedor</label>
-            <select id="proveedor">
-                <option value="i">Interno</option>
-                <option value="e">Externo</option>
-            </select>
-           
-            <label>Categoria</label>
-            <select id="categoria">
-                    <?php
-                        foreach (json_decode($categorias) as $categoria) {
-                            echo "<option value='".$categoria->id."'>".$categoria->nombre."</option>";
-                        }
-                    ?>
-            </select>
-               
-            <label>Tamaño</label>
-            <select id="tamanio">
-                <option value="n">No definido</option>
-                <option value="p">Pequeño</option>
-                <option value="g">Grande</option>
-            </select>
+                    <option value="p">Pequeño</option>
+                    <option value="g">Grande</option>
+                </select>
+            </li>
+            </ul>
+            <div>
+                <a href="<?php echo $_SESSION["idSucursal"];?>" class="btn-bAddMixtos btn-click">Agregar productos(Ingredientes o componentes)</a>
+            </div>
             <div class="opsFProducto">
-               <a href="add" class="opFormProducto btn-submit"><span class="icon-">Agregar</span></a>
-               <a href="can" class="opFormProducto btn-submit"><span class="icon-">Cancelar</span></a>
+               <a href="add" class="opFormProducto btn-submit" id="bAddUpdatePrdct">Agregar</a>
+               <a href="can" class="opFormProducto btn-submit">Cancelar</a>
             </div>
         </form>
     </div>
+    <!--Form para productos mixtos -->
+    <div id="fListProductoMixto" class="contenedorModal" style="display: none;">
+        <div class="sombraModal">
+            <ul>
+                <li>
+                    <table class="tbEstandar" id="tbPrdsDisponibles">
+                        <thead>
+                            <tr>
+                                <th>Nombre productos disponibles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </li>
+                <li>
+                    <div>
+                        <a href="add" class="btn-fMixtos"><span class="icon-arrow-right"></span></a>
+                        <a href="rest" class="btn-fMixtos"><span class="icon-arrow-left"></span></a>
+                    </div>
+                </li>
+                <li>
+                    <table class="tbEstandar" id="tbPrdsAgregados">
+                        <thead>
+                            <tr class="trHeader">
+                                <th>Productos agregados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+            <div class="opsTbMixtos">
+               <a href="add" class="opFTbMixtos btn-submit">Añadir</a>
+               <a href="can" class="opFTbMixtos btn-submit">Cancelar</a>
+            </div>
+        </div>
+    </div>
     <div class="addCategoria contenedorModal" id="formCategoria" style="display: none;">
-    	<div class="formDModal">
+    	<div class="formDModal sombraModal">
             <input type="hidden" id="idCategoria" value="">
             <label>Agregar nueva categoria</label>
         	<input type="text" id="nomCategoria" class="inputShadow" placeholder="Ingrese el nombre de la categoria">
-        	<a href="add" class="opFormCategoria btn-submit" data-actualizar="" id="actualizarCategoria"><span class="icon-plus2">Agregar</span></a>
-            <a href="can" class="opFormCategoria btn-submit"><span class="icon-">Cancelar</span></a>
+        	<div class="opsAddCategoria ">
+                <a href="add" class="opFormCategoria btn-submit" data-actualizar="" id="actualizarCategoria"><span class="icon-plus2">Agregar</span></a>
+                <a href="can" class="opFormCategoria btn-submit"><span class="icon-">Cancelar</span></a>
+            </div>
         </div>
     </div>
 	<!--Opciones para agregar categoria o producto -->

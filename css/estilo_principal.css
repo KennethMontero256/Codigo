@@ -217,7 +217,7 @@ input[type="text"], input[type="password"]{
 	width: 50%;
 	border: none;
 	border-radius: 3px;
-	font-size:17px;
+	font-size:15px;
 	margin-top:3%;
 }
 
@@ -255,37 +255,57 @@ form a{
 }
 #fProducto .opsFProducto {
     float: right;
+    margin-top: 8%;
 }
 #fProducto label{
   display: block;
-  margin-left: 10px;
+  margin-left: 15px;
   margin-top:4px;
 }
-#fProducto label:nth-child(1){
-  background-color: #000;
-  color: #d23f31;
-  text-align: center;
-  padding: 3px;
-}
+
 #fProducto select{
-  display: block;
-  margin-left: 10px;
-  width: 50%;
+  width: 88%;
   height: 25px;
+  margin-left: 12px;
 }
 
 #fProducto {
   margin-left: 100px;
 }
-
+#fProducto ul{
+  margin-top: 2%;
+}
+#fProducto ul li{
+  float: left;
+  width: 50%;
+  list-style: none;
+}
+#fProducto ul+div{
+  display: block;
+  clear: both;
+  padding-top: 6%;
+  margin-left: 3%;
+}
+.btn-bAddMixtos{
+  background-color: #ef5350;
+  font-size: 15px;
+}
 #fProducto input{
   width: 90%;
   margin-top: 0;
 }
+#fProducto input[type="text"]{
+  padding: 7px;
+}
+
+#fProducto input[type="checkbox"]{
+  width:5%;
+  display:inline-block;
+}
 
 #fProducto label {
   color: #757575;
-  margin-top: 2%;
+  margin-top: 4%;
 }
 /*Modal add producto*/
 /*modal recuperar contraseña administrador*/
@@ -498,7 +518,6 @@ form a{
 	margin-top: 4%;
 	margin-left:4%;
 	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-	overflow: auto;
 	color:#424242;
 	height: 500px;
 }
@@ -781,6 +800,7 @@ table td.ocultaTd{
   background-color: #fff;
   margin-left: 30%;
   margin-top: 10%;
+  height: 20%;
 }
 .formDModal label{
   background: #d23f31;
@@ -794,4 +814,136 @@ table td.ocultaTd{
   width: 60%;
   margin-left: 20%;
 }
+.opsAddCategoria {
+    float: right;
+    margin-top: 5%;
+}
 /*Fin agregar categoria*/
+
+/*Tabla producto*/
+.tbProducto{
+  display: block;
+  margin:5%;
+  max-height: 100px;
+}
+.tbProducto tbody{
+  display: block;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.tbProducto tr:nth-child(1){
+  color: #fff;
+  background-color: #d23f31;
+}
+.tbProducto tr td:nth-child(1){
+   width: 15%;
+   padding:3px;
+}
+.tbProducto tr td:nth-child(2),
+.tbProducto tr td:nth-child(3),
+.tbProducto tr td:nth-child(4),
+.tbProducto tr td:nth-child(5),
+.tbProducto tr td:nth-child(6),
+.tbProducto tr td:nth-child(7){
+  text-align: center;
+}
+
+.tbProducto td{
+  width: 7%;
+  text-align: cente;
+}
+/*Tabla producto*/
+
+/*Tabla Categoria*/
+.contenedorTbCategoria {
+  width: 40%;
+  margin: 5%;
+  margin-left: 30%;
+}
+
+.contenedorTbCategoria table{
+  width: 100%;
+}
+
+/*Form agregar productos mmixtos*/
+#fListProductoMixto div:nth-child(1){
+  background:#fff;
+  width:62%;
+  overflow:auto;
+  margin-top:5%;
+  margin-left:20%;
+  padding:15px;
+}
+
+#fListProductoMixto  ul li{
+  float:left;
+  list-style: none;
+}
+#fListProductoMixto ul li div a{
+  display: block;
+  text-decoration: none;
+  margin-right:20%;
+}
+#fListProductoMixto ul li div a:nth-child(1){
+  margin-top: 150%;
+}
+#fListProductoMixto ul li div a:nth-child(2){
+  padding-top:10px;
+  padding-right: 0px;
+}
+#fListProductoMixto ul li div a span{
+  padding: 7px;
+  color: #fff;
+  background-color: #d32f2f;
+  border-radius: 30%;
+}
+
+#fListProductoMixto .opsTbMixtos{
+  clear: both;
+  margin-top: 270px;
+  margin-left: 40%;
+}
+
+#fListProductoMixto table tbody{
+  display: block;
+  min-height:200px;
+  max-height:200px;
+  overflow-y:auto;
+}
+
+#fListProductoMixto table input[type="checkbox"]{
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+#fListProductoMixto table tbody td{
+  width: 350px;
+}
+
+
+/*Estilos form Productos mixtos*/
+
+.sombraModal{
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+/*Tabla estilos estandar*/
+.tbEstandar{
+  border: 1px solid #c6c6c6;
+}
+
+.tbEstandar thead tr{
+  background-color:#e53935;
+  color: #fff;
+}
+
+.tbEstandar td,.tbEstandar th{
+  padding: 5px;
+}
+.tbEstandar tbody td a{
+  color:#616161;
+  font-size: 15px;
+  text-decoration: none;
+}
+.tbEstandar tbody tr:nth-child(odd){
+  background-color: #e0e0e0;
+}

@@ -19,20 +19,31 @@
                 $nomCategoria = "";
                 $count = 0;
                 echo "<table class='tbProducto'>";
-                echo "<tr><td>Nombre</td><td>Abreviatura</td><td>Stock</td><td>Precio</td><td>Tamaño</td><td>Acción</td><td>Acción</td></tr>";
+                echo "<thead>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>Abreviatura</td>
+                            <td>Stock</td>
+                            <td>Precio</td>
+                            <td>Tamaño</td>
+                            <td>Acción</td>
+                            <td>Acción</td>
+                        </tr>
+                    </thead>
+                    <tbody>";
                 foreach (json_decode($productos) as $producto) {
 
                     if($count == 0){
-                        echo "<tr style='background-color:#795548; color:#fff;'><td>".$producto->nombreCategoria."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                        echo "<tr style='background-color:#e0e0e0;color:#c62828;' class='thTbProducto'><td>".$producto->nombreCategoria."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
                     }else{
                         if($nomCategoria != $producto->nombreCategoria){
-                            echo "<tr style='background-color:#795548; color:#fff;'><td>".$producto->nombreCategoria."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                            echo "<tr style='background-color:#e0e0e0 ;color:#c62828;' class='thTbProducto'><td>".$producto->nombreCategoria."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
                         }
                     }
 
                     $nomCategoria = $producto->nombreCategoria;
                     $count = $count + 1;
-                    echo "<tr style='background-color:#fff;'>";
+                    echo "<tr style='background-color:#fff;' class='trTbProducto'>";
                     echo "<td><a href='".$producto->codigo."'></a>".$producto->nombre."</a></td>";
                     echo "<td>".$producto->abreviatura."</td>";
                     echo "<td>".$producto->stock.$producto->unidadMedida."</td>";
@@ -46,11 +57,17 @@
                     echo "</td>";
                     echo "</tr>";
                 }
-                echo "</table>";
+                echo "</tbody>
+                    </table>";
             }else{
                 $dataCategoria = new DataCategoria();
                 $categorias = $dataCategoria->getCategoria($_REQUEST["id"]);
-                echo "<table>";
+                echo "<div class='contenedorTbCategoria'>";
+                echo "<table class='tbEstandar'>";
+                echo "<thead>";
+                echo "<tr><th>Nombre Categoria</th><th>Acción</th><th>Acción</th></tr>";
+                echo "</thead>";
+                echo "<tbody>";
                 foreach (json_decode($categorias) as $categoria) {
                     echo "<tr>";
                     echo "<td><a href='".$categoria->id."'></a>".$categoria->nombre."</a></td>";
@@ -62,6 +79,7 @@
                     echo "</td>";
                     echo "</tr>";
                 }
+                echo "</tbody>";
                 echo "</table>";
             }
             function getTamanio($nom){
@@ -85,7 +103,7 @@
             $(".eliminarCategoria").off("click");
             $(".eliminarCategoria").on("click",function(e){
                 e.preventDefault();
-                alert("Funciona");
+                
                 var codigo = this.getAttribute("href");
                 var nombre = $(this).data("nombre");
                 alertify.confirm(
@@ -174,12 +192,33 @@
                     }
                 }); 
             }
+            /*Llena la tabla de los productos que componen al producto compuesto*/
+            function llenarTbProductosComponenProducto(codigoProducto){
+
+                $.ajax({
+                    url:"../../Business/ControladoraProducto.php?metodo=mostrarProductosCompuestos",
+                    type:'GET',
+                    data:{codigoProducto:codigoProducto},
+                    success: function(responseText){
+                        var data = JSON.parse(responseText);
+                        var filas = "";
+                        if(data.length != 0){
+                            $.each(data, function(i, item) {
+                                filas += "<tr id='"+data[i].codigo+"'><td><input type='checkbox' value=''>"+data[i].nombre+"</td></tr>"; 
+                            });
+                            $("#tbPrdsAgregados").append(filas);
+                        }
+                    }
+                }); 
+            }
 
             $(".editarPrdct").on("click",function(e){
                 e.preventDefault();
-
+                $("#bAddUpdatePrdct").text("Actualizar");
                 var form = document.formProducto;
+                form.metodo.value = "actualizar";
                 form.codigo.value = this.getAttribute("href");
+                llenarTbProductosComponenProducto(form.codigo.value);
                 form.nombre.value = $(this).data("nombre");
                 form.abrev.value = $(this).data("abrev");
                 form.stock.value = $(this).data("stock");
@@ -188,7 +227,7 @@
                 $("#proveedor").val($(this).data("proveedor"));
                 $("#categoria").val($(this).data("categoria"));
                 $("#tamanio").val($(this).data("tamanio"));
-                $("#formProducto").show();
+                $("#formProducto").fadeIn();
             });
 
         }); 

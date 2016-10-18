@@ -5,8 +5,8 @@
 
 	switch ($_REQUEST["metodo"]) {
 		case 'insertarActualizar':
-		    $prds = "2,3";
-			$dataProducto->insertarActualizarProducto(new Producto($_REQUEST["codigo"],$_REQUEST["nombre"],$_REQUEST["stock"], $_REQUEST["precio"],$_REQUEST["unidadMedida"],$_REQUEST["proveedor"],$_REQUEST["tamanio"], $_REQUEST["idSucursal"],$_REQUEST["idCategoria"], $_REQUEST["abreviatura"]), $prds);
+		   
+			$dataProducto->insertarActualizarProducto(new Producto($_REQUEST["codigo"],$_REQUEST["nombre"],$_REQUEST["stock"], $_REQUEST["precio"],$_REQUEST["unidadMedida"],$_REQUEST["proveedor"],$_REQUEST["tamanio"], $_REQUEST["idSucursal"],$_REQUEST["idCategoria"], $_REQUEST["abreviatura"]), $_REQUEST["codigosIngredientes"]);
 			break;
 		case 'eliminar':
 			echo $dataProducto->eliminarProducto($_REQUEST["codigoProducto"]);
@@ -16,6 +16,13 @@
 			break;
 		case 'mostrarProductosCompuestos':
 			echo $dataProducto->getProductosProductoCompuesto($_REQUEST["codigoProducto"]);
+			break;
+		case 'verificarAbreviatura':
+			echo $dataProducto->existeAbreviatura($_REQUEST["abreviatura"], $_REQUEST["idSucursal"]);
+			break;
+			//obtiene los productos que no estan compuestos por otros productos
+		case 'getProductosNoMixtos':
+			echo $dataProducto->getProductosNoCompuestos($_REQUEST["idSucursal"]);
 			break;
 		default:
 			echo "Error, no se ha encontrado la accion";
