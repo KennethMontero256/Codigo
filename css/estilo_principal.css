@@ -947,3 +947,85 @@ table td.ocultaTd{
 .tbEstandar tbody tr:nth-child(odd){
   background-color: #e0e0e0;
 }
+
+/*Estilos venta*/
+.venta .encabezadoVenta{
+  width: 45%;
+  margin: 2.5%;
+  text-align:center;
+}
+
+.venta ul{
+  list-style: none;
+}
+
+.venta ul li{
+  float: left;
+  margin: 2.5%;
+}
+.venta ul li:nth-child(1){
+  width: 55%;
+}
+
+.venta ul li:nth-child(2){
+  width: 30%;
+}
+
+.venta ul li:nth-child(2) input[type="text"]{
+  width: 90%;
+}
+
+.venta .fIngresoDetalle input[type="submit"]{
+  display: inline-block;
+  border:0 none;
+  padding: 9px;
+  font-size: 16px;
+}
+
+.fIngresoDetalle input[type="submit"], .fIngresoDetalle a{
+  margin-top: 4%;
+}
+
+
+.tbUnida {
+  width: 100%;
+}
+
+.tbUnida tr:nth-child(odd){
+  background-color:#e0e0e0;
+}
+
+.tbUnida .tr td{
+  background-color:#d23f31;
+  color: #fff;
+}
+
+.tbUnida tbody{
+  max-height: 250px;
+  min-height: 250px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.tbUnida tbody td{
+  padding: 3px;
+  width: 20%;
+  text-align: center;
+}
+
+.tbUnida tbody td:nth-child(1){
+ width:10%;
+}
+
+.tbUnida tbody td:nth-child(6){
+ width:10%;
+}
+.venta .listaCompra{
+  min-height: 270px;
+  max-height: 270px;
+  overflow-y: auto;
+}
+
+.icon-colon {
+  width: 10%;
+}

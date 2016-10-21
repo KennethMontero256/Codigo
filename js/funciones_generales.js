@@ -26,7 +26,7 @@ $(document).ready(function(){
 			cargar_pagina("#contenedorGlobal", "../empleados/modulo_pedidos.php");
 		}else{
 			if(opcion == "caja"){
-				cargar_pagina("#contenedorGlobal", "../Ventas/RealizarVenta.php");
+				cargar_pagina("#contenedorGlobal", "../Ventas/GestionVentas.php");
 				$(".xdsoft_datetimepicker").remove();
 			}else{
                 if(opcion == "invent"){

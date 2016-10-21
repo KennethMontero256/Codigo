@@ -184,6 +184,22 @@
             }
             mysqli_close($this->conexion);
         }
-    }
 
+        public function getPrecioProductoBySucursal($sucursal,$sugerencia){
+            $consulta = "SELECT p.codigo, p.nombre, p.stock, p.unidadMedida, p.precio, p.abreviatura
+                        FROM producto AS p
+                        WHERE p.idSucursal=$sucursal
+                        AND p.nombre LIKE '%$sugerencia%'
+                        LIMIT 10 ;";
+ 
+            $result = $this->conexion->query($consulta);
+             
+            if($result->num_rows > 0){
+                while($fila = $result->fetch_array()){
+                    $matriculas[] = $fila['nombre'];
+                }
+                return json_encode($matriculas);
+            }
+        }
+    }
 ?>

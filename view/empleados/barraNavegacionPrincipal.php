@@ -15,11 +15,15 @@
         <link rel="stylesheet" href="../../js/alertify/css/alertify.css">
         <link rel="stylesheet" href="../../js/alertify/css/themes/default.css">
         <script type="text/javascript" src="../../js/alertify/alertify.js"></script>
+        
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     </head>
     <body>
         <nav class="menu-static">
             <div class="logo-empresa">
-                <a href="#">El Tostador</a>
+                <a href="#">Tostador <?php echo $_SESSION["nombreSucursal"];?></a>
             </div>
             <div class="opciones">
                 <ul>

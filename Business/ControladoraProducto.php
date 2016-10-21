@@ -24,6 +24,9 @@
 		case 'getProductosNoMixtos':
 			echo $dataProducto->getProductosNoCompuestos($_REQUEST["idSucursal"]);
 			break;
+		case 'getPrecio':
+			echo $dataProducto->getPrecioProductoBySucursal($_REQUEST["idSucursal"],$_GET['term']);
+			break;
 		default:
 			echo "Error, no se ha encontrado la accion";
 			break;
