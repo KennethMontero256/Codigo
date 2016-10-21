@@ -6,7 +6,10 @@
     private $idSucursal;
     private $fechaHora;
     private $idEmpleado;
-    
+    private $impuestoVenta;
+    private $subtotal;
+    private $total;
+
     function __construct($codigo,$idSucursal,$fechaHora,$idEmpleado) {
         $this->$codigo = $codigo; 
         $this->$idSucursal = $idSucursal; 
@@ -44,6 +47,30 @@
 
     public function setIdEmpleado($idEmpleado) {
         $this->idEmpleado = $idEmpleado;
+    }
+
+     public function setTotal($total) {
+        $this->total = $total;
+    }
+
+    public function getTotal() {
+        return $this->total;
+    }
+
+    public function setSubtotal($total) {
+        $this->subtotal = $subtotal;
+    }
+
+    public function getSubtotal() {
+        return $this->subtotal;
+    }
+
+    public function setImpuestoVenta($impuestoVenta) {
+        $this->impuestoVenta = $impuestoVenta;
+    }
+
+     public function getImpuestoVenta() {
+        return $this->impuestoVenta;
     }
 }
 
