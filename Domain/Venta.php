@@ -1,52 +1,50 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-class Venta{
+    class Venta{
     
     private $codigo;
     private $idSucursal;
     private $fechaHora;
     private $idEmpleado;
     
-    function __construct() {
-        
+    function __construct($codigo,$idSucursal,$fechaHora,$idEmpleado) {
+        $this->$codigo = $codigo; 
+        $this->$idSucursal = $idSucursal; 
+        $this->$fechaHora = $fechaHora; 
+        $this->$idEmpleado = $idEmpleado; 
     }
-    function getCodigo() {
+
+    public function getCodigo() {
         return $this->codigo;
     }
 
-    function getIdSucursal() {
+    public function getIdSucursal() {
         return $this->idSucursal;
     }
 
-    function getFechaHora() {
+    public function getFechaHora() {
         return $this->fechaHora;
     }
 
-    function getIdEmpleado() {
+    public function getIdEmpleado() {
         return $this->idEmpleado;
     }
 
-    function setCodigo($codigo) {
+    public function setCodigo($codigo) {
         $this->codigo = $codigo;
     }
 
-    function setIdSucursal($idSucursal) {
+    public function setIdSucursal($idSucursal) {
         $this->idSucursal = $idSucursal;
     }
 
-    function setFechaHora($fechaHora) {
+    public function setFechaHora($fechaHora) {
         $this->fechaHora = $fechaHora;
     }
 
-    function setIdEmpleado($idEmpleado) {
+    public function setIdEmpleado($idEmpleado) {
         $this->idEmpleado = $idEmpleado;
     }
-
-
 }
+
+?>
