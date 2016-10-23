@@ -27,6 +27,9 @@ $(document).ready(function(){
         e.preventDefault();
         $("#bAddUpdatePrdct").text("Agregar");
         var formulario = this.getAttribute("href");
+        if(formulario == "#formCategoria"){
+            $("#bAccionSubmit").text("Agregar");
+        }
         $(formulario).fadeIn();
      })
 
@@ -36,11 +39,16 @@ $(document).ready(function(){
         e.preventDefault();
         var accion = this.getAttribute("href");
         if(accion == "add"){
-            var cat = $("#nomCategoria").val();
-            if(cat.trim().length > 4 ){
-                addCategoria(cat);
+            if($("#idCategoria").val().trim().length == 0){
+                var cat = $("#nomCategoria").val();
+                if(cat.trim().length >= 4 ){
+                    addCategoria(cat);
+                }else{
+                    alert("Debe ingresar almenos 4 caracteres");
+                }
             }else{
-                alert("Debe ingresar almenos 4 caracteres");
+                var nom = $("#nomCategoria").val().trim();
+                actualizarCategoria( $("#idCategoria").val().trim(), nom);
             }
         }else{
             if(accion == "can"){
@@ -62,6 +70,22 @@ $(document).ready(function(){
                 $("#nomCategoria").val("");
             }
         }); 
+    }
+
+    function actualizarCategoria(codigo, nombreCat){
+        $.ajax({
+            url:"../../Business/ControladoraCategoria.php?metodo=actualizar",
+            type:'GET',
+            data:{id:codigo,nombre:nombreCat},
+            success: function(responseText){
+                alert("Se actualizó el nombre de la categoria");
+                $("#nomCategoria").val("");
+                $("#formCategoria").hide();
+                $("#actualizarCategoria").attr("href","add");
+                $("#actualizarCategoria").val("Agregar");
+                actualizarListado("shCategoria", "0");
+            }
+        });  
     }
     /*fin metodos add categoria*/
 
@@ -120,7 +144,6 @@ $(document).ready(function(){
 
     function addProducto(codigo,nombre,abreviatura,stock,precio,unidadMedida,proveedor,tamanio,idSucursal,idCategoria){
         var codigosProducto = obtenerIngredientes();
-        alert("Ingredientes: "+codigosProducto);
         if(codigosProducto.length == 0) {
            codigosProducto = "";
         }
@@ -148,7 +171,8 @@ $(document).ready(function(){
             data:{abreviatura:abrev,idSucursal:sucursal},
             success: function(responseText){
                 var data = JSON.parse(responseText);
-                if(data.cantidad==0){
+                
+                if(data.cantidad==undefined){
                    addProducto(form.codigo.value,form.nombre.value, form.abrev.value, 
                         form.stock.value,form.precio.value,$("#unidadMedida").val(), 
                         $("#proveedor").val(),$("#tamanio").val(), form.sucursal.value, 

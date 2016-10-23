@@ -11,20 +11,24 @@ include_once ("Data.php");
 
         public function agregarActualizarCategoria($categoria){
             
-            $sentencia = $this->conexion->prepare("CALL paInsertarActualizarCategoria(?,?)");
-            mysqli_stmt_bind_param($sentencia, "ss", $nombre, $codigo);
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paInsertarActualizarCategoria(?,?)");
+
             $nombre = $categoria->getNombre();
             $codigo = $categoria->getCodigo(); 
+            $sentencia->bind_param("ss", $nombre, $codigo);
 
             $sentencia->execute();
+            
             $sentencia->close();
             mysqli_close($this->conexion);
         }
 
         public function eliminarCategoria($codigoCategoria){
-            $sentencia = $this->conexion->prepare("CALL paEliminarCategoria(?)");
-            mysqli_stmt_bind_param($sentencia, "s", $codigo);
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paEliminarCategoria(?)");
             $codigo = $codigoCategoria;
+            $sentencia->bind_param("s", $codigo);
 
             $sentencia->execute();
             $afectados =  mysqli_affected_rows($this->conexion);
@@ -34,23 +38,26 @@ include_once ("Data.php");
         }
 
         public function getCategoria($codigoCategoria){
-            $sentencia = $this->conexion->prepare("CALL paObtenerCategoria(?);");
-            mysqli_stmt_bind_param($sentencia, "s", $codigo);
-            $codigo = $codigoCategoria; 
+
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paObtenerCategoria(?);");
+
+            $codigo = $codigoCategoria;
+            $sentencia->bind_param("s", $codigo); 
 
             $sentencia->execute();
-            
-            if ($resultado = $sentencia->get_result()) {
-                $index = 0;
-                while ($row = $resultado->fetch_assoc()) {
-                    $data[$index]["id"] = $row['id'];
-                    $data[$index]["nombre"] = $row['nombre'];
-                $index ++;
-                }
+            $sentencia->bind_result($id,$nombre);
+
+            $array = array();
+
+            while($sentencia->fetch()){
+
+                array_push($array, array("id"=>$id,"nombre"=>$nombre));
+            }
             
             $sentencia->close();
-            return json_encode($data);
-            }
+            return json_encode($array);
+            
             mysqli_close($this->conexion);
         }
     }

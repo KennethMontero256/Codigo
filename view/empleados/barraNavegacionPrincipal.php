@@ -23,6 +23,8 @@
     <body>
         <nav class="menu-static">
             <div class="logo-empresa">
+                <input type="hidden" id="nomSucursal" value="<?php echo $_SESSION["nombreSucursal"];?>">
+                <input type="hidden" id="nomEmpleado" value="<?php echo $_SESSION["nombre"];?>">
                 <a href="#">Tostador <?php echo $_SESSION["nombreSucursal"];?></a>
             </div>
             <div class="opciones">

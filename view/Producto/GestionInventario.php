@@ -141,8 +141,8 @@
             <label>Agregar nueva categoria</label>
         	<input type="text" id="nomCategoria" class="inputShadow" placeholder="Ingrese el nombre de la categoria">
         	<div class="opsAddCategoria ">
-                <a href="add" class="opFormCategoria btn-submit" data-actualizar="" id="actualizarCategoria"><span class="icon-plus2">Agregar</span></a>
-                <a href="can" class="opFormCategoria btn-submit"><span class="icon-">Cancelar</span></a>
+                <a href="add" class="opFormCategoria btn-submit" data-actualizar="" id="bAccionSubmit">Agregar</a>
+                <a href="can" class="opFormCategoria btn-submit">Cancelar</a>
             </div>
         </div>
     </div>

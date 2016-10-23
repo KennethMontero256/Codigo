@@ -9,16 +9,15 @@
 <div class="contenedorSecundario">
     <div class="venta">
     	<div class="encabezadoVenta">
-    		<label>Sucursal:<?php echo $_SESSION["nombreSucursal"];?></label><br>
-    		<label>Empleado <?php echo $_SESSION["nombre"];?></label><br>
-    		<label>Fecha: <?php echo date("Y-m-d");?></label><br>
+    		<label id="enbzNomSucursal"></label><br>
+    		<label id="enbzNomEmpleado"></label><br>
+    		<label>Fecha: <?php echo date("d-m-Y");?></label><br>
     	</div>
     	<ul>
     		<li>
 		    	<table class="tbEstandar tbUnida" style="width:97%;">
 		    			<tbody>
 		    				<tr class="tr">
-		    					<td># de linea</td>
 		    					<td>Descripción</td>
 		    					<td>Precio</td>
 		    					<td>Cantidad</td>
@@ -28,16 +27,9 @@
 		    			</tbody>
 		    	</table>
 		    		<div class="listaCompra" style="width:97%;">
-		    		<table class="tbUnida">
+		    		<table class="tbUnida" id="tbListaDetalle">
 		    			<tbody>
-		    				<tr>
-		    					<td>1</td>
-		    					<td>Mani japones</td>
-		    					<td>5200</td>
-		    					<td>100g</td>
-		    					<td><img class="icon-colon" src="../../imagenes/colones.png" width="50">500</td>
-		    					<td><a href="#"> <span class="icon-bin2"></span></a></td>
-		    				</tr>
+		    				
 		    			</tbody>
 		    		</table>
 		    	</div>
@@ -46,8 +38,21 @@
 		    				<tr>
 		    					<td></td>
 		    					<td></td>
+		    					<td>Subtotal:  <img src='../../imagenes/colones.png' style="width:6%;"><label id="subtotal"></label></td>
 		    					<td></td>
-		    					<td>Total:</td>
+		    					<td></td>
+		    				</tr>
+		    				<tr>
+		    					<td></td>
+		    					<td></td>
+		    					<td>Descuento:<label id="descuento"></label></td>
+		    					<td></td>
+		    					<td></td>
+		    				</tr>
+		    				<tr>
+		    					<td></td>
+		    					<td></td>
+		    					<td style="width:30%;">Total:  <img src='../../imagenes/colones.png' style="width:6%;"><label id="total"></label></td>
 		    					<td></td>
 		    					<td></td>
 		    				</tr>
@@ -56,7 +61,7 @@
 	    	</li>
 	    	<li>
 		    	<div class="fIngresoDetalle">
-		    		<form name="fRealizarVenta">
+		    		<form name="fRealizarVenta" id="fRealizarVenta" method="POST">
 		    		
 		    			<p>Ingreso del detalle</p>
 		    			<input type="text" class="inputShadow" name="abrev" id="abrevProducto" placeholder="Abreviatura">
@@ -73,10 +78,13 @@
 </div>
 <script>
 	$(document).ready(function(){
+	$("#enbzNomSucursal").text("Sucursal "+$("#nomSucursal").val());
+	$("#enbzNomEmpleado").text("Empleado "+$("#nomEmpleado").val());
 	$('#abrevProducto').autocomplete({
-		source:'../../Business/ControladoraProducto.php?metodo=getPrecio&idSucursal='+$("#sucursal").val(), 
+		source:'../../Business/ControladoraProducto.php?metodo=getNombresProducto&idSucursal='+$("#sucursal").val(), 
 		minLength: 1
 	    });
 	});
 </script>
+<script type="text/javascript" src="../../js/gestion_ventas.js"></script>
 

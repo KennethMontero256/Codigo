@@ -4,11 +4,12 @@
 	class DataEmpleado {
 
 		var $conexion;
+        
+        function __construct(){
+            $mysqli = new Data();
+            $this->conexion = $mysqli->getConexion();
+        }
 
-		public function DataEmpleado(){
-			$mysqli = new Data();
-			$this->conexion = $mysqli->getConexion();
-		}
 		public function getEmpleadosBySucursal(){
 	        $query = "CALL ucrgrupo4.paGetEmpleadosBySucursal;"; 
 	        $result = $this->conexion->query($query);
@@ -29,9 +30,10 @@
 		public function insertarEmpleado($arrayDatos){
 			$empleado = json_decode($arrayDatos);
 
-			$sentencia = $this->conexion->prepare("CALL paInsertarEmpleado(?,?,?,?,?,?,?,?)");
-	        mysqli_stmt_bind_param($sentencia, "ssssssss", $cedula, $nombre, $telefono, $contrasenia, $fechaIngreso, $habilitado,$tipoEmpleado, $idSucursal);
-	        $cedula = $empleado->cedula; 
+			$sentencia = $this->conexion->stmt_init();
+			$sentencia->prepare("CALL paInsertarEmpleado(?,?,?,?,?,?,?,?)");
+
+			$cedula = $empleado->cedula; 
 	        $nombre = $empleado->nombre; 
 	        $telefono = $empleado->telf; 
 	        $contrasenia = md5($empleado->contrasenia); 
@@ -39,6 +41,7 @@
 	        $habilitado = $empleado->disponible; 
 	        $tipoEmpleado = "e"; 
 	        $idSucursal = $empleado->idSucursal;
+	        $sentencia->bind_param("ssssssss", $cedula, $nombre, $telefono, $contrasenia, $fechaIngreso, $habilitado,$tipoEmpleado, $idSucursal);
 
 	        $sentencia->execute();
 	        $sentencia->close();
@@ -62,34 +65,30 @@
 		}
 
 		public function getEmpleadoById($cedula){
-        	$sentencia = $this->conexion->prepare("CALL ucrgrupo4.paGetEmpleadosByCedula(?);"); 
-        	mysqli_stmt_bind_param($sentencia, "s", $cedulaEmpleado);
-	        $cedulaEmpleado = $cedula;
+			$sentencia = $this->conexion->stmt_init();
+        	$sentencia->prepare("CALL ucrgrupo4.paGetEmpleadosByCedula(?);"); 
+
+        	$cedulaEmpleado = $cedula;
+        	$sentencia->bind_param("s", $cedulaEmpleado);
 
         	$sentencia->execute();
-
-        	if ($resultado = $sentencia->get_result()) {
-            	$index = 0;
-            	while ($row = $resultado->fetch_assoc()) {
-	                $data[$index]["cedula"] = $row['cedula'];
-	                $data[$index]["nombre"] = $row['nombre'];
-	                $data[$index]["telefono"] = $row["telefono"];
-	                $data[$index]["fechaIngreso"] = $row["fechaIngreso"];
-	                $data[$index]["habilitado"] = $row["habilitado"];
-	                $data[$index]["idSucursal"] = $row["idSucursal"];
-	                $data[$index]["nombreSucursal"] = $row["nombreSucursal"];
-                $index ++;
-            	}
-            $sentencia->close();
-            return json_encode($data);
+        	$sentencia->bind_result($cedula,$nombre,$telefono,$fechaIngreso, $habilitado,$idSucursal, $nombreSucursal);
+        	$empleados = array();
+        	
+            while ($sentencia->fetch()) {
+	                array_push($empleados,"cedula"=>$cedula,"nombre"=>$nombre,"telefono"=>$telefono,"fechaIngreso"=>$fechaIngreso, "habilitado"=>$habilitado,"idSucursal"=>$idSucursal, "nombreSucursal"=>$nombreSucursal);
         	}
+        	$sentencia->close();
+            return json_encode($empleados);
         	mysqli_close($this->conexion);
 		}
 
 		public function eliminarEmpleado($cedula){
-	        $sentencia = $this->conexion->prepare("CALL paEliminarEmpleado(?)");
-	        mysqli_stmt_bind_param($sentencia, "s", $cedulaEmpleado);
+			$sentencia = $this->conexion->stmt_init();
+	        $sentencia->prepare("CALL paEliminarEmpleado(?)");
+
 	        $cedulaEmpleado = $cedula;
+	        $sentencia->bind_param("s", $cedulaEmpleado);
 
 	        $sentencia->execute();
 	        $afectados =  mysqli_affected_rows($this->conexion);

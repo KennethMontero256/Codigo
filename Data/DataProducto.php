@@ -10,8 +10,9 @@
         }
         
         public function insertarActualizarProducto($producto, $componentesProducto){
-            $sentencia = $this->conexion->prepare("CALL paInsertarActualizarProducto(?,?,?,?,?,?,?,?,?,?)");
-            mysqli_stmt_bind_param($sentencia, "ssssssssss", $codigo,$nombre, $abreviatura, $stock, $unidadMedida, $precio,$proveedor,$tamanio,$idSucursal,$idCategoria);
+            $sentencia = $this->conexion->stmt_init();
+
+            $sentencia->prepare("CALL paInsertarActualizarProducto(?,?,?,?,?,?,?,?,?,?)");
 
             $codigo=$producto->getCodigo();
             $nombre=$producto->getNombre();
@@ -23,6 +24,8 @@
             $idSucursal=$producto->getIdSucursal();
             $idCategoria=$producto->getIdCategoria();
             $abreviatura=$producto->getAbreviatura();
+
+            $sentencia->bind_param("ssssssssss", $codigo,$nombre, $abreviatura, $stock, $unidadMedida, $precio,$proveedor,$tamanio,$idSucursal,$idCategoria);
 
             $sentencia->execute();
             $sentencia->close();
@@ -56,21 +59,26 @@
             //Recorro todos los elementos
             for($i=0; $i<$longitud; $i++){
                 if($array[$i]!=0){
-                    $stmt = $this->conexion->prepare("CALL paAgregarProductosProductoCompuesto(?,?)");
-                    mysqli_stmt_bind_param($stmt, "ss", $codigoPrdCompuesto, $codigoComponeProducto);
+                    $sentencia = $this->conexion->stmt_init();
+                    $sentencia->prepare("CALL paAgregarProductosProductoCompuesto(?,?)");
+
                     $codigoPrdCompuesto = $codigoProducto;
                     $codigoComponeProducto = $array[$i];
-                    $stmt->execute();
+
+                    $sentencia->bind_param("ss", $codigoPrdCompuesto, $codigoComponeProducto);
+                    
+                    $sentencia->execute();
                 }
             }
             mysqli_close($this->conexion);
         }
         // antes de insertar los componentes de un producto, elimina todos los componentes que tiene actualmente
         public function limpiarComponentesProducto($codigoProducto){
-            
-            $sentencia = $this->conexion->prepare("CALL paEliminarComponentesProducto(?)");
-            mysqli_stmt_bind_param($sentencia, "s", $codigo);
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paEliminarComponentesProducto(?)");
+
             $codigo = $codigoProducto;
+            $sentencia->bind_param("s", $codigo);
 
             $sentencia->execute();
             $afectados =  mysqli_affected_rows($this->conexion);
@@ -79,113 +87,104 @@
         }
 
         public function getProductosBySucursal($idSucursal){
-            $sentencia = $this->conexion->prepare("CALL paGetProductosBySucursal(?);");
-            mysqli_stmt_bind_param($sentencia, "s", $codigo);
-            $codigo = $idSucursal; 
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetProductosBySucursal(?);");
+
+            $codigo = $idSucursal;
+            $sentencia->bind_param("s", $codigo);
 
             $sentencia->execute();
+            $sentencia->bind_result($codigoProducto, $nombre, $stock, $unidadMedida, $precio, $proveedor,$tamanio, $abreviatura, $idCategoria, $nombreCategoria);
             
-            if ($resultado = $sentencia->get_result()) {
-                $index = 0;
-                while ($row = $resultado->fetch_assoc()) {
-                    $data[$index]["codigo"] = $row['codigo'];
-                    $data[$index]["nombre"] = $row['nombre'];
-                    $data[$index]["stock"] = $row['stock'];
-                    $data[$index]["unidadMedida"] = $row['unidadMedida'];
-                    $data[$index]["precio"] = $row['precio'];
-                    $data[$index]["proveedor"] = $row['proveedor'];
-                    $data[$index]["tamanio"] = $row['tamanio'];
-                    $data[$index]["abreviatura"] = $row['abreviatura'];
-                    $data[$index]["idCategoria"] = $row['idCategoria'];
-                    $data[$index]["nombreCategoria"] = $row['nombreCategoria'];
-                $index ++;
-                }
+            $productos = array();
+            while($sentencia->fetch()){
+
+                array_push($productos, array("codigo"=>$codigoProducto,"nombre"=>$nombre, "stock"=>$stock,"unidadMedida"=>$unidadMedida, "precio"=>$precio,"proveedor"=>$proveedor, "tamanio"=>$tamanio,"abreviatura"=>$abreviatura, "idCategoria"=>$idCategoria,"nombreCategoria"=>$nombreCategoria));
+            }
             
             $sentencia->close();
-            return json_encode($data);
-            }
             mysqli_close($this->conexion);
+
+            return json_encode($productos);
         }
 
         public function getProductosProductoCompuesto($codigoProducto){
-            $sentencia = $this->conexion->prepare("CALL paGetProductosProductoCompuesto(?);");
-            mysqli_stmt_bind_param($sentencia, "s", $codigo);
-            $codigo = $codigoProducto; 
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetProductosProductoCompuesto(?);");
+
+            $codigo = $codigoProducto;
+            $sentencia->bind_param("s", $codigo); 
 
             $sentencia->execute();
+            $sentencia->bind_result($codProducto, $nombre, $stock, $unidadMedida, $precio, $proveedor,$tamanio, $abreviatura, $idCategoria, $nombreCategoria);
             
-            if ($resultado = $sentencia->get_result()) {
-                $index = 0;
-                while ($row = $resultado->fetch_assoc()) {
-                    $data[$index]["codigo"] = $row['codigo'];
-                    $data[$index]["nombre"] = $row['nombre'];
-                    $data[$index]["stock"] = $row['stock'];
-                    $data[$index]["unidadMedida"] = $row['unidadMedida'];
-                    $data[$index]["precio"] = $row['precio'];
-                    $data[$index]["proveedor"] = $row['proveedor'];
-                    $data[$index]["tamanio"] = $row['tamanio'];
-                    $data[$index]["abreviatura"] = $row['abreviatura'];
-                    $data[$index]["idCategoria"] = $row['idCategoria'];
-                    $data[$index]["nombreCategoria"] = $row['nombreCategoria'];
-                $index ++;
-                }
+            $productos = array();
+            while($sentencia->fetch()){
+
+                array_push($productos, array("codigo"=>$codProducto,"nombre"=>$nombre, "stock"=>$stock,"unidadMedida"=>$unidadMedida, "precio"=>$precio,"proveedor"=>$proveedor, "tamanio"=>$tamanio,"abreviatura"=>$abreviatura, "idCategoria"=>$idCategoria,"nombreCategoria"=>$nombreCategoria));
+            }
             
             $sentencia->close();
-            return json_encode($data);
-            }
             mysqli_close($this->conexion);
+
+            return json_encode($productos);
         }
         //Elimina ya sea un producto compuesto o solo un producto
         public function eliminarProducto($codigoProducto){
-            $sentencia = $this->conexion->prepare("CALL paEliminarProducto(?)");
-            mysqli_stmt_bind_param($sentencia, "s", $codigo);
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paEliminarProducto(?)");
+
             $codigo = $codigoProducto;
+            $sentencia->bind_param("s", $codigo);
 
             $sentencia->execute();
             $afectados =  mysqli_affected_rows($this->conexion);
+            $sentencia->close();
             mysqli_close($this->conexion);
 
         return $afectados;
         }
 
         public function existeAbreviatura($abrev,$idSucursal){
-            $sentencia = $this->conexion->prepare("CALL paVerificarAbreviaturaProducto(?,?);");
-            mysqli_stmt_bind_param($sentencia, "ss", $abreviatura, $codigoSucursal);
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paVerificarAbreviaturaProducto(?,?);");
+            
             $abreviatura = $abrev; 
             $codigoSucursal = $idSucursal;
-
+            $sentencia->bind_param("ss", $abreviatura, $codigoSucursal);
+            
             $sentencia->execute();
-        
-            $resultado = $sentencia->get_result();
-            $row = $resultado->fetch_assoc();
-            $data["cantidad"] = $row['cantidad'];
+            $sentencia->bind_result($cantidad);
+            
+            $data["cantidad"] = $cantidad;
             
             $sentencia->close();
+            mysqli_close($this->conexion);
             return json_encode($data);
         }
 
         public function getProductosNoCompuestos($idSucursal){
-            $sentencia = $this->conexion->prepare("CALL paGetProductosNoMixtosBySucursal(?);");
-            mysqli_stmt_bind_param($sentencia, "s", $codigo);
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetProductosNoMixtosBySucursal(?);");
+
             $codigo = $idSucursal; 
+            $sentencia->bind_param("s", $codigo);
 
             $sentencia->execute();
-            
-            if ($resultado = $sentencia->get_result()) {
-                $index = 0;
-                while ($row = $resultado->fetch_assoc()) {
-                    $data[$index]["codigo"] = $row['codigo'];
-                    $data[$index]["nombre"] = $row['nombre'];
-                $index ++;
-                }
-            
-            $sentencia->close();
-            return json_encode($data);
-            }
-            mysqli_close($this->conexion);
-        }
+            $sentencia->bind_result($codigoPrdct, $nombre, $stock, $unidadMedida, $precio, $proveedor,$tamanio, $abreviatura, $idCategoria, $nombreCategoria);
 
-        public function getPrecioProductoBySucursal($sucursal,$sugerencia){
+            $productos = array();
+            while($sentencia->fetch()){
+                array_push($productos, array("codigo"=>$codigoPrdct,"nombre"=>$nombre));
+            }
+
+            $sentencia->close();
+            mysqli_close($this->conexion);
+
+            return json_encode($productos);
+        }
+        //metodo para autocomplete
+        public function getNombreProductoBySucursal($sucursal,$sugerencia){
             $consulta = "SELECT p.codigo, p.nombre, p.stock, p.unidadMedida, p.precio, p.abreviatura
                         FROM producto AS p
                         WHERE p.idSucursal=$sucursal
@@ -201,5 +200,27 @@
                 return json_encode($matriculas);
             }
         }
+        //metodo para obtener el precio de un producto
+        public function getPrecioProducto($sucursal,$sugerencia){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetPrecioProductoBySucursal(?,?);");
+
+            $idSucursal = $sucursal; 
+            $nombreProducto = $sugerencia;
+            $sentencia->bind_param("ss", $idSucursal, $nombreProducto);
+
+            $sentencia->execute();
+            $sentencia->bind_result($codigoPrdct, $nombre, $stock, $unidadMedida, $precio,$abreviatura);
+
+            $producto = array(); 
+            while($sentencia->fetch()){
+                array_push($producto,array("codigo"=>$codigoPrdct, "nombre"=>$nombre, "stock"=>$stock, "unidadMedida"=>$unidadMedida, "precio"=>$precio,"abrev"=>$abreviatura));
+            }
+            $sentencia->close();
+            mysqli_close($this->conexion);
+
+            return json_encode($producto);
+        }
+
     }
 ?>

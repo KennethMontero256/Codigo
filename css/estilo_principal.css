@@ -1013,16 +1013,12 @@ table td.ocultaTd{
   text-align: center;
 }
 
-.tbUnida tbody td:nth-child(1){
- width:10%;
-}
-
 .tbUnida tbody td:nth-child(6){
  width:10%;
 }
 .venta .listaCompra{
-  min-height: 270px;
-  max-height: 270px;
+  min-height: 220px;
+  max-height: 220px;
   overflow-y: auto;
 }
 

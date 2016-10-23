@@ -10,8 +10,8 @@
         }
 
         public function insertarVenta($venta, $listaDetalle){
-            $sentencia = $this->conexion->prepare("CALL paInsertarVenta(?,?,?,?,?,?)");
-            mysqli_stmt_bind_param($sentencia, "ssssss",$idSucursal, $fechaHora, $idEmpleado, $impuestoVenta, $subtotal, $total);
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paInsertarVenta(?,?,?,?,?,?)");
 
             $idSucursal= $venta->getIdSucursal();
             $fechaHora= $venta->getFechaHora(); 
@@ -19,6 +19,7 @@
             $impuestoVenta= $venta->getImpuestoVenta();
             $subtotal= $venta->getSubtotal(); 
             $total= $venta->getTotal();
+            $sentencia->bind_param("ssssss",$idSucursal, $fechaHora, $idEmpleado, $impuestoVenta, $subtotal, $total);
 
             $sentencia->execute();
             $sentencia->close();
@@ -40,15 +41,16 @@
 
         public function insertarDetalle($codVenta, $listaDetalle){
             foreach (json_decode($listaDetalle) as $lineaVenta) {
-                
-                $sentencia = $this->conexion->prepare("CALL paInsertarDetalleVenta(?,?,?,?,?)");
-                mysqli_stmt_bind_param($sentencia, "sssss",$codigoVenta, $codigoProducto, $precio, $cantidad, $totalLinea);
+                $sentencia = $this->conexion->stmt_init();
+                $sentencia->prepare("CALL paInsertarDetalleVenta(?,?,?,?,?)");
 
                 $codigoVenta = $codVenta;
                 $codigoProducto = $lineaVenta->codigoProducto;
                 $precio = $lineaVenta->precio;
                 $cantidad = $lineaVenta->cantidad;
                 $totalLinea = $lineaVenta->totalLinea;
+                
+                $sentencia->bind_param("sssss",$codigoVenta, $codigoProducto, $precio, $cantidad, $totalLinea);
 
                 $sentencia->execute();
                 $sentencia->close();

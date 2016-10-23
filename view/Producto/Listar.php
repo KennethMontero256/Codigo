@@ -135,32 +135,12 @@
             $(".editarCategoria").on("click",function(e){
                 e.preventDefault();
                 var codigo = this.getAttribute("href");
-                $("#actualizarCategoria").text("Actualizar");
-                 $("#actualizarCategoria").attr("href","update");
+                $("#bAccionSubmit").text("Actualizar");
                  $("#idCategoria").val(this.getAttribute("href"));
                 $("#nomCategoria").val($(this).data("nombre"));
                 $("#formCategoria").show();
             });
-            $("#actualizarCategoria").on("click",function(e){
-                 e.preventDefault();
-                 var nom = $("#nomCategoria").val();
-                actualizarCategoria( $("#idCategoria").val(), nom);
-            });
-            function actualizarCategoria(codigo, nombreCat){
-               $.ajax({
-                    url:"../../Business/ControladoraCategoria.php?metodo=actualizar",
-                    type:'GET',
-                    data:{id:codigo,nombre:nombreCat},
-                    success: function(responseText){
-                       alert("Se actualizó el nombre de la categoria");
-                       $("#nomCategoria").val("");
-                       $("#formCategoria").hide();
-                       $("#actualizarCategoria").attr("href","add");
-                       $("#actualizarCategoria").val("Agregar");
-                        actualizarListado("shCategoria", "0");
-                    }
-                });  
-            }
+        
 
             /*Administrar productos*/
 
