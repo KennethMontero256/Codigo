@@ -10,11 +10,14 @@
     private $subtotal;
     private $total;
 
-    function __construct($codigo,$idSucursal,$fechaHora,$idEmpleado) {
-        $this->$codigo = $codigo; 
-        $this->$idSucursal = $idSucursal; 
-        $this->$fechaHora = $fechaHora; 
-        $this->$idEmpleado = $idEmpleado; 
+    function __construct($codigo,$idSucursal,$fechaHora,$idEmpleado,$impuestoVenta, $subtotal, $total) {
+        $this->codigo = $codigo; 
+        $this->idSucursal = $idSucursal; 
+        $this->fechaHora = $fechaHora; 
+        $this->idEmpleado = $idEmpleado; 
+        $this->impuestoVenta = $impuestoVenta;
+        $this->subtotal = $subtotal;
+        $this->total = $total;
     }
 
     public function getCodigo() {

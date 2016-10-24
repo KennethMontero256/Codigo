@@ -44,7 +44,7 @@ $(document).ready(function(){
                 if(cat.trim().length >= 4 ){
                     addCategoria(cat);
                 }else{
-                    alert("Debe ingresar almenos 4 caracteres");
+                    alertify.error('Debe ingresar almenos 4 caracteres');
                 }
             }else{
                 var nom = $("#nomCategoria").val().trim();
@@ -65,7 +65,7 @@ $(document).ready(function(){
             type:'GET',
             data:{nombre:nombreCategoria},
             success: function(responseText){
-                alert("Se ha insertado la nueva categoria");
+                alertify.success("Se ha insertado la nueva categoria");
                 actualizarListado("shCategoria", "0");
                 $("#nomCategoria").val("");
             }
@@ -78,7 +78,7 @@ $(document).ready(function(){
             type:'GET',
             data:{id:codigo,nombre:nombreCat},
             success: function(responseText){
-                alert("Se actualizó el nombre de la categoria");
+                alertify.success("Se actualizó el nombre de la categoria");
                 $("#nomCategoria").val("");
                 $("#formCategoria").hide();
                 $("#actualizarCategoria").attr("href","add");
@@ -100,7 +100,7 @@ $(document).ready(function(){
         var accion = this.getAttribute("href");
         if(accion == "add"){
             if(validaFormProducto()){
-                alert("No se puede ingresar el producto \nHay campos vacios. ");
+                alertify.error("No se puede ingresar el producto \nHay campos vacios. ");
             }else{
                 /*Aca no se puede obtener el valor rapido del ajax por
                   eso, en existeAbreviatura se agrega el producto para 
@@ -154,7 +154,7 @@ $(document).ready(function(){
             data:{codigo:codigo,nombre:nombre,abreviatura:abreviatura,stock:stock,precio:precio,unidadMedida:unidadMedida,
                 proveedor:proveedor,tamanio:tamanio,idSucursal:idSucursal,idCategoria:idCategoria,codigosIngredientes:codigosProducto},
             success: function(responseText){
-                alert("Se ha agregado un nuevo producto");
+                alertify.success("Se ha agregado un nuevo producto");
                 actualizarListado("shProductos", idSucursal);
                 limpiarFormProducto();
                 limpiarTablaPorId("tbPrdsAgregados");
@@ -185,7 +185,7 @@ $(document).ready(function(){
                         $("#categoria").val());
                         form.metodo.value = "insertar";
                     }else{
-                        alert("La abreviatura existe, tiene que ser diferente");
+                        alertify.error("La abreviatura existe, tiene que ser diferente");
                     }
                 }
             }
@@ -236,7 +236,6 @@ $(document).ready(function(){
         }else{
             var form = document.formProducto;
             if(form.metodo.value=="actualizar"){
-                alert("restar por nombre");
                 restarPorNombre();
             }else{
                 restarIngrediente();

@@ -34,29 +34,29 @@
 		    		</table>
 		    	</div>
 		    	<table class="tbUnida" style="width:97%;">
-		    			<tbody style="min-height:280px;">
-		    				<tr>
-		    					<td></td>
-		    					<td></td>
-		    					<td>Subtotal:  <img src='../../imagenes/colones.png' style="width:6%;"><label id="subtotal"></label></td>
-		    					<td></td>
-		    					<td></td>
-		    				</tr>
-		    				<tr>
-		    					<td></td>
-		    					<td></td>
-		    					<td>Descuento:<label id="descuento"></label></td>
-		    					<td></td>
-		    					<td></td>
-		    				</tr>
-		    				<tr>
-		    					<td></td>
-		    					<td></td>
-		    					<td style="width:30%;">Total:  <img src='../../imagenes/colones.png' style="width:6%;"><label id="total"></label></td>
-		    					<td></td>
-		    					<td></td>
-		    				</tr>
-		    			</tbody>
+		    		<tbody style="min-height:280px;">
+		    			<tr>
+		    				<td></td>
+		    				<td></td>
+		    				<td style="text-align:initial;">Subtotal:  <img src='../../imagenes/colones.png' style="width:6%;"><label id="subtotal">0.0</label></td>
+		    				<td></td>
+		    				<td></td>
+		    			</tr>
+		    			<tr>
+		    				<td></td>
+		    				<td></td>
+		    				<td style="text-align:initial;width:30%;">IVA:  <img src='../../imagenes/colones.png' style="width:6%;"><label id="iva">0.0</label></td>
+		    				<td></td>
+		    				<td></td>
+		    			</tr>
+		    			<tr>
+		    				<td></td>
+		    				<td></td>
+		    				<td style="width:30%;text-align:initial;">Total:  <img src='../../imagenes/colones.png' style="width:6%;"><label id="total">0.0</label></td>
+		    				<td></td>
+		    				<td></td>
+		    			</tr>
+		    		</tbody>
 		    	</table>
 	    	</li>
 	    	<li>
@@ -68,7 +68,7 @@
 						<input type="text" class="inputShadow" name="cantidad" placeholder="Cantidad">
 						
 						<input type="submit" class="btn-submit" value="Agregar"/>
-						<a href="#" class="btn-submit">Terminar venta</a>
+						<a href="#" class="btn-submit" id="bTerminarVenta">Terminar venta</a>
 		    		
 		    		</form>
 		    	</div>

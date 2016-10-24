@@ -9,6 +9,11 @@
 	text-decoration: none;
 	text-align: center;
 	padding:10px;
+  transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
 }
 
 .mensajes{
@@ -1024,4 +1029,67 @@ table td.ocultaTd{
 
 .icon-colon {
   width: 10%;
+}
+
+/*Tabla que muestra el cambio despues de la compra*/
+
+.tbCambio{
+  border: 1px solid #e0e0e0;
+  margin: auto;
+  width: 50%;
+}
+.tbCambio td{
+  padding: 4px;
+  border: 1px solid #e0e0e0;
+}
+.tbCambio tr:nth-child(odd){
+  background-color: #fff;
+}
+.tbCambio tr:nth-child(5){
+  background-color: #e53935;
+  color: #fff;
+}
+.tbCambio tr td:nth-child(1){
+  width: 50%;
+}
+.tbCambio img{
+   width: 8%;
+   margin-right: 3px;
+}
+
+.icono-flat{
+  margin-right: 9px;
+  padding: 7px;
+  border-radius: 50%;
+  background-color:#795548;
+  color: #fff;
+}
+/*colores*/
+.indigo{
+  background-color:  #3f51b5;
+}
+.celeste{
+   background-color:  #2196f3;
+}
+
+.whats{
+  background-color:  #009688;
+}
+.naranja{
+  background-color: #ef6c00;
+}
+
+.cafe{
+  background-color:#795548 ;
+}
+/*colores*/
+.opBarNav:hover > span{
+  background-color: #e53935;
+  color: #fff;
+  border-radius: 50%;
+ -webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
 }

@@ -11,7 +11,7 @@
 
         public function insertarVenta($venta, $listaDetalle){
             $sentencia = $this->conexion->stmt_init();
-            $sentencia->prepare("CALL paInsertarVenta(?,?,?,?,?,?)");
+            $sentencia->prepare("CALL paInsertarVenta(?,?,?,?,?,?);");
 
             $idSucursal= $venta->getIdSucursal();
             $fechaHora= $venta->getFechaHora(); 
@@ -22,9 +22,11 @@
             $sentencia->bind_param("ssssss",$idSucursal, $fechaHora, $idEmpleado, $impuestoVenta, $subtotal, $total);
 
             $sentencia->execute();
+            $afectados =  mysqli_affected_rows($this->conexion);
             $sentencia->close();
 
             if(!empty($listaDetalle)){
+
                 $query = "SELECT codigo FROM venta ORDER BY codigo DESC LIMIT 1;";
                 $result = $this->conexion->query($query);
 
@@ -32,28 +34,25 @@
                     $row = $result->fetch_assoc();
                     $this->insertarDetalle($row['codigo'], $listaDetalle);
                 }
-
-                mysqli_close($this->conexion);
             }else{
                 mysqli_close($this->conexion);
             }
         }
 
         public function insertarDetalle($codVenta, $listaDetalle){
-            foreach (json_decode($listaDetalle) as $lineaVenta) {
+            $array = json_decode($listaDetalle);
+            foreach ($array as $lineaVenta) {
                 $sentencia = $this->conexion->stmt_init();
-                $sentencia->prepare("CALL paInsertarDetalleVenta(?,?,?,?,?)");
+                $sentencia->prepare("CALL paInsertarDetalleVenta(?,?,?,?,?);");
 
                 $codigoVenta = $codVenta;
                 $codigoProducto = $lineaVenta->codigoProducto;
                 $precio = $lineaVenta->precio;
                 $cantidad = $lineaVenta->cantidad;
                 $totalLinea = $lineaVenta->totalLinea;
-                
                 $sentencia->bind_param("sssss",$codigoVenta, $codigoProducto, $precio, $cantidad, $totalLinea);
 
                 $sentencia->execute();
-                $sentencia->close();
             }
         }
 
