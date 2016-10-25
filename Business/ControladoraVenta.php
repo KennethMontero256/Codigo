@@ -11,9 +11,8 @@
             $dataVenta->insertarVenta(new Venta(0,$encabezado->idSucursal, $encabezado->fechaHora, $encabezado->idEmpleado, $encabezado->impuestoVenta, $encabezado->subtotal, $encabezado->total), $_REQUEST["detalleVenta"]);
     		break;
         case 'getVentasPorFecha':
-            $idSucursal = json_decode($_REQUEST["idSucursal"]);
-            $fecha = json_decode($_REQUEST["fecha"]);
-            $dataVenta->obtenerVentaPorFecha($idSucursal, $fecha);
+            
+            echo $dataVenta->obtenerVentaPorFecha($_REQUEST["idSucursal"], "2016-10-23");
             
             break;
     	default:

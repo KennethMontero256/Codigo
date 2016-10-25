@@ -1,6 +1,6 @@
 <?php 
     include_once 'Data.php';
-
+    include_once '../Domain/Venta.php';
     class DataVenta{
         var $conexion;
         
@@ -60,9 +60,11 @@
             
         }
         
-        public function obtenerVentaPorFecha($idSucursal, $fecha){
+        public function obtenerVentaPorFecha($sucursal, $fechaActual){
             $sentencia = $this->conexion->stmt_init();
             $sentencia->prepare("CALL paGetVentaPorFecha(?,?);");
+            $idSucursal=$sucursal;
+            $fecha=$fechaActual;
             $sentencia->bind_param("ss",$idSucursal,$fecha);
             $sentencia->execute();
             $sentencia->bind_result($codigo, $idEmpleado, $impuestoVenta, $subtotal, $total);
