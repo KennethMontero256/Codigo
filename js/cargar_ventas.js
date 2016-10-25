@@ -19,7 +19,6 @@ $(document).ready(function () {
             type: 'GET',
             data: {idSucursal: idSucursal, fecha: fecha},
             success: function (responseText) {
-                alert(responseText);
                 var ventas = JSON.parse(responseText);
                 alert(ventas);
             }
