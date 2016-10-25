@@ -10,7 +10,12 @@
         
             $dataVenta->insertarVenta(new Venta(0,$encabezado->idSucursal, $encabezado->fechaHora, $encabezado->idEmpleado, $encabezado->impuestoVenta, $encabezado->subtotal, $encabezado->total), $_REQUEST["detalleVenta"]);
     		break;
-    	
+        case 'getVentasPorFecha':
+            $idSucursal = json_decode($_REQUEST["idSucursal"]);
+            $fecha = json_decode($_REQUEST["fecha"]);
+            $dataVenta->obtenerVentaPorFecha($idSucursal, $fecha);
+            
+            break;
     	default:
     		echo "ERROR, no se encontro el metodo";
     		break;
