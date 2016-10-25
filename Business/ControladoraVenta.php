@@ -13,8 +13,8 @@
         case 'getVentasPorFecha':
             $idSucursal = json_decode($_REQUEST["idSucursal"]);
             $fecha = json_decode($_REQUEST["fecha"]);
-            $dataVenta->obtenerVentaPorFecha($idSucursal, $fecha);
-            
+            $ventas = $dataVenta->obtenerVentaPorFecha($idSucursal, $fecha);
+            echo $ventas;
             break;
     	default:
     		echo "ERROR, no se encontro el metodo";
