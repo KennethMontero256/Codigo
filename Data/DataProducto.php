@@ -104,7 +104,7 @@
             
             $sentencia->close();
             mysqli_close($this->conexion);
-
+            var_dump($productos);
             return json_encode($productos);
         }
 
