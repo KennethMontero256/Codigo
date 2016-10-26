@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Pedidos</title>
 	<link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css">
-	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
-	<script type="text/javascript" src="../../js/jquery.datetimepicker.full.js"></script>
+    <script type="text/javascript" src="../../js/funciones_generales.js"></script>
+    <script type="text/javascript" src="../../js/jquery.datetimepicker.full.js"></script>
 </head>
 <body>
 	<div class="menuLateral">

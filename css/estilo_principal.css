@@ -1093,3 +1093,53 @@ table td.ocultaTd{
 -o-transition: all 500ms ease;
 transition: all 500ms ease;
 }
+
+
+
+/*Filtro de busqueda*/
+.configurarBusqueda ul {
+  margin-top: 2%;
+}
+.configurarBusqueda ul li{
+  list-style: none;
+  float: left;
+  margin-right: 3%;
+}
+.configurarBusqueda ul li label{
+  padding-left: 3px;
+}
+
+.configurarBusqueda{
+  overflow: auto;
+  clear: both;
+  width: 25%;
+}
+
+.ventasPorMes select,
+.ventasPorMes a{
+  padding: 8px;
+  margin-top: 6%;
+}
+.ventasPorFecha input{
+  margin-top: 1%;
+}
+
+.ventasPorFecha label input{
+  margin-left: 10px;
+}
+
+.ventasPorFecha label{
+  padding-right: 5px;
+}
+
+.listarVentas div:nth-child(1),
+.listarVentas div:nth-child(2),
+.listarVentas div:nth-child(3){
+  float: left;
+}
+
+.contenedorListaVentas{
+  margin-top: 8%;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+}
