@@ -5,11 +5,7 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="true"   
-         backupGlobals="false"
-         backupStaticAttributes="false"
-         strict="true"
-         verbose="true">
+         syntaxCheck="true">
   <testsuites>
     <testsuite name="test-suite">
       <directory>.</directory>
