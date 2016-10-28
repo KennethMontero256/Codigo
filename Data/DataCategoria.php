@@ -21,7 +21,10 @@ include_once ("Data.php");
             $sentencia->execute();
             
             $sentencia->close();
+            $afectados =  mysqli_affected_rows($this->conexion);
             mysqli_close($this->conexion);
+
+            return ($afectados > 0)?true:false;
         }
 
         public function eliminarCategoria($codigoCategoria){
