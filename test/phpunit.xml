@@ -5,14 +5,10 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="true"   
-         backupGlobals="false"
-         backupStaticAttributes="false"
-         strict="true"
-         verbose="true">
+         syntaxCheck="true">
   <testsuites>
     <testsuite name="test-suite">
-      <directory suffix="CategoriaUnitTest.php">test/</directory>
+      <directory>.</directory>
     </testsuite>
   </testsuites>
 </phpunit>
