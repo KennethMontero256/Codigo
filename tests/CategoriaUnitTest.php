@@ -5,7 +5,7 @@
 	class CategoriaUnitTest extends PHPUnit_Framework_TestCase{
 		private $dataCategoria;
 
-		function __construct(){
+		public function setUp(){
 			$this->dataCategoria = new DataCategoria();
 		}
 
