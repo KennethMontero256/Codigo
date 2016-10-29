@@ -2,7 +2,7 @@
 	require "../Data/DataCategoria.php";
 	require "../Domain/Categoria.php";
 
-	class CategoriaUnitTest extends PHPUnit_Framework_TestCase{
+	class CategoriaUnitTest extends PHPUnit_FrameWokr_UnitTestCase{
 		private $dataCategoria;
 
 		public function setUp(){

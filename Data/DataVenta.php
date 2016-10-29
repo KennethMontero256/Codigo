@@ -56,8 +56,28 @@
             }
         }
 
-        public function mostrar($idSucursal, $cedulaEmpleado){
-            
+        public function getVentasByMes($idSucursal, $cedulaEmpleado, $mes, $anio){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetVentasByMes(?,?,?,?);");
+
+            $sucursal = $idSucursal;
+            $cedEmpleado = $cedulaEmpleado;
+            $mesVenta = $mes;
+            $anioVenta = $anio;
+
+            $sentencia->bind_param("ssss",$idSucursal, $cedEmpleado , $mesVenta, $anioVenta);
+            $sentencia->execute(); 
+            $sentencia->bind_result($codigo, $fechaHora, $idEmpleado, $impuestoVenta, $subtotal,$total);
+            $ventas = array();
+
+            while($sentencia->fetch()){
+                array_push($ventas, array("codigo"=>$codigo, "fecha"=>$fechaHora, "empleado"=>$idEmpleado, "iva"=>$impuestoVenta, "subtotal"=>$subtotal, "total"=>$total));
+            }
+
+            $sentencia->close();
+            mysqli_close($this->conexion);
+
+            return json_encode($ventas);
         }
         
         public function obtenerVentaPorFecha($sucursal, $fechaActual){

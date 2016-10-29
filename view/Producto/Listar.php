@@ -2,16 +2,7 @@
     session_start();
 	include_once '../../Data/DataProducto.php';
 	include_once '../../Data/DataCategoria.php';
-?>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <?php
+        
             if($_REQUEST["metodo"] == "shProductos"){
                 $dataProducto = new DataProducto();  
                 $productos = $dataProducto->getProductosBySucursal($_SESSION["idSucursal"]);
@@ -212,5 +203,4 @@
 
         }); 
         </script>
-    </body>
-</html>
+   

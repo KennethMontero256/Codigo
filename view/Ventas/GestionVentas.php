@@ -2,12 +2,13 @@
 <div class="menuLateral">	
     <p>Mostrar por:</p>
     <ul>
-        <li><a href="#" id="">Ventas del día</a></li>
-        <li><a href="#" id="">Busqueda de ventas </a></li>
+        <li><a href=".venta" class="linkBusquedaVentas">Caja</a></li>
+        <li><a href="#" class="linkBusquedaVentas">Ventas del día</a></li>
+        <li><a href=".listarVentas" class="linkBusquedaVentas">Busqueda de ventas </a></li>
     </ul>
 </div>
 <div class="contenedorSecundario">    
-    <div class="listarVentas" style="display:block; padding: 15px;">
+    <div class="listarVentas" style="display:none; padding: 15px;">
         <div class="configurarBusqueda">
             <label>Filtrar busqueda por: 
                 <ul>
@@ -53,7 +54,7 @@
             
         </div>
     </div>
-    <div class="venta" style="display: none">
+    <div class="venta">
         <div class="encabezadoVenta">
             <label id="enbzNomSucursal"></label><br>
             <label id="enbzNomEmpleado"></label><br>
@@ -130,6 +131,27 @@
             source: '../../Business/ControladoraProducto.php?metodo=getNombresProducto&idSucursal=' + $("#sucursal").val(),
             minLength: 1
         });
+
+        $(".linkBusquedaVentas").on("click",function(e){
+            e.preventDefault();
+            var ver = this.getAttribute("href");
+            if(ver == ".venta"){
+                if($(ver).is(":visible")){
+                    
+                }else{
+                    $(".listarVentas").hide();
+                    $(ver).show();
+                }
+            }else{
+                if($(ver).is(":visible")){
+                    
+                }else{
+                    $(".venta").hide();
+                    $(ver).show();
+                }
+            }
+        });
+
         $("input[name=filtroFecha]").click(function () {
             if($($(this).data("esconder")).is(":visible")){
                 $($(this).data("esconder")).hide();

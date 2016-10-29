@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	if($_REQUEST["tipoBusqueda"] == "mes"){
 		mostrarVentasPorMes($_GET["mesVenta"], $_GET["anioVenta"]);
 	}else{
