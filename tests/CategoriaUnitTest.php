@@ -7,6 +7,7 @@
 		public function testInsertar(){
 			$dataCategoria = new DataCategoria();
 			$respuesta = $dataCategoria->agregarActualizarCategoria(new Categoria(0,"NuevaCategoria"));
+			
 			$this->assertEquals(true, $respuesta);
 		}
 

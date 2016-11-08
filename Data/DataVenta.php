@@ -1,6 +1,5 @@
 <?php 
     include_once 'Data.php';
-    include_once '../Domain/Venta.php';
     class DataVenta{
         var $conexion;
         

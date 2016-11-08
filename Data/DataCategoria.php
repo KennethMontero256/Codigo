@@ -22,9 +22,9 @@ include_once ("Data.php");
             
             $sentencia->close();
             $afectados =  mysqli_affected_rows($this->conexion);
+            
+            return (mysqli_insert_id($this->conexion) > 0);
             mysqli_close($this->conexion);
-
-            return ($afectados > 0)?true:false;
         }
 
         public function eliminarCategoria($codigoCategoria){
