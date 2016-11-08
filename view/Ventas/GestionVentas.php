@@ -189,7 +189,11 @@
         }
 
         function listarVentasByFecha(fechaInicio, fechaFinal){
-            $(".contenedorListaVentas").load("../../view/Ventas/BusquedaPersonaliazadaVentas.php?tipoBusqueda=fecha&fechaInicio="+fechaInicio+"&fechaFinal="+fechaFinal);
+            var res1 = fechaInicio.split("/");
+            var res2 = fechaFinal.split("/");
+            var fechaInicioFormatoGringo = res1[2]+"-"+res1[1]+"-"+res1[0];
+            var fechaFinalFormatoGringo = res2[2]+"-"+res2[1]+"-"+res2[0];
+            $(".contenedorListaVentas").load("../../view/Ventas/BusquedaPersonaliazadaVentas.php?tipoBusqueda=fecha&fechaInicio="+fechaInicioFormatoGringo+"&fechaFinal="+fechaFinalFormatoGringo);
         }
     });
 </script>

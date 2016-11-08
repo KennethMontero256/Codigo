@@ -1143,3 +1143,13 @@ transition: all 500ms ease;
   border-top: 1px solid #e0e0e0;
   padding-top: 20px;
 }
+
+.mensajeSys {
+  margin-top: 10%;
+  width: 50%;
+  margin-left:20%;
+}
+.mensajeSys span{
+  padding: 5x;
+  border-bottom: 1px solid #6ab344;
+}
