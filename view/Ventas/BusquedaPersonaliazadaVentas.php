@@ -2,13 +2,17 @@
 	session_start();
 	include_once '../../Data/DataVenta.php';
 	$dataVenta = new DataVenta();
-	$ventas = "";
-	if($_REQUEST["tipoBusqueda"] == "mes"){
-		mostrarVentasPorMes($dataVenta, $_GET["mesVenta"], $_GET["anioVenta"]);
-	}else{
-		if($_REQUEST["tipoBusqueda"] == "fecha"){
-			mostrarVentasPorFecha($_GET["fechaInicio"], $_GET["fechaFinal"]);
-		}	
+
+	switch ($_REQUEST["tipoBusqueda"]) {
+		case 'mes':
+			mostrarVentasPorMes($dataVenta, $_GET["mesVenta"], $_GET["anioVenta"]);
+			break;
+		case 'fecha':
+			mostrarVentasPorFecha($dataVenta, $_GET["fechaInicio"], $_GET["fechaFinal"]);
+			break;
+		default:
+			
+			break;
 	}
 
 	function mostrarVentasPorMes($dataVenta, $mes, $anio){
@@ -16,11 +20,10 @@
 		imprimirVentas($dataVenta->getVentasByMes($_SESSION["idSucursal"], $_SESSION["cedula"], $mes, $anio));
 	}
 
-	function mostrarVentasPorFecha($fechaInicio, $fechaFinal){
-		echo "Fecha: De: ".$fechaInicio." A: ".$fechaFinal."-> sucursal: ".$_SESSION["idSucursal"];
-		$dataVenta = new DataVenta();
+	function mostrarVentasPorFecha($dataVenta, $fechaInicio, $fechaFinal){
+		echo "<div>Ventas desde: ".$fechaInicio." hasta: ".$fechaFinal."</div>";
 
-		echo $dataVenta->getVentasByRangoFechas($_SESSION["idSucursal"], 0, "'".$fechaInicio."'", "'".$fechaFinal."'");
+		imprimirVentas($dataVenta->getVentasByRangoFechas($_SESSION["idSucursal"], 0,$fechaInicio, $fechaFinal));
 	}
 
 	function imprimirVentas($ventas){
@@ -57,5 +60,10 @@
     	}else{
     		echo "<div class='mensajeSys'><span>No se encontraron ventas para esta busqueda.</span></div>";
     	}
+	}
+
+	function convertirAFecha($fecha){
+		$newformat = date('Y-m-d',strtotime($fecha));
+		return $newformat;
 	}
 ?>
