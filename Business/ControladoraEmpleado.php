@@ -10,6 +10,7 @@
 		case 'mostrarEmpleadoNombre':
   			echo $dataEmpleado->getEmpleados();
 			break;
+			/*Obtiene los empleados ordenados por sucursal*/
 		case "empleadosBySucursal":
 			echo $dataEmpleado->getEmpleadosBySucursal();
 			break;
