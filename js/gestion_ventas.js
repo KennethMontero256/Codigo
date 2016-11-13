@@ -20,7 +20,9 @@ $(document).ready(function(){
             data:{},
             
             success: function(responseText){
-                var data = JSON.parse(responseText);        
+            	
+                var data = JSON.parse(responseText);  
+
                 producto["codigo"] = data[0].codigo;
 			    producto["nombre"] = data[0].nombre;
 			    producto["stock"] = data[0].stock;

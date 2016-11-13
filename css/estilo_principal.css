@@ -799,6 +799,32 @@ table td.ocultaTd{
 }
 /*Estilo tablas*/
 
+/*Info empleado*/
+.footShowInfoEmpleado{
+  margin-top: 5%;
+  width: 70%;
+  margin-left: 30%;
+}
+.footShowInfoEmpleado span{
+  margin-right: 1%;
+}
+.footShowInfoEmpleado a{
+  text-decoration: none;
+  color: #616161;
+  margin-right: 5%;
+  padding: 5px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.footShowInfoEmpleado a:hover{
+  color: #fff;
+  background: #6ab344;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+/*Info empleado*/
 /*Agregar categoria*/
 .formDModal{
   width: 40%;
