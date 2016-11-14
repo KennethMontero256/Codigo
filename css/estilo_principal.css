@@ -15,7 +15,11 @@
   -o-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
 }
-
+.tituloP{
+  background: #26a69a;
+  padding: 5px;
+  border-radius: 2px;
+}
 .mensajes{
   padding: 5px;
   color:#1e88e5;
@@ -250,7 +254,35 @@ form a{
     width: 100%;
     z-index: 3;
 }
+/*form cambiar password*/
+.contentFrmCambioPass {
+    width: 60%;
+    background:#fff;
+    margin-top: 5%;
+    margin-left: 17.5%;
+}
+.contentFrmCambioPass .labelMsj{
+  margin-left: 25%;
+   color: #616161;
+}
+.contentFrmCambioPass input{
+    margin-left: 25%;
+}
 
+.contentFrmCambioPass p{
+    font-size: 20px;
+    border-bottom: 1px solid #BDBDBD;
+    padding:5px;
+}
+
+.contentFrmCambioPass .footCambioPass{
+    margin-top:5%;
+    width 50%;
+    margin-left: 25%;
+  clear: both;
+  height: 50px;
+}
+/*form cambiar password*/
 /*Modal add producto*/
 .contenedorModal #fProducto{
   width: 30%;

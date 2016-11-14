@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Administrador</title>
-</head>
-
-<body>
-	<div class="contenedorSucursales">
+<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
 		<a id="addSucursal" class="add tooltip" data-tooltip="Agregar sucursal"><span class="icon-plus2"></span></a>
 		<div class="barBusqueda">
@@ -62,5 +53,4 @@
 			});
 		});
 	</script>
-</body>
-</html>
+

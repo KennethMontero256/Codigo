@@ -10,7 +10,131 @@ $(document).ready(function(){
         }
 
     });
+    /*Cambio de contrasenia*/
+    $(".btnCambioPass").on("click",function(e){
+       e.preventDefault();
+       mostr_ocultr("frmCambiarPass");
+       
+    });
 
+    $(".btnFrmPass").on("click",function(e){
+        e.preventDefault();
+        var accion = this.getAttribute("href");
+
+        if(accion =="act"){
+            var pass = $(".inptPass");
+            convertMD5(pass[0].value);
+        }else{
+            if(accion == "can"){
+                mostr_ocultr("frmCambiarPass");
+                limpiarFormActualizarPassword();
+            }
+        }
+    });
+    
+    function cambiarPassword(passNueva){
+        var pass = $(".inptPass");
+        $("#lblMsj").text("");
+        if(esIgual($("#key").val(), passNueva)){
+            if((esIgual(pass[1].value, pass[2].value)) && tieneMayuscula(pass[1].value) 
+               && tieneMinuscula(pass[1].value) && tieneNumero(pass[1].value)
+               && cumpleCantidadCaracteres(pass[1].value, pass[2].value)){
+               actualizarPassword($("#key1").val(), pass[1].value);
+            }else{
+                $("#lblMsj").text("Debe asegurar de cumplir con los requisitos de contraseña.");
+            }
+        }else{
+            $("#lblMsj").text("La contraseña que ingreso en el primer campo no "+
+                "coincide con la que inició sesión.\nCorrijala para poder efectuar los cambios.");
+        }
+    }
+    
+    function actualizarPassword(cedula, nuevaPass){
+        alert(nuevaPass);
+        $.ajax({
+            url:'../../Business/ControladoraEmpleado.php?metodo=actualizarPass&cedula='+cedula+'&pass='+nuevaPass,
+            type:'GET',
+            data:{},
+            success: function(responseText){
+                alert("actualizando.....");
+            }
+        });
+    }
+
+    function convertMD5(string){
+        
+        $.ajax({
+            url:'../../Business/ControladoraEmpleado.php?metodo=changeMD5&pass='+string,
+            type:'GET',
+            data:{},
+            success: function(responseText){
+               cambiarPassword(responseText);
+            }
+        });
+    }
+
+    function limpiarFormActualizarPassword(){
+        $(".inptPass")[0].value="";
+        $(".inptPass")[1].value="";
+        $(".inptPass")[2].value="";
+        $("#lblMsj").text("");
+    }
+
+    function esIgual(pass1, pass2){
+        var respuesta = false;
+        
+        if(pass1 == pass2){
+            respuesta = true;
+        }
+
+        return respuesta;
+    }
+
+    function tieneMayuscula(pass){
+        var respuesta = false;
+        var letras_mayusculas="ABCDEFGHYJKLMNÑOPQRSTUVWXYZ";
+        for (var i = 0; i< pass.length; i++) {
+             if (letras_mayusculas.indexOf(pass.charAt(i),0)!=-1){
+                respuesta = true;
+            }   
+        }
+
+        return respuesta;
+    }
+
+    function tieneMinuscula(pass){
+        var letras="abcdefghyjklmnñopqrstuvwxyz";
+        var respuesta = false;
+        for (var i = 0; i< pass.length; i++) {
+            if (letras.indexOf(pass.charAt(i),0)!=-1){
+                respuesta = true;
+            }
+        }
+        return respuesta;
+    }
+
+    function tieneNumero(pass){
+        var respuesta = false;
+        var numeros="0123456789";
+        for (var i = 0; i< pass.length; i++) {
+            if (numeros.indexOf(pass.charAt(i),0)!=-1){
+                respuesta = true;
+            }
+        }
+
+        return respuesta;
+    }
+
+    function cumpleCantidadCaracteres(pass1, pass2){
+        var respuesta = false;
+        
+        if(pass1.length >= 4 && pass2.length >= 4 ){
+            respuesta = true;
+        }
+
+        return respuesta;
+    }
+    /*Cambio de contrasenia*/
     /*funciones FAB*/
     $(".fabInventario").on("click",function(e){
          e.preventDefault();
@@ -66,10 +190,12 @@ $(document).ready(function(){
 
 	function mostr_ocultr(id){
 		
-        if ( $("#"+id).is (':hidden'))
+        if ( $("#"+id).is (':hidden')){
             $("#"+id).show('slow');
-        else
+        }
+        else{
             $("#"+id).hide('slow');
+        }
     }
 
     /*Administrar empleados*/

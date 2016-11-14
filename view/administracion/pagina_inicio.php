@@ -28,11 +28,17 @@
 	<?php
 		include("barraNavegacionPrincipal.php");
 	?>
+	
 	<div id="contenedorAdministrador">
 		<?php
 			include("administrar_sucursales.php");
 		?>
 	</div>
+	<div id="frmCambiarPass" style="display: none;">
+		<?php 
+	    	include("../empleados/cambiar_contrasenia.php");
+	    ?>
+    </div>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/funcionesAdministrador.js"></script>
 </body>

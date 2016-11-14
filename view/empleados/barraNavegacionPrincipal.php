@@ -35,7 +35,7 @@
                     <li><a href="pedido" class="opBarNav"><span class="icon-truck icono-flat"></span>Pedidos</a></li>
                     <li><a href="opUsuario" class="opBarNav"><span class="icon-address-book icono-flat"></span><?php echo $_SESSION["nombre"];?></a>
                         <ul>
-                            <li><a href="#">Cambiar contraseña</a></li>
+                            <li><a href="#" class="btnCambioPass">Cambiar contraseña</a></li>
                             <li><a href="../../Business/logout.php">Cerrar sesión</a></li>
                         </ul>
                     </li>

@@ -99,6 +99,21 @@ class DataEmpleado {
         return $afectados;
     }
 
+    public function actualizarPass($cedula, $nuevaPass){
+        $sentencia = $this->conexion->stmt_init();
+        $sentencia->prepare("CALL paActualizarPassword(?,?)");
+
+        $cedulaEmpleado = $cedula;
+        $pass = $nuevaPass;
+        $sentencia->bind_param("ss", $cedulaEmpleado, $pass);
+
+        $sentencia->execute();
+        $afectados = mysqli_affected_rows($this->conexion);
+        mysqli_close($this->conexion);
+
+        return $afectados;
+    }
+
 }
 
 ?>

@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
+
 	<div class="contenedorSucursales" id="contenedorOpAdmin">
 		<p>Empleados</p>
 		<a class="add tooltip" id="addNewEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
@@ -87,5 +79,4 @@
 	        });
 		});
 	</script>
-</body>
-</html>
+

@@ -17,5 +17,10 @@
     		include("../Ventas/GestionVentas.php");
     	?>
 	</div>
+	<div id="frmCambiarPass" style="display: none;">
+		<?php 
+	    	include("../empleados/cambiar_contrasenia.php");
+	    ?>
+    </div>
 </body>
 </html>
