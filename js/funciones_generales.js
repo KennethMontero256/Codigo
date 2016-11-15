@@ -1,5 +1,6 @@
 $(document).ready(function(){
     alertify.set('notifier','position', 'top-left');
+
 	$("#bSubmitFrmLoginAdm").on("click",function(e){
         e.preventDefault();
         var formulario = document.frmLoginAdm;
@@ -23,7 +24,12 @@ $(document).ready(function(){
 
         if(accion =="act"){
             var pass = $(".inptPass");
-            convertMD5(pass[0].value);
+            /*Si hay algun campo vacio envia false*/
+            if(estaVacio(pass)){
+                convertMD5(pass[0].value.trim());
+            }else{
+                $("#lblMsj").text("Por favor, asegurese de no dejar espacios en blanco."); 
+            }
         }else{
             if(accion == "can"){
                 mostr_ocultr("frmCambiarPass");
@@ -35,20 +41,38 @@ $(document).ready(function(){
     function cambiarPassword(passNueva){
         var pass = $(".inptPass");
         $("#lblMsj").text("");
-        if(esIgual($("#key").val(), passNueva)){
-            if((esIgual(pass[1].value, pass[2].value)) && tieneMayuscula(pass[1].value) 
-               && tieneMinuscula(pass[1].value) && tieneNumero(pass[1].value)
-               && cumpleCantidadCaracteres(pass[1].value, pass[2].value)){
-               actualizarPassword($("#key1").val(), pass[1].value);
+        if(estaVacio(pass)){
+            if(esIgual($("#key").val(), passNueva)){
+                if((esIgual(pass[1].value.trim(), pass[2].value.trim())) && tieneMayuscula(pass[1].value.trim()) 
+                   && tieneMinuscula(pass[1].value.trim()) && tieneNumero(pass[1].value.trim())
+                   && cumpleCantidadCaracteres(pass[1].value.trim(), pass[2].value.trim())){
+                   actualizarPassword($("#key1").val(), pass[1].value.trim());
+                }else{
+                    $("#lblMsj").text("Debe asegurese de cumplir con los requisitos de contraseña.");
+                }
             }else{
-                $("#lblMsj").text("Debe asegurar de cumplir con los requisitos de contraseña.");
+                $("#lblMsj").text("La contraseña que ingreso en el primer campo no "+
+                    "coincide con la que inició sesión.\nCorrijala para poder efectuar los cambios.");
             }
         }else{
-            $("#lblMsj").text("La contraseña que ingreso en el primer campo no "+
-                "coincide con la que inició sesión.\nCorrijala para poder efectuar los cambios.");
+           $("#lblMsj").text("Por favor, asegurese de no dejar espacios en blanco."); 
         }
     }
-    
+    function estaVacio(campos){
+        var respuesta = false;
+        var cont = 0;
+        for (var i = 0; i< campos.length; i++) {
+             if ((campos[i].value).trim().length != 0){
+                cont ++;
+            }   
+        }
+
+        if(campos.length == cont){
+           respuesta = true; 
+        }
+
+        return respuesta;   
+    }
     function actualizarPassword(cedula, nuevaPass){
         alert(nuevaPass);
         $.ajax({
@@ -56,10 +80,24 @@ $(document).ready(function(){
             type:'GET',
             data:{},
             success: function(responseText){
-                alert("actualizando.....");
+                if(responseText > 0){
+                    myRedirect("http://localhost:5034/Codigo/index.php","cerrarSesion","true",
+                        "mensaje","Su contraseña ha sido cambiada, el inicio de sesión es requerido.");
+                }else{
+                    myRedirect("http://localhost:5034/Codigo/index.php","cerrarSesion","true",
+                        "mensaje","Existió un problema al cambiar la contraseña, vuelva a iniciar de sesión.");
+                }
             }
         });
     }
+
+    var myRedirect = function(redirectUrl, arg, value, arg2, value2) {
+                    var form = $('<form action="' + redirectUrl + '" method="post">' +
+            '<input type="hidden" name="'+ arg +'" value="' + value + '"></input>' + 
+            '<input type="hidden" name="'+ arg2 +'" value="' + value2 + '"></input>'+'</form>');
+            $('body').append(form);
+            $(form).submit();
+    };
 
     function convertMD5(string){
         
@@ -190,11 +228,11 @@ $(document).ready(function(){
 
 	function mostr_ocultr(id){
 		
-        if ( $("#"+id).is (':hidden')){
+        if ( $("#"+id).is(":visible")){
+             $("#"+id).hide('slow');
+           
+        }else{
             $("#"+id).show('slow');
-        }
-        else{
-            $("#"+id).hide('slow');
         }
     }
 

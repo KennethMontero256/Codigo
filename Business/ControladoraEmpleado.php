@@ -21,21 +21,12 @@
 	    	echo $dataEmpleado->getEmpleadoById($_REQUEST["cedula"]);
 	    	break;
 	    case 'actualizarPass':
-	    	$cambio = $dataEmpleado->actualizarPass($_REQUEST["cedula"], md5($_REQUEST["pass"]));
-	    	validarRespuesta($cambio);
+	    	echo $dataEmpleado->actualizarPass($_REQUEST["cedula"], $_REQUEST["pass"]);
 	    	break;
 	    case "changeMD5":
 	    	echo md5($_REQUEST["pass"]);
 	    	break;
 		default:
 			break;
-	}
-
-	function validarRespuesta($cambio){
-		if($cambio > 0){
-	    	header('Location: ../Data/Error.php?mensaje=Su contraseña ha sido cambiada exitosamente.');
-	    }else{
-	    	header('Location: ../Data/Error.php?mensaje=Sucedió un error, no se pudo cambiar la contraseña.');
-	    }
 	}
 ?>

@@ -8,6 +8,7 @@
 					inicio, un caracter en minúscula, un caracter<br> 
 					en mayúscula y un número.<br> 
 			</label>
+			<br> 
 			<label id="lblMsj" style="color:#e53935"></label>
 		</div>
 		<input type="hidden" id="key1" value="<?php echo $_SESSION["cedula"];?>">

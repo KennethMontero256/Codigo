@@ -198,7 +198,4 @@
     });
 </script>
 <script type="text/javascript" src="../../js/gestion_ventas.js"></script>
-<link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css">
-    <script type="text/javascript" src="../../js/funciones_generales.js"></script>
-    <script type="text/javascript" src="../../js/jquery.datetimepicker.full.js"></script>
 
