@@ -1,6 +1,6 @@
-
-	<title>Pedidos</title>
-
+<?php
+    session_start();
+?>
 	<div class="menuLateral">
 		<p>Sección de:</p>
 		<ul>
@@ -43,48 +43,391 @@
 		</div>	
 		</div>
 	</div>
-	<div class="contenedorModal" id="frmPedidoSucur" style="display:none;">
+	<div class="contenedorModal" id="frmPedidoSucur" style="display:block;">
 		<div class="contenedorPedidoSucr">
-			<form class="frmPedido" action="" method="get" accept-charset="utf-8">
-				<table>
-					<caption>Pedido #:000987</caption>
-					<thead>
-						<tr>
-							<th>Sucursal: Cariari</th>
-							<th>Fecha-hora: 12/09/2016 23:40 p.m.</th>
-							
-						</tr>
-						<tr>
-							<th>Empleado: Steven Mendez</th> 
-							
-						</tr>
-						<tr>
-							<th>Código</th>
-							<th>Nombre</th>
-							<th>Cantidad</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>00099</td>
-							<td>Mani salado</td>
-							<td>5300k</td>
-						</tr>
-			
-					</tbody>
-				</table>
-			</form>	
-		
-			<div class="frmInsertDetalle">
-				<p>Agregar producto al pedido</p>
-				<input type="text" id="txtCodigo" placeholder="Código producto" class="inputShadow">
-				<input type="text" id="txtCantidad" placeholder="Cantidad" class="inputShadow">
-				<a href="" id="hacerPedidoSucursal" class="btn-flat">Agregar</a>
-
-				<div class="opPedido">
-					<a href="#" id="cancelarPedido" class="btn-submit">Realizar</a>
-					<a href="" id="hacerPedidoSucursal" class="btn-submit">Cancelar</a>
+		<span class="icon-cross btnClosePedido"></span>
+			<div class="facturaPedido colPedido">
+				<div class="encbPedido">
+					<p>Tostador <?php echo $_SESSION["nombreSucursal"];?></p>
+					<p>Empleado <?php echo $_SESSION["nombre"];?></p>
+					<p>Fecha: <?php echo date("d-m-Y"); ?></p>
 				</div>
+				<div class="detallePedido">
+					<table class="tbEstandar">
+						<tbody>
+							<tr class="encabezadoTb">
+								<td>Producto</td>
+								<td>Cantidad</td>
+								<td>Eliminar</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="tbDetallePedido">
+					<table class="tbEstandar">
+						<tbody>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-bin2"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+							<tr>
+								<td>Mani</td>
+								<td>100</td>
+								<td><a href="#" class="eliminarLinea"><span class="icon-pencil"></span></a></td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+			<div class="frmInsertDetalle colPedido">
+				<p class="tituloInsertPedido">Agregar producto al pedido</p>
+				<div class="pedidoScroll">
+				<div class="opPedido">
+					<ul class="listColCategorias">
+						<li>
+							<div class="categoria">
+							<p>Nombre Cate</p>
+								<table>
+									<tbody>
+										<tr>
+											<td>Categoria</td>
+											<td>Stock</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="detListPrdCat">
+								<table>
+									<tbody>
+										<tr>
+											<td>Mani Carapiñado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Sirope de cafe little bit
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="categoria">
+							<p>Nombre Cate</p>
+								<table>
+									<tbody>
+										<tr>
+											<td>Categoria</td>
+											<td>Stock</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="detListPrdCat">
+								<table>
+									<tbody>
+										<tr>
+											<td>Mani Carapiñado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Sirope de cafe little bit
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="categoria">
+							<p>Nombre Cate</p>
+								<table>
+									<tbody>
+										<tr>
+											<td>Categoria</td>
+											<td>Stock</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="detListPrdCat">
+								<table>
+									<tbody>
+										<tr>
+											<td>Mani Carapiñado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Sirope de cafe little bit
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="categoria">
+							<p>Nombre Cate</p>
+								<table>
+									<tbody>
+										<tr>
+											<td>Categoria</td>
+											<td>Stock</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="detListPrdCat">
+								<table>
+									<tbody>
+										<tr>
+											<td>Mani Carapiñado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Sirope de cafe little bit
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+										<tr>
+											<td>Mani salado
+											</td>
+											<td>10k</td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				</div>
+			</div>
+			<div class="footPedido">
+				<a href="do" class="btnPedido btn-submit">Realizar</a>
+				<a href="can" class="btnPedido btn-submit">Cancelar</a>
 			</div>
 		</div>
 	</div>
@@ -97,3 +440,4 @@
                 });
             });
         </script>
+    <script type="text/javascript" src="../../js/gestion_pedidos.js"></script>

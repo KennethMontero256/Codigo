@@ -1,14 +1,14 @@
 *{
-	padding: 0;
-	margin:0;
+  padding: 0;
+  margin:0;
 }
 .btn-submit{
-	color: #fff;
-	background: #6ab344;
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-	text-decoration: none;
-	text-align: center;
-	padding:10px;
+  color: #fff;
+  background: #6ab344;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  text-align: center;
+  padding:10px;
   transition: all 500ms ease;
   -moz-transition: all 500ms ease;
   -webkit-transition: all 500ms ease;
@@ -140,10 +140,10 @@
 }
 
 .circulo{
-	padding-top:7px;
-	padding-bottom:5px;
-	padding-left:12px;
-	padding-right:12px;
+  padding-top:7px;
+  padding-bottom:5px;
+  padding-left:12px;
+  padding-right:12px;
 }
 
 [data-tooltip]:not([data-tooltip=""]):before {
@@ -213,55 +213,55 @@ white-space:inherit;
 
 /*Login form*/
 .form-login{
-	margin-top: 10%;
+  margin-top: 10%;
 }
 
 .form-login form{
-	width: 40%;
-	margin: auto;
+  width: 40%;
+  margin: auto;
 }
 form{
-	background: #fff;
-	padding: 20px;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 form p{
-	font-size: 20px;
-	color: #616161;
-	border-bottom: 1px solid #BDBDBD;
+  font-size: 20px;
+  color: #616161;
+  border-bottom: 1px solid #BDBDBD;
 }
 
 form input{
-	display: block;
-	margin: auto;
+  display: block;
+  margin: auto;
 }
 
 input[type="text"], input[type="password"]{
-	padding: 10px;
-	width: 50%;
-	border: none;
-	border-radius: 3px;
-	font-size:15px;
-	margin-top:3%;
+  padding: 10px;
+  width: 50%;
+  border: none;
+  border-radius: 3px;
+  font-size:15px;
+  margin-top:3%;
 }
 
 form a{
-	color: #fff;
-	background: #6ab344;
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-	text-decoration: none;
-	text-align: center;
-	padding:10px;
+  color: #fff;
+  background: #6ab344;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  text-align: center;
+  padding:10px;
 }
 
 .form-login .layout-btns{
-	margin-left: 23%;
-	margin-top: 5%;
+  margin-left: 23%;
+  margin-top: 5%;
 }
 
 .contenedorModal{
-	background: rgba(224, 224, 224, 0.7);
+  background: rgba(224, 224, 224, 0.7);
     color: #fff;
     position: fixed;
     top: 0;
@@ -276,6 +276,7 @@ form a{
     background:#fff;
     margin-top: 5%;
     margin-left: 20%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .contentFrmCambioPass .labelMsj{
   margin-left: 25%;
@@ -363,38 +364,38 @@ form a{
 /*Modal add producto*/
 /*modal recuperar contraseña administrador*/
 .recContra{
-	width: 40%;
-	margin-top: 10%;
-  margin-left: 25%;	
-	overflow:auto;
+  width: 40%;
+  margin-top: 10%;
+  margin-left: 25%; 
+  overflow:auto;
 }
 .recContra input{
-	margin: 0;
-	width: 100%;
+  margin: 0;
+  width: 100%;
 }
 .recContra a{
-	display: inline-block;
-	margin-top:2%;	
+  display: inline-block;
+  margin-top:2%;  
 }
 
 /*modulo pedido*/
 
 .flotante {
-	display:inline-block;
-	background-color: #d23f31;
-  	height: 56px;
-  	position: fixed;
-  	width: 56px;
-	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-  	cursor: pointer;
-  	border-radius: 50%;
-	color: #fff;
-	bottom: 45px;
- 	right: 24px;
-	text-align: center;
-	font-size:14px;
-	text-decoration:none;
-	line-height: 54px;
+  display:inline-block;
+  background-color: #d23f31;
+    height: 56px;
+    position: fixed;
+    width: 56px;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+    cursor: pointer;
+    border-radius: 50%;
+  color: #fff;
+  bottom: 45px;
+  right: 24px;
+  text-align: center;
+  font-size:14px;
+  text-decoration:none;
+  line-height: 54px;
 }
 
 .dropA{
@@ -422,9 +423,11 @@ form a{
     bottom: 45px;
     right: 40px;
     height: 130px;
-  	position: fixed;
-  	width: 56px;
+    position: fixed;
+    width: 56px;
     -moz-animation: 1s subir 1;
+    -webkit-animation: 1s subir 1;
+    -o-animation: 1s subir 1;
 }
 
 @-moz-keyframes subir{
@@ -437,159 +440,247 @@ form a{
   }
 }
 
+@-webkit-keyframes subir{
+  from{
+    height: 70px;
+  }
+
+  to{
+    height: 130px;
+  }
+}
+
+@-o-keyframes subir{
+  from{
+    height: 70px;
+  }
+
+  to{
+    height: 130px;
+  }
+}
 
 .menuLateral{
-	float:left;
-	width: 15%;
-  	background: #fff;
-  	height: 200px;
-	margin-top:4%;
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  float:left;
+  width: 15%;
+    background: #fff;
+    height: 200px;
+  margin-top:4%;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .menuLateral p{
-	font-size: 20px;
-	background: #ffab40;
-	color: #fff;
-	padding-left: 5%; 
+  font-size: 20px;
+  background: #ffab40;
+  color: #fff;
+  padding-left: 5%; 
 }
 
 .menuLateral ul{
-	margin-top: 4%;
-	margin-left: 9%;
+  margin-top: 4%;
+  margin-left: 9%;
 }
 
 .menuLateral li{
-	margin-top: 6%;
+  margin-top: 6%;
 }
 .menuLateral a{
-	color: #616161;
-	text-decoration: none;
+  color: #616161;
+  text-decoration: none;
 }
 
 .menuLateral a:hover{
-	text-decoration: blue;
+  text-decoration: blue;
+}
+/*Form pedido*/
+.colPedido{
+  float: left;
 }
 
+.frmInsertDetalle{
+  width: 60%;
+  margin-top:3%;
+  min-height:350px;
+  max-height:450px;
+  border: 1px solid #9e9e9e;
+  /*! overflow-y:auto; */
+}
+
+.pedidoScroll{
+   min-height:420px;
+  max-height:420px;
+  overflow-y: auto;
+}
+
+.tituloInsertPedido{
+  text-align: center;
+  color: #fff;
+  background-color:#795548; 
+  padding:3px;
+}
+
+.categoria{
+  width: 100%;
+}
+
+.categoria p{
+  text-align: center;
+   width: 94%;
+  padding: 3px;
+  border-bottom: ;
+  color: #c62828;
+}
+
+.categoria .detListPrdCat{
+  min-height: 140px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.categoria table{
+  width: 100%;
+}
+
+.categoria table:nth-child(1) tr:nth-child(odd){
+  background-color:#e0e0e0;
+}
+
+.categoria table:nth-child(1) tr td:nth-child(2),
+.categoria table:nth-child(2) tr td:nth-child(2){
+  text-align: center;
+}
+
+.categoria table:nth-child(2){
+  width: 94%;
+}
+
+.categoria table:nth-child(2) tr td{
+  background-color: #fff;
+  border-bottom: 1px solid #c62828;
+}
+.categoria td{
+  padding: 3px;
+}
+
+.categoria td:nth-child(1){
+  min-width: 70%;
+  max-width: 70%;
+}
+
+.listColCategorias li{
+  width: 45%;
+  float:left;
+  list-style:none;
+   margin:2%;
+  min-height:200px;
+  max-height:200px;
+  border:1px solid #e6e6e6;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+}
 
 .contenedorPedidoSucr{
-	margin: 10%;
-	width: 70%;
-	background: #fff;
-	overflow:auto;
+  width: 80%;
+  margin-top: 5%;
+  margin-left: 10%;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+  color: #424242;
+  height: 85%;
+}
+.btnClosePedido{
+  float: right;
+  padding: 5px;
+  margin:0.5%;
+  color: #9e9e9e;
+}
+.footPedido{
+  clear:both;
+  margin-left:80%;
+}
+.btnClosePedido:hover{
+  cursor: pointer;
+  color: #d32f2f;
 }
 
-.contenedorPedidoSucr .frmPedido, 
-.contenedorPedidoSucr .frmInsertDetalle{
-	float: left;
+.facturaPedido{
+  width: 30%;
+  margin: 3%;
 }
 
-.contenedorPedidoSucr form{
-  box-shadow:none;
+.encbPedido{
+  border: 1px solid #9e9e9e;
+  border-bottom: none;
+  text-align: center;
 }
 
-.frmPedido{
-  color: #616161;
-	width: 60%;
+.facturaPedido table{
+  width: 100%;
+  max-height: 350px;
+}
+.encabezadoTb td{
+  background-color: #d23f31;
+  color: #fff;
+}
+.tbDetallePedido{
+  height: 350px;
+  overflow-y: auto;
 }
 
-.frmPedido table {
-	border-spacing: 0;
+.facturaPedido table td:nth-child(1){
+  text-align: left;
+  min-width: 40%;
+  max-width: 40%;
 }
 
-.frmPedido th, .frmPedido td{
-	border-spacing: 0;
-	text-align: center;
-  border-collapse: collapse;
-}
-
-.frmPedido thead tr:nth-child(3){
-	background: #e53935;
-	color: #fff;
-}
-
-.frmPedido tbody tr:nth-child(odd){
-	background: #e0e0e0;
-}
-
-.frmInsertDetalle {
-	width: 35%;
-	margin-top: 10%;
-} 
-.frmInsertDetalle p{
-	background: #26a69a;
-	text-align: center;
-	width: 66%;
-	padding: 5px;
-	border-radius: 2px;
-}
-
-.frmInsertDetalle input, .frmInsertDetalle a{
-	display: block;
-}
-
-.frmInsertDetalle input{
-	width: 63%;
-}
-
-.frmInsertDetalle .btn-flat{
-	margin-top: 5%;
-}
-
-.opPedido{
-	margin-top: 20%;
-}
-
-.opPedido a{
-	display: inline-block;
-	width: 30%;
+.facturaPedido table td{
+  text-align:center;
 }
 
 .inputShadow{
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
 .btn-flat{
-	background: #26a69a;
-	color: #fff;
-	text-decoration: none;
-	text-align: center;
-	width: 50%;
-	border: none;
-	border-radius: 2px;
-	display: inline-block;
-	height: 36px;
-	line-height: 36px;
-	outline: 0;
-	padding: 0 2rem;
+  background: #26a69a;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  width: 50%;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  outline: 0;
+  padding: 0 2rem;
 }
 
 .contenedorSecundario{
-	width: 70%;
-	float: left;
-	background: white;
-	margin-top: 4%;
-	margin-left:4%;
-	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-	color:#424242;
-	height: 500px;
+  width: 70%;
+  float: left;
+  background: white;
+  margin-top: 4%;
+  margin-left:4%;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+  color:#424242;
+  height: 500px;
 }
 
 .contenedorSecundario p{
-	color: #616161;
-	width: 90%;
-	padding-left: 2%;
-	padding-top: 1%;
-	padding-bottom: 1%;
-	border-bottom: 1px solid #9e9e9e;  
+  color: #616161;
+  width: 90%;
+  padding-left: 2%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-bottom: 1px solid #9e9e9e;  
 }
 .contenidoPedidos{
-	margin-left: 2%;
+  margin-left: 2%;
 }
 
 .barBusqueda input{
-	display: inline-block;
-	width: 30%;
+  display: inline-block;
+  width: 30%;
 }
 
 /*Administrar sucursales*/
@@ -646,132 +737,134 @@ input.cmn-toggle-yes-no:checked + label:after {
 
 /*Administrar sucursales*/
 #contenedorAdministrador{
-	margin-top: 5%;
+  margin-top: 5%;
 }
 
 .contenedorSucursales{
-	width: 50%;
-	height: 400px;
-	margin: auto;
-	background-color: #fff;
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  width: 50%;
+  height: 400px;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .contenedorSucursales .add{
-	float: right;
-	margin:10px;
-	font-size: 25px;
-	color: #e53935;
-	cursor: pointer;
+  float: right;
+  margin:10px;
+  font-size: 25px;
+  color: #e53935;
+  cursor: pointer;
 }
 .contenedorSucursales .add:hover{
-	color: #ef5350;
+  color: #ef5350;
 }
 
 .contenedorSucursales p{
-	color: #fff;
-	background: #009688;
-	padding: 10px;
-	word-spacing: 2px;
+  color: #fff;
+  background: #009688;
+  padding: 10px;
+  word-spacing: 2px;
 }
 
 .contenedorSucursales .barBusqueda{
-	width: 100%;
-	padding-bottom: 5%;
-	margin-left:2%;;
-	margin-right:2%;
+  width: 100%;
+  padding-bottom: 5%;
+  margin-left:2%;;
+  margin-right:2%;
 }
 
 .contenedorSucursales .barBusqueda input{
-	width: 80%;
-	margin-left: 5%;
-	border-bottom: none;
+  width: 80%;
+  margin-left: 5%;
+  border-bottom: none;
 }
 
 .contenedorLista table{
-	margin: auto;
-	border-spacing:0;
+  margin: auto;
+  border-spacing:0;
 }
 
 .contenedorLista table tbody{
-	display: block;
-	min-height: 100px;
-	max-height: 250px;
-	overflow-y:auto;
-	overflow-x: hidden;
+  display: block;
+  min-height: 100px;
+  max-height: 250px;
+  overflow-y:auto;
+  overflow-x: hidden;
 }
 
 .contenedorLista table tr:nth-child(odd){
-	background-color:#e6e6e6;
+  background-color:#e6e6e6;
 }
 
 .contenedorLista table td{
-	padding-left:15px;
-	padding-right: 25px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+  padding-left:15px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 table.listaCnNombres td:nth-child(1){
-  	padding: 5;
-  	display: inline-block;
- 	width: 200px;
+    padding: 5;
+    display: inline-block;
+  width: 200px;
 }
 #tablaEmpleados tr:nth-child(even) td:nth-child(1),
 #tablaEmpleados tr:nth-child(odd) td:nth-child(1){
-	padding-right: 180px;
+  padding-right: 180px;
 }
 .contenedorLista table a{
-	color:#616161;
-	text-decoration: none;
+  color:#616161;
+  text-decoration: none;
 }
-
+.contenedorLista table a:hover{
+  color: #e53935;
+}
 .contenedorSucursales .frmAdd{
-	width: 50%;
-	margin-top:5%;
-	margin-left:23%;
+  width: 50%;
+  margin-top:5%;
+  margin-left:23%;
 }
 
 .frmAdd p{
-	background-color:#fff;
-	color: #616161;
-	border-bottom: 1px solid #616161;
+  background-color:#fff;
+  color: #616161;
+  border-bottom: 1px solid #616161;
 }
 
 .frmAdd input{
-	border-radius: 0;
-	border-bottom: none;
-	font-size: 15px;
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  border-radius: 0;
+  border-bottom: none;
+  font-size: 15px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
 .frmAdd #tituloSelect{
-	margin-left: 23.5%;
-	color: #616161;
+  margin-left: 23.5%;
+  color: #616161;
 }
 
 .frmAdd select{
-	margin-top:2%;
-	margin-left:23.5%;
-	padding-right: 25%;
-	padding-top: 0.5%;
-	padding-bottom: 0.5%;
-	font-size: 15px;
+  margin-top:2%;
+  margin-left:23.5%;
+  padding-right: 25%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  font-size: 15px;
 }
 
 .frmAdd #busEmpleado{
-	display: inline-block;
-	margin-left: 23.5%;
+  display: inline-block;
+  margin-left: 23.5%;
 }
 
 .frmAdd table{
-	display: block;
-	max-height: 150px;
-	border: 1px solid #c6c6c6;
-	margin-top: 2%;
-	margin-left:23.5%;
-	width:55%;
-	overflow-x: auto;
+  display: block;
+  max-height: 150px;
+  border: 1px solid #c6c6c6;
+  margin-top: 2%;
+  margin-left:23.5%;
+  width:55%;
+  overflow-x: auto;
 }
 
 .frmAdd table td{
@@ -779,51 +872,51 @@ table.listaCnNombres td:nth-child(1){
 }
 
 .frmAdd .contenedorSwitch{
-	margin-left: 23.5%;
+  margin-left: 23.5%;
 }
 
 .frmAdd .switch{
-	display: inline-block;
-	margin-top: 2%;
+  display: inline-block;
+  margin-top: 2%;
 }
 
 .frmAdd .contenedorSwitch span{
-	display:inline-block;
-	color:#616161;
+  display:inline-block;
+  color:#616161;
 }
 .frmAdd .btn-submit{
-	font-size: 15px;
+  font-size: 15px;
 }
 
 .frmAdd .footOpsFrm {
   width: 30%;
-	margin-left: 73%;
+  margin-left: 73%;
 }
 
 .etiqueta{
-	display: block;
-	color: #616161;
+  display: block;
+  color: #616161;
 }
 
 
 .frmAdd .etiqueta{
-	margin-top: 2%;
-	margin-left: 23.5%;
+  margin-top: 2%;
+  margin-left: 23.5%;
 }
 
 /*Estilo tablas*/
 table{
-	border-spacing:0;
+  border-spacing:0;
 }
 table tr{
-	color:#616161;
+  color:#616161;
 }
 table tr:nth-child(odd){
-	background:#c2c2c2;
+  background:#c2c2c2;
 }
 
 table td.ocultaTd{
-	display:none;
+  display:none;
 }
 
 #showEmpleados{

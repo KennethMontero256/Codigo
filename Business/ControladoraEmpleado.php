@@ -23,6 +23,9 @@
 	    case 'actualizarPass':
 	    	echo $dataEmpleado->actualizarPass($_REQUEST["cedula"], $_REQUEST["pass"]);
 	    	break;
+	    case 'editEmpleado':
+	    	echo $dataEmpleado->editEmpleado($_REQUEST["arrayDatos"]);
+	    	break;
 	    case "changeMD5":
 	    	echo md5($_REQUEST["pass"]);
 	    	break;

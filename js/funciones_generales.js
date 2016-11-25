@@ -42,17 +42,21 @@ $(document).ready(function(){
         var pass = $(".inptPass");
         $("#lblMsj").text("");
         if(estaVacio(pass)){
-            if(esIgual($("#key").val(), passNueva)){
-                if((esIgual(pass[1].value.trim(), pass[2].value.trim())) && tieneMayuscula(pass[1].value.trim()) 
-                   && tieneMinuscula(pass[1].value.trim()) && tieneNumero(pass[1].value.trim())
-                   && cumpleCantidadCaracteres(pass[1].value.trim(), pass[2].value.trim())){
-                   actualizarPassword($("#key1").val(), pass[1].value.trim());
+            if(!esIgual(pass[1].value.trim(), pass[0].value.trim())){
+                if(esIgual($("#key").val(), passNueva)){
+                    if((esIgual(pass[1].value.trim(), pass[2].value.trim())) && tieneMayuscula(pass[1].value.trim()) 
+                       && tieneMinuscula(pass[1].value.trim()) && tieneNumero(pass[1].value.trim())
+                       && cumpleCantidadCaracteres(pass[1].value.trim(), pass[2].value.trim())){
+                       actualizarPassword($("#key1").val(), pass[1].value.trim());
+                    }else{
+                        $("#lblMsj").text("Debe asegurese de cumplir con los requisitos de contraseña.");
+                    }
                 }else{
-                    $("#lblMsj").text("Debe asegurese de cumplir con los requisitos de contraseña.");
+                    $("#lblMsj").text("La contraseña que ingreso en el primer campo no "+
+                        "coincide con la que inició sesión.\nCorrijala para poder efectuar los cambios.");
                 }
             }else{
-                $("#lblMsj").text("La contraseña que ingreso en el primer campo no "+
-                    "coincide con la que inició sesión.\nCorrijala para poder efectuar los cambios.");
+                $("#lblMsj").text("La nueva contraseña no puede ser igual, a la anterior.");
             }
         }else{
            $("#lblMsj").text("Por favor, asegurese de no dejar espacios en blanco."); 
@@ -217,15 +221,6 @@ $(document).ready(function(){
 		$(lugarACargar).fadeIn(1000);
 	}
 
-	$('.flotante').on('click',function(e){
-		 e.preventDefault();
-		
-		var opcion = this.getAttribute("href");
-		if(opcion = "frmPedidoSucr"){
-			mostr_ocultr("frmPedidoSucur");
-		}
-	});
-
 	function mostr_ocultr(id){
 		
         if ( $("#"+id).is(":visible")){
@@ -239,6 +234,9 @@ $(document).ready(function(){
     /*Administrar empleados*/
     $("#addNewEmpleado").on("click",function(e){
         e.preventDefault();
+        $(".bRegEmpleado").text("Registrar");
+        $(".bRegEmpleado").attr("href", "frmAddEmpleado");
+        limpiarFormAddEmpleado();
         llenarSelectSucursal();
         mostr_ocultr("frmAddEmpleado");
     });
@@ -247,26 +245,49 @@ $(document).ready(function(){
     $(".bRegEmpleado").on("click",function(e){
         e.preventDefault();
         var opcion = this.getAttribute("href");
-        if(validarFormEmpleado()){
-            var formulario = document.frmAddEmpleado;
-            var empleado = new Object();
-            empleado.cedula = formulario.cedula.value.trim();
-            empleado.nombre = formulario.nombreEmpl.value.trim();
-            empleado.telf = formulario.telf.value.trim();
-            empleado.idSucursal = formulario.selectSucursal.value;
-            empleado.contrasenia = empleado.nombre.substr(0,1)+empleado.cedula.substr(0,3);
-            if($('input:checkbox[name=emplHabl]:checked').val()==undefined){
-                empleado.disponible = "0";
+        var formulario = document.frmAddEmpleado;
+        var empleado = new Object();
+        
+        if(opcion == "frmAddEmpleado"){
+            if(validarFormEmpleado()){
+                empleado.cedula = formulario.cedula.value.trim();
+                empleado.nombre = formulario.nombreEmpl.value.trim();
+                empleado.telf = formulario.telf.value.trim();
+                empleado.idSucursal = formulario.selectSucursal.value;
+                empleado.contrasenia = empleado.nombre.substr(0,1)+empleado.cedula.substr(0,3);
+                if($('input:checkbox[name=emplHabl]:checked').val()==undefined){
+                    empleado.disponible = "0";
+                }else{
+                    empleado.disponible = "1";
+                }
+                enviarAjax("../../Business/ControladoraEmpleado.php?metodo=addEmpleado",JSON.stringify(empleado));
+                limpiarFormAddEmpleado();
+                mensajeExito("Empleado agregado..");
             }else{
-                empleado.disponible = "1";
+                alert("Hay algunos errores");
             }
-            enviarAjax("../../Business/ControladoraEmpleado.php?metodo=addEmpleado",JSON.stringify(empleado));
-            limpiarFormAddEmpleado();
-            mensajeExito("Empleado agregado..");
-            mostrarEmpleadosBySucursal();
         }else{
-            alert("Hay algunos errores");
+            if(formulario.cedula.value.trim().length > 0 && 
+                formulario.nombreEmpl.value.trim().length > 0 &&
+                formulario.telf.value.trim().length > 0 ){
+                
+                empleado.cedula = formulario.cedula.value.trim();
+                empleado.nombre = formulario.nombreEmpl.value.trim();
+                empleado.telf = formulario.telf.value.trim();
+                empleado.sucursal = formulario.selectSucursal.value;
+                if($('input:checkbox[name=emplHabl]:checked').val()==undefined){
+                        empleado.habilitado = "0";
+                    }else{
+                        empleado.habilitado = "1";
+                }
+                enviarAjax("../../Business/ControladoraEmpleado.php?metodo=editEmpleado",JSON.stringify(empleado));
+                limpiarFormAddEmpleado();
+                mensajeExito(empleado.nombre+" ha sido actualizado.");
+            }else{
+                alertify.error("Aseguere de no haber dejado ningun campo vacio.");
+            }
         }
+       
     });
 
     function limpiarFormAddEmpleado(){
@@ -290,7 +311,7 @@ $(document).ready(function(){
     }
 
     function llenarSelectSucursal(){
-        var opciones= '';
+        var opciones= '<option value="0">Ninguna</option>';
          $.ajax({
             url:'../../Business/sucursalController.php?accion=mostrarSucursales',
             type:'GET',
@@ -301,7 +322,7 @@ $(document).ready(function(){
                    opciones += '<option value="'+ data[i].id + '">' + data[i].nombre + '</option>'; 
                });
 
-                $("#selectSucursal").append(opciones);
+                $("#selectSucursal").empty().append(opciones);
             }
         });
     } 
@@ -314,8 +335,10 @@ $(document).ready(function(){
             data:{arrayDatos:datos},
             success: function(responseText){
                 resultado = responseText;
+                 mostrarEmpleados();
             }
         }); 
+
         return resultado;
     }
     
@@ -330,6 +353,16 @@ $(document).ready(function(){
        $("#"+id+" tbody tr").each(function (index){
             $(this).remove();
         }); 
+    }
+
+    function mostrarEmpleados(){
+        $("#contenedorAdministrador").empty();
+        cargar_pagina("#contenedorAdministrador","../administracion/administrar_empleados.php");
+    }
+
+    function cargar_pagina(lugarACargar,nombrePagina){
+        $(lugarACargar).load(nombrePagina);
+        $(lugarACargar).fadeIn(1000);
     }
 
     });

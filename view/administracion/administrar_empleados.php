@@ -1,17 +1,18 @@
-
 	<div class="contenedorSucursales" id="contenedorOpAdmin">
-		<p>Empleados</p>
-		<a class="add tooltip" id="addNewEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
-		<div class="barBusqueda">
-			<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de un empleado" class="inputShadow">
-		</div>
-		<div class="contenedorLista">
-			<table id="tablaEmpleados" class="listaCnNombres">
-				<tbody>
-					
-				</tbody>
-			</table>
+		<div id="contentTablaEmpleados">
+			<p>Empleados</p>
+			<a class="add tooltip" id="addNewEmpleado" data-tooltip="Agregar nuevo empleado"><span class="icon-plus2"></span></a>
+			<div class="barBusqueda">
+				<input type="text" id="txtBusqSucur" placeholder="Escribe el nombe de un empleado" class="inputShadow">
+			</div>
+			<div class="contenedorLista">
+				<table id="tablaEmpleados" class="listaCnNombres">
+					<tbody>
+						
+					</tbody>
+				</table>
 
+			</div>
 		</div>
 	<div class="contenedorModal" id="frmAddEmpleado" name="frmAddEmpleado" style="display:none;">
 		
@@ -37,6 +38,7 @@
 			</div>
 		</form>
 	</div>
+
 	<script type="text/javascript" src="../../js/cargar_empleados.js"></script>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>

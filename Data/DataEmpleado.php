@@ -16,12 +16,12 @@ class DataEmpleado {
         $sentencia->prepare("CALL paGetEmpleadosBySucursal();");
 
         $sentencia->execute();
-        $sentencia->bind_result($idSucursal, $nombreSucursal, $cedula, $nombre);
+        $sentencia->bind_result($idSucursal, $nombreSucursal, $cedula, $nombre, $habilitado, $telefono);
 
         $empleados = array();
 
         while($sentencia->fetch()){
-            array_push($empleados, array("idSucursal"=>$idSucursal,"nombreSucursal"=>$nombreSucursal, "cedula"=>$cedula,"nombre"=>$nombre));
+            array_push($empleados, array("idSucursal"=>$idSucursal,"nombreSucursal"=>$nombreSucursal, "cedula"=>$cedula,"nombre"=>$nombre, "habilitado"=>$habilitado, "telefono"=>$telefono));
         }
             
         $sentencia->close();
@@ -106,6 +106,27 @@ class DataEmpleado {
         $cedulaEmpleado = $cedula;
         $pass = $nuevaPass;
         $sentencia->bind_param("ss", $cedulaEmpleado, $pass);
+
+        $sentencia->execute();
+        $afectados = mysqli_affected_rows($this->conexion);
+        mysqli_close($this->conexion);
+
+        return $afectados;
+    }
+
+    public function editEmpleado($arrayDatos){
+        $empleado = json_decode($arrayDatos);
+
+        $sentencia = $this->conexion->stmt_init();
+        $sentencia->prepare("CALL paEditEmpleado(?,?,?,?,?)");
+
+        $cedula = $empleado->cedula;
+        $nombre = $empleado->nombre;
+        $telefono = $empleado->telf;
+        $habilitado = $empleado->habilitado;
+        $idSucursal = $empleado->sucursal;
+        
+        $sentencia->bind_param("sssss", $cedula, $nombre, $telefono, $habilitado, $idSucursal );
 
         $sentencia->execute();
         $afectados = mysqli_affected_rows($this->conexion);

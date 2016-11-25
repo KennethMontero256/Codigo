@@ -22,7 +22,6 @@
 	<script type="text/javascript" src="../../js/jquery-ui.js"></script>
         <link rel="stylesheet" href="../../js/alertify/css/alertify.css">
         <link rel="stylesheet" href="../../js/alertify/css/themes/default.css">
-        <script type="text/javascript" src="../../js/alertify/alertify.js"></script>
 </head>
 <body>
 	<?php
@@ -39,6 +38,7 @@
 	    	include("../empleados/cambiar_contrasenia.php");
 	    ?>
     </div>
+    <script type="text/javascript" src="../../js/alertify/alertify.js"></script>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/funcionesAdministrador.js"></script>
 </body>
