@@ -25,9 +25,6 @@
         case "ventasRangoFechas":
             echo $dataVenta->getVentasByRangoFechas($_REQUEST["idSucursal"], $_REQUEST["cedEmpleado"], $_REQUEST["fechaInicio"], $_REQUEST["fechaFinal"]);
             break;
-        case 'getVentasRangoFechasTotalMes':
-            echo $dataVenta->getVentasByRangoFechasTotalMes($_REQUEST["idSucursal"], $_REQUEST["cedEmpleado"], $_REQUEST["fechaInicio"], $_REQUEST["fechaFinal"]);
-            break;
     	default:
     		echo "ERROR, no se encontro el metodo";
     		break;

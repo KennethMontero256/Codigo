@@ -7,6 +7,19 @@
 		echo "Disculpe, sucedió un error al cargar los datos del empleado.";
 	}
 ?>
+<<<<<<< HEAD
+=======
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Vista empleado</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+>>>>>>> 0566012c6bcad2418fb0db2ce0396037812c902e
 	<table id="showEmpleados">
 		<p>Empleado:     <?php echo $empleado[0]->nombre;?></p>
 		<tbody>
@@ -30,6 +43,7 @@
 	</table>
 	<div class="footShowInfoEmpleado">
 		<a href="#" class="volverListEmpleados"><span class="icon-arrow-left"></span></a>
+<<<<<<< HEAD
 		<a href="#" data-id="<?php echo $empleado[0]->cedula;?>" data-nombre="<?php echo $empleado[0]->nombre;?>" data-telefono="<?php echo $empleado[0]->telefono;?>" data-sucursal="<?php echo $empleado[0]->idSucursal;?>" data-habilitado="<?php echo $empleado[0]->habilitado;?>" class="btnEditEmpleado"><span class="icon-pencil"></span>Editar información</a>
 	</div>
 	<script type="text/javascript">
@@ -93,3 +107,9 @@
     } 
     });
 	</script>
+=======
+		<a href="<?php echo $empleado[0]->cedula;?>" class=""><span class="icon-pencil"></span>Editar información</a>
+	</div>
+</body>
+</html>
+>>>>>>> 0566012c6bcad2418fb0db2ce0396037812c902e

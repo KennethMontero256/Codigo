@@ -5,6 +5,10 @@
     <title></title>
     <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
 	   <script type="text/javascript" src="js/funcionesAdministrador.js"></script>
+   	<link rel="stylesheet" type="text/css" href="../css/Roboto/WebFont/roboto_regular_macroman/stylesheet.css">
+       <link rel="stylesheet" type="text/css" href="../css/estiloBarraNavegacion.css">
+       <link rel="stylesheet" type="text/css" href="../css/estilo_principal.css">
+       <link rel="stylesheet" type="text/css" href="../css/iconosFuente/style.css">
   </head>
   <body>
 

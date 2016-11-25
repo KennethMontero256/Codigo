@@ -4,7 +4,18 @@
     $dataCategoria = new DataCategoria();
     $categorias = $dataCategoria->getCategoria(0);
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css">
+    <script type="text/javascript" src="../../js/funciones_generales.js"></script>
+    <script type="text/javascript" src="../../js/jquery.datetimepicker.full.js"></script>
     <script type="text/javascript" src="../../js/gestion_inventario.js"></script>
+</head>
+<body>
     <div class="contenedorAdmInventario">
         <div class="menuLateral">
             <p>Gestión de:</p>
@@ -160,3 +171,5 @@
           });
         });
     </script>
+</body>
+</html>	

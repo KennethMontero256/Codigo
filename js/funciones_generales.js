@@ -1,6 +1,5 @@
 $(document).ready(function(){
     alertify.set('notifier','position', 'top-left');
-
 	$("#bSubmitFrmLoginAdm").on("click",function(e){
         e.preventDefault();
         var formulario = document.frmLoginAdm;
@@ -11,6 +10,7 @@ $(document).ready(function(){
         }
 
     });
+<<<<<<< HEAD
     /*Cambio de contrasenia*/
     $(".btnCambioPass").on("click",function(e){
        e.preventDefault();
@@ -173,10 +173,9 @@ $(document).ready(function(){
         if(pass1.length >= 4 && pass2.length >= 4 ){
             respuesta = true;
         }
+=======
+>>>>>>> 0566012c6bcad2418fb0db2ce0396037812c902e
 
-        return respuesta;
-    }
-    /*Cambio de contrasenia*/
     /*funciones FAB*/
     $(".fabInventario").on("click",function(e){
          e.preventDefault();
@@ -223,12 +222,10 @@ $(document).ready(function(){
 
 	function mostr_ocultr(id){
 		
-        if ( $("#"+id).is(":visible")){
-             $("#"+id).hide('slow');
-           
-        }else{
+        if ( $("#"+id).is (':hidden'))
             $("#"+id).show('slow');
-        }
+        else
+            $("#"+id).hide('slow');
     }
 
     /*Administrar empleados*/

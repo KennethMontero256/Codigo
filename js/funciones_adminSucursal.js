@@ -76,11 +76,12 @@ $(document).ready(function(){
             cargar_pagina("#contenedorAdministrador", "../view/administracion/administrar_sucursales.php");
             mostrarSucursalesAdmin();
     	}else{
-            alertify.alert('Tostador',
-                                'Algunos campos estan vacios: ',
-                                function(){     
-                                }
-                            ).set({transition:'zoom'}).show();
+    		notif({
+                    'type': 'error',
+                    'msg': 'Algunos campos estan vacios',
+                    'position': 'right',
+                    'timeout': 600000
+            });
     	}
     });
 
