@@ -12,7 +12,6 @@ class DataEmpleado {
     }
 
     public function getEmpleadosBySucursal() {
-<<<<<<< HEAD
         $sentencia = $this->conexion->stmt_init();
         $sentencia->prepare("CALL paGetEmpleadosBySucursal();");
 
@@ -23,23 +22,11 @@ class DataEmpleado {
 
         while($sentencia->fetch()){
             array_push($empleados, array("idSucursal"=>$idSucursal,"nombreSucursal"=>$nombreSucursal, "cedula"=>$cedula,"nombre"=>$nombre, "habilitado"=>$habilitado, "telefono"=>$telefono));
-=======
-        $query = "CALL ucrgrupo4.paGetEmpleadosBySucursal;";
-        $result = $this->conexion->query($query);
-
-        if ($result->num_rows > 0) {
-            $index = 0;
-            while ($row = $result->fetch_assoc()) {
-                $data[$index]["idSucursal"] = $row["idSucursal"];
-                $data[$index]["nombreSucursal"] = $row["nombreSucursal"];
-                $data[$index]["cedula"] = $row["cedula"];
-                $data[$index]["nombre"] = $row["nombre"];
-                $index ++;
-            }
-            return json_encode($data);
->>>>>>> 0566012c6bcad2418fb0db2ce0396037812c902e
         }
+            
+        $sentencia->close();
         mysqli_close($this->conexion);
+        return json_encode($empleados);
     }
 
     public function insertarEmpleado($arrayDatos) {
@@ -87,11 +74,11 @@ class DataEmpleado {
         $sentencia->bind_param("s", $cedulaEmpleado);
 
         $sentencia->execute();
-        $sentencia->bind_result($cedula, $nombre, $telefono, $fechaIngreso, $habilitado, $idSucursal, $nombreSucursal);
+        $sentencia->bind_result($cedula, $nombre, $telefono, $pass, $fechaIngreso, $habilitado, $idSucursal, $nombreSucursal);
         $empleados = array();
 
         while ($sentencia->fetch()) {
-            array_push($empleados, "cedula" => $cedula, "nombre" => $nombre, "telefono" => $telefono, "fechaIngreso" => $fechaIngreso, "habilitado" => $habilitado, "idSucursal" => $idSucursal, "nombreSucursal" => $nombreSucursal);
+            array_push($empleados, array("cedula" => $cedula, "nombre" => $nombre, "telefono" => $telefono, "fechaIngreso" => $fechaIngreso, "habilitado" => $habilitado, "idSucursal" => $idSucursal, "nombreSucursal" => $nombreSucursal));
         }
         $sentencia->close();
         return json_encode($empleados);
@@ -112,7 +99,6 @@ class DataEmpleado {
         return $afectados;
     }
 
-<<<<<<< HEAD
     public function actualizarPass($cedula, $nuevaPass){
         $sentencia = $this->conexion->stmt_init();
         $sentencia->prepare("CALL paActualizarPassword(?,?)");
@@ -149,8 +135,6 @@ class DataEmpleado {
         return $afectados;
     }
 
-=======
->>>>>>> 0566012c6bcad2418fb0db2ce0396037812c902e
 }
 
 ?>

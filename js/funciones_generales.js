@@ -1,6 +1,7 @@
 $(document).ready(function(){
     alertify.set('notifier','position', 'top-left');
-	$("#bSubmitFrmLoginAdm").on("click",function(e){
+
+    $("#bSubmitFrmLoginAdm").on("click",function(e){
         e.preventDefault();
         var formulario = document.frmLoginAdm;
         if(formulario.username.value.trim().length != 0 && formulario.password.value.trim().length != 0){
@@ -42,6 +43,7 @@ $(document).ready(function(){
         $("#lblMsj").text("");
         if(estaVacio(pass)){
             if(!esIgual(pass[1].value.trim(), pass[0].value.trim())){
+                alert(".>"+$("#key").val()+"----"+passNueva);
                 if(esIgual($("#key").val(), passNueva)){
                     if((esIgual(pass[1].value.trim(), pass[2].value.trim())) && tieneMayuscula(pass[1].value.trim()) 
                        && tieneMinuscula(pass[1].value.trim()) && tieneNumero(pass[1].value.trim())
@@ -173,6 +175,9 @@ $(document).ready(function(){
             respuesta = true;
         }
 
+        return respuesta;
+    }
+    /*Cambio de contrasenia*/
     /*funciones FAB*/
     $(".fabInventario").on("click",function(e){
          e.preventDefault();
@@ -181,25 +186,25 @@ $(document).ready(function(){
     });
     /*End funciones FAB*/
     $('.opBarNav').on('click',function(e){
-		e.preventDefault();
-		var opcion = this.getAttribute("href");
+        e.preventDefault();
+        var opcion = this.getAttribute("href");
 
-		if(opcion == "pedido"){
-			cargar_pagina("#contenedorGlobal", "../empleados/modulo_pedidos.php");
-		}else{
-			if(opcion == "caja"){
-				cargar_pagina("#contenedorGlobal", "../Ventas/GestionVentas.php");
+        if(opcion == "pedido"){
+            cargar_pagina("#contenedorGlobal", "../empleados/modulo_pedidos.php");
+        }else{
+            if(opcion == "caja"){
+                cargar_pagina("#contenedorGlobal", "../Ventas/GestionVentas.php");
                 
-				$(".xdsoft_datetimepicker").remove();
-			}else{
+                $(".xdsoft_datetimepicker").remove();
+            }else{
                 if(opcion == "invent"){
                    cargar_pagina("#contenedorGlobal", "../Producto/GestionInventario.php");
                     $(".xdsoft_datetimepicker").remove();
                 }
             }
-		}
+        }
 
-	   });
+       });
     
 
     $(".btn-cancel").on('click',function(e){
@@ -212,17 +217,19 @@ $(document).ready(function(){
 
     });
 
-	function cargar_pagina(lugarACargar,nombrePagina){
-		$(lugarACargar).load(nombrePagina);
-		$(lugarACargar).fadeIn(1000);
-	}
+    function cargar_pagina(lugarACargar,nombrePagina){
+        $(lugarACargar).load(nombrePagina);
+        $(lugarACargar).fadeIn(1000);
+    }
 
-	function mostr_ocultr(id){
-		
-        if ( $("#"+id).is (':hidden'))
+    function mostr_ocultr(id){
+        
+        if ( $("#"+id).is(":visible")){
+             $("#"+id).hide('slow');
+           
+        }else{
             $("#"+id).show('slow');
-        else
-            $("#"+id).hide('slow');
+        }
     }
 
     /*Administrar empleados*/

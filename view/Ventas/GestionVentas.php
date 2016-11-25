@@ -1,5 +1,5 @@
 <input type="hidden" id="sucursal" value="<?php echo $_SESSION['idSucursal']; ?>">
-<div class="menuLateral">	
+<div class="menuLateral">   
     <p>Mostrar por:</p>
     <ul>
         <li><a href=".venta" class="linkBusquedaVentas">Caja</a></li>
@@ -198,7 +198,4 @@
     });
 </script>
 <script type="text/javascript" src="../../js/gestion_ventas.js"></script>
-<link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css">
-    <script type="text/javascript" src="../../js/funciones_generales.js"></script>
-    <script type="text/javascript" src="../../js/jquery.datetimepicker.full.js"></script>
 

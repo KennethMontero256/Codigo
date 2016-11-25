@@ -145,7 +145,29 @@
             return json_encode($productos);
         }
         
-        
+        public function getVentasByRangoFechasTotalMes($idSucursal, $cedulaEmpleado, $fechaInicial, $fechaFinal){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetVentasRangoFechasTotalMes(?,?,?,?);");
+
+            $sucursal = $idSucursal;
+            $fechaInicio = $fechaInicial;
+            $fechaTermina = $fechaFinal;
+            $idEmpleado = $cedulaEmpleado;
+
+            $sentencia->bind_param("ssss",$sucursal, $idEmpleado, $fechaInicio,  $fechaTermina);
+            $sentencia->execute(); 
+            $sentencia->bind_result($codigo, $mes, $total);
+            $ventas = array();
+
+            while($sentencia->fetch()){
+                array_push($ventas, array("codigo"=>$codigo, "mes"=>$mes, "totalMes"=>$total));
+            }
+
+            $sentencia->close();
+            mysqli_close($this->conexion);
+            
+            return json_encode($ventas);
+        } 
 
     }
 ?>
