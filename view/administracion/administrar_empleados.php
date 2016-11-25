@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-=======
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
->>>>>>> 0566012c6bcad2418fb0db2ce0396037812c902e
 	<div class="contenedorSucursales" id="contenedorOpAdmin">
 		<div id="contentTablaEmpleados">
 			<p>Empleados</p>
@@ -93,5 +81,4 @@
 	        });
 		});
 	</script>
-</body>
-</html>
+

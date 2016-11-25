@@ -10,7 +10,6 @@ $(document).ready(function(){
         }
 
     });
-<<<<<<< HEAD
     /*Cambio de contrasenia*/
     $(".btnCambioPass").on("click",function(e){
        e.preventDefault();
@@ -173,8 +172,6 @@ $(document).ready(function(){
         if(pass1.length >= 4 && pass2.length >= 4 ){
             respuesta = true;
         }
-=======
->>>>>>> 0566012c6bcad2418fb0db2ce0396037812c902e
 
     /*funciones FAB*/
     $(".fabInventario").on("click",function(e){
