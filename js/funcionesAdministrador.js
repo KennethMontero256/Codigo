@@ -5,14 +5,17 @@ $(document).ready(function() {
       e.preventDefault();
       listaSucursales(this.getAttribute("href"));
     });
-    $(".btnEditSucr").click(function (e) {
+
+    $(".btnFormEditSucr").click(function (e) {
       e.preventDefault();
-      formEditarSucursal(this.getAttribute("href"));
+      editarSucursal(this.getAttribute("href"));
     });
+
     $(".editarSucursal").click(function (e) {
       e.preventDefault();
       editarSucursal(this.getAttribute("href"));
     });
+
 });
 
 function listaSucursales(accion){
@@ -30,11 +33,24 @@ function formEditarSucursal(accion){
 
 function editarSucursal(codigo){
 
-    var capa = document.getElementById("contenedorLista");
-    var nombre=document.getElementsByName("nombre")[0].value;
-    var direccion=document.getElementsById("direccion").value;
-    var telefono=document.getElementsByName("telefono")[0].value;
-    alert("Dir: "+direccion);
-    document.getElementById("contenedorLista").innerHTML = " Registro Editado Exitosamente!";
-    $(capa).load("?clase=sucursalController&accion=editarSucursal&codigo="+codigo+"&nombre="+nombre+"&direccion="+direccion+"&telefono="+telefono);
+    var codigoForm=document.getElementsByName("codigo")[0].value;
+    var nombreForm=document.getElementsByName("nombre")[0].value;
+    var direccionForm=document.getElementsByName("direccion")[0].value;
+    var telefonoForm=document.getElementsByName("telefono")[0].value;
+
+    $.ajax({
+
+      url: '../Business/sucursalController.php?accion=editarSucursal',
+      type: 'POST',
+      data: {codigo:codigoForm, nombre:nombreForm, direccion:direccionForm, telefono:telefonoForm},
+
+      success: function(data) {
+        alert("Modificado!");
+        location.href="../view/administracion/pagina_inicio.php";
+      },
+      error: function(){
+        alert('Error en cargar_sucursales.js!');
+      }
+    });
+      //
 }

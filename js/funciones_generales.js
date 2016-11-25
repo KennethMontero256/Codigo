@@ -1,6 +1,5 @@
 $(document).ready(function(){
     alertify.set('notifier','position', 'top-left');
-
 	$("#bSubmitFrmLoginAdm").on("click",function(e){
         e.preventDefault();
         var formulario = document.frmLoginAdm;
@@ -11,168 +10,7 @@ $(document).ready(function(){
         }
 
     });
-    /*Cambio de contrasenia*/
-    $(".btnCambioPass").on("click",function(e){
-       e.preventDefault();
-       mostr_ocultr("frmCambiarPass");
-       
-    });
 
-    $(".btnFrmPass").on("click",function(e){
-        e.preventDefault();
-        var accion = this.getAttribute("href");
-
-        if(accion =="act"){
-            var pass = $(".inptPass");
-            /*Si hay algun campo vacio envia false*/
-            if(estaVacio(pass)){
-                convertMD5(pass[0].value.trim());
-            }else{
-                $("#lblMsj").text("Por favor, asegurese de no dejar espacios en blanco."); 
-            }
-        }else{
-            if(accion == "can"){
-                mostr_ocultr("frmCambiarPass");
-                limpiarFormActualizarPassword();
-            }
-        }
-    });
-    
-    function cambiarPassword(passNueva){
-        var pass = $(".inptPass");
-        $("#lblMsj").text("");
-        if(estaVacio(pass)){
-            if(esIgual($("#key").val(), passNueva)){
-                if((esIgual(pass[1].value.trim(), pass[2].value.trim())) && tieneMayuscula(pass[1].value.trim()) 
-                   && tieneMinuscula(pass[1].value.trim()) && tieneNumero(pass[1].value.trim())
-                   && cumpleCantidadCaracteres(pass[1].value.trim(), pass[2].value.trim())){
-                   actualizarPassword($("#key1").val(), pass[1].value.trim());
-                }else{
-                    $("#lblMsj").text("Debe asegurese de cumplir con los requisitos de contraseña.");
-                }
-            }else{
-                $("#lblMsj").text("La contraseña que ingreso en el primer campo no "+
-                    "coincide con la que inició sesión.\nCorrijala para poder efectuar los cambios.");
-            }
-        }else{
-           $("#lblMsj").text("Por favor, asegurese de no dejar espacios en blanco."); 
-        }
-    }
-    function estaVacio(campos){
-        var respuesta = false;
-        var cont = 0;
-        for (var i = 0; i< campos.length; i++) {
-             if ((campos[i].value).trim().length != 0){
-                cont ++;
-            }   
-        }
-
-        if(campos.length == cont){
-           respuesta = true; 
-        }
-
-        return respuesta;   
-    }
-    function actualizarPassword(cedula, nuevaPass){
-        alert(nuevaPass);
-        $.ajax({
-            url:'../../Business/ControladoraEmpleado.php?metodo=actualizarPass&cedula='+cedula+'&pass='+nuevaPass,
-            type:'GET',
-            data:{},
-            success: function(responseText){
-                if(responseText > 0){
-                    myRedirect("http://localhost:5034/Codigo/index.php","cerrarSesion","true",
-                        "mensaje","Su contraseña ha sido cambiada, el inicio de sesión es requerido.");
-                }else{
-                    myRedirect("http://localhost:5034/Codigo/index.php","cerrarSesion","true",
-                        "mensaje","Existió un problema al cambiar la contraseña, vuelva a iniciar de sesión.");
-                }
-            }
-        });
-    }
-
-    var myRedirect = function(redirectUrl, arg, value, arg2, value2) {
-                    var form = $('<form action="' + redirectUrl + '" method="post">' +
-            '<input type="hidden" name="'+ arg +'" value="' + value + '"></input>' + 
-            '<input type="hidden" name="'+ arg2 +'" value="' + value2 + '"></input>'+'</form>');
-            $('body').append(form);
-            $(form).submit();
-    };
-
-    function convertMD5(string){
-        
-        $.ajax({
-            url:'../../Business/ControladoraEmpleado.php?metodo=changeMD5&pass='+string,
-            type:'GET',
-            data:{},
-            success: function(responseText){
-               cambiarPassword(responseText);
-            }
-        });
-    }
-
-    function limpiarFormActualizarPassword(){
-        $(".inptPass")[0].value="";
-        $(".inptPass")[1].value="";
-        $(".inptPass")[2].value="";
-        $("#lblMsj").text("");
-    }
-
-    function esIgual(pass1, pass2){
-        var respuesta = false;
-        
-        if(pass1 == pass2){
-            respuesta = true;
-        }
-
-        return respuesta;
-    }
-
-    function tieneMayuscula(pass){
-        var respuesta = false;
-        var letras_mayusculas="ABCDEFGHYJKLMNÑOPQRSTUVWXYZ";
-        for (var i = 0; i< pass.length; i++) {
-             if (letras_mayusculas.indexOf(pass.charAt(i),0)!=-1){
-                respuesta = true;
-            }   
-        }
-
-        return respuesta;
-    }
-
-    function tieneMinuscula(pass){
-        var letras="abcdefghyjklmnñopqrstuvwxyz";
-        var respuesta = false;
-        for (var i = 0; i< pass.length; i++) {
-            if (letras.indexOf(pass.charAt(i),0)!=-1){
-                respuesta = true;
-            }
-        }
-        return respuesta;
-    }
-
-    function tieneNumero(pass){
-        var respuesta = false;
-        var numeros="0123456789";
-        for (var i = 0; i< pass.length; i++) {
-            if (numeros.indexOf(pass.charAt(i),0)!=-1){
-                respuesta = true;
-            }
-        }
-
-        return respuesta;
-    }
-
-    function cumpleCantidadCaracteres(pass1, pass2){
-        var respuesta = false;
-        
-        if(pass1.length >= 4 && pass2.length >= 4 ){
-            respuesta = true;
-        }
-
-        return respuesta;
-    }
-    /*Cambio de contrasenia*/
     /*funciones FAB*/
     $(".fabInventario").on("click",function(e){
          e.preventDefault();
@@ -228,12 +66,10 @@ $(document).ready(function(){
 
 	function mostr_ocultr(id){
 		
-        if ( $("#"+id).is(":visible")){
-             $("#"+id).hide('slow');
-           
-        }else{
+        if ( $("#"+id).is (':hidden'))
             $("#"+id).show('slow');
-        }
+        else
+            $("#"+id).hide('slow');
     }
 
     /*Administrar empleados*/
