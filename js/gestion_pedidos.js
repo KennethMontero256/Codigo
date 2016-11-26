@@ -192,40 +192,47 @@ $(document).ready(function(){
     	});
     }
 
-    function realizarPedido(){
+    function procesarPedido(){
     	var pedido = new Object();
 		var listaLineaPedido = [];
 
-		venta["idEmpleado"] = $("#cedulaEmpleado").val();
-		venta["idSucursal"] = $("#keySucursal").val();
+		pedido["empleado"] = $("#cedulaEmpleado").val();
+		pedido["sucursal"] = $("#keySucursal").val();
 
 		$("#tbFacturaPedido tbody tr").each(function (index) 
         {
-        	var idFila = $(this).attr("id");
         	var codProducto = $(this).attr("id");
-            var precio = 0,cantidad = 0 ,totalLinea = 0;
+            var cantidad = 0 ;
             
             $(this).children("td").each(function (index2) 
             {
                 switch (index2) 
                 {
                     case 1:
-                    	precio = $(this).text();
-                        break;
-                    case 2:
                     	var cadena = $(this).text();
-                    	cantidad = cadena.substr(0, cadena.length-1);
-                        break;
-                    case 3:
-                    	totalLinea = $(this).text();
+                        cantidad = cadena.substr(0, cadena.length-1);
                         break;
                 }
             });
             
-            var lineaVenta = {codigoProducto:codProducto, precio:precio, cantidad:cantidad, totalLinea:totalLinea}; 
-            listaLineaVenta.push(lineaVenta);
+            var lineaPedido = {producto:codProducto, sucursal:$("#keySucursal").val(), cantidad:cantidad}; 
+            listaLineaPedido.push(lineaPedido);
         });
+        realizarPedido(JSON.stringify(pedido), JSON.stringify(listaLineaPedido));
+        alert(JSON.stringify(listaLineaPedido));
 
+    }
+    
+    function realizarPedido(pedido, detallePedido){
+        $.ajax({
+            url:"../../Business/ControladoraPedido.php?metodo=agregarPedido",
+            type:'GET',
+            data:{pedido:pedido, detallePedido:detallePedido},
+            success: function(responseText){
+               limpiarTabla("tbFacturaPedido");
+               alertify.success("Su pedido ha sido enviado.");
+            }
+        });
     }
 
     /*Eventos botones para realizar o cancelar pedido*/
@@ -234,7 +241,12 @@ $(document).ready(function(){
     	var opcion = this.getAttribute("href");
 
     	if(opcion == "do"){
-    		realizarPedido();
+            if($("#tbFacturaPedido tr").length>0){
+    		  procesarPedido();
+            }else{
+                alertify.error("No se puede realizar el pedido, debido a que "+
+                                "no se ha insertado ningun producto al pedido.");
+            }
     	}else{
     		preguntaCancelarPedido();
     	}
