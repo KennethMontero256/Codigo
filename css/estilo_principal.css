@@ -601,7 +601,19 @@ form a{
   cursor: pointer;
   color: #d32f2f;
 }
-
+.clickPrdCatPedido:hover{
+  color: #d23f31;
+  background: #fff;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
 .facturaPedido{
   width: 30%;
   margin: 3%;

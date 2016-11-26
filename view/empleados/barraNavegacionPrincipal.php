@@ -1,13 +1,14 @@
 <?php
     session_start();
     if(!isset($_SESSION["cedula"])){
-      header("location: ../../../../../index.php");
+      header("location: ../../../../index.php");
     }
 ?>
 
     <nav class="menu-static">
         <div class="logo-empresa">
                 <input type="hidden" id="nomSucursal" value="<?php echo $_SESSION["nombreSucursal"];?>">
+                <input type="hidden" id="keySucursal" value="<?php echo $_SESSION["idSucursal"];?>">
                 <input type="hidden" id="nomEmpleado" value="<?php echo $_SESSION["nombre"];?>">
                 <input type="hidden" id="cedulaEmpleado" value="<?php echo $_SESSION["cedula"];?>">
                 <a href="#">Tostador <?php echo $_SESSION["nombreSucursal"];?></a>
