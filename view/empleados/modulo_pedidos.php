@@ -14,33 +14,175 @@
 			<p>Busqueda por filtro de fecha</p>
 			<div class="barBusqueda">
 				<label>De:</label>
-				<input type="text" id="txtFecha1" class="fecha" placeholder="Seleccionar fecha">
+				<input type="text" id="txtFecha1" class="fecha inputShadow" placeholder="Seleccionar fecha">
 				<label>a:</label>
-				<input type="text" id="txtFecha2" class="fecha" placeholder="Seleccionar fecha">
+				<input type="text" id="txtFecha2" class="fecha inputShadow" placeholder="Seleccionar fecha">
 				<a href="#" id="" class="btn-submit"><span class="icon-search"></span></a>
 			</div>
-			<div class="tabla">
-			<table>
-				<thead>
-						<tr>
-							<th>Código</th>
-							<th>Fecha-hora</th>
-						</tr>
-					</thead>
-			</table>
-			<div class="detalleTablaPedido">
-				<table>
-					<tbody>
-						<tr>
-							<td>0987086</td>
-							<td>07/08/2016 23434</td>
-							<td>rastrear</td>
-							<td><input type="checkbox" name=""></td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="tablaListarPedidos">
+				<div class="headTablaPedido">
+					<div class="trPedido">
+						Lista de pedidos
+					</div>
+				</div>
+				<div class="bodyTablaPedido">
+					<div class="trPedido">
+						<div class="infoPuntosPedido"> 
+							<div class="colImgAdorno">
+								<span class="icon-clipboard"></span>
+							</div>
+							<div class="colTitular">
+								Hecho el: <?php echo date("d-m-Y H:i:s"); ?> por Samuel alvarado
+							</div>
+						</div>
+						<div class="footTrPedido">
+							<div class="notaPedido">
+								Asdfsdkfjbs skffvbsldkjf lvskjfvblskdf sdflvkjsdnfv sdlkfjvnsld vsldkjfvn valskjvsfkv sdkjfnvlsd fvsdkjbfvs dfvnsdl fvs sldjfn
+							</div>
+							<div class="btnsExtra">
+								<span class="textBntExtra">Sumar a inventario <span class="icon-plus"></span></span>
+								<span class="textBntExtra">Conversacion<span class="icon-bubbles2"></span></span>
+								<span class="textBntExtra">Visto por admin.<span class="icon-eye2"></span></span>
+								<span class="textBntExtra">Enviado<span class="icon-checkmark"></span></span>
+								<span class="textBntExtra">Recibido<input type="checkbox" data-pedido="" class="chckTrPedido"></span>
+							</div>
+						</div>
+					</div>
+					<div class="trPedido">
+						<div class="infoPuntosPedido"> 
+							<div class="colImgAdorno">
+								<span class="icon-clipboard"></span>
+							</div>
+							<div class="colTitular">
+								Hecho el: <?php echo date("d-m-Y H:i:s"); ?> por Samuel alvarado
+							</div>
+						</div>
+						<div class="footTrPedido">
+							<div class="notaPedido">
+								Asdfsdkfjbs skffvbsldkjf lvskjfvblskdf sdflvkjsdnfv sdlkfjvnsld vsldkjfvn valskjvsfkv sdkjfnvlsd fvsdkjbfvs dfvnsdl fvs sldjfn
+							</div>
+							<div class="btnsExtra">
+								<span class="textBntExtra">Sumar a inventario <span class="icon-plus"></span></span>
+								<span class="textBntExtra">Conversacion<span class="icon-bubbles2"></span></span>
+								<span class="textBntExtra">Visto por admin.<span class="icon-eye2"></span></span>
+								<span class="textBntExtra">Enviado<span class="icon-checkmark"></span></span>
+								<span class="textBntExtra">Recibido<input type="checkbox" data-pedido="" class="chckTrPedido"></span>
+							</div>
+						</div>
+					</div>
+					<div class="trPedido">
+						<div class="infoPuntosPedido"> 
+							<div class="colImgAdorno">
+								<span class="icon-clipboard"></span>
+							</div>
+							<div class="colTitular">
+								Hecho el: <?php echo date("d-m-Y H:i:s"); ?> por Samuel alvarado
+							</div>
+						</div>
+						<div class="footTrPedido">
+							<div class="notaPedido">
+								Asdfsdkfjbs skffvbsldkjf lvskjfvblskdf sdflvkjsdnfv sdlkfjvnsld vsldkjfvn valskjvsfkv sdkjfnvlsd fvsdkjbfvs dfvnsdl fvs sldjfn
+							</div>
+							<div class="btnsExtra">
+								<span class="textBntExtra">Sumar a inventario <span class="icon-plus"></span></span>
+								<span class="textBntExtra">Conversacion<span class="icon-bubbles2"></span></span>
+								<span class="textBntExtra">Visto por admin.<span class="icon-eye2"></span></span>
+								<span class="textBntExtra">Enviado<span class="icon-checkmark"></span></span>
+								<span class="textBntExtra">Recibido<input type="checkbox" data-pedido="" class="chckTrPedido"></span>
+							</div>
+						</div>
+					</div>
+					<div class="trPedido">
+						<div class="infoPuntosPedido"> 
+							<div class="colImgAdorno">
+								<span class="icon-clipboard"></span>
+							</div>
+							<div class="colTitular">
+								Hecho el: <?php echo date("d-m-Y H:i:s"); ?> por Samuel alvarado
+							</div>
+						</div>
+						<div class="footTrPedido">
+							<div class="notaPedido">
+								Asdfsdkfjbs skffvbsldkjf lvskjfvblskdf sdflvkjsdnfv sdlkfjvnsld vsldkjfvn valskjvsfkv sdkjfnvlsd fvsdkjbfvs dfvnsdl fvs sldjfn
+							</div>
+							<div class="btnsExtra">
+								<span class="textBntExtra">Sumar a inventario <span class="icon-plus"></span></span>
+								<span class="textBntExtra">Conversacion<span class="icon-bubbles2"></span></span>
+								<span class="textBntExtra">Visto por admin.<span class="icon-eye2"></span></span>
+								<span class="textBntExtra">Enviado<span class="icon-checkmark"></span></span>
+								<span class="textBntExtra">Recibido<input type="checkbox" data-pedido="" class="chckTrPedido"></span>
+							</div>
+						</div>
+					</div>
+					<div class="trPedido">
+						<div class="infoPuntosPedido"> 
+							<div class="colImgAdorno">
+								<span class="icon-clipboard"></span>
+							</div>
+							<div class="colTitular">
+								Hecho el: <?php echo date("d-m-Y H:i:s"); ?> por Samuel alvarado
+							</div>
+						</div>
+						<div class="footTrPedido">
+							<div class="notaPedido">
+								Asdfsdkfjbs skffvbsldkjf lvskjfvblskdf sdflvkjsdnfv sdlkfjvnsld vsldkjfvn valskjvsfkv sdkjfnvlsd fvsdkjbfvs dfvnsdl fvs sldjfn
+							</div>
+							<div class="btnsExtra">
+								<span class="textBntExtra">Sumar a inventario <span class="icon-plus"></span></span>
+								<span class="textBntExtra">Conversacion<span class="icon-bubbles2"></span></span>
+								<span class="textBntExtra">Visto por admin.<span class="icon-eye2"></span></span>
+								<span class="textBntExtra">Enviado<span class="icon-checkmark"></span></span>
+								<span class="textBntExtra">Recibido<input type="checkbox" data-pedido="" class="chckTrPedido"></span>
+							</div>
+						</div>
+					</div>
+					<div class="trPedido">
+						<div class="infoPuntosPedido"> 
+							<div class="colImgAdorno">
+								<span class="icon-clipboard"></span>
+							</div>
+							<div class="colTitular">
+								Hecho el: <?php echo date("d-m-Y H:i:s"); ?> por Samuel alvarado
+							</div>
+						</div>
+						<div class="footTrPedido">
+							<div class="notaPedido">
+								Asdfsdkfjbs skffvbsldkjf lvskjfvblskdf sdflvkjsdnfv sdlkfjvnsld vsldkjfvn valskjvsfkv sdkjfnvlsd fvsdkjbfvs dfvnsdl fvs sldjfn
+							</div>
+							<div class="btnsExtra">
+								<span class="textBntExtra">Sumar a inventario <span class="icon-plus"></span></span>
+								<span class="textBntExtra">Conversacion<span class="icon-bubbles2"></span></span>
+								<span class="textBntExtra">Visto por admin.<span class="icon-eye2"></span></span>
+								<span class="textBntExtra">Enviado<span class="icon-checkmark"></span></span>
+								<span class="textBntExtra">Recibido<input type="checkbox" data-pedido="" class="chckTrPedido"></span>
+							</div>
+						</div>
+					</div>
+					<div class="trPedido">
+						<div class="infoPuntosPedido"> 
+							<div class="colImgAdorno">
+								<span class="icon-clipboard"></span>
+							</div>
+							<div class="colTitular">
+								Hecho el: <?php echo date("d-m-Y H:i:s"); ?> por Samuel alvarado
+							</div>
+						</div>
+						<div class="footTrPedido">
+							<div class="notaPedido">
+								Asdfsdkfjbs skffvbsldkjf lvskjfvblskdf sdflvkjsdnfv sdlkfjvnsld vsldkjfvn valskjvsfkv sdkjfnvlsd fvsdkjbfvs dfvnsdl fvs sldjfn
+							</div>
+							<div class="btnsExtra">
+								<span class="textBntExtra">Sumar a inventario <span class="icon-plus"></span></span>
+								<span class="textBntExtra">Conversacion<span class="icon-bubbles2"></span></span>
+								<span class="textBntExtra">Visto por admin.<span class="icon-eye2"></span></span>
+								<span class="textBntExtra">Enviado<span class="icon-checkmark"></span></span>
+								<span class="textBntExtra">Recibido<input type="checkbox" data-pedido="" class="chckTrPedido"></span>
+							</div>
+						</div>
+					</div>
+					
+				</div>
 			</div>
-		</div>	
 		</div>
 	</div>
 	<div class="contenedorModal" id="frmPedidoSucur" style="display:none;">
@@ -85,12 +227,13 @@
 				</div>
 			</div>
 			<div class="footPedido">
+				 <textarea id="msjConversacion" placeholder="Ingrese otras señas que son importantes para usted."></textarea>
 				<a href="do" class="btnPedido btn-submit">Realizar</a>
 				<a href="can" class="btnPedido btn-submit">Cancelar</a>
 			</div>
 		</div>
 	</div>
-	<a class='flotante' href='frmPedidoSucr'>Add</a>
+	<a id="btnFabPedido" class='flotante' href='frmPedidoSucr'><span class="icon-plus"></span></a>
 	 <script>
             $(function() {
                 $('.fecha').datetimepicker({
@@ -99,4 +242,5 @@
                 });
             });
         </script>
+   
     <script type="text/javascript" src="../../js/gestion_pedidos.js"></script>

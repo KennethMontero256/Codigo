@@ -1,15 +1,10 @@
-$(document).ready(function(){
-	$('.flotante').on('click',function(e){
-		 e.preventDefault();
-		var opcion = this.getAttribute("href");
-		
-		if(opcion == "frmPedidoSucr"){
-			$(".listColCategorias").empty();
+$('#btnFabPedido').unbind();
+$('#btnFabPedido').on('click',function(e){
+		e.preventDefault();
+		e.stopPropagation();
+	    $(".listColCategorias").empty();
 		llenarListaProductos($("#keySucursal").val());
-		
-			mostr_ocultr("frmPedidoSucur");
-		}
-
+		mostr_ocultr("frmPedidoSucur");
 	});
 
 	function mostr_ocultr(id){
@@ -150,7 +145,7 @@ $(document).ready(function(){
 	    	$("#tbFacturaPedido").append(fila);
 	    	darEventoEliminarLinea();
     	}else{
-    		alert("ya exste");
+    		
     		modificarLineaPedido(id, cantidad+unidadMedida);
     	}
     }
@@ -198,6 +193,7 @@ $(document).ready(function(){
 
 		pedido["empleado"] = $("#cedulaEmpleado").val();
 		pedido["sucursal"] = $("#keySucursal").val();
+        pedido["mensaje"] = $("#msjConversacion").val().trim();
 
 		$("#tbFacturaPedido tbody tr").each(function (index) 
         {
@@ -215,12 +211,10 @@ $(document).ready(function(){
                 }
             });
             
-            var lineaPedido = {producto:codProducto, sucursal:$("#keySucursal").val(), cantidad:cantidad}; 
+            var lineaPedido = {producto:codProducto, cantidad:cantidad}; 
             listaLineaPedido.push(lineaPedido);
         });
         realizarPedido(JSON.stringify(pedido), JSON.stringify(listaLineaPedido));
-        alert(JSON.stringify(listaLineaPedido));
-
     }
     
     function realizarPedido(pedido, detallePedido){
@@ -229,7 +223,7 @@ $(document).ready(function(){
             type:'GET',
             data:{pedido:pedido, detallePedido:detallePedido},
             success: function(responseText){
-               limpiarTabla("tbFacturaPedido");
+               limpiarFormPedido();
                alertify.success("Su pedido ha sido enviado.");
             }
         });
@@ -258,14 +252,19 @@ $(document).ready(function(){
     		alertify.confirm('Tostador', 'Presione cancelar, si no va a realiar la solicitud del pedido.', 
     			function(){ }
                 , function(){ 
-                	limpiarTabla("tbFacturaPedido");
+                	limpiarFormPedido();
     				mostr_ocultr("frmPedidoSucur");
                 }
                 ).set('labels', {ok:'Seguir aquí', cancel:'Cancelar'});;
     	}else{
-    		limpiarTabla("tbFacturaPedido");
+    		limpiarFormPedido();
     		mostr_ocultr("frmPedidoSucur");
     	}
+    }
+
+    function limpiarFormPedido(){
+        $("#msjConversacion").val("");
+        limpiarTabla("tbFacturaPedido");
     }
 
     function limpiarTabla(id){
@@ -273,4 +272,6 @@ $(document).ready(function(){
             $(this).remove();
         }); 
     }
-});
+
+    
+    

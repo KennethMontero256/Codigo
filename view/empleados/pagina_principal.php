@@ -16,8 +16,10 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   	<script type="text/javascript" src="../../js/alertify/alertify.js"></script>
+
 </head>
 <body>
+    <input id="reload" type="hidden" value="null">
     <?php 
     	include("barraNavegacionPrincipal.php");
     ?>

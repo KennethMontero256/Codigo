@@ -14,14 +14,13 @@
 	    	$date = new DateTime("now", new DateTimeZone('America/Costa_Rica'));
 	    	$sentencia = $this->conexion->stmt_init();
 
-            $sentencia->prepare("CALL paAgregarPedidoSucursal(?,?,?,?,?)");
+            $sentencia->prepare("CALL paAgregarPedidoSucursal(?,?,?,?)");
 
             $sucursal = $pedido->sucursal;
             $empleado = $pedido->empleado;
             $fechaHora = $date->format('Y-m-d H:i:s');
-            $visto = 0;
-            $entregado = 0;
-            $sentencia->bind_param("sssss",$sucursal, $empleado, $fechaHora, $visto, $entregado);
+            $nota = (empty($pedido->mensaje))?"Ninguna":$pedido->mensaje;
+            $sentencia->bind_param("ssss",$sucursal, $empleado, $fechaHora, $nota);
 
             $sentencia->execute();
             $sentencia->close();
@@ -48,20 +47,30 @@
             //se recorre el array json que trae las lineas del detalle del pedido
             foreach ($array as $lineaPedido) {
                 $sentencia = $this->conexion->stmt_init();
-                $sentencia->prepare("CALL paAgregarDetallePedidoSucursal(?,?,?,?);");
+                $sentencia->prepare("CALL paAgregarDetallePedidoSucursal(?,?,?);");
 
-                $codigoSucursal = $lineaPedido->sucursal;
                 $idPedido = $pedido;
                	$codigoProducto = $lineaPedido->producto;
                	$cantidad = $lineaPedido->cantidad;
 
-                $sentencia->bind_param("ssss", $codigoSucursal, $idPedido, $codigoProducto, $cantidad);
+                $sentencia->bind_param("sss", $idPedido, $codigoProducto, $cantidad);
 
                 $sentencia->execute();
             }
 	    }
 
+        public function agregarMensajeConversacionPedido($mensaje){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paAgregar(?,?,?);");
 
+            $pedido = $idPedido;
+            $empleado = $idEmpleado;
+            $mensaje = $msj;
+
+            $sentencia->bind_param("sss", $pedido , $empleado, $mensaje);
+
+            $sentencia->execute();
+        }
 	}
 
 ?>
