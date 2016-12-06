@@ -67,5 +67,35 @@ include_once ("Data.php");
             
             mysqli_close($this->conexion);
         }
+
+        public function actualizarPorNombre($nuevoNombre, $idNombre){
+             $aux = true;
+            try{
+                $sql = "UPDATE categoria SET nombre = '$nuevoNombre' WHERE nombre like '$idNombre';";
+
+                $this->conexion->query($sql);
+
+                mysqli_close($this->conexion);
+            }catch(mysqli_sql_exception $e){
+                $aux = false;
+            }
+
+            return  $aux;
+        }
+
+        public function eliminarCategoriaPorNombre($idNombre){
+             $aux = true;
+            try{
+                $sql = "DELETE FROM categoria WHERE nombre like '$idNombre';";
+
+                $this->conexion->query($sql);
+
+                mysqli_close($this->conexion);
+            }catch(mysqli_sql_exception $e){
+                $aux = false;
+            }
+
+            return  $aux;
+        }
     }
 ?>
