@@ -2,6 +2,83 @@
   padding: 0;
   margin:0;
 }
+/*Cargando*/
+.contenedorCarga{
+  width: 20%;
+  height:70px; 
+  margin-left:38%;
+  margin-top:5%;
+}
+.loader {
+  color: #d23f31;
+  font-size: 20px;
+  margin: 100px auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+/*Cargando*/
 .btn-submit{
   color: #fff;
   background: #6ab344;
@@ -479,11 +556,39 @@ form a{
 .menuLateral ul{
   margin-top: 4%;
   margin-left: 9%;
+  list-style: none;
 }
 
 .menuLateral li{
-  margin-top: 6%;
+  margin-top: 8%;
 }
+.menuLateral li:hover > a{
+  color:#d23f31;
+}
+.menuLateral li:hover > a span{
+  font-size:23px;
+  color:#d23f31;
+}
+.menuLateral .seleccionadoA{
+  color:#d23f31;
+}
+.menuLateral .seleccionadoSpan{
+  font-size:23px;
+  color:#d23f31;
+}
+.menuLateral li a span{
+  margin-right: 4%;
+  padding:5px;
+  color: #795548;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+   -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
 .menuLateral a{
   color: #616161;
   text-decoration: none;
@@ -754,8 +859,11 @@ form a{
   background-color: #7cb342;
   color: #fff;
   font-size: 14px;
+  cursor:pointer;
 }
-
+.infoPuntosPedido div:nth-child(2):hover{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
 .bodyTablaPedido{
   width: 100%;
   max-height: 310px;
@@ -785,7 +893,35 @@ form a{
 .notaPedido{
   font-size: 15px;
 }
+.barBusquedaPedido{
+  overflow: hidden;
+  margin-top:1%;
+  height:70px;
+}
+.barBusquedaPedido .configurarBusqueda, .barBusquedaPedido .ventasPorFecha{
+  float: left;
+}
+.barBusquedaPedido .ventasPorFecha{
+  width: 60%;
+  margin-top:1.5%;
+}
+.barBusquedaPedido .ventasPorFecha input[type=checkbox]{
+  width: 2%;
+}
+.barBusquedaPedido .ventasPorFecha input[type=text]{
+  width: 20%;
+}
+.barBusquedaPedido .ventasPorMes{
+  width:90%;
+  margin-top:0.4%;
+}
+.barBusquedaPedido .ventasPorMes select{
+  margin-top:1%;
+}
 
+.barBusquedaPedido .ventasPorMes input{
+  width: 2%;
+}
 .btnsExtra{
   margin-top: 1%;
 }
@@ -813,7 +949,59 @@ transition: all 0.5s ease;
   font-size:15px;
   cursor: pointer;
 }
+.shDetallePedido{
+  width: 50%;
+  margin-left: 25%;
+}
+.shDetallePedido .encabezado{
+  width:100%;
+  margin-bottom: 4%;
+}
+.shDetallePedido .encabezado span{
+  width: 5%;
+  padding: 7px;
+  color:#d23f31;
+  border-radius:50%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
 
+.shDetallePedido .encabezado p{
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width:70%;
+  display:inline;
+  border-bottom: none;
+  background-color:#6ab344;
+  color:#fff;
+  border-radius:15px;
+  margin-left:4%;
+}
+
+.shDetallePedido div:nth-child(1){
+  width: 100%;
+  margin-top:5%;
+}
+.shDetallePedido div:nth-child(2){
+  width: 100%;
+}
+.shDetallePedido div:nth-child(3){
+  width: 100%;
+  min-height:210px;
+  max-height:210px;
+  overflow-y:auto;
+}
+.shDetallePedido div:nth-child(3) table{
+  width: 94%;
+  te
+}
+.shDetallePedido table tr td:nth-child(1){
+  width: 60%;
+}
+.shDetallePedido table tr td:nth-child(2){
+  width: 35%;
+  text-align:center;
+}
 /*Listar Pedidos*/
 /*Administrar sucursales*/
 .cmn-toggle {

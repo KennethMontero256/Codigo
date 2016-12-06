@@ -1,4 +1,10 @@
 $('#btnFabPedido').unbind();
+$(".liPedido").unbind();
+$(".bBuscarLista").unbind();
+
+$("#opTodosLosPedidos a").addClass("seleccionadoA");
+$("#opTodosLosPedidos a span").addClass("seleccionadoSpan");
+
 $('#btnFabPedido').on('click',function(e){
 		e.preventDefault();
 		e.stopPropagation();
@@ -6,6 +12,53 @@ $('#btnFabPedido').on('click',function(e){
 		llenarListaProductos($("#keySucursal").val());
 		mostr_ocultr("frmPedidoSucur");
 	});
+    
+    $(".liPedido").on("click",function(){
+        $("#opListarPedidoMenuLateral").val($(this).attr("data-tipoPedido"));
+
+        $(".liPedido a").removeClass("seleccionadoA");
+        $(".liPedido a span").removeClass("seleccionadoSpan");
+
+        $("#"+$(this).attr('id')+" a").addClass("seleccionadoA");
+        $("#"+$(this).attr('id')+" a span").addClass("seleccionadoSpan");
+    });
+    
+
+    $(".bBuscarLista").on("click", function(e){
+        e.preventDefault();
+        var tipoBusqueda = this.getAttribute("href");
+        if(tipoBusqueda == "mes"){
+
+            if ( $(".tablaListarPedidos").is(":visible")){
+                $(".tablaListarPedidos").hide();
+                $("#cntLoad").fadeIn("slow", function() {
+                    listarPedidosByMes();
+                });
+            }else{
+                $("#cntLoad").fadeIn("slow", function() {
+                    listarPedidosByMes();
+                });
+            }
+           
+        }else{
+            if(tipoBusqueda == "fecha"){
+                if($.trim($("#fechaInicio").val()).length ==0 || $.trim($("#fechaFinal").val()).length ==0 ){
+                    alertify.error("Para hacer una busqueda de ingresar las fechas.");
+                }else{
+                    if ( $(".tablaListarPedidos").is(":visible")){
+                        $(".tablaListarPedidos").hide();
+                        $("#cntLoad").fadeIn("slow", function() {
+                            listarPedidosByRangoFechas();
+                        });
+                    }else{
+                       $("#cntLoad").fadeIn("slow", function() {
+                        listarPedidosByRangoFechas();
+                        });
+                    }
+                }
+            } 
+        }
+    });
 
 	function mostr_ocultr(id){
 		
@@ -265,6 +318,41 @@ $('#btnFabPedido').on('click',function(e){
     function limpiarFormPedido(){
         $("#msjConversacion").val("");
         limpiarTabla("tbFacturaPedido");
+    }
+
+    function listarPedidosByRangoFechas(){
+        var usuario = ($("#cedulaPedidoPorFecha").is(':checked'))?$("#cedulaPedidoPorFecha").attr("data-key"):0;
+        
+        $(".bodyTablaPedido").load("../../view/empleados/listar_pedidos.php?metodo=rangoFechas&"+
+            "tipoPedido="+$("#opListarPedidoMenuLateral").val()+"&fechaInicio="
+            +getFechaFormatoGringo($("#fechaInicio").val().trim())+"&fechaFinal="+ getFechaFormatoGringo($("#fechaFinal").val().trim())+
+            "&usuario="+usuario);
+    }
+
+    function listarPedidosByMes(){
+        var usuario = ($("#cedulaPedidoPorFecha").is(':checked'))?$("#cedulaPedidoPorFecha").attr("data-key"):0;
+        
+        $(".bodyTablaPedido").load("../../view/empleados/listar_pedidos.php?metodo=mes&"+
+            "tipoPedido="+$("#opListarPedidoMenuLateral").val()+"&mes="+colocarCero($("#mesPedido").val())
+            +"&anio="+$("#anioPedido").val()+"&usuario="+usuario);
+    }
+
+    function colocarCero(num){
+        var res = "";
+        
+        if(num < 10){
+            res = "0" + num.toString();
+        }else{
+            res = num.toString();
+        }
+
+        return res;
+    }
+
+    function getFechaFormatoGringo(fecha){
+        var res1 = fecha.split("/");
+        var fechaFormatoGringo = res1[2]+"-"+res1[1]+"-"+res1[0];
+        return fechaFormatoGringo;
     }
 
     function limpiarTabla(id){

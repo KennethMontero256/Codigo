@@ -71,6 +71,105 @@
 
             $sentencia->execute();
         }
+
+        public function sumarPedidoInventario($pedido, $sucursal){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetLineaDetallePedido(?,?);");
+
+            $idSucursal = $sucursal;
+            $idPedido = $pedido;
+
+            $sentencia->bind_param("ss", $idSucursal, $idPedido);
+
+            $sentencia->execute();
+            $sentencia->bind_result($codigoProducto, $cantidadASumar, $stock);
+
+            $lineas = array();
+
+            while($sentencia->fetch()){
+                array_push($lineas, array('codigo'=>$codigoProducto, 'stockSumar'=>$cantidadASumar, 'stock'=>$stock));
+            }
+            
+            $sentencia->close();
+            
+            $this->actualizarStock($lineas);
+
+            $this->marcarSumado($pedido);
+
+            return 1;
+        }
+
+        public function actualizarStock($data){
+            
+            foreach ($data as $lineaPedido) {
+                $sentencia = $this->conexion->stmt_init();
+                $sentencia->prepare("CALL paActualizarStockProducto(?,?,?);");
+
+                $producto = $lineaPedido["codigo"];
+                $nuevoStock = $lineaPedido["stockSumar"];
+                $viejoStock = $lineaPedido["stock"];
+
+                $sentencia->bind_param("sss", $producto, $nuevoStock, $viejoStock);
+                $sentencia->execute();
+
+                $sentencia->close();
+            }
+        }
+
+        public function estaSumadoPedido($pedido){
+            
+            $aux = 0;
+            $sql = "SELECT sumado_inventario FROM pedido WHERE id=$pedido;";
+            $result = $this->conexion->query($sql);
+
+            if ($result->num_rows > 0) {
+               
+                while($row = $result->fetch_assoc()) {
+                    $aux = $row["sumado_inventario"];
+                }
+
+            } 
+
+            mysqli_close($this->conexion);
+            
+            return $aux;
+        }
+
+        public function marcarRecibido($pedido){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paMarcarRecibido(?)");
+
+            $idPedido = $pedido;
+            $sentencia->bind_param("s", $idPedido);
+
+            $sentencia->execute();
+            $afectados =  mysqli_affected_rows($this->conexion);
+
+            $sentencia->close();
+            
+            mysqli_close($this->conexion);
+
+            return $afectados;
+        }
+
+        public function marcarSumado($pedido){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paMarcarPedidoSumado(?)");
+
+            $idPedido = $pedido;
+            $sentencia->bind_param("s", $idPedido);
+
+            $sentencia->execute();
+            $afectados =  mysqli_affected_rows($this->conexion);
+
+            $sentencia->close();
+            
+            mysqli_close($this->conexion);
+
+            return $afectados;
+        }
+
+
 	}
 
 ?>
