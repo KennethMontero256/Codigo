@@ -10,21 +10,25 @@ include_once ("Data.php");
         }
 
         public function agregarActualizarCategoria($categoria){
+            $aux = true;
             
-            $sentencia = $this->conexion->stmt_init();
-            $sentencia->prepare("CALL paInsertarActualizarCategoria(?,?)");
+            try{
+                $sentencia = $this->conexion->stmt_init();
+                $sentencia->prepare("CALL paInsertarActualizarCategoria(?,?)");
 
-            $nombre = $categoria->getNombre();
-            $codigo = $categoria->getCodigo(); 
-            $sentencia->bind_param("ss", $nombre, $codigo);
+                $nombre = $categoria->getNombre();
+                $codigo = $categoria->getCodigo(); 
+                $sentencia->bind_param("ss", $nombre, $codigo);
 
-            $sentencia->execute();
-            
-            $sentencia->close();
-            $afectados =  mysqli_affected_rows($this->conexion);
-            
-            return (mysqli_insert_id($this->conexion) > 0);
-            mysqli_close($this->conexion);
+                $sentencia->execute();
+                
+                $sentencia->close();
+
+            }catch(mysqli_sql_exception $e){
+                $aux = false;
+            }
+                
+            return  $aux;
         }
 
         public function eliminarCategoria($codigoCategoria){

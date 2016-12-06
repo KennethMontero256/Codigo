@@ -30,24 +30,31 @@ class DataEmpleado {
     }
 
     public function insertarEmpleado($arrayDatos) {
+        $aux = 1;
         $empleado = json_decode($arrayDatos);
+        
+        try{
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paInsertarEmpleado(?,?,?,?,?,?,?,?)");
 
-        $sentencia = $this->conexion->stmt_init();
-        $sentencia->prepare("CALL paInsertarEmpleado(?,?,?,?,?,?,?,?)");
+            $cedula = $empleado->cedula;
+            $nombre = $empleado->nombre;
+            $telefono = $empleado->telf;
+            $contrasenia = md5($empleado->contrasenia);
+            $fechaIngreso = date("Y") . "-" . date("m") . "-" . date("d");
+            $habilitado = $empleado->disponible;
+            $tipoEmpleado = "e";
+            $idSucursal = $empleado->idSucursal;
+            $sentencia->bind_param("ssssssss", $cedula, $nombre, $telefono, $contrasenia, $fechaIngreso, $habilitado, $tipoEmpleado, $idSucursal);
 
-        $cedula = $empleado->cedula;
-        $nombre = $empleado->nombre;
-        $telefono = $empleado->telf;
-        $contrasenia = md5($empleado->contrasenia);
-        $fechaIngreso = date("Y") . "-" . date("m") . "-" . date("d");
-        $habilitado = $empleado->disponible;
-        $tipoEmpleado = "e";
-        $idSucursal = $empleado->idSucursal;
-        $sentencia->bind_param("ssssssss", $cedula, $nombre, $telefono, $contrasenia, $fechaIngreso, $habilitado, $tipoEmpleado, $idSucursal);
-
-        $sentencia->execute();
-        $sentencia->close();
+            $sentencia->execute();
+            $sentencia->close();
         mysqli_close($this->conexion);
+        }catch(mysqli_sql_exception $e){
+            $aux = 0;
+        }
+
+        return $aux;
     }
 
     public function getEmpleados() {

@@ -13,9 +13,9 @@
 		</div>
 		<div class="opciones">
 			<ul>
-				<li><a href="admsucursal" class="opBarNav">Sucursales</a></li>
-			    <li><a href="admempleado" class="opBarNav">Empleados</a></li>
-    			<li><a href="admpedido" class="opBarNav">Pedidos</a></li>
+				<li><a href="admsucursal" class="opBarNav"><span class="icon-location2 icono-flat"></span>Sucursales</a></li>
+			    <li><a href="admempleado" class="opBarNav"><span class="icon-address-book icono-flat"></span>Empleados</a></li>
+    			<li><a href="admpedido" class="opBarNav"><span class="icon-truck icono-flat"></span>Pedidos</a></li>
     			<li><a href="opUsuario" class="opBarNav" >Administrador: <?php echo $_SESSION["nombre"];?></a>
 					<ul>
 						<li><a href="#" class="btnCambioPass">Cambiar contraseña</a></li>

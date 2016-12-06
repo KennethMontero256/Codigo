@@ -1,11 +1,16 @@
 $(document).ready(function(){
-	/*Submenu Gestion inventario*/
+	listarInventario();
+    /*Submenu Gestion inventario*/
     $(".shListaInventario").on("click",function(e){
         e.preventDefault();
         var mostrar = this.getAttribute("href");
         $("#contenedorListas").load("../Producto/Listar.php?metodo="+mostrar+"&id="+$(this).data("id"));
         
     });
+    function listarInventario(){
+
+        $("#contenedorListas").load("../Producto/Listar.php?metodo=shProductos&id="+document.formProducto.sucursal.value);
+    }
     /*Submenu Gestion inventario*/
     $("#fabInventario").on("click",function(e){
     	e.preventDefault();

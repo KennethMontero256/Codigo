@@ -261,11 +261,12 @@ $(document).ready(function(){
                 }else{
                     empleado.disponible = "1";
                 }
-                enviarAjax("../../Business/ControladoraEmpleado.php?metodo=addEmpleado",JSON.stringify(empleado));
-                limpiarFormAddEmpleado();
-                mensajeExito("Empleado agregado..");
+
+                $("#crgMsjCargandoEmpl").fadeIn("slow", function() {
+                    enviarAjax("../../Business/ControladoraEmpleado.php?metodo=addEmpleado",JSON.stringify(empleado));
+                });
             }else{
-                alert("Hay algunos errores");
+                alertify.error("Por favor, no dejar espacios en blanco.");
             }
         }else{
             if(formulario.cedula.value.trim().length > 0 && 
@@ -281,9 +282,10 @@ $(document).ready(function(){
                     }else{
                         empleado.habilitado = "1";
                 }
-                enviarAjax("../../Business/ControladoraEmpleado.php?metodo=editEmpleado",JSON.stringify(empleado));
-                limpiarFormAddEmpleado();
-                mensajeExito(empleado.nombre+" ha sido actualizado.");
+
+                $("#crgMsjCargandoEmpl").fadeIn("slow", function() {
+                    enviarAjax("../../Business/ControladoraEmpleado.php?metodo=editEmpleado",JSON.stringify(empleado));
+                });
             }else{
                 alertify.error("Aseguere de no haber dejado ningun campo vacio.");
             }
@@ -335,9 +337,21 @@ $(document).ready(function(){
             type:'GET',
             data:{arrayDatos:datos},
             success: function(responseText){
-                resultado = responseText;
-                 mostrarEmpleados();
-            }
+                if(responseText > 0){
+                    $("#crgMsjCargandoEmpl").fadeOut("slow", function() {
+                        mostrarEmpleados();
+                        limpiarFormAddEmpleado();
+                        mensajeExito("Operación exitosa");
+                    });
+                 }else{
+                     $("#crgMsjCargandoEmpl").fadeOut("slow", function() {
+                        mostrarEmpleados();
+                        limpiarFormAddEmpleado();
+                        alertify.error("Error al realizar la operación.");
+                    });
+                 }
+                 
+                }
         }); 
 
         return resultado;

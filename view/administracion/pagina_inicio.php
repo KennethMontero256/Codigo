@@ -38,8 +38,14 @@
 	    	include("../empleados/cambiar_contrasenia.php");
 	    ?>
     </div>
+    <div id="crgMsjCargando" class="contMsjCargando"  style="display: none;">
+    	<div class="contenedorCarga" id="cntLoad">
+                <div class="loader" id="loader">Cargando...</div>
+ 		</div>
+    </div>
     <script type="text/javascript" src="../../js/alertify/alertify.js"></script>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/funcionesAdministrador.js"></script>
+	<script type="text/javascript" src="../../js/jquery.maskedinput.js" ></script>
 </body>
 </html>

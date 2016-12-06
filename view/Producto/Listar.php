@@ -41,10 +41,10 @@
                     echo "<td>".$producto->precio."</td>";
                     echo "<td>".getTamanio($producto->tamanio)."</td>";
                     echo "<td>";
-                    echo "<a href='".$producto->codigo."' data-nombre='".$producto->nombre."' class='eliminarPrdct'><span class='icon-bin2'></span></a>";
+                    echo "<a href='".$producto->codigo."' data-nombre='".$producto->nombre."' class='eliminarPrdct borrarValoresDefecto'><span class='icon-bin2'></span></a>";
                     echo "</td>";
                     echo "<td>";
-                    echo "<a href='".$producto->codigo."' data-nombre='".$producto->nombre."' data-abrev='".$producto->abreviatura."' data-precio='".$producto->precio."' data-stock='".$producto->stock."' data-undm='".$producto->unidadMedida."' data-proveedor='".$producto->proveedor."' data-categoria='".$producto->idCategoria."' data-tamanio='".$producto->tamanio."' class='editarPrdct'><span class='icon-pencil'></span></a>";
+                    echo "<a href='".$producto->codigo."' data-nombre='".$producto->nombre."' data-abrev='".$producto->abreviatura."' data-precio='".$producto->precio."' data-stock='".$producto->stock."' data-undm='".$producto->unidadMedida."' data-proveedor='".$producto->proveedor."' data-categoria='".$producto->idCategoria."' data-tamanio='".$producto->tamanio."' class='editarPrdct borrarValoresDefecto'><span class='icon-pencil'></span></a>";
                     echo "</td>";
                     echo "</tr>";
                 }
@@ -63,10 +63,10 @@
                     echo "<tr>";
                     echo "<td><a href='".$categoria->id."'></a>".$categoria->nombre."</a></td>";
                     echo "<td>";
-                    echo "<a href='".$categoria->id."' data-nombre='".$categoria->nombre."' class='eliminarCategoria'><span class='icon-bin2'></span></a>";
+                    echo "<a href='".$categoria->id."' data-nombre='".$categoria->nombre."' class='eliminarCategoria borrarValoresDefecto'><span class='icon-bin2'></span></a>";
                     echo "</td>";
                     echo "<td>";
-                    echo "<a href='".$categoria->id."' data-nombre='".$categoria->nombre."' class='editarCategoria'><span class='icon-pencil'></span></a>";
+                    echo "<a href='".$categoria->id."' data-nombre='".$categoria->nombre."' class='editarCategoria borrarValoresDefecto'><span class='icon-pencil'></span></a>";
                     echo "</td>";
                     echo "</tr>";
                 }

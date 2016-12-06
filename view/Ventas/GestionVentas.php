@@ -2,9 +2,9 @@
 <div class="menuLateral">   
     <p>Mostrar por:</p>
     <ul>
-        <li><a href=".venta" class="linkBusquedaVentas">Caja</a></li>
-        <li><a href="#" class="linkBusquedaVentas">Ventas del día</a></li>
-        <li><a href=".listarVentas" class="linkBusquedaVentas">Busqueda de ventas </a></li>
+        <li><a href=".venta" class="linkBusquedaVentas"><span class="icon-home3"></span>Caja</a></li>
+        <li><a href="#" class="linkBusquedaVentas"><span class="icon-calendar2"></span>Ventas del día</a></li>
+        <li><a href=".listarVentas" class="linkBusquedaVentas"><span class="icon-history"></span>Busqueda de ventas </a></li>
     </ul>
 </div>
 <div class="contenedorSecundario">    

@@ -34,7 +34,7 @@
       break;
 
     case 'addSucursal':
-      $dataSucursal->insertarSucursal($_REQUEST["arrayDatos"]);
+      echo $dataSucursal->insertarSucursal($_REQUEST["arrayDatos"]);
       break;
 
     case 'borrarSucursal':

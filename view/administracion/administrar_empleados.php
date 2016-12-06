@@ -39,6 +39,12 @@
 		</form>
 	</div>
 
+	<div id="crgMsjCargandoEmpl" class="contMsjCargando"  style="display: none;">
+    	<div class="contenedorCarga" id="cntLoad">
+                <div class="loader" id="loader">Cargando...</div>
+ 		</div>
+    </div>
+
 	<script type="text/javascript" src="../../js/cargar_empleados.js"></script>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
@@ -47,7 +53,23 @@
 		$(function() {
 			theTable = $("#tablaListaSucursal");
 			$("#txtBusqSucur").keyup(function() {
-				$.uiTableFilter(theTable, this.value);
+				
+				  var input, filter, table, tr, td, i;
+				  input = document.getElementById("txtBusqSucur");
+				  filter = input.value.toUpperCase();
+				  table = document.getElementById("tablaEmpleados");
+				  tr = table.getElementsByTagName("tr");
+				  for (i = 0; i < tr.length; i++) {
+				    td = tr[i].getElementsByTagName("td")[0];
+				    if (td) {
+				      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				        tr[i].style.display = "";
+				      } else {
+				        tr[i].style.display = "none";
+				      }
+				    }
+				  }
+				
 			});
 
 			$("#telf")
