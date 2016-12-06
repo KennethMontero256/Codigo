@@ -104,6 +104,7 @@
 	function listar($result){
 		$aux = "";
 		$note = "";
+        $checked = "";
 
 		while($row = $result->fetch_assoc()) {
 		    $aux .= '<div class="trPedido"><div class="infoPuntosPedido"> <div class="colImgAdorno"><span class="icon-clipboard"></span></div><div class="colTitular" data-keyPedido="'.$row["id"].'" data-fecha="'.$row["fechaHora"].'" data-nomEmpl="'.$row["nomEmpleado"].'">';
@@ -115,7 +116,12 @@
 				$note = $row["nota"];
 			}
 
-			$aux .= $note.'</div><div class="btnsExtra"><span class="textBntExtra btnSumarInvt" data-keyPedido="'.$row["id"].'" data-keySucursal="'.$row["sucursal"].'">Sumar a inventario <span class="icon-plus"></span></span><span class="textBntExtra">Visto por admin.<span class="icon-eye2"></span></span><span class="textBntExtra">Recibido<input type="checkbox" data-pedido="" class="chckTrPedido"></span></div></div></div>'; 
+			if($row["recibido"] == 1 ){
+				$checked = "checked disabled";
+			}
+
+
+			$aux .= $note.'</div><div class="btnsExtra"><span class="textBntExtra btnSumarInvt" data-keyPedido="'.$row["id"].'" data-keySucursal="'.$row["sucursal"].'">Sumar a inventario <span class="icon-plus"></span></span><span class="textBntExtra bVistoAdmin" data-visto="'.$row["visto"].'">Visto por admin.<span class="icon-eye2"></span></span><span class="textBntExtra">Recibido<input type="checkbox" data-keyPedido="'.$row["id"].'" '.$checked.' class="chckTrPedido"></span></div></div></div>'; 
 		}
 		echo $aux;
 	}
@@ -153,6 +159,21 @@
     	});
 	});
 
+	$(".chckTrPedido").change(function(){
+		if ($(this).is(':checked')) {
+          procesarMarcaRecibido( $(this).attr("data-keyPedido").toString(), this);
+        }
+	});
+
+	$(".bVistoAdmin").on("click", function(){
+		var msj = "Este pedido, aun no ha sido visto por el administrador.";
+		if($(this).attr("data-visto").toString() == 1){
+			msj = "Este ya ha sido visto por el administrador.";
+		}
+
+		alert(msj);
+	});
+
 	function procesarSumaInventario(idPedido, idSucursal){
 		alertify.confirm('Tostador', '¿Esta seguro de sumar las cantidades solicitadas en el pedido, a los productos respectivos en inventario?', 
     			function(){
@@ -172,6 +193,7 @@
             success: function(responseText){
             	if(responseText > 0){
                		alertify.success("Se ha sumado el pedido al inventario.");
+
            		}else{
            			alertify.error("No se ha podido realizar la suma del pedido al inventario, intente de nuevo mas tarde.");
            		}
@@ -190,6 +212,33 @@
                }else{
                		sumarInventario(idPedido, idSucursal);
                }
+            }
+        });
+	}
+
+	function procesarMarcaRecibido(idPedido, obj){
+		alertify.confirm('Tostador', 'Al marcar el pedido como recibido, indica que el mismo llegó a la sucursal y no podrá modificar esta opción. <br>¿Está seguro que este ha llegado?', 
+    			function(){
+    				marcarRecibido(idPedido, obj);
+    			}
+                , function(){ 
+                	
+                }
+                ).set('labels', {ok:'Si, entendido', cancel:'No, cancelar'});
+	}
+
+	function marcarRecibido(idPedido, obj){
+		$.ajax({
+            url:"../../Business/ControladoraPedido.php?metodo=marcarRecibido",
+            type:'GET',
+            data:{pedido:idPedido},
+            success: function(responseText){
+            	if(responseText > 0){
+               		alertify.success("El pedido se ha marcado como recibido en la sucursal.");
+               		$(obj).prop('disabled', true);
+           		}else{
+           			alertify.error("El pedido no se marcó como recibido. Intente de nuevo mas tarde.");
+           		}
             }
         });
 	}
