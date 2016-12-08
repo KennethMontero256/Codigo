@@ -13,7 +13,7 @@
 		
 		public function testInsertarParaEliminar(){
 			$dataCategoria = new DataCategoria();
-			$respuesta = $dataCategoria->agregarActualizarCategoria(new Categoria(0,"NuevaCategoria"));
+			$respuesta = $dataCategoria->agregarActualizarCategoria(new Categoria(0,"NuevaCategoriaEliminar"));
 			
 			$this->assertEquals(true, $respuesta);
 		}
@@ -29,7 +29,7 @@
 		public function testEliminar(){
 
 			$dataCategoria = new DataCategoria();
-			$respuesta = $dataCategoria->eliminarCategoriaPorNombre("NuevaCategoria");
+			$respuesta = $dataCategoria->eliminarCategoriaPorNombre("NuevaCategoriaEliminar");
 			
 			$this->assertEquals(true, $respuesta);
 		}

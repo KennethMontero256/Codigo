@@ -43,6 +43,9 @@
                 <div class="loader" id="loader">Cargando...</div>
  		</div>
     </div>
+    <div id="contenedorEdtSucursal">
+    	
+    </div>
     <script type="text/javascript" src="../../js/alertify/alertify.js"></script>
 	<script type="text/javascript" src="../../js/funciones_generales.js"></script>
 	<script type="text/javascript" src="../../js/funcionesAdministrador.js"></script>

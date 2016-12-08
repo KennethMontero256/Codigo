@@ -330,7 +330,7 @@ $('#btnFabPedido').on('click',function(e){
     }
 
     function listarPedidosByMes(){
-        var usuario = ($("#cedulaPedidoPorFecha").is(':checked'))?$("#cedulaPedidoPorFecha").attr("data-key"):0;
+        var usuario = ($("#cedulaPedidoPorMes").is(':checked'))?$("#cedulaPedidoPorMes").attr("data-key"):0;
         
         $(".bodyTablaPedido").load("../../view/empleados/listar_pedidos.php?metodo=mes&"+
             "tipoPedido="+$("#opListarPedidoMenuLateral").val()+"&mes="+colocarCero($("#mesPedido").val())

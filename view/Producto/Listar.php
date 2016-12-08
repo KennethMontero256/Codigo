@@ -17,8 +17,8 @@
                             <td>Stock</td>
                             <td>Precio</td>
                             <td>Tamaño</td>
-                            <td>Acción</td>
-                            <td>Acción</td>
+                            <td>Eliminar</td>
+                            <td>Editar</td>
                         </tr>
                     </thead>
                     <tbody>";
@@ -36,15 +36,15 @@
                     $count = $count + 1;
                     echo "<tr style='background-color:#fff;' class='trTbProducto'>";
                     echo "<td><a href='".$producto->codigo."'></a>".$producto->nombre."</a></td>";
-                    echo "<td>".$producto->abreviatura."</td>";
-                    echo "<td>".$producto->stock.$producto->unidadMedida."</td>";
-                    echo "<td>".$producto->precio."</td>";
-                    echo "<td>".getTamanio($producto->tamanio)."</td>";
-                    echo "<td>";
+                    echo "<td style='text-aling:center'>".$producto->abreviatura."</td>";
+                    echo "<td style='text-aling:center'>".$producto->stock.$producto->unidadMedida."</td>";
+                    echo "<td style='text-aling:center'><img src='../../imagenes/colones.png' width='10'>".$producto->precio."</td>";
+                    echo "<td style='text-aling:center'>".getTamanio($producto->tamanio)."</td>";
+                    echo "<td style='text-aling:center'>";
                     echo "<a href='".$producto->codigo."' data-nombre='".$producto->nombre."' class='eliminarPrdct borrarValoresDefecto'><span class='icon-bin2'></span></a>";
                     echo "</td>";
                     echo "<td>";
-                    echo "<a href='".$producto->codigo."' data-nombre='".$producto->nombre."' data-abrev='".$producto->abreviatura."' data-precio='".$producto->precio."' data-stock='".$producto->stock."' data-undm='".$producto->unidadMedida."' data-proveedor='".$producto->proveedor."' data-categoria='".$producto->idCategoria."' data-tamanio='".$producto->tamanio."' class='editarPrdct borrarValoresDefecto'><span class='icon-pencil'></span></a>";
+                    echo "<a href='".$producto->codigo."' data-nombre='".$producto->nombre."' data-abrev='".$producto->abreviatura."' data-precio='".$producto->precio."' data-stock='".$producto->stock."' data-undm='".$producto->unidadMedida."' data-proveedor='".$producto->proveedor."' data-categoria='".$producto->idCategoria."' data-tamanio='".$producto->tamanio."' class='editarPrdct borrarValoresDefecto' style='text-aling:center'><span class='icon-pencil'></span></a>";
                     echo "</td>";
                     echo "</tr>";
                 }
