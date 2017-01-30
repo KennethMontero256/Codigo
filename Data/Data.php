@@ -6,10 +6,11 @@ class Data extends mysqli {
 
   public function Data() {
     try{
-      $this->conexion = new mysqli('68.178.217.43', 'ucrgrupo4', 'Grupo#4LkF!', 'ucrgrupo4');
+      //$this->conexion = new mysqli('68.178.217.43', 'ucrgrupo4', 'Grupo#4LkF!', 'ucrgrupo4');
+      $this->conexion = new mysqli('68.178.217.43', 'ucrgrupo4', 'Grupo#4LkF!', 'ucrgrupo4') or die("Error de conexion!");
     }catch (mysqli_sql_exception $e){
       $mensaje = "Error de conexión a la base de datos.\nSi desea, vaya al inicio e intente de nuevo o ingrese mas tarde.";
-      throw $e; 
+      throw $e;
       header('Location: Error.php?mensaje='+$mensaje);
     }
   }

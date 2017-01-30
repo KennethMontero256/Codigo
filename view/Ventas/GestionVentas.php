@@ -1,13 +1,14 @@
 <input type="hidden" id="sucursal" value="<?php echo $_SESSION['idSucursal']; ?>">
-<div class="menuLateral">	
+<div class="menuLateral">   
     <p>Mostrar por:</p>
     <ul>
-        <li><a href="#" id="">Ventas del día</a></li>
-        <li><a href="#" id="">Busqueda de ventas </a></li>
+        <li><a href=".venta" class="linkBusquedaVentas"><span class="icon-home3"></span>Caja</a></li>
+        <li><a href="#" class="linkBusquedaVentas"><span class="icon-calendar2"></span>Ventas del día</a></li>
+        <li><a href=".listarVentas" class="linkBusquedaVentas"><span class="icon-history"></span>Busqueda de ventas </a></li>
     </ul>
 </div>
 <div class="contenedorSecundario">    
-    <div class="listarVentas" style="display:block; padding: 15px;">
+    <div class="listarVentas" style="display:none; padding: 15px;">
         <div class="configurarBusqueda">
             <label>Filtrar busqueda por: 
                 <ul>
@@ -53,7 +54,7 @@
             
         </div>
     </div>
-    <div class="venta" style="display: none">
+    <div class="venta">
         <div class="encabezadoVenta">
             <label id="enbzNomSucursal"></label><br>
             <label id="enbzNomEmpleado"></label><br>
@@ -130,6 +131,27 @@
             source: '../../Business/ControladoraProducto.php?metodo=getNombresProducto&idSucursal=' + $("#sucursal").val(),
             minLength: 1
         });
+
+        $(".linkBusquedaVentas").on("click",function(e){
+            e.preventDefault();
+            var ver = this.getAttribute("href");
+            if(ver == ".venta"){
+                if($(ver).is(":visible")){
+                    
+                }else{
+                    $(".listarVentas").hide();
+                    $(ver).show();
+                }
+            }else{
+                if($(ver).is(":visible")){
+                    
+                }else{
+                    $(".venta").hide();
+                    $(ver).show();
+                }
+            }
+        });
+
         $("input[name=filtroFecha]").click(function () {
             if($($(this).data("esconder")).is(":visible")){
                 $($(this).data("esconder")).hide();
@@ -167,12 +189,13 @@
         }
 
         function listarVentasByFecha(fechaInicio, fechaFinal){
-            $(".contenedorListaVentas").load("../../view/Ventas/BusquedaPersonaliazadaVentas.php?tipoBusqueda=fecha&fechaInicio="+fechaInicio+"&fechaFinal="+fechaFinal);
+            var res1 = fechaInicio.split("/");
+            var res2 = fechaFinal.split("/");
+            var fechaInicioFormatoGringo = res1[2]+"-"+res1[1]+"-"+res1[0];
+            var fechaFinalFormatoGringo = res2[2]+"-"+res2[1]+"-"+res2[0];
+            $(".contenedorListaVentas").load("../../view/Ventas/BusquedaPersonaliazadaVentas.php?tipoBusqueda=fecha&fechaInicio="+fechaInicioFormatoGringo+"&fechaFinal="+fechaFinalFormatoGringo);
         }
     });
 </script>
 <script type="text/javascript" src="../../js/gestion_ventas.js"></script>
-<link rel="stylesheet" type="text/css" href="../../css/jquery.datetimepicker.css">
-    <script type="text/javascript" src="../../js/funciones_generales.js"></script>
-    <script type="text/javascript" src="../../js/jquery.datetimepicker.full.js"></script>
 

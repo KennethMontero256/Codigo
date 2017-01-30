@@ -32,11 +32,15 @@ function mostrarEmpleadosBySucursal(){
         nuevaFila = "<tr>";
         nuevaFila +="<td><a href='' class='linkMostrarEmpleado' data-id='"+data[i].cedula+"'>"+data[i].nombre+"</a></td>";
         nuevaFila +="<td><a href='"+data[i].nombre+"' data-id='"+data[i].cedula+"' class='icono eliminarEmpl'><span class='icon-bin2'></span></a></td>";
-        nuevaFila +="<td><a href='' class='icono'><span class='icon-pencil'></span></a></td>";
+        nuevaFila +="<td><a href='#' data-id='"+data[i].cedula+"' data-nombre='"+data[i].nombre+"' data-telefono='"+data[i].telefono+"' data-sucursal='"+data[i].idSucursal+"' data-habilitado='"+data[i].habilitado+"' class='icono btnEditEmpleado'><span class='icon-pencil'></span></a></td>";
         nuevaFila += "</tr>";
         $("#tablaEmpleados").append(nuevaFila);
       });
+      /*Se redefinen los metodos para que se reflejen los 
+        cambios en el DOM
+      */
       agregarEventoEliminarEmpleado(); 
+      editarEmpleado();
     }
   }); 
 }
@@ -61,7 +65,7 @@ function mostrarEmpleadosBySucursal(){
         $("a.linkMostrarEmpleado").on('click', function(e) {
              e.preventDefault();
             var id = $(this).attr("data-id");
-            cargar_pagina("#contenedorOpAdmin", "../administracion/mostrar_empleados.php?cedula="+id);
+            cargar_pagina("#contentTablaEmpleados", "../administracion/mostrar_empleados.php?cedula="+id);
         });
 
     }
@@ -90,4 +94,52 @@ function mostrarEmpleadosBySucursal(){
     $(lugarACargar).load(nombrePagina);
     $(lugarACargar).fadeIn(1000);
   }
+
+  function editarEmpleado(){
+    $("a.btnEditEmpleado").off('click');
+    $("a.btnEditEmpleado").on("click",function(e){
+      e.preventDefault();
+      llenarSelectSucursal(this);
+      $(".bRegEmpleado").attr("href", "frmEditEmpleado");
+    });
+  }
+
+  function cargarFormEditEmpleado(obj){
+    var form = document.frmAddEmpleado;
+
+    $(".bRegEmpleado").text("Actualizar");
+    form.cedula.value = $(obj).attr("data-id");
+    form.nombreEmpl.value = $(obj).attr("data-nombre");
+    form.telf.value = $(obj).attr("data-telefono");
+    form.selectSucursal.value = $(obj).attr("data-sucursal");
+    form.emplHabl.checked = ($(obj).attr("data-habilitado") == 1)?true:false;
+
+    mostr_ocultr("frmAddEmpleado");
+  }
+
+  function mostr_ocultr(id){
+        if ( $("#"+id).is(":visible")){
+             $("#"+id).hide('slow');
+           
+        }else{
+            $("#"+id).show('slow');
+        }
+    }
+
+  function llenarSelectSucursal(obj){
+        var opciones= '<option value="0">Ninguna</option>';
+         $.ajax({
+            url:'../../Business/sucursalController.php?accion=mostrarSucursales',
+            type:'GET',
+            data:{},
+            success: function(responseText){
+               var data = JSON.parse(responseText);
+               $.each(data, function(i, item) {
+                   opciones += '<option value="'+ data[i].id + '">' + data[i].nombre + '</option>'; 
+               });
+                $("#selectSucursal").empty().append(opciones);
+                cargarFormEditEmpleado(obj);
+            }
+        });
+    } 
 });

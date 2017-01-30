@@ -1,4 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Administrador</title>
+</head>
 
+<body>
 	<div class="contenedorSucursales">
 		<p>Todas las Sucursales</p>
 		<a id="addSucursal" class="add tooltip" data-tooltip="Agregar sucursal"><span class="icon-plus2"></span></a>
@@ -18,7 +26,7 @@
 			<p>Formulario para sucursal</p>
 			<input type="text" name="nomSucursal" placeholder="Nombre de sucursal">
 			<input type="text" name="direccion" placeholder="Dirección">
-			<input type="text" id="telfSucursal" name="telf" placeholder="Teléfono">
+			<input type="text" name="telf" placeholder="Teléfono">
 
 			<select name="" id="selectEmpleados">
 
@@ -43,8 +51,8 @@
 		</form>
 	</div>
 	<script type="text/javascript" src="../../js/cargar_sucursales.js"></script>
-	<script type="text/javascript" src="../../js/funciones_adminSucursal.js"></script>
-	<script type="text/javascript" src="../../js/jquery.tablefilter.js"></script>
+	<script type="text/javascript" src="../../js/funciKKones_adminSucursal.js"></script>
+	<script type="text/javascript" src="../../js/jquery.tkkablefilter.js"></script>
 
 	<script>
 		$(function() {
@@ -52,22 +60,7 @@
 			$("#txtBusqSucur").keyup(function() {
 				$.uiTableFilter(theTable, this.value);
 			});
-
-			$("#telfSucursal")
-	        .mask("9999-9999")
-	        .focusout(function (event) {  
-	            var target, phone, element;  
-	            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
-	            phone = target.value.replace(/\D/g, '');
-	            element = $(target);  
-	            element.unmask();  
-	            if(phone.length > 10) {  
-	                element.mask("9999-9999");  
-	            } else {  
-	                element.mask("9999-9999");  
-	            }  
-	        });
-
 		});
 	</script>
-
+</body>
+</html>

@@ -1,6 +1,5 @@
 <?php 
     include_once 'Data.php';
-    include_once '../Domain/Venta.php';
     class DataVenta{
         var $conexion;
         
@@ -56,10 +55,56 @@
             }
         }
 
-        public function mostrar($idSucursal, $cedulaEmpleado){
-            
+        public function getVentasByMes($idSucursal, $cedulaEmpleado, $mes, $anio){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetVentasByMes(?,?,?,?);");
+
+            $sucursal = $idSucursal;
+            $cedEmpleado = $cedulaEmpleado;
+            $mesVenta = $mes;
+            $anioVenta = $anio;
+
+            $sentencia->bind_param("ssss",$idSucursal, $cedEmpleado , $mesVenta, $anioVenta);
+            $sentencia->execute(); 
+            $sentencia->bind_result($codigo, $fechaHora, $idEmpleado, $impuestoVenta, $subtotal,$total);
+            $ventas = array();
+
+            while($sentencia->fetch()){
+                array_push($ventas, array("codigo"=>$codigo, "fecha"=>$fechaHora, "empleado"=>$idEmpleado, "iva"=>$impuestoVenta, "subtotal"=>$subtotal, "total"=>$total));
+            }
+
+            $sentencia->close();
+            mysqli_close($this->conexion);
+
+            return json_encode($ventas);
         }
-        
+
+        /*Este devuelve las ventas por rango de fechas
+          y si se envia la cedula, filtra por  la misma
+          si la cedula va en cero, no se filtra nada y devuelve los registros por rango de fechas*/
+        public function getVentasByRangoFechas($idSucursal, $cedulaEmpleado, $fechaInicial, $fechaFinal){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetVentasByRangoFechas(?,?,?,?);");
+
+            $sucursal = $idSucursal;
+            $fechaInicio = $fechaInicial;
+            $fechaTermina = $fechaFinal;
+            $idEmpleado = $cedulaEmpleado;
+
+            $sentencia->bind_param("ssss",$sucursal, $idEmpleado, $fechaInicio,  $fechaTermina);
+            $sentencia->execute(); 
+            $sentencia->bind_result($codigo, $fechaHora, $empleado, $impuestoVenta, $subtotal,$total);
+            $ventas = array();
+
+            while($sentencia->fetch()){
+                array_push($ventas, array("codigo"=>$codigo, "fecha"=>$fechaHora, "empleado"=>$empleado, "iva"=>$impuestoVenta, "subtotal"=>$subtotal, "total"=>$total));
+            }
+
+            $sentencia->close();
+            mysqli_close($this->conexion);
+            
+            return json_encode($ventas);
+        }
         public function obtenerVentaPorFecha($sucursal, $fechaActual){
             $sentencia = $this->conexion->stmt_init();
             $sentencia->prepare("CALL paGetVentaPorFecha(?,?);");
@@ -100,7 +145,29 @@
             return json_encode($productos);
         }
         
-        
+        public function getVentasByRangoFechasTotalMes($idSucursal, $cedulaEmpleado, $fechaInicial, $fechaFinal){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetVentasRangoFechasTotalMes(?,?,?,?);");
+
+            $sucursal = $idSucursal;
+            $fechaInicio = $fechaInicial;
+            $fechaTermina = $fechaFinal;
+            $idEmpleado = $cedulaEmpleado;
+
+            $sentencia->bind_param("ssss",$sucursal, $idEmpleado, $fechaInicio,  $fechaTermina);
+            $sentencia->execute(); 
+            $sentencia->bind_result($codigo, $mes, $total);
+            $ventas = array();
+
+            while($sentencia->fetch()){
+                array_push($ventas, array("codigo"=>$codigo, "mes"=>$mes, "totalMes"=>$total));
+            }
+
+            $sentencia->close();
+            mysqli_close($this->conexion);
+            
+            return json_encode($ventas);
+        } 
 
     }
 ?>

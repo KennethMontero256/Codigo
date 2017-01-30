@@ -104,7 +104,7 @@
             
             $sentencia->close();
             mysqli_close($this->conexion);
-            var_dump($productos);
+            
             return json_encode($productos);
         }
 
@@ -183,6 +183,28 @@
 
             return json_encode($productos);
         }
+
+         public function getProductosNoCompuestosByCategoria($idSucursal){
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paGetProductosNoMixtosOrderByCategoria(?);");
+
+            $codigo = $idSucursal; 
+            $sentencia->bind_param("s", $codigo);
+
+            $sentencia->execute();
+            $sentencia->bind_result($codigoPrdct, $nombre, $stock, $unidadMedida, $precio, $proveedor,$tamanio, $abreviatura, $idCategoria, $nombreCategoria);
+
+            $productos = array();
+            while($sentencia->fetch()){
+                array_push($productos, array("codigo"=>$codigoPrdct,"nombre"=>$nombre, "stock"=>$stock, "unidadMedida"=>$unidadMedida, "idCategoria"=>$idCategoria,"nombreCategoria"=>$nombreCategoria));
+            }
+
+            $sentencia->close();
+            mysqli_close($this->conexion);
+
+            return json_encode($productos);
+        }
+
         //metodo para autocomplete
         public function getNombreProductoBySucursal($sucursal,$sugerencia){
             $consulta = "SELECT p.codigo, p.nombre, p.stock, p.unidadMedida, p.precio, p.abreviatura

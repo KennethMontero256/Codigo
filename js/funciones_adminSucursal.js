@@ -71,17 +71,13 @@ $(document).ready(function(){
 			}
 
 			sucursal.empleados = obtenerEmpleadosTabla();
-			enviarAjax("../../Business/sucursalController.php?accion=addSucursal",JSON.stringify(sucursal));
-            limpiarFormSucursal();
-            cargar_pagina("#contenedorAdministrador", "../view/administracion/administrar_sucursales.php");
-            mostrarSucursalesAdmin();
-    	}else{
-    		notif({
-                    'type': 'error',
-                    'msg': 'Algunos campos estan vacios',
-                    'position': 'right',
-                    'timeout': 600000
+
+            $("#crgMsjCargando").fadeIn("slow", function() {
+               enviarAjax("../../Business/sucursalController.php?accion=addSucursal",JSON.stringify(sucursal));
             });
+			
+    	}else{
+    		alertify.error('Algunos campos estan vacios');
     	}
     });
 
@@ -92,6 +88,19 @@ $(document).ready(function(){
             type:'GET',
             data:{arrayDatos:datos},
             success: function(responseText){
+                if(responseText > 0){
+                    $("#crgMsjCargando").fadeOut("slow", function() {
+                        alertify.success("La sucursal se agregó de manera exitosa.");
+                        limpiarFormSucursal();
+                        cargar_pagina("#contenedorAdministrador", "../administracion/administrar_sucursales.php");
+                        mostrarSucursalesAdmin();
+                    });
+                }else{
+                     $("#crgMsjCargando").fadeOut("slow", function() {
+                        mostrarMsjError("Sucedió un error al agregar la sucursal, intente mas tarde.");
+                    });
+                    
+                }
             }
         });	
     }

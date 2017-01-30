@@ -27,6 +27,9 @@
 		case 'getNombresProducto':
 			echo $dataProducto->getNombreProductoBySucursal($_REQUEST["idSucursal"],$_GET['term']);
 			break;
+		case 'getPrdsCategoria':
+			echo $dataProducto->getProductosNoCompuestosByCategoria($_REQUEST["idSucursal"]);
+			break;
 		case "getPrecioProducto":
 			echo $dataProducto->getPrecioProducto($_REQUEST["idSucursal"],$_GET['nombreProducto']);
 			break;

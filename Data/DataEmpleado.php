@@ -12,42 +12,49 @@ class DataEmpleado {
     }
 
     public function getEmpleadosBySucursal() {
-        $query = "CALL ucrgrupo4.paGetEmpleadosBySucursal;";
-        $result = $this->conexion->query($query);
+        $sentencia = $this->conexion->stmt_init();
+        $sentencia->prepare("CALL paGetEmpleadosBySucursal();");
 
-        if ($result->num_rows > 0) {
-            $index = 0;
-            while ($row = $result->fetch_assoc()) {
-                $data[$index]["idSucursal"] = $row["idSucursal"];
-                $data[$index]["nombreSucursal"] = $row["nombreSucursal"];
-                $data[$index]["cedula"] = $row["cedula"];
-                $data[$index]["nombre"] = $row["nombre"];
-                $index ++;
-            }
-            return json_encode($data);
+        $sentencia->execute();
+        $sentencia->bind_result($idSucursal, $nombreSucursal, $cedula, $nombre, $habilitado, $telefono);
+
+        $empleados = array();
+
+        while($sentencia->fetch()){
+            array_push($empleados, array("idSucursal"=>$idSucursal,"nombreSucursal"=>$nombreSucursal, "cedula"=>$cedula,"nombre"=>$nombre, "habilitado"=>$habilitado, "telefono"=>$telefono));
         }
+            
+        $sentencia->close();
         mysqli_close($this->conexion);
+        return json_encode($empleados);
     }
 
     public function insertarEmpleado($arrayDatos) {
+        $aux = 1;
         $empleado = json_decode($arrayDatos);
+        
+        try{
+            $sentencia = $this->conexion->stmt_init();
+            $sentencia->prepare("CALL paInsertarEmpleado(?,?,?,?,?,?,?,?)");
 
-        $sentencia = $this->conexion->stmt_init();
-        $sentencia->prepare("CALL paInsertarEmpleado(?,?,?,?,?,?,?,?)");
+            $cedula = $empleado->cedula;
+            $nombre = $empleado->nombre;
+            $telefono = $empleado->telf;
+            $contrasenia = md5($empleado->contrasenia);
+            $fechaIngreso = date("Y") . "-" . date("m") . "-" . date("d");
+            $habilitado = $empleado->disponible;
+            $tipoEmpleado = "e";
+            $idSucursal = $empleado->idSucursal;
+            $sentencia->bind_param("ssssssss", $cedula, $nombre, $telefono, $contrasenia, $fechaIngreso, $habilitado, $tipoEmpleado, $idSucursal);
 
-        $cedula = $empleado->cedula;
-        $nombre = $empleado->nombre;
-        $telefono = $empleado->telf;
-        $contrasenia = md5($empleado->contrasenia);
-        $fechaIngreso = date("Y") . "-" . date("m") . "-" . date("d");
-        $habilitado = $empleado->disponible;
-        $tipoEmpleado = "e";
-        $idSucursal = $empleado->idSucursal;
-        $sentencia->bind_param("ssssssss", $cedula, $nombre, $telefono, $contrasenia, $fechaIngreso, $habilitado, $tipoEmpleado, $idSucursal);
-
-        $sentencia->execute();
-        $sentencia->close();
+            $sentencia->execute();
+            $sentencia->close();
         mysqli_close($this->conexion);
+        }catch(mysqli_sql_exception $e){
+            $aux = 0;
+        }
+
+        return $aux;
     }
 
     public function getEmpleados() {
@@ -74,11 +81,11 @@ class DataEmpleado {
         $sentencia->bind_param("s", $cedulaEmpleado);
 
         $sentencia->execute();
-        $sentencia->bind_result($cedula, $nombre, $telefono, $fechaIngreso, $habilitado, $idSucursal, $nombreSucursal);
+        $sentencia->bind_result($cedula, $nombre, $telefono, $pass, $fechaIngreso, $habilitado, $idSucursal, $nombreSucursal);
         $empleados = array();
 
         while ($sentencia->fetch()) {
-            array_push($empleados, "cedula" => $cedula, "nombre" => $nombre, "telefono" => $telefono, "fechaIngreso" => $fechaIngreso, "habilitado" => $habilitado, "idSucursal" => $idSucursal, "nombreSucursal" => $nombreSucursal);
+            array_push($empleados, array("cedula" => $cedula, "nombre" => $nombre, "telefono" => $telefono, "fechaIngreso" => $fechaIngreso, "habilitado" => $habilitado, "idSucursal" => $idSucursal, "nombreSucursal" => $nombreSucursal));
         }
         $sentencia->close();
         return json_encode($empleados);
@@ -91,6 +98,42 @@ class DataEmpleado {
 
         $cedulaEmpleado = $cedula;
         $sentencia->bind_param("s", $cedulaEmpleado);
+
+        $sentencia->execute();
+        $afectados = mysqli_affected_rows($this->conexion);
+        mysqli_close($this->conexion);
+
+        return $afectados;
+    }
+
+    public function actualizarPass($cedula, $nuevaPass){
+        $sentencia = $this->conexion->stmt_init();
+        $sentencia->prepare("CALL paActualizarPassword(?,?)");
+
+        $cedulaEmpleado = $cedula;
+        $pass = $nuevaPass;
+        $sentencia->bind_param("ss", $cedulaEmpleado, $pass);
+
+        $sentencia->execute();
+        $afectados = mysqli_affected_rows($this->conexion);
+        mysqli_close($this->conexion);
+
+        return $afectados;
+    }
+
+    public function editEmpleado($arrayDatos){
+        $empleado = json_decode($arrayDatos);
+
+        $sentencia = $this->conexion->stmt_init();
+        $sentencia->prepare("CALL paEditEmpleado(?,?,?,?,?)");
+
+        $cedula = $empleado->cedula;
+        $nombre = $empleado->nombre;
+        $telefono = $empleado->telf;
+        $habilitado = $empleado->habilitado;
+        $idSucursal = $empleado->sucursal;
+        
+        $sentencia->bind_param("sssss", $cedula, $nombre, $telefono, $habilitado, $idSucursal );
 
         $sentencia->execute();
         $afectados = mysqli_affected_rows($this->conexion);
